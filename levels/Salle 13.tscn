@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://rabhnng7pey3"]
+
+[ext_resource type="PackedScene" uid="uid://da44wr7601ca0" path="res://level_template.tscn" id="1_fnufi"]
+[ext_resource type="PackedScene" uid="uid://bclewffjxdq25" path="res://change_scene_area.tscn" id="2_f0jtk"]
+
+[node name="level_template" instance=ExtResource("1_fnufi")]
+
+[node name="TileMap" parent="." index="1"]
+layer_0/tile_data = PackedInt32Array(-917508, 65536, 2, -655364, 196608, 0, -589828, 196608, 1, -524292, 196608, 1, -458756, 196608, 1, -393220, 196608, 1, -327684, 196608, 1, -262148, 196608, 1, -196612, 196608, 1, -131076, 196608, 1, -65540, 196608, 1, -4, 196608, 1, 65532, 196608, 1, 131068, 196608, 1, 196604, 458752, 2, 262140, 458752, 1, 327676, 196608, 1, 393212, 196608, 1, 458748, 196608, 1, 524284, 196608, 1, 589820, 196608, 1, 655356, 196608, 1, 720892, 196608, 1, 786428, 196608, 1, 851964, 196608, 1, 917500, 196608, 1, 983036, 196608, 1, 1048572, 131072, 1, 1114108, 131072, 2, -917507, 65536, 2, -917506, 65536, 2, -917505, 65536, 2, -983040, 65536, 2, -983039, 65536, 2, -983038, 65536, 2, -983037, 65536, 2, -983036, 65536, 2, -983035, 65536, 2, -983034, 65536, 2, -983033, 65536, 2, -983032, 65536, 2, -983031, 65536, 2, -983030, 65536, 2, -983029, 458752, 1, -917493, 0, 1, -851957, 0, 1, -786421, 0, 1, -720885, 0, 1, -655349, 0, 1, -589813, 0, 1, -524277, 0, 1, -458741, 0, 1, -393205, 0, 1, -327669, 0, 1, -262133, 0, 1, -196597, 0, 1, -131061, 0, 1, -65525, 0, 1, 11, 0, 1, 65547, 0, 1, 131083, 0, 1, 196619, 0, 1, 262155, 0, 1, 327691, 0, 1, 393227, 0, 1, 458763, 0, 1, 524299, 0, 1, 589835, 0, 1, 655371, 0, 1, 720907, 0, 1, 786443, 0, 1, 851979, 0, 1, 917515, 0, 1, 983051, 0, 1, 1048587, 0, 1, 1376252, 262144, 0, 1441788, 196608, 1, 1507324, 196608, 1, 1572860, 196608, 1, 1638396, 196608, 1, 1703932, 196608, 1, 1769468, 196608, 1, 1835004, 458752, 2, 1900540, 458752, 1, 1966076, 196608, 1, 2031612, 196608, 1, 2097148, 196608, 1, 2162684, 196608, 1, 2359292, 131072, 0, 2424828, 458752, 1, 2490364, 196608, 1, 2555900, 196608, 1, 2621436, 196608, 1, 2686972, 196608, 1, 2752508, 196608, 1, 2818044, 196608, 1, 2883580, 458752, 4, 2949116, 196608, 1, 3014652, 196608, 1, 3080188, 196608, 1, 3145724, 196608, 1, 3211260, 196608, 1, 3276796, 458752, 3, 3538940, 65536, 0, 1376253, 65536, 3, 3538941, 65536, 0, 1376254, 131072, 3, 3538942, 65536, 0, 3538943, 65536, 0, 3473408, 65536, 0, 3473409, 65536, 0, 3473410, 65536, 0, 3473411, 65536, 0, 3473412, 65536, 0, 3473413, 65536, 0, 3473414, 65536, 0, 3473415, 65536, 0, 3473416, 65536, 0, 3473417, 65536, 0, 3473418, 65536, 0, 1114123, 0, 1, 1179659, 0, 1, 1245195, 0, 1, 1310731, 0, 1, 1376267, 0, 1, 1441803, 0, 1, 1507339, 0, 1, 1572875, 0, 1, 1638411, 0, 1, 1703947, 0, 1, 1769483, 0, 1, 1835019, 0, 1, 1900555, 0, 1, 1966091, 0, 1, 2031627, 0, 1, 2097163, 0, 1, 2162699, 0, 1, 2228235, 0, 0, 2293771, 262144, 1, 2359307, 196608, 1, 2424843, 196608, 1, 2490379, 196608, 1, 2555915, 196608, 1, 2621451, 196608, 1, 2686987, 196608, 1, 2752523, 196608, 1, 2818059, 196608, 1, 2883595, 196608, 1, 2949131, 196608, 1, 3014667, 196608, 1, 3080203, 196608, 3, 3145739, 196608, 3, 3211275, 196608, 3, 3276811, 196608, 3, 3342347, 196608, 3, 3407883, 196608, 3, 3473419, 65536, 0)
+
+[node name="change_scene_area" parent="." index="4" instance=ExtResource("2_f0jtk")]
+position = Vector2(-66, 841)
+connected_scene = "res://levels/salle/Salle 8.tscn"
+
+[node name="change_scene_area2" parent="." index="5" instance=ExtResource("2_f0jtk")]
+position = Vector2(-66, 822)
+connected_scene = "res://levels/salle/Salle 8.tscn"
+
+[node name="change_scene_area3" parent="." index="6" instance=ExtResource("2_f0jtk")]
+position = Vector2(-66, 802)
+connected_scene = "res://levels/salle/Salle 8.tscn"
+
+[node name="change_scene_area4" parent="." index="7" instance=ExtResource("2_f0jtk")]
+position = Vector2(-65, -182)
+connected_scene = "res://levels/circle_world.tscn"
+
+[node name="change_scene_area5" parent="." index="8" instance=ExtResource("2_f0jtk")]
+position = Vector2(-65, -202)
+connected_scene = "res://levels/circle_world.tscn"
+
+[node name="change_scene_area6" parent="." index="9" instance=ExtResource("2_f0jtk")]
+position = Vector2(-65, -222)
+connected_scene = "res://levels/circle_world.tscn"
+
+[node name="change_scene_area7" parent="." index="10" instance=ExtResource("2_f0jtk")]
+position = Vector2(-64, 554)
+
+[node name="change_scene_area8" parent="." index="11" instance=ExtResource("2_f0jtk")]
+position = Vector2(-64, 534)
+
+[node name="change_scene_area9" parent="." index="12" instance=ExtResource("2_f0jtk")]
+position = Vector2(-66, 314)
+
+[node name="change_scene_area10" parent="." index="13" instance=ExtResource("2_f0jtk")]
+position = Vector2(-66, 294)
+
+[node name="change_scene_area11" parent="." index="14" instance=ExtResource("2_f0jtk")]
+position = Vector2(-66, 274)

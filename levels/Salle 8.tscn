@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://cf0byd8diu5qy"]
+
+[ext_resource type="PackedScene" uid="uid://da44wr7601ca0" path="res://level_template.tscn" id="1_ysl0s"]
+[ext_resource type="PackedScene" uid="uid://bclewffjxdq25" path="res://change_scene_area.tscn" id="2_clp50"]
+
+[node name="level_template" instance=ExtResource("1_ysl0s")]
+
+[node name="TileMap" parent="." index="1"]
+position = Vector2(1, 0)
+layer_0/tile_data = PackedInt32Array(-327692, 327680, 1, -262156, 131072, 1, -196620, 131072, 1, -131084, 131072, 1, -65548, 327680, 4, -12, 131072, 1, 65524, 131072, 1, 131060, 131072, 1, 196596, 131072, 1, 262132, 131072, 1, 327668, 131072, 1, 393204, 131072, 1, 458740, 131072, 1, 524276, 131072, 2, 786420, 65536, 0, -327691, 65536, 2, -65547, 65536, 3, 786421, 65536, 0, -327690, 65536, 2, -65546, 65536, 3, 786422, 65536, 0, -327689, 65536, 2, -65545, 65536, 3, 786423, 65536, 0, -327688, 65536, 2, -65544, 131072, 3, 786424, 65536, 0, -327687, 65536, 2, 786425, 65536, 0, -327686, 65536, 2, 786426, 65536, 0, -327685, 65536, 2, 786427, 65536, 0, -327684, 65536, 2, 786428, 65536, 0, -327683, 131072, 2, 786429, 65536, 0, 786430, 65536, 0, 786431, 65536, 0, 720896, 65536, 0, 720897, 65536, 0, -393214, 0, 2, 720898, 65536, 0, -393213, 65536, 2, 720899, 65536, 0, -393212, 65536, 2, 720900, 65536, 0, -393211, 65536, 2, 458757, 0, 3, 720901, 65536, 0, -393210, 65536, 2, 458758, 65536, 3, 720902, 65536, 0, -393209, 65536, 2, 458759, 65536, 3, 720903, 65536, 0, -393208, 65536, 2, 458760, 65536, 3, 720904, 65536, 0, -393207, 65536, 2, 196617, 0, 3, 458761, 65536, 3, 720905, 65536, 0, -393206, 65536, 2, 196618, 65536, 3, 458762, 65536, 3, 720906, 65536, 0, -393205, 65536, 2, 196619, 65536, 3, 458763, 65536, 3, 720907, 65536, 0, -393204, 65536, 2, 65548, 262144, 0, 131084, 196608, 1, 196620, 458752, 4, 262156, 0, 1, 327692, 0, 1, 393228, 0, 1, 458764, 524288, 3, 720908, 65536, 0, -393203, 65536, 2, 65549, 65536, 3, -393202, 65536, 2, 65550, 65536, 3, -393201, 65536, 2, 65551, 65536, 3, -393200, 65536, 2, 65552, 65536, 3, -393199, 65536, 2, 65553, 65536, 3, -393198, 65536, 2, 65554, 65536, 3, -393197, 524288, 1, -327661, 196608, 1, -262125, 196608, 1, -196589, 196608, 2, 65555, 65536, 3, 458765, 65536, 3, 720909, 65536, 0, 458766, 65536, 3, 720910, 65536, 0, 458767, 65536, 3, 720911, 65536, 0, 458768, 65536, 3, 720912, 65536, 0, 458769, 65536, 3, 720913, 65536, 0, 458770, 65536, 3, 720914, 65536, 0, 458771, 65536, 3, 720915, 65536, 0, 458772, 65536, 3, 720916, 65536, 0, 458773, 65536, 3, 720917, 65536, 0, 458774, 65536, 3, 720918, 65536, 0, 458775, 65536, 3, 720919, 65536, 0, 458776, 65536, 3, 720920, 65536, 0, 458777, 65536, 3, 720921, 65536, 0, 458778, 65536, 3, 720922, 65536, 0, 458779, 65536, 3, 720923, 65536, 0, 458780, 65536, 3, 720924, 65536, 0, 458781, 65536, 3, 720925, 65536, 0, 458782, 65536, 3, 720926, 65536, 0, 458783, 65536, 3, 720927, 65536, 0, 458784, 65536, 3, 720928, 65536, 0)
+
+[node name="change_scene_area" parent="." index="4" instance=ExtResource("2_clp50")]
+position = Vector2(-25, -95)
+connected_scene = "res://levels/salle/Salle 6.tscn"
+
+[node name="change_scene_area2" parent="." index="5" instance=ExtResource("2_clp50")]
+position = Vector2(-4, -95)
+connected_scene = "res://levels/salle/Salle 6.tscn"
+
+[node name="change_scene_area3" parent="." index="6" instance=ExtResource("2_clp50")]
+position = Vector2(17, -95)
+connected_scene = "res://levels/salle/Salle 6.tscn"
+
+[node name="change_scene_area4" parent="." index="7" instance=ExtResource("2_clp50")]
+position = Vector2(38, -95)
+connected_scene = "res://levels/salle/Salle 6.tscn"
+
+[node name="change_scene_area5" parent="." index="8" instance=ExtResource("2_clp50")]
+position = Vector2(-193, 132)
+connected_scene = "res://levels/salle/Salle 10.tscn"
+
+[node name="change_scene_area6" parent="." index="9" instance=ExtResource("2_clp50")]
+position = Vector2(322, -11)
+connected_scene = "res://levels/salle/Salle 9.tscn"
+
+[node name="change_scene_area7" parent="." index="10" instance=ExtResource("2_clp50")]
+position = Vector2(322, -31)
+connected_scene = "res://levels/salle/Salle 9.tscn"
+
+[node name="change_scene_area8" parent="." index="11" instance=ExtResource("2_clp50")]
+position = Vector2(528, 131)
+connected_scene = "res://levels/salle/Salle 13.tscn"
+
+[node name="change_scene_area9" parent="." index="12" instance=ExtResource("2_clp50")]
+position = Vector2(-193, 170)
+connected_scene = "res://levels/salle/Salle 10.tscn"
+
+[node name="change_scene_area10" parent="." index="13" instance=ExtResource("2_clp50")]
+position = Vector2(-193, 151)
+connected_scene = "res://levels/salle/Salle 10.tscn"
+
+[node name="change_scene_area11" parent="." index="14" instance=ExtResource("2_clp50")]
+position = Vector2(322, 9)
+connected_scene = "res://levels/salle/Salle 9.tscn"
+
+[node name="change_scene_area12" parent="." index="15" instance=ExtResource("2_clp50")]
+position = Vector2(528, 170)
+connected_scene = "res://levels/salle/Salle 13.tscn"
+
+[node name="change_scene_area13" parent="." index="16" instance=ExtResource("2_clp50")]
+position = Vector2(528, 150)
+connected_scene = "res://levels/salle/Salle 13.tscn"
