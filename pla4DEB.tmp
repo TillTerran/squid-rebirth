@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://dw6i34wt4qlay"]
+
+[ext_resource type="Script" path="res://Player/player.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://cnicwhy0xgj5h" path="res://Asset Packs 1-3 (final)/Asset Pack-V1/Sprite Sheets/Character Idle 48x48.png" id="2_qub0q"]
+
+[sub_resource type="RectangleShape2D" id="4"]
+size = Vector2(18.2857, 9.14286)
+
+[sub_resource type="Animation" id="Animation_jdilb"]
+resource_name = "PL_player_idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteTree/Idle:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+
+[sub_resource type="Animation" id="Animation_7utd8"]
+resource_name = "idle"
+
+[sub_resource type="Animation" id="Animation_udwwl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteTree/Idle:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oela5"]
+_data = {
+"PL_player_idle": SubResource("Animation_jdilb"),
+"RESET": SubResource("Animation_udwwl"),
+"idle": SubResource("Animation_7utd8")
+}
+
+[node name="player" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+safe_margin = 0.2
+script = ExtResource("1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.875, 0.875)
+shape = SubResource("4")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_oela5")
+}
+
+[node name="SpriteTree" type="Sprite2D" parent="."]
+
+[node name="Idle" type="Sprite2D" parent="SpriteTree"]
+texture = ExtResource("2_qub0q")
+hframes = 10
+
+[connection signal="input_event" from="." to="." method="_on_player_input_event"]

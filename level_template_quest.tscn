@@ -1,0 +1,165 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwom8dqf1pp01"]
+
+[ext_resource type="Script" path="res://scripts/level_template.gd" id="1_nmu1u"]
+[ext_resource type="PackedScene" uid="uid://dw6i34wt4qlay" path="res://Player/player.tscn" id="2_yhoo5"]
+[ext_resource type="PackedScene" uid="uid://cjedqvui1pjh3" path="res://main_menu.tscn" id="3_rubnf"]
+[ext_resource type="Theme" uid="uid://ierb8sk14ach" path="res://nice_theme.tres" id="4_110ra"]
+[ext_resource type="Texture2D" uid="uid://dd7jn2sw1rpjf" path="res://icon.png" id="5_pbvtr"]
+
+[node name="level_template" type="Node2D"]
+script = ExtResource("1_nmu1u")
+
+[node name="player" parent="." instance=ExtResource("2_yhoo5")]
+position = Vector2(1700, 277)
+level = ExtResource("3_rubnf")
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -131.0
+offset_bottom = 134.0
+grow_horizontal = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("4_110ra")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/PanelContainer/MarginContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="S_life" type="TextureRect" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "100"
+
+[node name="S_mana" type="TextureRect" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "100"
+
+[node name="S_money" type="TextureRect" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("5_pbvtr")
+stretch_mode = 5
+
+[node name="Label3" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "22er12"
+
+[node name="quest?" type="Control" parent="CanvasLayer"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/quest?"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 30
+
+[node name="quest panel" type="PanelContainer" parent="CanvasLayer/quest?/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme = ExtResource("4_110ra")
+metadata/_edit_group_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/quest?/MarginContainer/quest panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 30
+
+[node name="GridContainer" type="VBoxContainer" parent="CanvasLayer/quest?/MarginContainer/quest panel/MarginContainer"]
+layout_mode = 2
+
+[node name="header" type="Label" parent="CanvasLayer/quest?/MarginContainer/quest panel/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "INTRO-QUEST
+"
+autowrap_mode = 2
+uppercase = true
+
+[node name="text" type="Label" parent="CanvasLayer/quest?/MarginContainer/quest panel/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "A VERY MASSIVE TEXT THAT IS EXTREMELY BIG AND NOT USEFUL AND BORING AND YOU STILL ARE READING WOW JUST AS I THOUGHT WRITING ALL THAT WAS UNNECESSARY WELL THEN LETS CONTINUE WOULD YOU LIKE SOME ADVICE I CAN GIVE YOU SOME IF YOU CONTINUE READING LIKE MY FIRST ADVICE IS DONT DIE TOO SOON AND GO TO HARD PLACES OR YOU WONT GET THE CHANCE TO FINISH THE GAME WELL I GOT TO DO SOME OTHER THINGS SO SEE YA !!!A VERY MASSIVE TEXT THAT IS EXTREMELY BIG AND NOT USEFUL AND BORING AND YOU STILL ARE READING WOW JUST AS I THOUGHT WRITING ALL THAT WAS UNNECESSARY WELL THEN LETS CONTINUE WOULD YOU LIKE SOME ADVICE I CAN GIVE YOU SOME IF YOU CONTINUE READING LIKE MY FIRST ADVICE IS DONT DIE TOO SOON AND GO TO HARD PLACES OR YOU WONT GET THE CHANCE TO FINISH THE GAME WELL I GOT TO DO SOME OTHER THINGS SO SEE YA !!!A VERY MASSIVE TEXT THAT IS EXTREMELY BIG AND NOT USEFUL AND BORING AND YOU STILL ARE READING WOW JUST AS I THOUGHT WRITING ALL THAT WAS UNNECESSARY WELL THEN LETS CONTINUE WOULD YOU LIKE SOME ADVICE I CAN GIVE YOU SOME IF YOU CONTINUE READING LIKE MY FIRST ADVICE IS DONT DIE TOO SOON AND GO TO HARD PLACES OR YOU WONT GET THE CHANCE TO FINISH THE GAME WELL I GOT TO DO SOME OTHER THINGS SO SEE YA !!!A VERY MASSIVE TEXT THAT IS EXTREMELY BIG AND NOT USEFUL AND BORING AND YOU STILL ARE READING WOW JUST AS I THOUGHT WRITING ALL THAT WAS UNNECESSARY WELL THEN LETS CONTINUE WOULD YOU LIKE SOME ADVICE I CAN GIVE YOU SOME IF YOU CONTINUE READING LIKE MY FIRST ADVICE IS DONT DIE TOO SOON AND GO TO HARD PLACES OR YOU WONT GET THE CHANCE TO FINISH THE GAME WELL I GOT TO DO SOME OTHER THINGS SO SEE YA !!!A VERY MASSIVE TEXT THAT IS EXTREMELY BIG AND NOT USEFUL AND BORING AND YOU STILL ARE READING WOW JUST AS I THOUGHT WRITING ALL THAT WAS UNNECESSARY WELL THEN LETS CONTINUE WOULD YOU LIKE SOME ADVICE I CAN GIVE YOU SOME IF YOU CONTINUE READING LIKE MY FIRST ADVICE IS DONT DIE TOO SOON AND GO TO HARD PLACES OR YOU WONT GET THE CHANCE TO FINISH THE GAME WELL I GOT TO DO SOME OTHER THINGS SO SEE YA !!!A VERY MASSIVE TEXT THAT IS EXTREMELY BIG AND NOT USEFUL AND BORING AND YOU STILL ARE READING WOW JUST AS I THOUGHT WRITING ALL THAT WAS UNNECESSARY WELL THEN LETS CONTINUE WOULD YOU LIKE SOME ADVICE I CAN GIVE YOU SOME IF YOU CONTINUE READING LIKE MY FIRST ADVICE IS DONT DIE TOO SOON AND GO TO HARD PLACES OR YOU WONT GET THE CHANCE TO FINISH THE GAME WELL I GOT TO DO SOME OTHER THINGS SO SEE YA !!!A VERY MASSIVE TEXT THAT IS EXTREMELY BIG AND NOT USEFUL AND BORING AND YOU STILL ARE READING WOW JUST AS I THOUGHT WRITING ALL THAT WAS UNNECESSARY WELL THEN LETS CONTINUE WOULD YOU LIKE SOME ADVICE I CAN GIVE YOU SOME IF YOU CONTINUE READING LIKE MY FIRST ADVICE IS DONT DIE TOO SOON AND GO TO HARD PLACES OR YOU WONT GET THE CHANCE TO FINISH THE GAME WELL I GOT TO DO SOME OTHER THINGS SO SEE YA !!!A VERY MASSIVE TEXT THAT IS EXTREMELY BIG AND NOT USEFUL AND BORING AND YOU STILL ARE READING WOW JUST AS I THOUGHT WRITING ALL THAT WAS UNNECESSARY WELL THEN LETS CONTINUE WOULD YOU LIKE SOME ADVICE I CAN GIVE YOU SOME IF YOU CONTINUE READING LIKE MY FIRST ADVICE IS DONT DIE TOO SOON AND GO TO HARD PLACES OR YOU WONT GET THE CHANCE TO FINISH THE GAME WELL I GOT TO DO SOME OTHER THINGS SO SEE YA !!!A VERY MASSIVE TEXT THAT IS EXTREMELY BIG AND NOT USEFUL AND BORING AND YOU STILL ARE READING WOW JUST AS I THOUGHT WRITING ALL THAT WAS UNNECESSARY WELL THEN LETS CONTINUE WOULD YOU LIKE SOME ADVICE I CAN GIVE YOU SOME IF YOU CONTINUE READING LIKE MY FIRST ADVICE IS DONT DIE TOO SOON AND GO TO HARD PLACES OR YOU WONT GET THE CHANCE TO FINISH THE GAME WELL I GOT TO DO SOME OTHER THINGS SO SEE YA !!!A VERY MASSIVE TEXT THAT IS EXTREMELY BIG AND NOT USEFUL AND BORING AND YOU STILL ARE READING WOW JUST AS I THOUGHT WRITING ALL THAT WAS UNNECESSARY WELL THEN LETS CONTINUE WOULD YOU LIKE SOME ADVICE I CAN GIVE YOU SOME IF YOU CONTINUE READING LIKE MY FIRST ADVICE IS DONT DIE TOO SOON AND GO TO HARD PLACES OR YOU WONT GET THE CHANCE TO FINISH THE GAME WELL I GOT TO DO SOME OTHER THINGS SO SEE YA !!!"
+autowrap_mode = 2
+
+[node name="Control" type="MarginContainer" parent="CanvasLayer/quest?/MarginContainer/quest panel/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/quest?/MarginContainer/quest panel/MarginContainer/GridContainer/Control"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="CanvasLayer/quest?/MarginContainer/quest panel/MarginContainer/GridContainer/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="option1" type="Button" parent="CanvasLayer/quest?/MarginContainer/quest panel/MarginContainer/GridContainer/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "WOW, a new existence of chaos, so fun !!!"
+text = "freedom"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Control3" type="Control" parent="CanvasLayer/quest?/MarginContainer/quest panel/MarginContainer/GridContainer/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.25
+
+[node name="option2" type="Button" parent="CanvasLayer/quest?/MarginContainer/quest panel/MarginContainer/GridContainer/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "You get to live ;D"
+text = "life"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Control2" type="Control" parent="CanvasLayer/quest?/MarginContainer/quest panel/MarginContainer/GridContainer/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3

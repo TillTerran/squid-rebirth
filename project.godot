@@ -1,0 +1,52 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="basic project"
+run/main_scene="res://levels/main_menu_good.tscn"
+config/features=PackedStringArray("4.2", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Events="*res://scripts/Events.gd"
+LevelTransition="*res://level_transition.tscn"
+
+[display]
+
+window/size/viewport_width=960
+window/size/viewport_height=540
+window/vsync/vsync_mode=0
+
+[input]
+
+ui_a={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":65,"key_label":0,"unicode":97,"echo":false,"script":null)
+]
+}
+Punch={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":80,"key_label":0,"unicode":112,"echo":false,"script":null)
+]
+}
+
+[physics]
+
+2d/size/viewport_height=1080
+2d/size/viewport_width=1920
+2d/size/initial_position_type=0
+2d/stretch/aspect="ignore"
+2d/size/initial_position=Vector2i(5779, 2865)
+2d/size/window_height_override=800
+2d/size/window_width_override=1200
+2d/stretch/scale=0.5
+2d/size/mode=2

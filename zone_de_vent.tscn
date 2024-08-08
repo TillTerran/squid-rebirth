@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3t3iqopiqur1"]
+
+[sub_resource type="GDScript" id="GDScript_b60ng"]
+script/source = "extends Area2D
+
+@onready var player = $\"../../player\"
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+#var force = 100
+#var direction = Vector2(1,0)
+
+
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	
+	#if direction.dot(player.velocity)<force:
+		#player.add_force(direction*delta*max(1,min(force,force-direction.dot(player.velocity))))
+	
+	
+	#player.add_force(direction*delta*max(10,min(force,force-direction.dot(player.velocity))))
+	pass
+
+#player.can_translate_messages()
+
+
+
+
+
+
+
+
+
+"
+
+[sub_resource type="RectangleShape2D" id="3"]
+size = Vector2(10.3333, 10.3333)
+
+[sub_resource type="SpriteFrames" id="4"]
+
+[node name="zone de vent" type="Area2D"]
+priority = 10.0
+gravity_space_override = 1
+gravity_point_center = Vector2(1, 0)
+gravity_direction = Vector2(1, 0)
+gravity = 1.0
+script = SubResource("GDScript_b60ng")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+scale = Vector2(44, 44)
+shape = SubResource("3")
+
+[node name="wind" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("4")
