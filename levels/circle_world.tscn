@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpk6apkk1nwgm"]
+
+[ext_resource type="Script" path="res://scripts/circle_world.gd" id="1_72bwq"]
+[ext_resource type="PackedScene" uid="uid://dw6i34wt4qlay" path="res://Player/player.tscn" id="2_dyxwr"]
+[ext_resource type="PackedScene" uid="uid://dsqye2sc2h2yf" path="res://c_gravity_area.tscn" id="3_ugdiv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0o7tu"]
+size = Vector2(423.642, 471.568)
+
+[node name="circle_world" type="Node2D"]
+position = Vector2(297, 190)
+script = ExtResource("1_72bwq")
+
+[node name="player" parent="." instance=ExtResource("2_dyxwr")]
+position = Vector2(7, 113)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-289, -191)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(80, 104, 96, 104, 96, 112, 80, 112)
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
+
+[node name="circle" type="StaticBody2D" parent="."]
+position = Vector2(-289, -191)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="circle"]
+position = Vector2(40, -56)
+polygon = PackedVector2Array(56, 160, 56, 152, 64, 136, 72, 120, 88, 96, 104, 80, 128, 64, 152, 56, 192, 48, 224, 48, 280, 56, 320, 72, 352, 88, 368, 104, 392, 136, 408, 168, 424, 216, 424, 256, 416, 312, 408, 344, 392, 360, 376, 376, 352, 392, 328, 400, 304, 408, 272, 416, 232, 416, 184, 416, 160, 408, 136, 400, 120, 392, 104, 376, 88, 360, 80, 344, 72, 320, 64, 288, 56, 264, 56, 240, 56, 192, 56, 176, 56, 168, 40, 168, 0, 248, 16, 320, 40, 400, 80, 432, 152, 448, 264, 448, 336, 432, 408, 424, 464, 400, 504, 352, 520, 288, 512, 240, 488, 168, 424, 96, 360, 56, 304, 24, 208, 8, 160, 8, 136, 16, 104, 32, 80, 48, -16, 112, -16, 128, 16, 152, 32, 160)
+
+[node name="Polygon2D" type="Polygon2D" parent="circle/CollisionPolygon2D"]
+
+[node name="c_gravity_area" parent="." instance=ExtResource("3_ugdiv")]
+visible = false
+position = Vector2(-4, -132)
+gravity_point_center = Vector2(0, 0)
+gravity_direction = Vector2(0, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="c_gravity_area"]
+position = Vector2(-20.9764, 116.102)
+shape = SubResource("RectangleShape2D_0o7tu")

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://ba838o63sbi8h"]
+
+[ext_resource type="PackedScene" uid="uid://da44wr7601ca0" path="res://level_template.tscn" id="1_gfrm5"]
+[ext_resource type="PackedScene" uid="uid://cjedqvui1pjh3" path="res://main_menu.tscn" id="2_6vn60"]
+[ext_resource type="PackedScene" uid="uid://s8lfgjak4tx7" path="res://levels/intro.tscn" id="3_2fgj4"]
+
+[node name="level_template" instance=ExtResource("1_gfrm5")]
+visible = false
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." index="2"]
+
+[node name="MarginContainer" parent="CanvasLayer2" index="0" instance=ExtResource("2_6vn60")]
+offset_left = -45.5
+offset_top = -33.0
+offset_right = -45.5
+offset_bottom = -33.0
+first_level = ExtResource("3_2fgj4")

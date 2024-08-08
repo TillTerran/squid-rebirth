@@ -1,0 +1,81 @@
+[gd_scene load_steps=10 format=3 uid="uid://dw6i34wt4qlay"]
+
+[ext_resource type="Script" path="res://Player/player.gd" id="1_5vtnd"]
+[ext_resource type="Texture2D" uid="uid://bmue11k77r8kx" path="res://stickman.png" id="2_xukeh"]
+
+[sub_resource type="RectangleShape2D" id="4"]
+size = Vector2(18.2857, 9.14286)
+
+[sub_resource type="AtlasTexture" id="5"]
+atlas = ExtResource("2_xukeh")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="6"]
+atlas = ExtResource("2_xukeh")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="7"]
+atlas = ExtResource("2_xukeh")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("5")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("5")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("6")
+}, {
+"duration": 1.0,
+"texture": SubResource("7")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_jdilb"]
+resource_name = "PL_player_idle"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oela5"]
+_data = {
+"PL_player_idle": SubResource("Animation_jdilb")
+}
+
+[node name="player" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+safe_margin = 0.2
+script = ExtResource("1_5vtnd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.875, 0.875)
+shape = SubResource("4")
+
+[node name="player_sprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("8")
+animation = &"jump"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_oela5")
+}
+
+[connection signal="input_event" from="." to="." method="_on_player_input_event"]
