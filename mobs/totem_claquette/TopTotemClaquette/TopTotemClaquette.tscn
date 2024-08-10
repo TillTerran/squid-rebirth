@@ -1,0 +1,230 @@
+[gd_scene load_steps=8 format=3 uid="uid://b6t12ei2nosv6"]
+
+[ext_resource type="Texture2D" uid="uid://c2xq8bg6i6jau" path="res://mobs/totem_claquette/TopTotemClaquette/idle_animation/Idle_animation_1.jpg" id="1_7iiks"]
+
+[sub_resource type="GDScript" id="GDScript_omxb6"]
+script/source = "extends CharacterBody2D
+
+@export var speed=100
+var projectile = preload(\"res://mobs/totem_claquette/projectile/totem_claquette_projectile.tscn\")
+var gravity = ProjectSettings.get_setting(\"physics/2d/default_gravity\")
+var player_chase = false
+var player = null
+var totem=null
+var self_width = null
+var self_lenght=null
+var lenght_bottom_totem=null
+var width_bottom_totem=null
+var fusion = false
+var projectile_direction=null
+var on_bottom_totem=false
+enum STATE {
+	CHASE,
+	MERGE,
+	WAITING,
+	BACK_TO_POSITION,
+}
+var TopTotemState=STATE.WAITING
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	self_width = get_node(\"HitboxTopTotem\").shape.extents.y * 2
+	self_lenght=get_node(\"HitboxTopTotem\").shape.extents.x * 2
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	velocity.y += gravity * delta # Apply the gravity
+	match TopTotemState:
+		STATE.WAITING:
+			velocity.x=0
+		STATE.CHASE:
+			chase_player()
+		STATE.MERGE:
+			totem_merge(delta)
+		STATE.BACK_TO_POSITION:
+			pass
+	#Test if totem is merging
+	if fusion==true:
+		totem_merge(delta)
+	elif (player_chase==true) and (player!=null):#If there are not merging, it chase the player
+		chase_player()
+	move_and_slide()
+	print(velocity)
+	print(STATE.keys()[TopTotemState])
+
+#If a bottom totem is in the area, they merge
+func _on_detection_area_bottom_totem_body_entered(body):
+	if body.is_in_group(\"BottomTotemClaquette\") and body != self:
+		totem=body
+		fusion=true
+		TopTotemState=STATE.MERGE
+		width_bottom_totem=totem.get(\"self_width\")
+		lenght_bottom_totem=totem.get(\"self_lenght\")
+
+
+func _on_detection_area_bottom_totem_body_exited(body):
+	if body.is_in_group(\"BottomTotemClaquette\") and body != self:
+		totem=null
+		fusion=false
+		on_bottom_totem=false
+
+
+func _on_detection_area_player_body_entered(body):
+	if body.is_in_group(\"Player\"):
+		player = body
+		player_chase = true
+		$ProjectileTimer.start()
+
+
+func _on_detection_area_player_body_exited(body):
+	if body.is_in_group(\"Player\"):
+		player = null
+		player_chase = false
+		$ProjectileTimer.stop()
+		
+
+# Function to merge the totems
+func totem_merge(delta):
+		$ProjectileTimer.stop()
+		player_chase = false  # Stop chasing the player
+#		var direction = (totem.global_position - self.global_position).normalized()#Go to the x position of the bottom totem
+#		velocity.x = direction.x * speed
+#		#If the totem is close enough to the other, it climbs on top of it
+#		if (self.global_position.x<=totem.global_position.x+lenght_bottom_totem+2) and (self.global_position.x>=totem.global_position.x-lenght_bottom_totem-2):
+#			velocity=Vector2(0,-width_bottom_totem)
+#			if self.global_position.y<totem.global_position.y-width_bottom_totem:
+#				velocity.y=10
+#				velocity.x = direction.x * speed
+#				if (direction.x<=0.01) and (direction.x>=-0.01):
+#					fusion=false
+#					player_chase=true
+#					on_bottom_totem=true
+#					velocity.y=0
+#					$ProjectileTimer.start()
+		var final_pos=totem.global_position
+		final_pos.y=final_pos.y-width_bottom_totem-0.1
+		var direction = final_pos - global_position
+		var distance_to_target = direction.length()
+			# Si l'ennemi est très proche de la position initiale, on l'arrête
+		if distance_to_target < 0.15:  # Tolérance pour considérer que l'ennemi est arrivé
+			velocity = Vector2()  # Stoppe le mouvement
+			global_position = final_pos  # Assure que l'ennemi est bien à sa position initiale
+			TopTotemState=STATE.CHASE
+			fusion=false
+			player_chase=true
+			on_bottom_totem=true
+			$ProjectileTimer.start()
+		else:
+			# Normalise la direction et ajuste la vitesse en conséquence
+			direction = direction.normalized()
+			velocity.x = direction.x * speed
+			if distance_to_target <50:
+				velocity.y=direction.y*speed
+		# Mise à jour de la position en fonction de la vélocité calculée
+		global_position += velocity * delta
+#Function to chase the player, the totem goes towards the player and fires a projectile at regular intervals
+func chase_player():
+	if player_chase:
+		if on_bottom_totem==true:
+			var direction = (player.global_position - self.position).normalized()* speed
+			var final_pos=totem.global_position
+			final_pos.y=final_pos.y-width_bottom_totem-0.1
+			if direction.x>0:
+					get_node(\"AnimatedSprite2D\").flip_h=true
+					projectile_direction=true
+			else:
+					get_node(\"AnimatedSprite2D\").flip_h = false
+					projectile_direction=false
+			velocity = Vector2()  # Stoppe le mouvement
+			global_position = final_pos
+		elif on_bottom_totem==false:
+			var direction = (player.global_position - self.position).normalized()* speed
+			if direction.x>0:
+					get_node(\"AnimatedSprite2D\").flip_h=true
+					projectile_direction=true
+			else:
+					get_node(\"AnimatedSprite2D\").flip_h = false
+					projectile_direction=false
+			velocity.x = sign(direction.x)*speed
+	else:
+		velocity = lerp(velocity, Vector2.ZERO, 0.01)
+		velocity.x = 0  # Stop horizontal movement when `player_chase` is disabled
+
+#When the timer is timeout, a projectile spawn
+func _on_projectile_timer_timeout():
+	var b = projectile.instantiate()
+	get_tree().root.add_child(b)
+	b.start(position,projectile_direction)
+	$ProjectileTimer.start()
+	
+func death():
+	queue_free()
+
+
+func _on_hitbox_body_entered(body):
+	if body.is_in_group(\"Player\"):
+		death()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fvexe"]
+size = Vector2(32, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ccwdb"]
+size = Vector2(21, 6)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7xa0i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7iiks")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8uf4e"]
+size = Vector2(443, 310)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bgbfj"]
+radius = 130.0
+
+[node name="TopTotemClaquette" type="CharacterBody2D" groups=["TopTotemClaquette"]]
+collision_layer = 3
+script = SubResource("GDScript_omxb6")
+
+[node name="HitboxTopTotem" type="CollisionShape2D" parent="."]
+position = Vector2(16, 18)
+shape = SubResource("RectangleShape2D_fvexe")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="HitboxTopTotem" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(15.5, 2)
+shape = SubResource("RectangleShape2D_ccwdb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(16, 18)
+scale = Vector2(0.045, 0.047)
+sprite_frames = SubResource("SpriteFrames_7xa0i")
+
+[node name="DetectionAreaPlayer" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionAreaPlayer"]
+position = Vector2(18, 18)
+shape = SubResource("RectangleShape2D_8uf4e")
+
+[node name="DetectionAreaBottomTotem" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionAreaBottomTotem"]
+position = Vector2(16, 18)
+shape = SubResource("CircleShape2D_bgbfj")
+
+[node name="ProjectileTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="DetectionAreaPlayer" to="." method="_on_detection_area_player_body_entered"]
+[connection signal="body_exited" from="DetectionAreaPlayer" to="." method="_on_detection_area_player_body_exited"]
+[connection signal="body_entered" from="DetectionAreaBottomTotem" to="." method="_on_detection_area_bottom_totem_body_entered"]
+[connection signal="body_exited" from="DetectionAreaBottomTotem" to="." method="_on_detection_area_bottom_totem_body_exited"]
+[connection signal="timeout" from="ProjectileTimer" to="." method="_on_projectile_timer_timeout"]

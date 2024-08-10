@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://irpquugqy33h"]
+
+[ext_resource type="Texture2D" uid="uid://tlaqw7ft37y4" path="res://mobs/onyx/animation/idle_animation/idle_animation[1].jpg" id="1_6475j"]
+[ext_resource type="Script" path="res://mobs/onyx/onyx.gd" id="1_fnkml"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ocjb2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6475j")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gmb5t"]
+size = Vector2(15.5, 15.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sb261"]
+size = Vector2(12, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7s2ea"]
+radius = 102.005
+
+[node name="Onyx" type="CharacterBody2D"]
+script = ExtResource("1_fnkml")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, 8)
+rotation = 3.14159
+scale = Vector2(0.010824, 0.0114662)
+sprite_frames = SubResource("SpriteFrames_ocjb2")
+animation = &"idle"
+
+[node name="HitboxOnyx" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_gmb5t")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="HitboxOnyx" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_sb261")
+
+[node name="DetectionAreaPlayer" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionAreaPlayer"]
+position = Vector2(8, 8)
+shape = SubResource("CircleShape2D_7s2ea")
+
+[node name="PositionTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="body_entered" from="DetectionAreaPlayer" to="." method="_on_detection_area_player_body_entered"]
+[connection signal="body_exited" from="DetectionAreaPlayer" to="." method="_on_detection_area_player_body_exited"]
+[connection signal="timeout" from="PositionTimer" to="." method="_on_position_timer_timeout"]

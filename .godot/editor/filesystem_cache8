@@ -1,0 +1,154 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1723276011
+change_scene_area.tscn::PackedScene::2549788952481361628::1723275945::0::1::::<><>::res://scripts/level_changer.gd
+collisions.tscn::PackedScene::9099418733502890724::1723275945::0::1::::<><>::
+c_gravity_area.tscn::PackedScene::8457157077695049673::1723275945::0::1::::<><>::res://scripts/c_gravity_area.gd
+default_env.tres::Environment::4913290331812925109::1723275945::0::1::::<><>::
+icon.png::CompressedTexture2D::7436459785350918235::1723275945::1723276013::1::::<><>::
+icon.svg::CompressedTexture2D::7156244623227137129::1723275945::1723276013::1::::<><>::
+level_template.tscn::PackedScene::7220930029976796385::1723275945::0::1::::<><>::res://scripts/level_template.gd<>uid://dw6i34wt4qlay::::res://Player/player.tscn<>uid://cjedqvui1pjh3::::res://main_menu.tscn<>uid://ierb8sk14ach::::res://nice_theme.tres<>uid://bgw26vem2qijj::::res://tileset.png<>uid://dd7jn2sw1rpjf::::res://icon.png<>uid://kxkr7d2yi2hg::::res://slopes.png<>uid://b5sg6qeettbpx::::res://level_transition.tscn<>uid://cnft4vk4wjpq6::::res://slopes_flipped.png<>uid://du845748ywqgk::::res://questpanel.tscn
+level_template_quest-copy.tscn::PackedScene::2938187974671584035::1723275945::0::1::::<><>::res://scripts/level_template.gd<>uid://dw6i34wt4qlay::::res://Player/player.tscn<>uid://cjedqvui1pjh3::::res://main_menu.tscn<>uid://ierb8sk14ach::::res://nice_theme.tres<>uid://dd7jn2sw1rpjf::::res://icon.png
+level_template_quest.tscn::PackedScene::8733105617334362336::1723275945::0::1::::<><>::res://scripts/level_template.gd<>uid://dw6i34wt4qlay::::res://Player/player.tscn<>uid://cjedqvui1pjh3::::res://main_menu.tscn<>uid://ierb8sk14ach::::res://nice_theme.tres<>uid://dd7jn2sw1rpjf::::res://icon.png
+level_transition.gd::GDScript::-1::1723275945::0::1::::<>Node<>::
+level_transition.tscn::PackedScene::4529665300735499617::1723275945::0::1::::<><>::res://level_transition.gd
+main_menu.tscn::PackedScene::5413010329110780102::1723275945::0::1::::<><>::res://scripts/main_menu.gd<>res://scripts/quit_Button.gd<>res://scripts/start_Button.gd
+moving_plateform.tscn::PackedScene::8252931424543066324::1723275945::0::1::::<><>::res://scripts/moving plateform.gd
+nice_theme.tres::Theme::570803996358706067::1723275945::0::1::::<><>::
+player.tscn::PackedScene::8767949617728857204::1723275945::0::1::::<><>::res://Player/player.gd<>uid://cnicwhy0xgj5h::::res://Asset Packs 1-3 (final)/Asset Pack-V1/Sprite Sheets/Character Idle 48x48.png<>uid://chvsfpffqtqn0::::res://Asset Packs 1-3 (final)/Asset Pack-V1/Sprite Sheets/run cycle 48x48.png<>uid://ddmsyfalmqlj8::::res://Asset Packs 1-3 (final)/Asset Pack-V3/Player Punch/Player Punch 64x64.png
+portal.png::CompressedTexture2D::1049713972540064399::1723275945::1723276013::1::::<><>::
+questpanel.tscn::PackedScene::8632979483410154918::1723275945::0::1::::<><>::uid://ierb8sk14ach::::res://nice_theme.tres
+README.md::TextFile::-1::1723275945::0::1::::<><>::
+salle 1.tscn::PackedScene::2363167989513666666::1723275945::0::1::::<><>::uid://da44wr7601ca0::::res://level_template.tscn<>uid://bclewffjxdq25::::res://change_scene_area.tscn
+slopes.png::CompressedTexture2D::750008339788538816::1723275945::1723276013::1::::<><>::
+slopes_flipped.png::CompressedTexture2D::5696824754122522307::1723275945::1723276013::1::::<><>::
+stickman.png::CompressedTexture2D::3270265043595829239::1723275945::1723276013::1::::<><>::
+tileset.png::CompressedTexture2D::2854665884277872011::1723275945::1723276013::1::::<><>::
+world.tscn::PackedScene::4814306218807206322::1723275945::0::1::::<><>::uid://dw6i34wt4qlay::::res://Player/player.tscn<>uid://dd7jn2sw1rpjf::::res://icon.png<>res://scripts/world.gd<>uid://dpt1tspxyomxg::::res://moving_plateform.tscn
+zone_de_vent.tscn::PackedScene::4392646707727582476::1723275945::0::1::::<><>::
+::res://Asset Packs 1-3 (final)/::1723275945
+::res://Asset Packs 1-3 (final)/Asset Pack-V1/::1723275945
+::res://Asset Packs 1-3 (final)/Asset Pack-V1/Aseprite Files/::1723275945
+::res://Asset Packs 1-3 (final)/Asset Pack-V1/Aseprite Files/Player/::1723275945
+::res://Asset Packs 1-3 (final)/Asset Pack-V1/Aseprite Files/Tilemap/::1723275945
+::res://Asset Packs 1-3 (final)/Asset Pack-V1/Sprite Sheets/::1723275945
+Character Idle 48x48.png::CompressedTexture2D::5701972484070167527::1723275945::1723276013::1::::<><>::
+player jump 48x48.png::CompressedTexture2D::7074425660856911521::1723275945::1723276013::1::::<><>::
+player land 48x48.png::CompressedTexture2D::8659104438599590231::1723275945::1723276013::1::::<><>::
+run cycle 48x48.png::CompressedTexture2D::5308617836350603403::1723275945::1723276013::1::::<><>::
+wall land 48x48.png::CompressedTexture2D::448874981691896323::1723275945::1723276013::1::::<><>::
+Wall Slide 48x48.png::CompressedTexture2D::4155365337382031122::1723275945::1723276013::1::::<><>::
+::res://Asset Packs 1-3 (final)/Asset Pack-V1/Tilemap/::1723275945
+160x160 background tilemap.png::CompressedTexture2D::1766083378016914561::1723275945::1723276013::1::::<><>::
+Basic Tilemap.png::CompressedTexture2D::2436368118483653553::1723275945::1723276013::1::::<><>::
+::res://Asset Packs 1-3 (final)/Asset Pack-V2/::1723275945
+::res://Asset Packs 1-3 (final)/Asset Pack-V2/Air Spin/::1723275945
+player air spin 48x48.png::CompressedTexture2D::3357487603172568167::1723275945::1723276013::1::::<><>::
+::res://Asset Packs 1-3 (final)/Asset Pack-V2/Crouch-Idle/::1723275945
+Player Crouch-Idle 48x48.png::CompressedTexture2D::4495297505940590754::1723275945::1723276013::1::::<><>::
+::res://Asset Packs 1-3 (final)/Asset Pack-V2/Crouch-Walk/::1723275945
+player crouch-walk 48x48.png::CompressedTexture2D::5446649339790720044::1723275945::1723276013::1::::<><>::
+::res://Asset Packs 1-3 (final)/Asset Pack-V2/Ledge Grab-Climb/::1723275945
+player ledge climb 48x48.png::CompressedTexture2D::2077135154071192749::1723275945::1723276013::1::::<><>::
+::res://Asset Packs 1-3 (final)/Asset Pack-V2/Player Roll/::1723275945
+Player Roll 48x48.png::CompressedTexture2D::3285751442781399344::1723275945::1723276013::1::::<><>::
+::res://Asset Packs 1-3 (final)/Asset Pack-V2/Pull/::1723275945
+Player Pull 48x48.png::CompressedTexture2D::4276966172582424069::1723275945::1723276013::1::::<><>::
+::res://Asset Packs 1-3 (final)/Asset Pack-V2/Push/::1723275945
+player push 48x48.png::CompressedTexture2D::2054618082159430213::1723275945::1723276013::1::::<><>::
+::res://Asset Packs 1-3 (final)/Asset Pack-V3/::1723275945
+::res://Asset Packs 1-3 (final)/Asset Pack-V3/Basic Sword Attack 1/::1723275945
+player sword atk 64x64.png::CompressedTexture2D::1068262986695189408::1723275945::1723276013::1::::<><>::
+::res://Asset Packs 1-3 (final)/Asset Pack-V3/Player Death/::1723275945
+Player Death 64x64.png::CompressedTexture2D::554317184191379663::1723275945::1723276013::1::::<><>::
+::res://Asset Packs 1-3 (final)/Asset Pack-V3/Player Hurt-Damaged/::1723275945
+Player Hurt 48x48.png::CompressedTexture2D::4012758987339894891::1723275945::1723276013::1::::<><>::
+::res://Asset Packs 1-3 (final)/Asset Pack-V3/Player Punch/::1723275945
+Player Punch 64x64.png::CompressedTexture2D::7395737143098849823::1723275945::1723276013::1::::<><>::
+::res://Asset Packs 1-3 (final)/Asset Pack-V3/Player Sword Idle/::1723275945
+Player Sword Idle 48x48.png::CompressedTexture2D::2252386301458842851::1723275945::1723276013::1::::<><>::
+::res://Asset Packs 1-3 (final)/Asset Pack-V3/Player Sword Run/::1723275945
+Player Sword Run 48x48.png::CompressedTexture2D::8066156004348482553::1723275945::1723276013::1::::<><>::
+::res://Asset Packs 1-3 (final)/Asset Pack-V3/PlayerIdlePushPull/::1723275945
+player push idle 48x48.png::CompressedTexture2D::5382637054743398175::1723275945::1723276013::1::::<><>::
+::res://Asset Packs 1-3 (final)/Asset Pack-V3/PlayerWalk/::1723275945
+PlayerWalk 48x48.png::CompressedTexture2D::4152470962036802778::1723275945::1723276013::1::::<><>::
+::res://Asset Packs 1-3 (final)/Asset Pack-V3/Sword Stab/::1723275945
+Player Sword Stab 96x48.png::CompressedTexture2D::8660951844711253169::1723275945::1723276013::1::::<><>::
+::res://assets/::1723275945
+ballBlue_09.png::CompressedTexture2D::4284091516235376158::1723275945::1723276013::1::::<><>::
+coin_06.png::CompressedTexture2D::2780469194653114535::1723275945::1723276013::1::::<><>::
+Roboto-Bold.ttf::FontFile::1282768306807593915::1723275945::1723276013::1::::<><>::
+::res://levels/::1723275945
+circle_world.tscn::PackedScene::8234621513754078968::1723275945::0::1::::<><>::res://scripts/circle_world.gd<>uid://dw6i34wt4qlay::::res://Player/player.tscn<>uid://dsqye2sc2h2yf::::res://c_gravity_area.tscn
+intro.tscn::PackedScene::1332200796316377666::1723275945::0::1::::<><>::uid://da44wr7601ca0::::res://level_template.tscn<>uid://dsqye2sc2h2yf::::res://c_gravity_area.tscn<>uid://bclewffjxdq25::::res://change_scene_area.tscn
+level1.tscn::PackedScene::1315640860836541880::1723275945::0::1::::<><>::uid://da44wr7601ca0::::res://level_template.tscn
+main_menu_good.tscn::PackedScene::2456304941085530737::1723275945::0::1::::<><>::uid://da44wr7601ca0::::res://level_template.tscn<>uid://cjedqvui1pjh3::::res://main_menu.tscn<>uid://s8lfgjak4tx7::::res://levels/intro.tscn
+secret_logo_room.tscn::PackedScene::-1::1723275945::0::1::::<><>::res://sprites/dvd5.png<>res://sprites/dvd6.png<>res://sprites/dvd1.png<>res://sprites/dvd7.png<>res://secret_logo.gd<>res://sprites/dvd4.png<>res://sprites/dvd2.png<>res://sprites/dvd3.png
+semicircle_world.tscn::PackedScene::8951207554017919090::1723275945::0::1::::<><>::res://scripts/semicircle_world.gd<>uid://dw6i34wt4qlay::::res://Player/player.tscn<>uid://b3t3iqopiqur1::::res://zone_de_vent.tscn<>uid://dsqye2sc2h2yf::::res://c_gravity_area.tscn<>uid://dd7jn2sw1rpjf::::res://icon.png<>uid://b5sg6qeettbpx::::res://level_transition.tscn<>uid://dpt1tspxyomxg::::res://moving_plateform.tscn
+::res://mobs/::1723218060
+::res://mobs/Castor_mitraillette/::1723218075
+::res://mobs/Castor_mitraillette/projectile/::1723275124
+projectile.gd::GDScript::-1::1723231537::0::1::::<>CharacterBody2D<>::
+projectile.tscn::PackedScene::5331704648713483351::1723232376::0::1::::<><>::res://mobs/Castor_mitraillette/projectile/projectile.gd<>uid://b2qnt5866pi3f::::res://mobs/Castor_mitraillette/projectile/rondin-en-bois-35277981.png
+rondin-en-bois-35277981.png::CompressedTexture2D::4315374385104663269::1723218207::1723276013::1::::<><>::
+::res://mobs/onyx/::1723275356
+onyx.gd::GDScript::-1::1723275356::0::1::::<>CharacterBody2D<>::
+onyx.tscn::PackedScene::597545580175312303::1723232375::0::1::::<><>::uid://tlaqw7ft37y4::::res://mobs/onyx/animation/idle_animation/idle_animation[1].jpg<>res://mobs/onyx/onyx.gd
+::res://mobs/onyx/animation/::1719326372
+::res://mobs/onyx/animation/idle_animation/::1723275124
+idle_animation[1].jpg::CompressedTexture2D::1356325962320901501::1719326254::1723276013::1::::<><>::
+::res://mobs/totem_claquette/::1718641398
+::res://mobs/totem_claquette/BottomTotemClaquette/::1723232375
+BottomTotemClaquette.gd::GDScript::-1::1723211924::0::1::::<>CharacterBody2D<>::
+BottomTotemClaquette.tscn::PackedScene::881684234421326490::1723232375::0::1::::<><>::res://mobs/totem_claquette/BottomTotemClaquette/BottomTotemClaquette.gd<>uid://c2xq8bg6i6jau::::res://mobs/totem_claquette/TopTotemClaquette/idle_animation/Idle_animation_1.jpg
+::res://mobs/totem_claquette/BottomTotemClaquette/idle_animation/::1723275124
+Idle_animation_1.jpg::CompressedTexture2D::6716451300252170640::1718394117::1723276013::1::::<><>::
+::res://mobs/totem_claquette/projectile/::1723275124
+bean_projectile_[1_4].jpg::CompressedTexture2D::2122210793086810054::1718537303::1723276013::1::::<><>::
+totem_claquette_projectile.gd::GDScript::-1::1718814043::0::1::::<>Area2D<>::
+totem_claquette_projectile.tscn::PackedScene::468426596167808510::1723232375::0::1::::<><>::res://mobs/totem_claquette/projectile/totem_claquette_projectile.gd<>uid://5iarb77epo35::::res://mobs/totem_claquette/projectile/bean_projectile_[1_4].jpg
+::res://mobs/totem_claquette/TopTotemClaquette/::1723232375
+TopTotemClaquette.gd::GDScript::-1::1723231525::0::1::::<>CharacterBody2D<>::
+TopTotemClaquette.tscn::PackedScene::4603125095743137489::1723232375::0::1::::<><>::uid://c2xq8bg6i6jau::::res://mobs/totem_claquette/TopTotemClaquette/idle_animation/Idle_animation_1.jpg
+::res://mobs/totem_claquette/TopTotemClaquette/idle_animation/::1723275124
+Idle_animation_1.jpg::CompressedTexture2D::6716451300252170640::1718394047::1723276013::1::::<><>::
+::res://Player/::1723275945
+ghost.gd::GDScript::-1::1723275945::0::1::::<>Node<>::
+monkey.gd::GDScript::-1::1723275945::0::1::::<>Node<>::
+player.gd::GDScript::-1::1723275945::0::1::::<>CharacterBody2D<>::
+player.tscn::PackedScene::8767949617728857204::1723275945::0::1::::<><>::res://Player/player.gd<>uid://bmue11k77r8kx::::res://stickman.png
+player_v2.gd::GDScript::-1::1723275945::0::1::::<>CharacterBody2D<>::
+s_simplePlayer.gd::GDScript::-1::1723275945::0::1::::<>RefCounted<>::
+::res://scripts/::1723275945
+circle_world.gd::GDScript::-1::1723275945::0::1::::<>Node2D<>::
+c_gravity_area.gd::GDScript::-1::1723275945::0::1::::<>Area2D<>::
+Events.gd::GDScript::-1::1723275945::0::1::::<>Node<>::
+level_changer.gd::GDScript::-1::1723275945::0::1::::<>Area2D<>::
+level_template.gd::GDScript::-1::1723275945::0::1::::<>Node2D<>::
+main_menu.gd::GDScript::-1::1723275945::0::1::::<>MarginContainer<>::
+moving plateform.gd::GDScript::-1::1723275945::0::1::::<>StaticBody2D<>::
+quit_Button.gd::GDScript::-1::1723275945::0::1::::<>Button<>::
+secret_logo.gd::GDScript::-1::1723275945::0::1::::<>CharacterBody2D<>::
+semicircle_world.gd::GDScript::-1::1723275945::0::1::::<>Node2D<>::
+start_Button.gd::GDScript::-1::1723275945::0::1::::<>Button<>::
+world.gd::GDScript::-1::1723275945::0::1::::<>Node2D<>::
+::res://sprites/::1723275945
+dvd1.png::CompressedTexture2D::5119194881872626396::1723275945::1723276013::1::::<><>::
+dvd2.png::CompressedTexture2D::5915247687982632142::1723275945::1723276013::1::::<><>::
+dvd3.png::CompressedTexture2D::6756498298017560566::1723275945::1723276013::1::::<><>::
+dvd4.png::CompressedTexture2D::3909292948289065896::1723275945::1723276013::1::::<><>::
+dvd5.png::CompressedTexture2D::7077371383519727841::1723275945::1723276013::1::::<><>::
+dvd6.png::CompressedTexture2D::2748335871336492733::1723275945::1723276013::1::::<><>::
+dvd7.png::CompressedTexture2D::4179013222385782582::1723275945::1723276013::1::::<><>::
+::res://trashcan/::1723275945
+Ball.gd::GDScript::-1::1723275945::0::1::::<>RigidBody2D<>::
+Ball.tscn::PackedScene::-1::1723275945::0::1::::<><>::res://trashcan/Ball.gd<>uid://b2bimjy3075py::::res://assets/ballBlue_09.png
+CharacterBody2D.gd::GDScript::-1::1723275945::0::1::::<>CharacterBody2D<>::
+collisions.tscn::PackedScene::9099418733502890724::1723275945::0::1::::<><>::
+collision_Node2D.tscn::PackedScene::9045992115397708383::1723275945::0::1::::<><>::
+testCharacterBody2D.gd::GDScript::-1::1723275945::0::1::::<>CharacterBody2D<>::
+testcharacter_body_2d.tscn::PackedScene::-1::1723275945::0::1::::<><>::res://trashcan/testCharacterBody2D.gd<>uid://b2bimjy3075py::::res://assets/ballBlue_09.png
+World2.gd::GDScript::-1::1723275945::0::1::::<>Node2D<>::
+World2.tscn::PackedScene::-1::1723275945::0::1::::<><>::res://trashcan/World2.gd<>uid://sjnahvlt0cil::::res://assets/Roboto-Bold.ttf
+::res://UI/::1723275945
+gameFrameBehavior.gd::GDScript::-1::1723275945::0::1::::<>RefCounted<>::
