@@ -10,15 +10,15 @@ layer_0/tile_data = PackedInt32Array(-851971, 524288, 1, -786435, 196608, 1, -72
 
 [node name="change_scene_area" parent="." index="4" instance=ExtResource("2_mq8je")]
 position = Vector2(66, 6)
-connected_scene = "res://levels/salle/Salle 8.tscn"
+connected_scene = "res://levels/salle/Salle 08.tscn"
 
 [node name="change_scene_area2" parent="." index="5" instance=ExtResource("2_mq8je")]
 position = Vector2(66, 25)
-connected_scene = "res://levels/salle/Salle 8.tscn"
+connected_scene = "res://levels/salle/Salle 08.tscn"
 
 [node name="change_scene_area3" parent="." index="6" instance=ExtResource("2_mq8je")]
 position = Vector2(66, 45)
-connected_scene = "res://levels/salle/Salle 8.tscn"
+connected_scene = "res://levels/salle/Salle 08.tscn"
 
 [node name="change_scene_area4" parent="." index="7" instance=ExtResource("2_mq8je")]
 position = Vector2(-47, 278)
