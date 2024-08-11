@@ -43,11 +43,11 @@ connected_scene = "res://levels/salle/Salle 13.tscn"
 
 [node name="change_scene_area9" parent="." index="12" instance=ExtResource("2_clp50")]
 position = Vector2(-193, 170)
-connected_scene = "res://levels/salle/Salle 010.tscn"
+connected_scene = "res://levels/salle/Salle 10.tscn"
 
 [node name="change_scene_area10" parent="." index="13" instance=ExtResource("2_clp50")]
 position = Vector2(-193, 151)
-connected_scene = "res://levels/salle/Salle 010.tscn"
+connected_scene = "res://levels/salle/Salle 10.tscn"
 
 [node name="change_scene_area11" parent="." index="14" instance=ExtResource("2_clp50")]
 position = Vector2(322, 9)
@@ -55,8 +55,8 @@ connected_scene = "res://levels/salle/Salle 09.tscn"
 
 [node name="change_scene_area12" parent="." index="15" instance=ExtResource("2_clp50")]
 position = Vector2(528, 170)
-connected_scene = "res://levels/salle/Salle 013.tscn"
+connected_scene = "res://levels/salle/Salle 13.tscn"
 
 [node name="change_scene_area13" parent="." index="16" instance=ExtResource("2_clp50")]
 position = Vector2(528, 150)
-connected_scene = "res://levels/salle/Salle 013.tscn"
+connected_scene = "res://levels/salle/Salle 13.tscn"
