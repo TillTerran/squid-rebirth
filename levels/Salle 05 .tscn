@@ -10,24 +10,24 @@ layer_0/tile_data = PackedInt32Array(-393222, 262144, 1, -327686, 196608, 1, -26
 
 [node name="change_scene_area" parent="." index="4" instance=ExtResource("2_a6lup")]
 position = Vector2(81, 31)
-connected_scene = "res://levels/salle/Salle 4.tscn"
+connected_scene = "res://levels/salle/Salle 04.tscn"
 
 [node name="change_scene_area2" parent="." index="5" instance=ExtResource("2_a6lup")]
 position = Vector2(81, 51)
-connected_scene = "res://levels/salle/Salle 4.tscn"
+connected_scene = "res://levels/salle/Salle 04.tscn"
 
 [node name="change_scene_area3" parent="." index="6" instance=ExtResource("2_a6lup")]
 position = Vector2(81, 71)
-connected_scene = "res://levels/salle/Salle 4.tscn"
+connected_scene = "res://levels/salle/Salle 04.tscn"
 
 [node name="change_scene_area4" parent="." index="7" instance=ExtResource("2_a6lup")]
 position = Vector2(81, 166)
-connected_scene = "res://levels/salle/Salle 6.tscn"
+connected_scene = "res://levels/salle/Salle 06.tscn"
 
 [node name="change_scene_area5" parent="." index="8" instance=ExtResource("2_a6lup")]
 position = Vector2(81, 185)
-connected_scene = "res://levels/salle/Salle 6.tscn"
+connected_scene = "res://levels/salle/Salle 06.tscn"
 
 [node name="change_scene_area6" parent="." index="9" instance=ExtResource("2_a6lup")]
 position = Vector2(81, 206)
-connected_scene = "res://levels/salle/Salle 6.tscn"
+connected_scene = "res://levels/salle/Salle 06.tscn"
