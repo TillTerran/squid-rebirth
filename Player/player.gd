@@ -17,6 +17,8 @@ var floating=false #is not affected by gravity ?
 
 var height_of_jump=1#height of the jump in tiles
 
+var dynamic_left_perception=false
+
 var mass = 1
 
 var coyote_jump = 0
@@ -165,7 +167,9 @@ func get_inputs(delta,input_vector,vec_gravity):
 		
 	else:
 		input_vector = left_dir * (Input.get_axis("ui_right","ui_left"))
-		change_left_perception(input_vector)
+		
+		if dynamic_left_perception:
+			change_left_perception(input_vector)
 		
 		accel+=vec_gravity*delta
 		accel+=jump_(delta)
