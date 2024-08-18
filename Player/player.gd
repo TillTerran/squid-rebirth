@@ -15,7 +15,7 @@ var speed_scale = 1.5
 var animation_prefix=""
 var floating=false #is not affected by gravity ?
 
-var height_of_jump=1#height of the jump in tiles
+var height_of_jump=1.5 #height of the jump in tiles
 
 var dynamic_left_perception=false
 
@@ -25,7 +25,7 @@ var coyote_jump = 0
 
 var frixion = 750
 
-var gravity=-500  #gravity strength
+var gravity=-500.0  #gravity strength
 
 @export var jump= -gravity*height_of_jump/4 #non linear between jump = 200 and jump = 300, have to fix that
 
