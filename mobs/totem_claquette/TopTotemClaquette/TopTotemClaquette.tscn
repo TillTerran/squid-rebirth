@@ -48,8 +48,8 @@ func _process(delta):
 	elif (player_chase==true) and (player!=null):#If there are not merging, it chase the player
 		chase_player()
 	move_and_slide()
-	print(velocity)
-	print(STATE.keys()[TopTotemState])
+	#print(velocity)
+	#print(STATE.keys()[TopTotemState])
 
 #If a bottom totem is in the area, they merge
 func _on_detection_area_bottom_totem_body_entered(body):

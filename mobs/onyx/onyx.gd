@@ -22,7 +22,6 @@ var Onyx_state=STATE.WAITING
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pos_init=global_position #Init the initial position of the Onyx
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if player!=null:

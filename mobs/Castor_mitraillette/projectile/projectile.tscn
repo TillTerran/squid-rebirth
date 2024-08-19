@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://ch7ynqpw38r3t"]
+[gd_scene load_steps=5 format=3 uid="uid://ch7ynqpw38r3t"]
 
 [ext_resource type="Script" path="res://mobs/Castor_mitraillette/projectile/projectile.gd" id="1_gd675"]
 [ext_resource type="Texture2D" uid="uid://b2qnt5866pi3f" path="res://mobs/Castor_mitraillette/projectile/rondin-en-bois-35277981.png" id="2_7kmjs"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_34oi6"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0bonq"]
+size = Vector2(16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lamcs"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -14,26 +17,21 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_r4spq"]
-size = Vector2(8, 8)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rc4gf"]
-size = Vector2(8, 8)
-
-[node name="Projectile" type="CharacterBody2D"]
+[node name="projectile" type="Area2D"]
+collision_layer = 7
 script = ExtResource("1_gd675")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(4, 4)
-scale = Vector2(0.005, 0.00473373)
-sprite_frames = SubResource("SpriteFrames_34oi6")
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(4, 4)
-shape = SubResource("RectangleShape2D_r4spq")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, 4)
-shape = SubResource("RectangleShape2D_rc4gf")
+shape = SubResource("RectangleShape2D_0bonq")
+debug_color = Color(0.45098, 0.588235, 0, 0.419608)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.40381e-05, 0)
+scale = Vector2(0.00999998, 0.00946745)
+sprite_frames = SubResource("SpriteFrames_lamcs")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(0.8, 0.8)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

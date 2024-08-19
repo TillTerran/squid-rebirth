@@ -139,7 +139,7 @@ func p_mvt(delta):
 	
 	
 	input_vector = get_inputs(delta,input_vector,vec_gravity)
-	update_animation(input_vector)
+	#update_animation(input_vector)
 	
 	
 	#print(input_vector)
@@ -380,9 +380,3 @@ func get_animation_prefix():
 	else:
 		animation_prefix="jumper"#maybe change to animation_prefix="PL"     #PL==plateformer
 	return animation_prefix
-
-
-
-
-
-
