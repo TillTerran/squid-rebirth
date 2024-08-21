@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7x1st8766bcw"]
+
+[ext_resource type="Script" path="res://mobs/Castor_mitraillette/Castor_mitraillette.gd" id="1_38nya"]
+[ext_resource type="Texture2D" uid="uid://dbgmb4osnfg6o" path="res://mobs/Castor_mitraillette/castor_depolux.jpg" id="1_mrymo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j3wsb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_mrymo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yexg8"]
+radius = 320.1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tcnb7"]
+size = Vector2(32, 32)
+
+[node name="CastorMitrailette" type="CharacterBody2D" groups=["Castor_mitraillette"]]
+script = ExtResource("1_38nya")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(4.76837e-07, -9.53674e-07)
+scale = Vector2(0.0769231, 0.0987654)
+sprite_frames = SubResource("SpriteFrames_j3wsb")
+
+[node name="DetectionAreaPlayer" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionAreaPlayer"]
+shape = SubResource("CircleShape2D_yexg8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tcnb7")
+
+[node name="ProjectileTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="Reloading" type="Timer" parent="."]
+one_shot = true
+
+[node name="Direction" type="Timer" parent="."]
+wait_time = 1.5
+
+[connection signal="body_entered" from="DetectionAreaPlayer" to="." method="_on_detection_area_player_body_entered"]
+[connection signal="body_exited" from="DetectionAreaPlayer" to="." method="_on_detection_area_player_body_exited"]
+[connection signal="timeout" from="ProjectileTimer" to="." method="_on_projectile_timer_timeout"]
+[connection signal="timeout" from="Reloading" to="." method="_on_reloading_timeout"]
+[connection signal="timeout" from="Direction" to="." method="_on_direction_timeout"]
