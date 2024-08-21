@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://mtdhfmqptfli"]
+
+[ext_resource type="Script" path="res://mobs/totem_claquette/BottomTotemClaquette/BottomTotemClaquette.gd" id="1_q8lht"]
+[ext_resource type="Texture2D" uid="uid://c2xq8bg6i6jau" path="res://mobs/totem_claquette/TopTotemClaquette/idle_animation/Idle_animation_1.jpg" id="2_3qtpk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hghxe"]
+size = Vector2(32, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dk3ok"]
+size = Vector2(23, 5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hyb8k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3qtpk")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8rcdp"]
+size = Vector2(443, 310)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nda7s"]
+radius = 116.004
+
+[node name="BottomTotemClaquette" type="CharacterBody2D" groups=["BottomTotemClaquette"]]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_q8lht")
+
+[node name="HitboxBottomTotem" type="CollisionShape2D" parent="."]
+position = Vector2(16, 18)
+shape = SubResource("RectangleShape2D_hghxe")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="HitboxBottomTotem" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(15.5, 1.5)
+shape = SubResource("RectangleShape2D_dk3ok")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(16, 18)
+scale = Vector2(0.045, 0.047)
+sprite_frames = SubResource("SpriteFrames_hyb8k")
+animation = &"idle"
+
+[node name="DetectionAreaPlayer" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionAreaPlayer"]
+position = Vector2(18, 18)
+shape = SubResource("RectangleShape2D_8rcdp")
+
+[node name="DetectionAreaTopTotem" type="Area2D" parent="."]
+position = Vector2(18, 18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionAreaTopTotem"]
+shape = SubResource("CircleShape2D_nda7s")
+
+[node name="ProjectileTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="BackToPosition" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="DetectionAreaPlayer" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionAreaPlayer" to="." method="_on_detection_area_body_exited"]
+[connection signal="body_entered" from="DetectionAreaTopTotem" to="." method="_on_detection_area_totem_body_entered"]
+[connection signal="body_exited" from="DetectionAreaTopTotem" to="." method="_on_detection_area_totem_body_exited"]
+[connection signal="timeout" from="ProjectileTimer" to="." method="_on_projectile_timer_timeout"]
