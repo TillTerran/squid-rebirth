@@ -15,7 +15,7 @@ var speed_scale = 1.5
 var animation_prefix=""
 var floating=false #is not affected by gravity ?
 
-var height_of_jump=1.5 #height of the jump in tiles
+@export var height_of_jump=3.0 #height of the jump in tiles
 
 var dynamic_left_perception=false
 
@@ -25,9 +25,9 @@ var coyote_jump = 0
 
 var frixion = 750
 
-var gravity=-500.0  #gravity strength
+var gravity=-540.0  #gravity strength
 
-@export var jump= -gravity*height_of_jump/4 #non linear between jump = 200 and jump = 300, have to fix that
+var jump= -2*gravity*(0.5+height_of_jump)/16# 16 pixel per tile; expected 
 
 var p_walkaccel = 500 
 
@@ -348,8 +348,7 @@ func change_up_direction(n_direction):
 
 
 func apply_accel(delta,a_vector,v_vector,max_hSpeed=300,max_vSpeed=2000):
-	
-	if v_vector.dot(left_dir)*a_vector.dot(left_dir)<=0:#HELL YEAH IT WORKS
+	if v_vector.dot(left_dir)*a_vector.dot(left_dir)<=1:#HELL YEAH IT WORKS
 		v_vector = v_vector.move_toward(up_direction*up_direction.dot(v_vector),12.5*frixion*delta*speed_scale)
 	if floating:
 		if v_vector.dot(up_direction)*a_vector.dot(up_direction)<=0:#HELL YEAH IT WORKS
