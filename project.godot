@@ -11,15 +11,15 @@ config_version=5
 [application]
 
 config/name="basic project"
-run/main_scene="res://levels/intro.tscn"
+run/main_scene="res://levels/salle/Salle 01.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 run/max_fps=60
-config/icon="res://random images/icon.svg"
+config/icon="res://icon.svg"
 
 [autoload]
 
 Events="*res://scripts/Events.gd"
-LevelTransition="*res://levels/level_transition.tscn"
+LevelTransition="*res://level_transition.tscn"
 
 [display]
 
