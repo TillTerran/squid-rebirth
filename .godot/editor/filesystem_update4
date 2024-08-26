@@ -1,11 +1,3 @@
-res://levels/main_menu_good.tscn
+res://mobs/Castor_mitraillette/Castor_mitraillette.tscn
 res://mobs/Castor_mitraillette/projectile/projectile.gd
 res://mobs/Castor_mitraillette/Castor_mitraillette.gd
-res://levels/intro.tscn
-res://mobs/Castor_mitraillette/Castor_mitraillette.tscn
-res://mobs/Castor_mitraillette/projectile/projectile.tscn
-res://mobs/onyx/onyx.tscn
-res://mobs/totem_claquette/BottomTotemClaquette/BottomTotemClaquette.tscn
-res://mobs/totem_claquette/projectile/totem_claquette_projectile.tscn
-res://mobs/totem_claquette/TopTotemClaquette/TopTotemClaquette.tscn
-res://Player/player.tscn

@@ -84,3 +84,7 @@ func _on_detection_area_player_body_exited(body):
 	player_chase=false
 	player=null
 	$Reloading.stop()
+
+
+func _on_animated_sprite_2d_animation_finished():
+	pass # Replace with function body.

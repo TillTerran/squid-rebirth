@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1724079422
+::res://::1724683053
 change_scene_area.tscn::PackedScene::2549788952481361628::1723275945::0::1::::<><>::res://scripts/level_changer.gd
 collisions.tscn::PackedScene::9099418733502890724::1723275945::0::1::::<><>::
 c_gravity_area.tscn::PackedScene::8457157077695049673::1723275945::0::1::::<><>::res://scripts/c_gravity_area.gd
@@ -78,48 +78,78 @@ Player Sword Stab 96x48.png::CompressedTexture2D::8660951844711253169::172327594
 ballBlue_09.png::CompressedTexture2D::4284091516235376158::1723275945::1723276013::1::::<><>::
 coin_06.png::CompressedTexture2D::2780469194653114535::1723275945::1723276013::1::::<><>::
 Roboto-Bold.ttf::FontFile::1282768306807593915::1723275945::1723276013::1::::<><>::
-::res://levels/::1723882677
+::res://levels/::1724263428
 circle_world.tscn::PackedScene::8234621513754078968::1723275945::0::1::::<><>::res://scripts/circle_world.gd<>uid://dw6i34wt4qlay::::res://Player/player.tscn<>uid://dsqye2sc2h2yf::::res://c_gravity_area.tscn
-intro.tscn::PackedScene::1332200796316377666::1723882677::0::1::::<><>::uid://da44wr7601ca0::::res://level_template.tscn<>uid://dsqye2sc2h2yf::::res://c_gravity_area.tscn<>uid://bclewffjxdq25::::res://change_scene_area.tscn<>uid://mtdhfmqptfli::::res://mobs/totem_claquette/BottomTotemClaquette/BottomTotemClaquette.tscn<>uid://b6t12ei2nosv6::::res://mobs/totem_claquette/TopTotemClaquette/TopTotemClaquette.tscn<>uid://irpquugqy33h::::res://mobs/onyx/onyx.tscn<>uid://b7x1st8766bcw::::res://mobs/Castor_mitraillette/Castor_mitraillette.tscn
+intro.tscn::PackedScene::1332200796316377666::1724263428::0::1::::<><>::uid://da44wr7601ca0::::res://level_template.tscn<>uid://dsqye2sc2h2yf::::res://c_gravity_area.tscn<>uid://bclewffjxdq25::::res://change_scene_area.tscn<>uid://mtdhfmqptfli::::res://mobs/totem_claquette/BottomTotemClaquette/BottomTotemClaquette.tscn<>uid://b6t12ei2nosv6::::res://mobs/totem_claquette/TopTotemClaquette/TopTotemClaquette.tscn<>uid://irpquugqy33h::::res://mobs/onyx/onyx.tscn<>uid://b7x1st8766bcw::::res://mobs/Castor_mitraillette/Castor_mitraillette.tscn
 level1.tscn::PackedScene::1315640860836541880::1723275945::0::1::::<><>::uid://da44wr7601ca0::::res://level_template.tscn
-main_menu_good.tscn::PackedScene::2456304941085530737::1723882677::0::1::::<><>::uid://da44wr7601ca0::::res://level_template.tscn<>uid://cjedqvui1pjh3::::res://main_menu.tscn<>uid://s8lfgjak4tx7::::res://levels/intro.tscn
+main_menu_good.tscn::PackedScene::2456304941085530737::1724263428::0::1::::<><>::uid://da44wr7601ca0::::res://level_template.tscn<>uid://cjedqvui1pjh3::::res://main_menu.tscn<>uid://s8lfgjak4tx7::::res://levels/intro.tscn
+Salle 01.tscn::PackedScene::2363167989513666666::1724081184::0::1::::<><>::uid://da44wr7601ca0::::res://level_template.tscn<>uid://bclewffjxdq25::::res://change_scene_area.tscn
+Salle 02.tscn::PackedScene::1709230914015527111::1724081184::0::1::::<><>::uid://da44wr7601ca0::::res://level_template.tscn<>uid://bclewffjxdq25::::res://change_scene_area.tscn
+Salle 03.tscn::PackedScene::3701742264594032734::1724081184::0::1::::<><>::uid://bclewffjxdq25::::res://change_scene_area.tscn<>uid://da44wr7601ca0::::res://level_template.tscn
+Salle 04.tscn::PackedScene::1526413728990376295::1724081184::0::1::::<><>::uid://da44wr7601ca0::::res://level_template.tscn<>uid://bclewffjxdq25::::res://change_scene_area.tscn
+Salle 05 .tscn::PackedScene::3418500488091276728::1724081184::0::1::::<><>::uid://da44wr7601ca0::::res://level_template.tscn<>uid://bclewffjxdq25::::res://change_scene_area.tscn
+Salle 06.tscn::PackedScene::8726665176303635054::1724081184::0::1::::<><>::uid://da44wr7601ca0::::res://level_template.tscn<>uid://bclewffjxdq25::::res://change_scene_area.tscn
+Salle 07.tscn::PackedScene::1557860673490863393::1724081184::0::1::::<><>::uid://da44wr7601ca0::::res://level_template.tscn<>uid://bclewffjxdq25::::res://change_scene_area.tscn
+Salle 08.tscn::PackedScene::5175498814170756848::1724081184::0::1::::<><>::uid://da44wr7601ca0::::res://level_template.tscn<>uid://bclewffjxdq25::::res://change_scene_area.tscn
+Salle 09.tscn::PackedScene::1804744032060568613::1724081184::0::1::::<><>::uid://da44wr7601ca0::::res://level_template.tscn<>uid://bclewffjxdq25::::res://change_scene_area.tscn
+Salle 10.tscn::PackedScene::70791019430644333::1724081184::0::1::::<><>::uid://da44wr7601ca0::::res://level_template.tscn<>uid://bclewffjxdq25::::res://change_scene_area.tscn
+Salle 11.tscn::PackedScene::3726093785197436059::1724081184::0::1::::<><>::uid://da44wr7601ca0::::res://level_template.tscn<>uid://bclewffjxdq25::::res://change_scene_area.tscn
+Salle 12.tscn::PackedScene::4222885613229230726::1724081184::0::1::::<><>::uid://da44wr7601ca0::::res://level_template.tscn<>uid://bclewffjxdq25::::res://change_scene_area.tscn
+Salle 13.tscn::PackedScene::1193284262598630868::1724081184::0::1::::<><>::uid://da44wr7601ca0::::res://level_template.tscn<>uid://bclewffjxdq25::::res://change_scene_area.tscn
+Salle 14.tscn::PackedScene::6280691229755248813::1724081184::0::1::::<><>::uid://da44wr7601ca0::::res://level_template.tscn<>uid://bclewffjxdq25::::res://change_scene_area.tscn
 secret_logo_room.tscn::PackedScene::-1::1723275945::0::1::::<><>::res://sprites/dvd5.png<>res://sprites/dvd6.png<>res://sprites/dvd1.png<>res://sprites/dvd7.png<>res://secret_logo.gd<>res://sprites/dvd4.png<>res://sprites/dvd2.png<>res://sprites/dvd3.png
 semicircle_world.tscn::PackedScene::8951207554017919090::1723275945::0::1::::<><>::res://scripts/semicircle_world.gd<>uid://dw6i34wt4qlay::::res://Player/player.tscn<>uid://b3t3iqopiqur1::::res://zone_de_vent.tscn<>uid://dsqye2sc2h2yf::::res://c_gravity_area.tscn<>uid://dd7jn2sw1rpjf::::res://icon.png<>uid://b5sg6qeettbpx::::res://level_transition.tscn<>uid://dpt1tspxyomxg::::res://moving_plateform.tscn
 ::res://mobs/::1723218060
-::res://mobs/Castor_mitraillette/::1723883280
+::res://mobs/Castor_mitraillette/::1724273713
 castor_depolux.jpg::CompressedTexture2D::7242569096588627196::1723449654::1723449690::1::::<><>::
-Castor_mitraillette.gd::GDScript::-1::1723883280::0::1::::<>CharacterBody2D<>::
-Castor_mitraillette.tscn::PackedScene::4681556204974506502::1723883280::0::1::::<><>::res://mobs/Castor_mitraillette/Castor_mitraillette.gd<>uid://dbgmb4osnfg6o::::res://mobs/Castor_mitraillette/castor_depolux.jpg
-::res://mobs/Castor_mitraillette/projectile/::1723882678
-projectile.gd::GDScript::-1::1723882630::0::1::::<>Area2D<>::
-projectile.tscn::PackedScene::5331704648713483351::1723882678::0::1::::<><>::res://mobs/Castor_mitraillette/projectile/projectile.gd<>uid://b2qnt5866pi3f::::res://mobs/Castor_mitraillette/projectile/rondin-en-bois-35277981.png
+Castor_mitraillette.gd::GDScript::-1::1724273713::0::1::::<>CharacterBody2D<>::
+Castor_mitraillette.tscn::PackedScene::4681556204974506502::1724273713::0::1::::<><>::res://mobs/Castor_mitraillette/Castor_mitraillette.gd<>uid://dbgmb4osnfg6o::::res://mobs/Castor_mitraillette/castor_depolux.jpg<>uid://xiifa2d4b3j6::::res://mobs/Castor_mitraillette/animation/attack/lancer_de_tronc_V4.png
+::res://mobs/Castor_mitraillette/animation/::1724257041
+::res://mobs/Castor_mitraillette/animation/attack/::1724271171
+lancer de tronc.png::CompressedTexture2D::6652080444012241460::1724261742::1724261764::1::::<><>::
+lancer_de_tronc[1_9].png::CompressedTexture2D::2088360607860154926::1724257994::1724258248::1::::<><>::
+lancer_de_tronc[2_9].png::CompressedTexture2D::286859533859738985::1724258031::1724258248::1::::<><>::
+lancer_de_tronc[3_9].png::CompressedTexture2D::2193668215843905114::1724258067::1724258248::1::::<><>::
+lancer_de_tronc[4_9].png::CompressedTexture2D::721962349161520327::1724258093::1724258248::1::::<><>::
+lancer_de_tronc[5_9].png::CompressedTexture2D::2897734441820496783::1724258122::1724258248::1::::<><>::
+lancer_de_tronc[6_9].png::CompressedTexture2D::3049435165877316346::1724258157::1724258248::1::::<><>::
+lancer_de_tronc[7_9].png::CompressedTexture2D::2618149462971360485::1724258187::1724258248::1::::<><>::
+lancer_de_tronc[8_9].png::CompressedTexture2D::1339582218085769148::1724258220::1724258248::1::::<><>::
+lancer_de_tronc[9_9].png::CompressedTexture2D::4475082674431782780::1724258245::1724258248::1::::<><>::
+lancer_de_tronc_V2.png::CompressedTexture2D::8440294378433531001::1724269999::1724270032::1::::<><>::
+lancer_de_tronc_V2_pas_de_tronc.png::CompressedTexture2D::9222323417303528622::1724270027::1724270031::1::::<><>::
+lancer_de_tronc_V4.png::CompressedTexture2D::1631353132503730489::1724271165::1724271171::1::::<><>::
+::res://mobs/Castor_mitraillette/animation/idle/::1724257038
+::res://mobs/Castor_mitraillette/projectile/::1724273713
+projectile.gd::GDScript::-1::1724273713::0::1::::<>Area2D<>::
+projectile.tscn::PackedScene::5331704648713483351::1724263428::0::1::::<><>::res://mobs/Castor_mitraillette/projectile/projectile.gd<>uid://b2qnt5866pi3f::::res://mobs/Castor_mitraillette/projectile/rondin-en-bois-35277981.png
 rondin-en-bois-35277981.png::CompressedTexture2D::4315374385104663269::1723218207::1723276013::1::::<><>::
-::res://mobs/onyx/::1723882678
+::res://mobs/onyx/::1724263428
 onyx.gd::GDScript::-1::1723468008::0::1::::<>CharacterBody2D<>::
-onyx.tscn::PackedScene::597545580175312303::1723882678::0::1::::<><>::uid://tlaqw7ft37y4::::res://mobs/onyx/animation/idle_animation/idle_animation[1].jpg<>res://mobs/onyx/onyx.gd
+onyx.tscn::PackedScene::597545580175312303::1724263428::0::1::::<><>::uid://tlaqw7ft37y4::::res://mobs/onyx/animation/idle_animation/idle_animation[1].jpg<>res://mobs/onyx/onyx.gd
 ::res://mobs/onyx/animation/::1719326372
 ::res://mobs/onyx/animation/idle_animation/::1723276013
 idle_animation[1].jpg::CompressedTexture2D::1356325962320901501::1719326254::1723276013::1::::<><>::
 ::res://mobs/totem_claquette/::1718641398
-::res://mobs/totem_claquette/BottomTotemClaquette/::1723882678
+::res://mobs/totem_claquette/BottomTotemClaquette/::1724263428
 BottomTotemClaquette.gd::GDScript::-1::1723211924::0::1::::<>CharacterBody2D<>::
-BottomTotemClaquette.tscn::PackedScene::881684234421326490::1723882678::0::1::::<><>::res://mobs/totem_claquette/BottomTotemClaquette/BottomTotemClaquette.gd<>uid://c2xq8bg6i6jau::::res://mobs/totem_claquette/TopTotemClaquette/idle_animation/Idle_animation_1.jpg
+BottomTotemClaquette.tscn::PackedScene::881684234421326490::1724263428::0::1::::<><>::res://mobs/totem_claquette/BottomTotemClaquette/BottomTotemClaquette.gd<>uid://c2xq8bg6i6jau::::res://mobs/totem_claquette/TopTotemClaquette/idle_animation/Idle_animation_1.jpg
 ::res://mobs/totem_claquette/BottomTotemClaquette/idle_animation/::1723276013
 Idle_animation_1.jpg::CompressedTexture2D::6716451300252170640::1718394117::1723276013::1::::<><>::
-::res://mobs/totem_claquette/projectile/::1723882678
+::res://mobs/totem_claquette/projectile/::1724263428
 bean_projectile_[1_4].jpg::CompressedTexture2D::2122210793086810054::1718537303::1723276013::1::::<><>::
 totem_claquette_projectile.gd::GDScript::-1::1718814043::0::1::::<>Area2D<>::
-totem_claquette_projectile.tscn::PackedScene::468426596167808510::1723882678::0::1::::<><>::res://mobs/totem_claquette/projectile/totem_claquette_projectile.gd<>uid://5iarb77epo35::::res://mobs/totem_claquette/projectile/bean_projectile_[1_4].jpg
-::res://mobs/totem_claquette/TopTotemClaquette/::1723882678
+totem_claquette_projectile.tscn::PackedScene::468426596167808510::1724263428::0::1::::<><>::res://mobs/totem_claquette/projectile/totem_claquette_projectile.gd<>uid://5iarb77epo35::::res://mobs/totem_claquette/projectile/bean_projectile_[1_4].jpg
+::res://mobs/totem_claquette/TopTotemClaquette/::1724263429
 TopTotemClaquette.gd::GDScript::-1::1723231525::0::1::::<>CharacterBody2D<>::
-TopTotemClaquette.tscn::PackedScene::4603125095743137489::1723882678::0::1::::<><>::uid://c2xq8bg6i6jau::::res://mobs/totem_claquette/TopTotemClaquette/idle_animation/Idle_animation_1.jpg
+TopTotemClaquette.tscn::PackedScene::4603125095743137489::1724263429::0::1::::<><>::uid://c2xq8bg6i6jau::::res://mobs/totem_claquette/TopTotemClaquette/idle_animation/Idle_animation_1.jpg
 ::res://mobs/totem_claquette/TopTotemClaquette/idle_animation/::1723276013
 Idle_animation_1.jpg::CompressedTexture2D::6716451300252170640::1718394047::1723276013::1::::<><>::
-::res://Player/::1723882678
+::res://Player/::1724263429
 ghost.gd::GDScript::-1::1723275945::0::1::::<>Node<>::
 monkey.gd::GDScript::-1::1723275945::0::1::::<>Node<>::
-player.gd::GDScript::-1::1723451819::0::1::::<>CharacterBody2D<>::
-player.tscn::PackedScene::8767949617728857204::1723882678::0::1::::<><>::res://Player/player.gd<>uid://bmue11k77r8kx::::res://stickman.png
+player.gd::GDScript::-1::1724081184::0::1::::<>CharacterBody2D<>::
+player.tscn::PackedScene::8767949617728857204::1724263429::0::1::::<><>::res://Player/player.gd<>uid://bmue11k77r8kx::::res://stickman.png
 player_v2.gd::GDScript::-1::1723275945::0::1::::<>CharacterBody2D<>::
 s_simplePlayer.gd::GDScript::-1::1723275945::0::1::::<>RefCounted<>::
 ::res://scripts/::1723275945
