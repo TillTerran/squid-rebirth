@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var world = $".."
-@onready var player_sprite = $player_sprite
+#@onready var player_sprite = $player_sprite
 
 @export var level:PackedScene
 
@@ -141,7 +141,7 @@ func p_mvt(delta):
 	
 	
 	input_vector = get_inputs(delta,input_vector,vec_gravity)
-	#update_animation(input_vector)
+	update_animation(input_vector)
 	
 	
 	#print(input_vector)

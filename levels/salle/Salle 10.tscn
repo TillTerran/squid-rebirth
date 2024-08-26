@@ -5,33 +5,24 @@
 
 [node name="level_template" instance=ExtResource("1_5p05v")]
 
+[node name="player" parent="." index="0"]
+position = Vector2(28, 30)
+
 [node name="TileMap" parent="." index="1"]
 layer_0/tile_data = PackedInt32Array(-851971, 524288, 1, -786435, 196608, 1, -720899, 196608, 1, -655363, 196608, 1, -589827, 196608, 1, -524291, 196608, 1, -458755, 196608, 1, -393219, 196608, 1, -327683, 196608, 1, -262147, 196608, 1, -196611, 196608, 1, -131075, 196608, 1, -65539, 196608, 1, -3, 196608, 1, 65533, 196608, 1, 131069, 196608, 1, 196605, 196608, 1, 262141, 196608, 1, 327677, 196608, 1, 393213, 196608, 1, 458749, 196608, 1, 524285, 196608, 1, 589821, 196608, 1, 655357, 196608, 1, 720893, 196608, 1, 786429, 196608, 1, 851965, 196608, 1, 917501, 458752, 2, 983037, 458752, 1, 1048573, 196608, 1, 1114109, 196608, 2, 1310717, 65536, 0, -851970, 65536, 2, 1310718, 65536, 0, -851969, 65536, 2, 1310719, 65536, 0, -917504, 65536, 2, 1245184, 65536, 0, -917503, 65536, 2, 196609, 0, 0, 262145, 0, 2, 1245185, 65536, 0, -917502, 65536, 2, 196610, 65536, 0, 262146, 65536, 2, 1245186, 65536, 0, -917501, 393216, 1, -851965, 0, 1, -786429, 0, 1, -720893, 0, 1, -655357, 0, 1, -589821, 0, 1, -524285, 0, 1, -458749, 0, 1, -393213, 0, 1, -327677, 0, 1, -262141, 0, 1, -196605, 0, 1, -131069, 0, 1, -65533, 0, 2, 196611, 65536, 0, 262147, 393216, 1, 327683, 0, 1, 393219, 0, 1, 458755, 0, 1, 524291, 0, 1, 589827, 0, 1, 655363, 0, 1, 720899, 0, 1, 786435, 0, 1, 851971, 0, 1, 917507, 0, 1, 983043, 0, 1, 1048579, 0, 2, 1245187, 65536, 0)
 
-[node name="change_scene_area" parent="." index="4" instance=ExtResource("2_mq8je")]
-position = Vector2(66, 6)
-connected_scene = "res://levels/salle/Salle 08.tscn"
-
-[node name="change_scene_area2" parent="." index="5" instance=ExtResource("2_mq8je")]
+[node name="change_scene_area2" parent="." index="4" instance=ExtResource("2_mq8je")]
 position = Vector2(66, 25)
 connected_scene = "res://levels/salle/Salle 08.tscn"
 
-[node name="change_scene_area3" parent="." index="6" instance=ExtResource("2_mq8je")]
-position = Vector2(66, 45)
-connected_scene = "res://levels/salle/Salle 08.tscn"
-
-[node name="change_scene_area4" parent="." index="7" instance=ExtResource("2_mq8je")]
-position = Vector2(-47, 278)
-connected_scene = "res://levels/salle/Salle 11.tscn"
-
-[node name="change_scene_area5" parent="." index="8" instance=ExtResource("2_mq8je")]
+[node name="change_scene_area5" parent="." index="5" instance=ExtResource("2_mq8je")]
 position = Vector2(-47, 298)
 connected_scene = "res://levels/salle/Salle 11.tscn"
 
-[node name="change_scene_area6" parent="." index="9" instance=ExtResource("2_mq8je")]
+[node name="change_scene_area6" parent="." index="6" instance=ExtResource("2_mq8je")]
 position = Vector2(65, 278)
 connected_scene = "res://levels/salle/Salle 12.tscn"
 
-[node name="change_scene_area7" parent="." index="10" instance=ExtResource("2_mq8je")]
+[node name="change_scene_area7" parent="." index="7" instance=ExtResource("2_mq8je")]
 position = Vector2(65, 299)
 connected_scene = "res://levels/salle/Salle 12.tscn"
