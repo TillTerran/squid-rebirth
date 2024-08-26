@@ -156,7 +156,6 @@ libraries = {
 [node name="SpriteTree" type="Sprite2D" parent="."]
 
 [node name="Idle" type="Sprite2D" parent="SpriteTree"]
-visible = false
 position = Vector2(1.19209e-07, -0.312496)
 scale = Vector2(0.458333, 0.492187)
 texture = ExtResource("2_qub0q")
@@ -169,6 +168,7 @@ texture = ExtResource("3_1dxfa")
 hframes = 8
 
 [node name="Punch" type="Sprite2D" parent="SpriteTree"]
+visible = false
 position = Vector2(1.25, 8.34465e-07)
 scale = Vector2(0.398438, 0.453125)
 texture = ExtResource("4_6t0ue")

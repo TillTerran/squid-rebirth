@@ -8,10 +8,6 @@
 [node name="TileMap" parent="." index="1"]
 layer_0/tile_data = PackedInt32Array(-131079, 262144, 1, -65543, 196608, 1, -7, 196608, 1, 65529, 196608, 1, 131065, 196608, 1, 196601, 262144, 2, -131078, 65536, 2, 196602, 65536, 0, -131077, 65536, 2, 196603, 65536, 0, -131076, 65536, 2, 196604, 65536, 0, -131075, 65536, 2, 196605, 65536, 0, -131074, 65536, 2, 196606, 65536, 0, -131073, 65536, 2, 196607, 65536, 0, -196608, 65536, 2, 131072, 65536, 0, -196607, 65536, 2, 131073, 65536, 0, -196606, 65536, 2, 131074, 65536, 0, -196605, 65536, 2, 131075, 65536, 0, -196604, 65536, 2, 131076, 65536, 0, -196603, 65536, 2, 131077, 65536, 0, -196602, 458752, 1, -131066, 196608, 1, -65530, 196608, 2, 131078, 65536, 0)
 
-[node name="change_scene_area" parent="." index="4" instance=ExtResource("2_5u5qa")]
-position = Vector2(113, 6)
-connected_scene = "res://levels/salle/Salle 10.tscn"
-
-[node name="change_scene_area2" parent="." index="5" instance=ExtResource("2_5u5qa")]
+[node name="change_scene_area2" parent="." index="4" instance=ExtResource("2_5u5qa")]
 position = Vector2(113, 26)
 connected_scene = "res://levels/salle/Salle 10.tscn"

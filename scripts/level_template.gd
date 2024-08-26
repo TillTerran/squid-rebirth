@@ -28,6 +28,3 @@ func change_scene(new_scene) -> void:
 
 func to_main_menu():
 	await change_scene("res://levels/main_menu_good.tscn")
-
-
-
