@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c833s1u5hyolg"]
+
+[ext_resource type="Script" path="res://scene_change/tp_point.gd" id="1_w20ub"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6fj7m"]
+
+[node name="tp_point" type="Node2D" groups=["tp_points"]]
+script = ExtResource("1_w20ub")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_6fj7m")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

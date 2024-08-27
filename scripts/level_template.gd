@@ -1,12 +1,16 @@
 extends Node2D
 
 @onready var player = $player
+@export var tp_points_array:Array
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Events.main_menu.connect(to_main_menu)
 	Events.change_scene.connect(change_scene)
+	var tp_points = get_tree().get_nodes_in_group("tp_points")
+	player.position = tp_points[Events.tp_point_id].position
+	Events.tp_point_id=0#value of the tp point where you respawn if you load from the main menu.
 	pass # Replace with function body.
 
 
@@ -16,6 +20,7 @@ func _ready():
 func change_scene(new_scene) -> void:
 	"""changes the current scene to the new_scene, supports both packed and string paths, 
 	will probably need  some work to have a propper loading screen"""
+	
 	if new_scene is String:
 		await $LevelTransition.fade_to_black()
 		get_tree().change_scene_to_file(new_scene)
@@ -24,6 +29,7 @@ func change_scene(new_scene) -> void:
 		#await get_tree().change_scene_to_packed(new_scene)
 	else:
 		return
+	
 	$LevelTransition.fade_from_black()
 
 func to_main_menu():

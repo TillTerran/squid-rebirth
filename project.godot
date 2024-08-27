@@ -27,6 +27,10 @@ window/size/viewport_width=960
 window/size/viewport_height=540
 window/vsync/vsync_mode=0
 
+[global_group]
+
+tp_points=""
+
 [input]
 
 ui_a={

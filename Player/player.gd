@@ -19,6 +19,8 @@ var floating=false #is not affected by gravity ?
 
 var dynamic_left_perception=false
 
+var respawn_point=Vector2.ZERO
+
 var mass = 1
 
 var coyote_jump = 0
@@ -287,7 +289,20 @@ func update_animation(input_vector):
 	if not is_on_floor():
 		player_sprite.play("jump")"""
 	"""$SpriteTree.flip_h = (input_vector.dot(-left_dir)<0)"""
-	
+
+
+
+
+#======================================================================================================================================
+#======================================================================================================================================
+#======================================================================================================================================
+
+#MOVEMENT CODE
+
+
+
+
+
 
 func change_left_perception(input_vector):
 	"""makes the right/left direction correspond to what's displayed on the screen
