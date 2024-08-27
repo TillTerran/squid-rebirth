@@ -49,6 +49,11 @@ Interract={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="physics (player and ennemies)"
+2d_physics/layer_8="pickable : mask || player : layer"
+
 [physics]
 
 2d/size/viewport_height=1080
