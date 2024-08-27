@@ -9,7 +9,10 @@ func _ready():
 	Events.main_menu.connect(to_main_menu)
 	Events.change_scene.connect(change_scene)
 	var tp_points = get_tree().get_nodes_in_group("tp_points")
-	player.position = tp_points[Events.tp_point_id].position
+	for tp_point in tp_points:
+		if tp_point.is_searched_tp_point(Events.tp_point_id):
+			player.position=tp_point.position
+	#player.position = tp_points[Events.tp_point_id].position
 	Events.tp_point_id=0#value of the tp point where you respawn if you load from the main menu.
 	pass # Replace with function body.
 

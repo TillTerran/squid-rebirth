@@ -125,8 +125,8 @@ func _process(delta):# try to change to _physics_process
 
 
 
-
-
+'
+'
 func p_mvt(delta):
 	
 	var vec_gravity = up_direction*gravity
