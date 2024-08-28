@@ -58,16 +58,14 @@ func _process(delta):
 		#print(STATE.keys()[Onyx_state])
 		
 func _on_detection_area_player_body_entered(body):
-		if body.is_in_group("Player"):
-			player=body
-			player_chase=true
-			$WaitingTimerGoBackToPosition.stop()
+	player=body
+	player_chase=true
+	$WaitingTimerGoBackToPosition.stop()
 		
 func _on_detection_area_player_body_exited(body):
-	if body.is_in_group("Player"):
-		player=null
-		player_chase=false
-		$WaitingTimerGoBackToPosition.start()
+	player=null
+	player_chase=false
+	$WaitingTimerGoBackToPosition.start()
 
 func fall():
 	#When the player is under the Onyx, he fall on the ground
