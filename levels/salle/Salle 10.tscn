@@ -19,10 +19,6 @@ connected_scene = "res://levels/salle/Salle 08.tscn"
 position = Vector2(-47, 298)
 connected_scene = "res://levels/salle/Salle 11.tscn"
 
-[node name="change_scene_area6" parent="." index="6" instance=ExtResource("2_mq8je")]
-position = Vector2(65, 278)
-connected_scene = "res://levels/salle/Salle 12.tscn"
-
-[node name="change_scene_area7" parent="." index="7" instance=ExtResource("2_mq8je")]
-position = Vector2(65, 299)
+[node name="change_scene_area7" parent="." index="6" instance=ExtResource("2_mq8je")]
+position = Vector2(65, 289)
 connected_scene = "res://levels/salle/Salle 12.tscn"

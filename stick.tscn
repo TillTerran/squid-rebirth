@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://djll4fa4ywnms"]
+
+[ext_resource type="Texture2D" uid="uid://8w4c8bifqs8r" path="res://Iicon_32_05.png" id="1_ju84i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_arphy"]
+size = Vector2(16, 18)
+
+[node name="Stick" type="RigidBody2D" groups=["Grab"]]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_arphy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5625, 0.5625)
+texture = ExtResource("1_ju84i")
