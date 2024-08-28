@@ -1,16 +1,16 @@
 [gd_scene load_steps=5 format=3 uid="uid://ch7ynqpw38r3t"]
 
 [ext_resource type="Script" path="res://mobs/Castor_mitraillette/projectile/projectile.gd" id="1_gd675"]
-[ext_resource type="Texture2D" uid="uid://ce7alse6io2pk" path="res://mobs/Castor_mitraillette/projectile/rondin-en-bois-35277981.png" id="2_7kmjs"]
+[ext_resource type="Texture2D" uid="uid://bx68h4poaauhm" path="res://mobs/Castor_mitraillette/projectile/f_tronc.png" id="2_b5i3m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0bonq"]
-size = Vector2(16, 16)
+size = Vector2(32, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lamcs"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_7kmjs")
+"texture": ExtResource("2_b5i3m")
 }],
 "loop": true,
 "name": &"default",
@@ -27,11 +27,12 @@ shape = SubResource("RectangleShape2D_0bonq")
 debug_color = Color(0.45098, 0.588235, 0, 0.419608)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1.40381e-05, 0)
-scale = Vector2(0.00999998, 0.00946745)
+position = Vector2(2.14577e-06, -1.90735e-06)
+scale = Vector2(0.064, 0.064)
 sprite_frames = SubResource("SpriteFrames_lamcs")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+visible = false
 scale = Vector2(0.8, 0.8)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
