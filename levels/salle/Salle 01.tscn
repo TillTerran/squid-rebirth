@@ -1,9 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://8w0bcpa3a3du"]
+[gd_scene load_steps=3 format=3 uid="uid://8w0bcpa3a3du"]
 
 [ext_resource type="PackedScene" uid="uid://da44wr7601ca0" path="res://level_template.tscn" id="1_qotwk"]
 [ext_resource type="PackedScene" uid="uid://bclewffjxdq25" path="res://change_scene_area.tscn" id="2_4ulbk"]
-[ext_resource type="PackedScene" uid="uid://c833s1u5hyolg" path="res://scene_change/tp_point.tscn" id="3_4niib"]
-[ext_resource type="PackedScene" uid="uid://tw2avpitjgu5" path="res://pickables/key.tscn" id="4_lalux"]
 
 [node name="level_template" instance=ExtResource("1_qotwk")]
 
@@ -17,15 +15,3 @@ layer_0/tile_data = PackedInt32Array(-131076, 262144, 0, -65540, 196608, 1, -4, 
 position = Vector2(63, 32)
 scale = Vector2(2, 2)
 connected_scene = "res://levels/salle/Salle 02.tscn"
-tp_point_id = 1
-
-[node name="tp_point" parent="." index="5" instance=ExtResource("3_4niib")]
-position = Vector2(26, 33)
-tp_id = 1
-
-[node name="tp_point1" parent="." index="6" instance=ExtResource("3_4niib")]
-position = Vector2(-23, 33)
-tp_id = 0
-
-[node name="key" parent="." index="7" instance=ExtResource("4_lalux")]
-position = Vector2(-33, 35)

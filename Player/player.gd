@@ -500,6 +500,11 @@ func add_more_health() :
 	if current_hp < hp_max :
 			current_hp = (current_hp +2) % (hp_max+1)
 
+func lose_hp(hp_lost):
+	current_hp-=1
+	#make invincible for a set time
+	pass
+
 
 
 func change_floating():#change this name, it's so bad
