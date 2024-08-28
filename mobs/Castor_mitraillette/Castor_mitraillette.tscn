@@ -230,6 +230,8 @@ autoplay = "idle"
 
 [node name="DetectionAreaPlayer" type="Area2D" parent="."]
 visible = false
+collision_layer = 0
+collision_mask = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionAreaPlayer"]
 shape = SubResource("CircleShape2D_yexg8")
@@ -260,7 +262,6 @@ libraries = {
 }
 
 [node name="AttackCollision" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(-2, -0.375)
 shape = SubResource("RectangleShape2D_ytlas")
 

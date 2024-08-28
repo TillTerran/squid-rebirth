@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://yl71vwaqpo2b"]
+[gd_scene load_steps=6 format=3 uid="uid://yl71vwaqpo2b"]
 
 [ext_resource type="PackedScene" uid="uid://da44wr7601ca0" path="res://level_template.tscn" id="1_ex0oy"]
 [ext_resource type="PackedScene" uid="uid://bclewffjxdq25" path="res://change_scene_area.tscn" id="2_rksym"]
 [ext_resource type="PackedScene" uid="uid://c833s1u5hyolg" path="res://scene_change/tp_point.tscn" id="3_5jyw1"]
 [ext_resource type="PackedScene" uid="uid://tw2avpitjgu5" path="res://pickables/key.tscn" id="4_c4j7p"]
 [ext_resource type="PackedScene" uid="uid://mb77c60asxf6" path="res://doors and co/locked_door.tscn" id="5_2iapa"]
-[ext_resource type="PackedScene" uid="uid://b7x1st8766bcw" path="res://mobs/Castor_mitraillette/Castor_mitraillette.tscn" id="6_gfqp3"]
 
 [node name="level_template" instance=ExtResource("1_ex0oy")]
 
@@ -41,6 +40,3 @@ key_number = 0
 
 [node name="locked_door" parent="." index="9" instance=ExtResource("5_2iapa")]
 position = Vector2(118, 89)
-
-[node name="CastorMitrailette" parent="." index="10" instance=ExtResource("6_gfqp3")]
-position = Vector2(212, 92)
