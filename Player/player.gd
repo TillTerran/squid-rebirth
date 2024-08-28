@@ -8,7 +8,7 @@ extends CharacterBody2D
 # var a = 2
 # var b = "text"
 var is_monke = true
-var speed_scale = 1
+var speed_scale = 1.0
 var hp_max = 4
 var current_hp = 3
 #var velocity = Vector2.ZERO
@@ -16,8 +16,8 @@ var stuck
 var animation_prefix=""
 var floating=false #is not affected by gravity ?
 
-@export var height_of_jump=3.0 #height of the jump in tiles
-@export var tile_size=16#size of a tile in pixel
+@export var height_of_jump=3.5 #height of the jump in tiles
+@export var tile_size=16.0#size of a tile in pixel
 
 var dynamic_left_perception=false
 
@@ -27,10 +27,10 @@ var last_position_on_floor:Vector2
 var frixion = 750
 
 var held_keys=0 #number of unused keys the player currently has.
-var gravity=-1000  #gravity strength
+var gravity=-1000.0  #gravity strength
 var p_walkaccel = 500 
 var max_velocity = 2000
-var jump= sqrt(2*abs(gravity)*(height_of_jump*tile_size))# 16 pixel per tile; expected 
+var jump= sqrt(2.0*abs(gravity)*(1+height_of_jump*tile_size))# 16 pixel per tile; expected 
 
 var coyote_jump = 0
 #onready var collision_polygon_2d = $"../terrain de test/CollisionPolygon2D"
@@ -63,7 +63,7 @@ var is_punching = false
 var pickup_list = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	self.add_to_group("Player")
+	
 	held_keys=GlobalVariables.held_keys
 	
 	
@@ -156,12 +156,10 @@ func p_mvt(delta):
 	
 	
 	input_vector = get_inputs(delta,input_vector,vec_gravity)
-
 	if is_monke :
 		update_animation_monke(input_vector)
 	else :
 		update_animation_ghost(input_vector)
-
 	#print(input_vector)
 	
 	velocity=apply_accel(delta,accel,velocity)
@@ -502,11 +500,6 @@ func add_more_health() :
 	if current_hp < hp_max :
 			current_hp = (current_hp +2) % (hp_max+1)
 
-func lose_hp(hp_lost):
-	current_hp-=1
-	#make invincible for a set time
-	pass
-
 
 
 func change_floating():#change this name, it's so bad
@@ -522,7 +515,6 @@ func get_animation_prefix():
 	else:
 		animation_prefix="jumper"#maybe change to animation_prefix="PL"     #PL==plateformer
 	return animation_prefix
-
 
 
 func _on_loot_range_body_entered(body):
@@ -560,4 +552,3 @@ func _on_char_switch_timeout():
 	is_monke = !is_monke
 	stuck = false
 	 # Replace with function body.
-

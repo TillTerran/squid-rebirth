@@ -11,12 +11,9 @@ config_version=5
 [application]
 
 config/name="basic project"
-
 run/main_scene="res://levels/salle/Salle 01.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 run/max_fps=60
-
-
 config/icon="res://icon.svg"
 
 [autoload]
@@ -34,7 +31,6 @@ window/vsync/vsync_mode=0
 [global_group]
 
 tp_points=""
-Player=""
 
 [input]
 
