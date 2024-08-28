@@ -156,10 +156,12 @@ func p_mvt(delta):
 	
 	
 	input_vector = get_inputs(delta,input_vector,vec_gravity)
+
 	if is_monke :
 		update_animation_monke(input_vector)
 	else :
 		update_animation_ghost(input_vector)
+
 	#print(input_vector)
 	
 	velocity=apply_accel(delta,accel,velocity)
@@ -522,6 +524,7 @@ func get_animation_prefix():
 	return animation_prefix
 
 
+
 func _on_loot_range_body_entered(body):
 	if body.is_in_group("Heal") :
 		add_health()
@@ -557,3 +560,4 @@ func _on_char_switch_timeout():
 	is_monke = !is_monke
 	stuck = false
 	 # Replace with function body.
+
