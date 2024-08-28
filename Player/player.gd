@@ -62,6 +62,15 @@ var is_punching = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	held_keys=GlobalVariables.held_keys
+	
+	
+	
+	
+	
+	
+	
 	centered_gravity=false
 	
 	if fun_mode:
@@ -75,7 +84,7 @@ func _ready():
 	#rotate(up_direction.angle_to(Vector2(0,-1)))
 	
 	animation_prefix=get_animation_prefix()
-	
+	held_keys=GlobalVariables.held_keys
 	
 	pass # Replace with function body.
 

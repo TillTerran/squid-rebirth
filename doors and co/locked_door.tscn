@@ -10,6 +10,7 @@ size = Vector2(34, 20)
 
 [node name="locked_door" type="Node2D"]
 script = ExtResource("1_jp76d")
+door_number = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(0.804817, 0.386127, 3.85046e-07, 1)
