@@ -4,25 +4,57 @@ var projectile= preload("res://mobs/Castor_mitraillette/projectile/projectile.ts
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var gravite=9.80
 var player=null
+
+#var player_instance:CharacterBody2D
+
 var player_chase=false
 var hauteur_max=100
 var facteur_vitesse=2
-@export var nb_tir=3
+@export var nb_tir=1
 var tir_actuel=0
-var direction=1
+var direction=-1
 var speed=50
+enum STATE {
+	IDLE,
+	WALK,
+	ATTACK,
+}
+var Castor_state=STATE.IDLE
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Direction.start()
+	pass
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	velocity.y+=gravity*delta
-	velocity.x=speed*direction
-	if player!=null:
-		chase_player()
+	match Castor_state:
+		STATE.IDLE:
+			$AnimatedSprite2D.play("idle")
+			$IdleCollision.disabled=false
+			$AttackCollision.disabled=true
+			$WalkCollision.disabled=true
+			velocity.y+=gravity*delta
+			velocity.x=0
+		STATE.WALK:
+			$AnimatedSprite2D.play("walk")
+			$IdleCollision.disabled=true
+			$AttackCollision.disabled=true
+			$WalkCollision.disabled=false
+			velocity.y+=gravity*delta
+			velocity.x=speed*direction
+		STATE.ATTACK:
+			$AnimatedSprite2D.play("attack")
+			$IdleCollision.disabled=true
+			$AttackCollision.disabled=false
+			$WalkCollision.disabled=true
+			velocity.y+=gravity*delta
+			velocity.x=0
+			if player!=null:
+				chase_player()
 	move_and_slide()
+	#print(STATE.keys()[Castor_state])
+
 
 func chase_player():
 	if player_chase:
@@ -37,6 +69,7 @@ func _on_projectile_timer_timeout():
 		if tir_actuel<nb_tir:
 			var position_ennemi = global_position  # Position actuelle de l'ennemi
 			var position_joueur = player.global_position  # Position du joueur
+
 			var vitesse_initiale = calculer_vitesse_initiale(position_ennemi, position_joueur, hauteur_max)
 
 			var Projectile = projectile.instantiate()  # Crée une instance de ton projectile
@@ -49,13 +82,15 @@ func _on_projectile_timer_timeout():
 			$Reloading.start()
 
 func _on_detection_area_player_body_entered(body):
-	if body.is_in_group("Player"):
-			player=body
-			player_chase=true
-			direction=0
-			$Reloading.start()
+	player=body
+	player_chase=true
+	direction=0
+	$Reloading.start()
+
+	
 
 func calculer_vitesse_initiale(position_ennemi, position_joueur, hauteur_max):
+
 	var distance = position_joueur - position_ennemi
 	var temps_de_vol = sqrt(2 * hauteur_max / gravite) + sqrt(2 * (hauteur_max - distance.y) / gravite)
 	var vitesse_x = distance.x / temps_de_vol
@@ -63,24 +98,85 @@ func calculer_vitesse_initiale(position_ennemi, position_joueur, hauteur_max):
 	return Vector2(vitesse_x, -vitesse_y)  # Applique le facteur de vitesse
 
 
-
 func _on_reloading_timeout():
 	tir_actuel=0
 	$ProjectileTimer.start()
 
-
-
-
-
-func _on_direction_timeout():
-	direction=direction*(-1)
-	if direction==-1:
-		get_node("AnimatedSprite2D").flip_h=false
-	elif direction==1:
-		get_node("AnimatedSprite2D").flip_h=true
-
-func _on_detection_area_player_body_exited(body):
+func _on_detection_area_player_body_exited(_body):
 	direction=1
 	player_chase=false
 	player=null
 	$Reloading.stop()
+
+func _on_direction_timeout():
+	direction=direction*(-1)
+	Castor_state=STATE.IDLE
+	if direction==-1:
+		$AnimatedSprite2D.flip_h=false
+	elif direction==1:
+		$AnimatedSprite2D.flip_h=true
+	$WaitToChangeDirection.start()
+
+func _on_detection_area_player_body_exited(body):
+	if body.is_in_group("Player"):
+		var position_ennemi = global_position  # Position actuelle de l'ennemi
+		var position_joueur = player.global_position  # Position du joueur
+		if (position_ennemi.x-position_joueur.x>0):
+			get_node("AnimatedSprite2D").flip_h=false
+			direction=-1
+		else:
+			get_node("AnimatedSprite2D").flip_h=true
+			direction=1
+		player_chase=false
+		print("Exit body")
+		Castor_state=STATE.IDLE
+		$WaitToChangeDirection.start()
+		player=null
+		$Reloading.stop()
+
+
+
+
+
+func _on_wait_to_change_direction_timeout():
+	Castor_state=STATE.WALK
+	print("change direction")
+	$Direction.start()
+
+
+
+
+func _on_jump_before_attack_timeout():
+	player_chase=true
+	Castor_state=STATE.ATTACK
+	direction=0
+	$WaitToChangeDirection.stop()
+	$Direction.stop()
+	#$Reloading.start()
+	print("Jump")
+
+
+func _on_animated_sprite_2d_animation_looped():
+	pass
+
+func fire():
+	if player!=null:
+		if tir_actuel<nb_tir:
+			var position_ennemi = global_position  # Position actuelle de l'ennemi
+			var position_joueur = player.global_position  # Position du joueur
+			var vitesse_initiale = calculer_vitesse_initiale(position_ennemi, position_joueur, hauteur_max)
+
+			var Projectile = projectile.instantiate()  # Crée une instance de ton projectile
+			get_tree().root.add_child(Projectile)
+			Projectile.position = position_ennemi
+			Projectile.lancer(vitesse_initiale)
+			#(tir_actuel+=1
+			#$ProjectileTimer.start()
+		else:
+			#$Reloading.start()
+			pass
+func _on_animated_sprite_2d_frame_changed():
+	if ($AnimatedSprite2D.get_animation())=="attack":
+		if $AnimatedSprite2D.get_frame()==7:
+			fire()
+

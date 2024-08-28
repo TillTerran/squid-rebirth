@@ -1,0 +1,10 @@
+Timer
+CollisionShape2D
+CollisionPolygon2D
+AnimationPlayer
+Sprite2D
+AnimationTree
+VisibleOnScreenNotifier2D
+AnimatedSprite2D
+Area2D
+CharacterBody2D
