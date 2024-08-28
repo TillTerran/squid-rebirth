@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c833s1u5hyolg" path="res://scene_change/tp_point.tscn" id="3_4niib"]
 [ext_resource type="PackedScene" uid="uid://tw2avpitjgu5" path="res://pickables/key.tscn" id="4_lalux"]
 
-[node name="level_template" instance=ExtResource("1_qotwk")]
+[node name="level_template2" instance=ExtResource("1_qotwk")]
 
 [node name="player" parent="." index="0"]
 position = Vector2(16, 31)

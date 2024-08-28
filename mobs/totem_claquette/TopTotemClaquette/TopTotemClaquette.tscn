@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://b6t12ei2nosv6"]
 
-[ext_resource type="Texture2D" uid="uid://jsaw84ywfc2y" path="res://mobs/totem_claquette/TopTotemClaquette/idle_animation/Idle_animation_1.jpg" id="1_7iiks"]
+[ext_resource type="Texture2D" uid="uid://c2xq8bg6i6jau" path="res://mobs/totem_claquette/TopTotemClaquette/idle_animation/Idle_animation_1.jpg" id="1_7iiks"]
 
 [sub_resource type="GDScript" id="GDScript_omxb6"]
 script/source = "extends CharacterBody2D
