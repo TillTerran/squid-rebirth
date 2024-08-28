@@ -17,7 +17,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if player_is_there and Input.is_action_pressed("Interract") and (player.held_keys>=1):
 		player.held_keys-=1
 		GlobalVariables.held_keys-=1

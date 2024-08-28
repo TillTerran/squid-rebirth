@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 @onready var world = $".."
-@onready var player_sprite = $player_sprite
 
 @export var level:PackedScene
 
@@ -18,6 +17,7 @@ var animation_prefix=""
 var floating=false #is not affected by gravity ?
 
 @export var height_of_jump=3.0 #height of the jump in tiles
+@export var tile_size=16#size of a tile in pixel
 
 var dynamic_left_perception=false
 
@@ -28,13 +28,9 @@ var frixion = 750
 
 var held_keys=0 #number of unused keys the player currently has.
 var gravity=-1000  #gravity strength
-
-
-var frixion = 750
-var gravity=-540.0  #gravity strength
 var p_walkaccel = 500 
 var max_velocity = 2000
-var jump= -2*gravity*(0.5+height_of_jump)/16# 16 pixel per tile; expected 
+var jump= sqrt(2*abs(gravity)*(height_of_jump*tile_size))# 16 pixel per tile; expected 
 
 var coyote_jump = 0
 #onready var collision_polygon_2d = $"../terrain de test/CollisionPolygon2D"
@@ -556,6 +552,3 @@ func _on_char_switch_timeout():
 	is_monke = !is_monke
 	stuck = false
 	 # Replace with function body.
-
-
-
