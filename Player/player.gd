@@ -19,20 +19,19 @@ var floating=false #is not affected by gravity ?
 
 var dynamic_left_perception=false
 
-var mass = 1
+var respawn_point=Vector2.ZERO
+var last_position_on_floor:Vector2
 
-var coyote_jump = 0
+
+var held_keys=0 #number of unused keys the player currently has.
 
 var frixion = 750
-
 var gravity=-540.0  #gravity strength
-
+var p_walkaccel = 500 
+var max_velocity = 2000
 var jump= -2*gravity*(0.5+height_of_jump)/16# 16 pixel per tile; expected 
 
-var p_walkaccel = 500 
-
-var max_velocity = 2000
-
+var coyote_jump = 0
 #onready var collision_polygon_2d = $"../terrain de test/CollisionPolygon2D"
 
 #var up_direction = Vector2(0,-1)
@@ -54,6 +53,7 @@ var test_mode = false
 var fun_mode = false
 var bouncing= false
 var bouncyness=0.75
+var mass = 1
 var gravity_point=null
 var gravity_vect = -up_direction
 
@@ -62,6 +62,15 @@ var is_punching = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	held_keys=GlobalVariables.held_keys
+	
+	
+	
+	
+	
+	
+	
 	centered_gravity=false
 	
 	if fun_mode:
@@ -75,7 +84,7 @@ func _ready():
 	#rotate(up_direction.angle_to(Vector2(0,-1)))
 	
 	animation_prefix=get_animation_prefix()
-	
+	held_keys=GlobalVariables.held_keys
 	
 	pass # Replace with function body.
 
@@ -99,7 +108,8 @@ func _process(delta):# try to change to _physics_process
 	
 	if not floating:
 		update_up_direction()
-	
+	if is_on_floor():
+		last_position_on_floor=position
 	
 	if Input.is_action_pressed("ui_a"):
 		print(rotation_degrees)
@@ -123,8 +133,8 @@ func _process(delta):# try to change to _physics_process
 
 
 
-
-
+'
+'
 func p_mvt(delta):
 	
 	var vec_gravity = up_direction*gravity
@@ -158,7 +168,7 @@ func p_mvt(delta):
 	process_movement()
 	
 
-func get_inputs(delta,input_vector,vec_gravity):
+func get_inputs(delta,input_vector:Vector2,vec_gravity:Vector2):
 	"""registers the input vectors and adds tehir corresponding accel_vectors to accel"""
 	if floating:#changes the movement from plateformer to top-down, ask Phantom for details if needed
 		input_vector = left_dir * (Input.get_axis("ui_right","ui_left"))
@@ -188,6 +198,22 @@ func test_impacts():
 			receive_impactv2(left_dir)
 		for n in range(len(impacts)):
 			accel+=impacts[n]
+
+
+
+
+
+func respawn(cause:int)->void:
+	if cause == 0:#cause == death
+		position=respawn_point
+#		set hearts to max (taking current max_health into account)
+	if cause == 1:#cause == spikes
+		position=last_position_on_floor
+	if cause == 2:#cause == undefined yet
+		position=last_position_on_floor
+
+
+
 
 
 
@@ -287,7 +313,20 @@ func update_animation(input_vector):
 	if not is_on_floor():
 		player_sprite.play("jump")"""
 	"""$SpriteTree.flip_h = (input_vector.dot(-left_dir)<0)"""
-	
+
+
+
+
+#======================================================================================================================================
+#======================================================================================================================================
+#======================================================================================================================================
+
+#MOVEMENT CODE
+
+
+
+
+
 
 func change_left_perception(input_vector):
 	"""makes the right/left direction correspond to what's displayed on the screen
