@@ -8,7 +8,7 @@ extends CharacterBody2D
 # var a = 2
 # var b = "text"
 var is_monke = true
-var speed_scale = 1
+var speed_scale = 1.0
 var hp_max = 4
 var current_hp = 3
 #var velocity = Vector2.ZERO
@@ -16,8 +16,8 @@ var stuck
 var animation_prefix=""
 var floating=false #is not affected by gravity ?
 
-@export var height_of_jump=3.0 #height of the jump in tiles
-@export var tile_size=16#size of a tile in pixel
+@export var height_of_jump=3.5 #height of the jump in tiles
+@export var tile_size=16.0#size of a tile in pixel
 
 var dynamic_left_perception=false
 
@@ -27,10 +27,10 @@ var last_position_on_floor:Vector2
 var frixion = 750
 
 var held_keys=0 #number of unused keys the player currently has.
-var gravity=-1000  #gravity strength
+var gravity=-1000.0  #gravity strength
 var p_walkaccel = 500 
 var max_velocity = 2000
-var jump= sqrt(2*abs(gravity)*(height_of_jump*tile_size))# 16 pixel per tile; expected 
+var jump= sqrt(2.0*abs(gravity)*(1+height_of_jump*tile_size))# 16 pixel per tile; expected 
 
 var coyote_jump = 0
 #onready var collision_polygon_2d = $"../terrain de test/CollisionPolygon2D"
