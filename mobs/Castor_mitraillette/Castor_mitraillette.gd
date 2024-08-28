@@ -4,6 +4,7 @@ var projectile= preload("res://mobs/Castor_mitraillette/projectile/projectile.ts
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var gravite=9.80
 var player=null
+#var player_instance:CharacterBody2D
 var player_chase=false
 var hauteur_max=100
 var facteur_vitesse=2
@@ -13,6 +14,8 @@ var direction=1
 var speed=50
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#player_instance=get_tree().get_nodes_in_group("Player")[0]
+	#print(player_instance.current_hp)
 	$Direction.start()
 
 
@@ -37,7 +40,7 @@ func _on_projectile_timer_timeout():
 		if tir_actuel<nb_tir:
 			var position_ennemi = global_position  # Position actuelle de l'ennemi
 			var position_joueur = player.global_position  # Position du joueur
-			var vitesse_initiale = calculer_vitesse_initiale(position_ennemi, position_joueur, hauteur_max)
+			var vitesse_initiale = calculer_vitesse_initiale(position_ennemi, position_joueur)
 
 			var Projectile = projectile.instantiate()  # Crée une instance de ton projectile
 			get_tree().root.add_child(Projectile)
@@ -49,13 +52,12 @@ func _on_projectile_timer_timeout():
 			$Reloading.start()
 
 func _on_detection_area_player_body_entered(body):
-	if body.is_in_group("Player"):
-			player=body
-			player_chase=true
-			direction=0
-			$Reloading.start()
+	player=body
+	player_chase=true
+	direction=0
+	$Reloading.start()
 
-func calculer_vitesse_initiale(position_ennemi, position_joueur, hauteur_max):
+func calculer_vitesse_initiale(position_ennemi, position_joueur):
 	var distance = position_joueur - position_ennemi
 	var temps_de_vol = sqrt(2 * hauteur_max / gravite) + sqrt(2 * (hauteur_max - distance.y) / gravite)
 	var vitesse_x = distance.x / temps_de_vol
@@ -79,7 +81,7 @@ func _on_direction_timeout():
 	elif direction==1:
 		get_node("AnimatedSprite2D").flip_h=true
 
-func _on_detection_area_player_body_exited(body):
+func _on_detection_area_player_body_exited(_body):
 	direction=1
 	player_chase=false
 	player=null

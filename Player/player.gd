@@ -63,7 +63,7 @@ var is_punching = false
 var pickup_list = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+	self.add_to_group("Player")
 	held_keys=GlobalVariables.held_keys
 	
 	

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b7x1st8766bcw"]
 
 [ext_resource type="Script" path="res://mobs/Castor_mitraillette/Castor_mitraillette.gd" id="1_38nya"]
-[ext_resource type="Texture2D" uid="uid://dbgmb4osnfg6o" path="res://mobs/Castor_mitraillette/castor_depolux.jpg" id="1_mrymo"]
+[ext_resource type="Texture2D" uid="uid://0887fhfx4tfk" path="res://mobs/Castor_mitraillette/castor_depolux.jpg" id="1_mrymo"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j3wsb"]
 animations = [{
@@ -29,6 +29,8 @@ scale = Vector2(0.0769231, 0.0987654)
 sprite_frames = SubResource("SpriteFrames_j3wsb")
 
 [node name="DetectionAreaPlayer" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionAreaPlayer"]
 shape = SubResource("CircleShape2D_yexg8")
