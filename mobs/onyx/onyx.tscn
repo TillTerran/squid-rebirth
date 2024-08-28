@@ -45,6 +45,8 @@ position = Vector2(24, 44)
 shape = SubResource("RectangleShape2D_sb261")
 
 [node name="DetectionAreaPlayer" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionAreaPlayer"]
 position = Vector2(24, 24)

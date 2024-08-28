@@ -20,7 +20,7 @@ func _ready():
 
 
 
-func change_scene(new_scene) -> void:
+func change_scene(new_scene:String) -> void:
 	"""changes the current scene to the new_scene, supports both packed and string paths, 
 	will probably need  some work to have a propper loading screen"""
 	
