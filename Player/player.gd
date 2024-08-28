@@ -63,7 +63,7 @@ var is_punching = false
 var pickup_list = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	self.add_to_group("Player")
+	
 	held_keys=GlobalVariables.held_keys
 	
 	
@@ -156,12 +156,10 @@ func p_mvt(delta):
 	
 	
 	input_vector = get_inputs(delta,input_vector,vec_gravity)
-
 	if is_monke :
 		update_animation_monke(input_vector)
 	else :
 		update_animation_ghost(input_vector)
-
 	#print(input_vector)
 	
 	velocity=apply_accel(delta,accel,velocity)
@@ -502,11 +500,6 @@ func add_more_health() :
 	if current_hp < hp_max :
 			current_hp = (current_hp +2) % (hp_max+1)
 
-func lose_hp(hp_lost):
-	current_hp-=1
-	#make invincible for a set time
-	pass
-
 
 
 func change_floating():#change this name, it's so bad
@@ -522,7 +515,6 @@ func get_animation_prefix():
 	else:
 		animation_prefix="jumper"#maybe change to animation_prefix="PL"     #PL==plateformer
 	return animation_prefix
-
 
 
 func _on_loot_range_body_entered(body):
@@ -560,4 +552,3 @@ func _on_char_switch_timeout():
 	is_monke = !is_monke
 	stuck = false
 	 # Replace with function body.
-

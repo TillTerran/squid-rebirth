@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cf0byd8diu5qy"]
+[gd_scene load_steps=3 format=3 uid="uid://cf0byd8diu5qy"]
 
 [ext_resource type="PackedScene" uid="uid://da44wr7601ca0" path="res://level_template.tscn" id="1_ysl0s"]
 [ext_resource type="PackedScene" uid="uid://bclewffjxdq25" path="res://change_scene_area.tscn" id="2_clp50"]
-[ext_resource type="PackedScene" uid="uid://b7x1st8766bcw" path="res://mobs/Castor_mitraillette/Castor_mitraillette.tscn" id="3_j00xo"]
 
 [node name="level_template" instance=ExtResource("1_ysl0s")]
 
@@ -28,6 +27,3 @@ connected_scene = "res://levels/salle/Salle 10.tscn"
 [node name="change_scene_area13" parent="." index="7" instance=ExtResource("2_clp50")]
 position = Vector2(528, 150)
 connected_scene = "res://levels/salle/Salle 13.tscn"
-
-[node name="CastorMitrailette" parent="." index="8" instance=ExtResource("3_j00xo")]
-position = Vector2(58, 154)
