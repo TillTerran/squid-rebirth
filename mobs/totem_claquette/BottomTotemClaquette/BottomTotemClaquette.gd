@@ -15,6 +15,7 @@ var fusion = false
 var max_totem=2
 var nb_totem=0
 var projectile_direction=null
+var tile_length:int
 enum STATE {
 	CHASE,
 	MERGE,
@@ -25,6 +26,7 @@ var BottomTotemState=STATE.WAITING
 func _ready():
 	self_width = get_node("HitboxBottomTotem").shape.extents.y * 2
 	self_lenght= get_node("HitboxBottomTotem").shape.extents.x * 2
+	tile_length=GlobalVariables.tile_length
 func _process(delta):
 	velocity.y += gravity * delta  # Apply the gravity
 	if fusion:
@@ -49,17 +51,15 @@ func _process(delta):
 	#print(STATE.keys()[BottomTotemState]) 
 
 func _on_detection_area_body_entered(body):
-	if body.is_in_group("Player"):
-		player = body
-		player_chase = true
-		BottomTotemState=STATE.CHASE
-		$ProjectileTimer.start()
+	player = body
+	player_chase = true
+	BottomTotemState=STATE.CHASE
+	$ProjectileTimer.start()
 
 func _on_detection_area_body_exited(body):
-	if body.is_in_group("Player"):
-		player = null
-		player_chase = false
-		$ProjectileTimer.stop()
+	player = null
+	player_chase = false
+	$ProjectileTimer.stop()
 
 func _on_detection_area_totem_body_entered(body):
 	if body.is_in_group("TopTotemClaquette") and body != self:
@@ -74,14 +74,19 @@ func _on_detection_area_totem_body_exited(body):
 #Function to chase the player, the totem goes towards the player and fires a projectile at regular intervals
 func chase_player():
 	if player_chase:
-			var direction = (player.global_position - self.position).normalized()* speed
-			if direction.x>0:
-					get_node("AnimatedSprite2D").flip_h=true
-					projectile_direction=true
-			else:
-					get_node("AnimatedSprite2D").flip_h = false
-					projectile_direction=false
+		var direction = (player.global_position - self.position).normalized()#* speed
+		if direction.x>0:
+			get_node("AnimatedSprite2D").flip_h=true
+			projectile_direction=true
+		else:
+			get_node("AnimatedSprite2D").flip_h = false
+			projectile_direction = false
+		if ((player.global_position - self.position).x)**2>=tile_length*tile_length*25:
 			velocity.x = sign(direction.x)*speed
+		else:
+			if ((player.global_position - self.position).x)**2<=tile_length*tile_length*16:
+				velocity.x = -sign(direction.x)*speed*3/8
+			else:velocity.x=0
 	else:
 		velocity = lerp(velocity, Vector2.ZERO, 0.01)
 		velocity.x = 0  # Stop horizontal movement when `player_chase` is disabled
