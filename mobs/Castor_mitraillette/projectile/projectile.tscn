@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ch7ynqpw38r3t"]
 
 [ext_resource type="Script" path="res://mobs/Castor_mitraillette/projectile/projectile.gd" id="1_gd675"]
-[ext_resource type="Texture2D" uid="uid://b2qnt5866pi3f" path="res://mobs/Castor_mitraillette/projectile/rondin-en-bois-35277981.png" id="2_7kmjs"]
+[ext_resource type="Texture2D" uid="uid://ce7alse6io2pk" path="res://mobs/Castor_mitraillette/projectile/rondin-en-bois-35277981.png" id="2_7kmjs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0bonq"]
 size = Vector2(16, 16)
@@ -19,6 +19,7 @@ animations = [{
 
 [node name="projectile" type="Area2D"]
 collision_layer = 7
+collision_mask = 128
 script = ExtResource("1_gd675")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

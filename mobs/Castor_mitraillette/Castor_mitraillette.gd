@@ -79,7 +79,7 @@ func _on_direction_timeout():
 	elif direction==1:
 		get_node("AnimatedSprite2D").flip_h=true
 
-func _on_detection_area_player_body_exited(body):
+func _on_detection_area_player_body_exited(_body):
 	direction=1
 	player_chase=false
 	player=null
