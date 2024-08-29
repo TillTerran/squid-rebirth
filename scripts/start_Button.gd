@@ -8,4 +8,4 @@ func _pressed():
 
 func startthegame():
 	print("game_starts")
-	Events.up_level.emit()
+	Events.change_scene.emit(GlobalVariables.last_save_point)
