@@ -9,4 +9,3 @@ visible = false
 [node name="CanvasLayer2" type="CanvasLayer" parent="." index="2"]
 
 [node name="MarginContainer" parent="CanvasLayer2" index="0" instance=ExtResource("2_6vn60")]
-last_save_location = "res://levels/salle/Salle 01.tscn"

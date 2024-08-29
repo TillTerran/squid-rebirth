@@ -11,6 +11,7 @@ var taken_keys:Array[bool]
 var last_save_point:String
 
 func _ready() -> void:
+	last_save_point="res://levels/salle/Salle 01.tscn"
 	opened_doors=[0,0,0,0]
 	taken_keys=[0,0,0,0]
 	tile_length=16

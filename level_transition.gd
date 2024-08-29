@@ -4,6 +4,9 @@ extends Node
 
 var previous_scene = ""
 
+func _ready() -> void:
+	fade_from_black()
+
 func fade_from_black():
 	animation_player.play("fade_from_black")
 	await animation_player.animation_finished

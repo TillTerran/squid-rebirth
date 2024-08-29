@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://cjedqvui1pjh3"]
 
-[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_dqss8"]
 [ext_resource type="Script" path="res://scripts/quit_Button.gd" id="3_u72ov"]
 [ext_resource type="Script" path="res://scripts/start_Button.gd" id="3_x8wav"]
+[ext_resource type="Script" path="res://continue_button.gd" id="4_qjge1"]
 
 [node name="MarginContainer" type="MarginContainer"]
 anchors_preset = 15
@@ -10,7 +10,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_dqss8")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 2
@@ -23,6 +22,11 @@ layout_mode = 2
 mouse_filter = 1
 text = "new Game"
 script = ExtResource("3_x8wav")
+
+[node name="continue_Button" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Continue"
+script = ExtResource("4_qjge1")
 
 [node name="quit_Button" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
