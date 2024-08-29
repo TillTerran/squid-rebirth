@@ -415,6 +415,21 @@ func update_animation_ghost(input_vector):
 		$AnimationPlayer.play("PL_player_fall")
 
 
+
+
+
+
+
+
+#========================================================================================================
+#========================================================================================================
+#========================================================================================================
+
+
+
+
+
+
 func change_left_perception(input_vector):
 	"""makes the right/left direction correspond to what's displayed on the screen
 	(character upside-down => left input makes the character go left even though the actual left of the character is 
@@ -492,6 +507,22 @@ func apply_accel(delta,a_vector,v_vector,max_hSpeed=300,max_vSpeed=2000):
 #	print(v_vector)#for tests
 	#return v_vector.limit_length(max_velocity)
 
+
+
+
+
+
+
+#========================================================================================================
+#========================================================================================================
+#========================================================================================================
+
+
+
+
+
+
+
 func add_health() :
 	if current_hp < hp_max :
 			current_hp = current_hp +1
@@ -499,6 +530,11 @@ func add_health() :
 func add_more_health() :
 	if current_hp < hp_max :
 			current_hp = (current_hp +2) % (hp_max+1)
+
+
+
+
+
 
 
 
@@ -515,6 +551,8 @@ func get_animation_prefix():
 	else:
 		animation_prefix="jumper"#maybe change to animation_prefix="PL"     #PL==plateformer
 	return animation_prefix
+
+
 
 
 func _on_loot_range_body_entered(body):
@@ -552,3 +590,8 @@ func _on_char_switch_timeout():
 	is_monke = !is_monke
 	stuck = false
 	 # Replace with function body.
+
+
+func _on_punch_body_entered(body: Node2D) -> void:
+	body.position.x-=30
+	pass

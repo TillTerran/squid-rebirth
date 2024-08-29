@@ -219,6 +219,7 @@ size = Vector2(46, 35.25)
 size = Vector2(40, 40)
 
 [node name="CastorMitrailette" type="CharacterBody2D" groups=["Castor_mitraillette"]]
+collision_layer = 17
 script = ExtResource("1_38nya")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

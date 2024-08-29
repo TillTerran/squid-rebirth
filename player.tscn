@@ -246,6 +246,8 @@ size = Vector2(9.5, 6)
 [node name="player" type="CharacterBody2D"]
 scale = Vector2(2, 2)
 collision_layer = 128
+floor_constant_speed = true
+floor_snap_length = 5.0
 safe_margin = 0.2
 script = ExtResource("1")
 
@@ -353,7 +355,7 @@ shape = SubResource("RectangleShape2D_p8vap")
 debug_color = Color(0.54902, 0.443137, 0.223529, 0.619608)
 
 [node name="Punch" type="Area2D" parent="."]
-collision_mask = 0
+collision_mask = 16
 
 [node name="punchhitbox" type="CollisionShape2D" parent="Punch"]
 position = Vector2(11, 0)
@@ -365,3 +367,4 @@ disabled = true
 [connection signal="timeout" from="CharSwitch" to="." method="_on_char_switch_timeout"]
 [connection signal="body_entered" from="Pickup_range" to="." method="_on_pickup_range_body_entered"]
 [connection signal="body_exited" from="Pickup_range" to="." method="_on_pickup_range_body_exited"]
+[connection signal="body_entered" from="Punch" to="." method="_on_punch_body_entered"]
