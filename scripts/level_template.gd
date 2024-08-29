@@ -32,7 +32,6 @@ func change_scene(new_scene:String) -> void:
 		#await get_tree().change_scene_to_packed(new_scene)
 	else:
 		return
-	
 	$LevelTransition.fade_from_black()
 
 func to_main_menu():

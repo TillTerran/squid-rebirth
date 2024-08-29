@@ -524,3 +524,4 @@ text = "22er12"
 [node name="quest?" parent="CanvasLayer" instance=ExtResource("9_e03ur")]
 
 [node name="LevelTransition" parent="." instance=ExtResource("6_114by")]
+visible = false

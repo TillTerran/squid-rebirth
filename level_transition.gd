@@ -5,6 +5,7 @@ extends Node
 var previous_scene = ""
 
 func _ready() -> void:
+	self.visible=true
 	fade_from_black()
 
 func fade_from_black():
