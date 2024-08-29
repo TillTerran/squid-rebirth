@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6eoak8jx38d"]
+
+[ext_resource type="Script" path="res://levels/salle/save_point.gd" id="1_3invs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cnn7b"]
+
+[node name="save_point" type="Node2D"]
+script = ExtResource("1_3invs")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_cnn7b")
+debug_color = Color(0.267204, 0.633178, 0, 0.42)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_save_point_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_save_point_body_exited"]

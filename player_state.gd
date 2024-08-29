@@ -1,6 +1,6 @@
 extends Node
 
-var hp:int
+var current_player_hp:int
 var max_hp:int
 var held_keys:int
 

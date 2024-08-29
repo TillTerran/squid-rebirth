@@ -21,6 +21,7 @@ config/icon="res://icon.svg"
 Events="*res://scripts/Events.gd"
 LevelTransition="*res://level_transition.tscn"
 GlobalVariables="*res://global_variables.tscn"
+InGameMenu="*res://menus/in_game_menu.tscn"
 
 [display]
 
@@ -62,8 +63,10 @@ Interract={
 
 [layer_names]
 
-2d_physics/layer_1="physics (player and ennemies)"
-2d_physics/layer_8="pickable : mask || player : layer"
+2d_physics/layer_1="physics (tilemap and obstacles)"
+2d_physics/layer_4="pickables layer"
+2d_physics/layer_5="enemy layer"
+2d_physics/layer_8="player layer"
 
 [physics]
 

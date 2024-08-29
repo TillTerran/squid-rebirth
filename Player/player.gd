@@ -99,11 +99,15 @@ func _process(delta):# try to change to _physics_process
 #	if Input.is_action_just_pressed("ui_select"): # obsolete... for now
 #		change_gravity_type(not centered_gravity)
 #		print("space")
+	if !get_window().has_focus():
+		get_tree().paused = true
 	
 	centered_gravity = (gravity_point != null)
 	
 	if Input.is_action_just_pressed("ui_cancel"):
-		Events.main_menu.emit()
+		#Events.main_menu.emit()
+		get_tree().paused=true
+		#InGameMenu.
 	
 	
 	
@@ -531,7 +535,35 @@ func add_more_health() :
 	if current_hp < hp_max :
 			current_hp = (current_hp +2) % (hp_max+1)
 
+func lose_hp(hp_lost:int)->void:
+	
+	current_hp -= hp_lost
+	if current_hp <= 0 :
+		game_over()
+	print(current_hp)
 
+
+
+func game_over():
+	#if is_monke:
+		#$Monke/Idle.visible = false 
+		#$Monke/Run.visible = false 
+		#$Monke/Punch.visible = false
+		#$Monke/Jump.visible = false
+	#else:
+		#$Ghost/Idle.visible = false 
+		#$Ghost/Run.visible = false 
+		#$Ghost/Punch.visible = false
+		#$Ghost/Jump.visible = false
+	#$AnimationPlayer.stop()
+	#await $AnimationPlayer.play("PL_player_death")
+	InGameMenu.player_died()
+	pass
+
+
+
+func save():
+	GlobalVariables.last_save_point=get_tree().current_scene.scene_file_path
 
 
 
@@ -551,8 +583,6 @@ func get_animation_prefix():
 	else:
 		animation_prefix="jumper"#maybe change to animation_prefix="PL"     #PL==plateformer
 	return animation_prefix
-
-
 
 
 func _on_loot_range_body_entered(body):
@@ -582,16 +612,16 @@ func _on_char_switch_timeout():
 	if is_monke :
 		$Monke.visible = false
 		$Ghost.visible = true
-		height_of_jump = 1.2
+		height_of_jump = 1.5
 	else :
 		$Monke.visible = true
 		$Ghost.visible = false
-		height_of_jump = 1.5
+		height_of_jump = 3.5
 	is_monke = !is_monke
 	stuck = false
 	 # Replace with function body.
 
 
 func _on_punch_body_entered(body: Node2D) -> void:
-	body.position.x-=30
+	body.position.y-=30
 	pass
