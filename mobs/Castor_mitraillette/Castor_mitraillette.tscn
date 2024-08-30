@@ -1,13 +1,13 @@
 [gd_scene load_steps=35 format=3 uid="uid://b7x1st8766bcw"]
 
 [ext_resource type="Script" path="res://mobs/Castor_mitraillette/Castor_mitraillette.gd" id="1_38nya"]
-[ext_resource type="Texture2D" uid="uid://cpevaotfdch6p" path="res://mobs/Castor_mitraillette/animation/attack/f9-imageonline.co-merged (1).png" id="2_esgdq"]
-[ext_resource type="Texture2D" uid="uid://bp6xnrgg80g5g" path="res://mobs/Castor_mitraillette/animation/idle/st1.png" id="3_k801j"]
-[ext_resource type="Texture2D" uid="uid://cwh86ptvkabl3" path="res://mobs/Castor_mitraillette/animation/walk/m9-imageonline.co-merged.png" id="4_p8qrh"]
-[ext_resource type="Texture2D" uid="uid://co7b0p4bi3as8" path="res://mobs/Castor_mitraillette/animation/idle/st2.png" id="4_u2fcm"]
-[ext_resource type="Texture2D" uid="uid://bq8fphmnn0kqd" path="res://mobs/Castor_mitraillette/animation/idle/st3.png" id="5_2h0as"]
-[ext_resource type="Texture2D" uid="uid://cojkdwf70ea41" path="res://mobs/Castor_mitraillette/animation/idle/st4.png" id="6_03wjj"]
-[ext_resource type="Texture2D" uid="uid://bo5u3w82yl005" path="res://mobs/Castor_mitraillette/animation/idle/st5.png" id="7_sx2y3"]
+[ext_resource type="Texture2D" uid="uid://dxsly37usa23" path="res://mobs/Castor_mitraillette/animation/attack/f9-imageonline.co-merged (1).png" id="2_esgdq"]
+[ext_resource type="Texture2D" uid="uid://47uhjljko0nv" path="res://mobs/Castor_mitraillette/animation/idle/st1.png" id="3_k801j"]
+[ext_resource type="Texture2D" uid="uid://cy8wsijjdec0r" path="res://mobs/Castor_mitraillette/animation/walk/m9-imageonline.co-merged.png" id="4_p8qrh"]
+[ext_resource type="Texture2D" uid="uid://pds75enycc0o" path="res://mobs/Castor_mitraillette/animation/idle/st2.png" id="4_u2fcm"]
+[ext_resource type="Texture2D" uid="uid://dn6b7nk2ji6wy" path="res://mobs/Castor_mitraillette/animation/idle/st3.png" id="5_2h0as"]
+[ext_resource type="Texture2D" uid="uid://kkt60awrxs73" path="res://mobs/Castor_mitraillette/animation/idle/st4.png" id="6_03wjj"]
+[ext_resource type="Texture2D" uid="uid://cev241ba5unot" path="res://mobs/Castor_mitraillette/animation/idle/st5.png" id="7_sx2y3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_widgu"]
 atlas = ExtResource("2_esgdq")
