@@ -4,3 +4,5 @@
 *.import
 *.tmp
 export_presets.cfg
+*.exe
+*.pck

@@ -28,6 +28,7 @@ func change_scene(new_scene:String) -> void:
 	if new_scene is String:
 		get_tree().paused=true
 		await $LevelTransition.fade_to_black()
+		
 		get_tree().change_scene_to_file(new_scene)
 		
 	#elif new_scene is PackedScene:
