@@ -1,14 +1,15 @@
 extends CanvasLayer
 
 var player_is_dead=false
+var loading_screen=false
 
 func _ready() -> void:
 	hide()
 
 
 func _process(delta: float) -> void:
-	
-	show()
+	if !loading_screen:
+		show()
 
 func player_died():
 	$"in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer/header".text="GAME-OVER"

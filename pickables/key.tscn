@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://tw2avpitjgu5"]
 
 [ext_resource type="Script" path="res://scripts/key.gd" id="1_18bjb"]
-[ext_resource type="Texture2D" uid="uid://dxvg605jludo6" path="res://icon.png" id="2_l3p31"]
+[ext_resource type="Texture2D" uid="uid://ccpthmvog7mid" path="res://icon.png" id="2_l3p31"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4a1n2"]
 
@@ -16,6 +16,7 @@ collision_mask = 128
 shape = SubResource("RectangleShape2D_4a1n2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 0, 1)
 position = Vector2(4.76837e-07, 0)
 scale = Vector2(0.320313, 0.3125)
 texture = ExtResource("2_l3p31")
