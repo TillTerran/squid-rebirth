@@ -40,3 +40,7 @@ func change_scene(new_scene:String) -> void:
 
 func to_main_menu():
 	await change_scene("res://levels/main_menu_good.tscn")
+
+
+func _on_revealing_hidden_layer_area_body_entered(body: Node2D) -> void:
+	$TileMap.set_layer_modulate(-1,Color("ffffff00"))
