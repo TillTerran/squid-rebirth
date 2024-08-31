@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b6t12ei2nosv6" path="res://mobs/totem_claquette/TopTotemClaquette/TopTotemClaquette.tscn" id="5_551i2"]
 [ext_resource type="PackedScene" uid="uid://irpquugqy33h" path="res://mobs/onyx/onyx.tscn" id="6_j08w2"]
 [ext_resource type="PackedScene" uid="uid://b7x1st8766bcw" path="res://mobs/Castor_mitraillette/Castor_mitraillette.tscn" id="7_3lolx"]
-[ext_resource type="PackedScene" uid="uid://bhqq0ftq4x8wv" path="res://mobs/Legrorat/legrorat.tscn" id="8_64st2"]
+[ext_resource type="PackedScene" uid="uid://ci32ibukbp6pi" path="res://mobs/Legrorat/legrorat.tscn" id="8_64st2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5y2yo"]
 size = Vector2(104.6, 198.447)

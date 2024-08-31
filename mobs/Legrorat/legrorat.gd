@@ -11,13 +11,14 @@ enum STATE {
 }
 var Legrorat_state=STATE.IDLE
 @onready var IdleCollision=get_node("AreaIdle/IdleCollision")
-@onready var AttackCollision=get_node("AreaWalk/WalkCollision")
-@onready var WalkCollision=get_node("AreaAttack/AttackCollision")
+@onready var WalkCollision=get_node("AreaWalk/WalkCollision")
+@onready var AttackCollision=get_node("AreaAttack/AttackCollision")
 
 var player=null
 var player_chase=false
 var pos=null
-var miss_player=true
+var miss_player=false
+var running_direction=0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -47,12 +48,17 @@ func _process(delta):
 			WalkCollision.disabled=true
 			velocity.y+=gravity*delta
 			velocity.x=0
-			where_is_player()
 			if player!=null:
 				chase_player()
 		STATE.STUN:
-			pass
+			$AnimatedSprite2D.play("idle")
+			IdleCollision.disabled=false
+			AttackCollision.disabled=true
+			WalkCollision.disabled=true
+			velocity.y+=gravity*delta
+			velocity.x=0
 	move_and_slide()
+	print(STATE.keys()[Legrorat_state])
 
 
 
@@ -80,24 +86,62 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	direction=0
 	Legrorat_state=STATE.ATTACK
 	pos=(player.global_position - self.global_position).normalized()
-	$Run.start()
+	if pos.x>0:
+		running_direction=1
+	else:
+		running_direction=-1
+	#$Run.start()
 
 func chase_player() -> void:
 	if player_chase:
-		if miss_player:
-			var chase_direction = pos* speed
-			if chase_direction.x>0:
-					get_node("AnimatedSprite2D").flip_h=true
-			else:
-					get_node("AnimatedSprite2D").flip_h = false
-			velocity.x = sign(chase_direction.x)*speed
+		pos=(player.global_position - self.global_position).normalized()
+		if running_direction==1:
+			get_node("AnimatedSprite2D").flip_h=true
+			if pos.x<0:
+				if !miss_player:
+					miss_player=true
+					$Run.start()
+		elif running_direction==-1:
+			get_node("AnimatedSprite2D").flip_h = false
+			if pos.x>0:
+				if !miss_player:
+					miss_player=true
+					$Run.start()
+		velocity.x=running_direction*speed
 	else:
 		velocity = lerp(velocity, Vector2.ZERO, 0.01)
 		velocity.x = 0  # Stop horizontal movement when `player_chase` is disabled
-
-func where_is_player() -> void:
-	pass
 	
 func _on_run_timeout() -> void:
-	pos=(player.global_position - self.global_position).normalized()
-	$Run.start()
+	running_direction=running_direction*(-1)
+	miss_player=false
+	print(running_direction)
+
+
+
+func _on_area_attack_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Stun"):
+		print("Stun")
+		Legrorat_state=STATE.STUN
+		$Stun.start()
+
+
+
+func _on_stun_timeout() -> void:
+	Legrorat_state=STATE.ATTACK
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	var position_ennemi = global_position  # Position actuelle de l'ennemi
+	var position_joueur = body.global_position  # Position du joueur
+	if (position_ennemi.x-position_joueur.x>0):
+		get_node("AnimatedSprite2D").flip_h=false
+		direction=-1
+	else:
+		get_node("AnimatedSprite2D").flip_h=true
+		direction=1
+	player_chase=false
+	print("Exit body")
+	Legrorat_state=STATE.IDLE
+	$WaitToChangeDirection.start()
+	player=null
