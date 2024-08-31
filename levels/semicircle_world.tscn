@@ -1,12 +1,12 @@
 [gd_scene load_steps=12 format=3 uid="uid://d0sbc0g7uxin7"]
 
 [ext_resource type="Script" path="res://scripts/semicircle_world.gd" id="2"]
-[ext_resource type="PackedScene" uid="uid://dw6i34wt4qlay" path="res://Player/player.tscn" id="3"]
-[ext_resource type="PackedScene" uid="uid://b3t3iqopiqur1" path="res://zone_de_vent.tscn" id="3_5yfbx"]
-[ext_resource type="PackedScene" uid="uid://dsqye2sc2h2yf" path="res://c_gravity_area.tscn" id="3_28lfq"]
-[ext_resource type="Texture2D" uid="uid://dd7jn2sw1rpjf" path="res://icon.png" id="4_x3sdy"]
-[ext_resource type="PackedScene" uid="uid://b5sg6qeettbpx" path="res://level_transition.tscn" id="5_hgfhu"]
-[ext_resource type="PackedScene" uid="uid://dpt1tspxyomxg" path="res://moving_plateform.tscn" id="6_qd6qb"]
+[ext_resource type="PackedScene" uid="uid://s77rdbs0u3dk" path="res://player.tscn" id="2_1mc2e"]
+[ext_resource type="PackedScene" path="res://zone_de_vent.tscn" id="3_5yfbx"]
+[ext_resource type="PackedScene" path="res://c_gravity_area.tscn" id="3_28lfq"]
+[ext_resource type="Texture2D" uid="uid://oh6scn5s6fn5" path="res://icon.png" id="4_x3sdy"]
+[ext_resource type="PackedScene" path="res://level_transition.tscn" id="5_hgfhu"]
+[ext_resource type="PackedScene" path="res://moving_plateform.tscn" id="6_qd6qb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oxvn6"]
 size = Vector2(238.556, 435.766)
@@ -23,10 +23,8 @@ size = Vector2(16, 432)
 [node name="semicircle_world" type="Node2D"]
 script = ExtResource("2")
 
-[node name="player" parent="." instance=ExtResource("3")]
-position = Vector2(866, 417)
-floor_constant_speed = true
-floor_snap_length = 2.0
+[node name="player" parent="." instance=ExtResource("2_1mc2e")]
+position = Vector2(93, 404)
 
 [node name="zones forces mvt" type="Node2D" parent="."]
 position = Vector2(988, 368)
@@ -100,6 +98,7 @@ scale = Vector2(0.25, 6.75)
 texture = ExtResource("4_x3sdy")
 
 [node name="LevelTransition" parent="." instance=ExtResource("5_hgfhu")]
+visible = false
 
 [node name="moving plateform" parent="." instance=ExtResource("6_qd6qb")]
 position = Vector2(441, 194)

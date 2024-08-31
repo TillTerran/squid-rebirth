@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://dw6i34wt4qlay"]
+[gd_scene load_steps=9 format=3 uid="uid://dblmdhvu25kb1"]
 
-[ext_resource type="Script" path="res://Player/player.gd" id="1_5vtnd"]
-[ext_resource type="Texture2D" uid="uid://xmb01322ntd4" path="res://stickman.png" id="2_xukeh"]
+[ext_resource type="Texture2D" uid="uid://ci5ic6wwpvwmk" path="res://stickman.png" id="2_xukeh"]
 
 [sub_resource type="RectangleShape2D" id="4"]
 size = Vector2(18.2857, 9.14286)
@@ -59,7 +58,6 @@ _data = {
 [node name="player" type="CharacterBody2D"]
 scale = Vector2(2, 2)
 safe_margin = 0.2
-script = ExtResource("1_5vtnd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
