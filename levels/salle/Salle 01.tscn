@@ -19,7 +19,7 @@ connected_scene = "res://levels/salle/Salle 02.tscn"
 tp_point_id = 1
 
 [node name="tp_point" parent="." index="5" instance=ExtResource("3_4niib")]
-position = Vector2(26, 33)
+position = Vector2(28, 37)
 tp_id = 1
 
 [node name="tp_point1" parent="." index="6" instance=ExtResource("3_4niib")]
