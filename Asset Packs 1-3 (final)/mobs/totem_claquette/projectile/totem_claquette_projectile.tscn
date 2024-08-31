@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://gw56g0nea6og"]
+
+[ext_resource type="Script" path="res://mobs/totem_claquette/projectile/totem_claquette_projectile.gd" id="1_24iou"]
+[ext_resource type="Texture2D" uid="uid://5iarb77epo35" path="res://mobs/totem_claquette/projectile/bean_projectile_[1_4].jpg" id="2_y478w"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p4cqa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_y478w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w6v38"]
+size = Vector2(10, 13)
+
+[node name="Area2D" type="Area2D"]
+collision_layer = 7
+script = ExtResource("1_24iou")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(6.12499, 7.5)
+scale = Vector2(0.0445206, 0.0442177)
+sprite_frames = SubResource("SpriteFrames_p4cqa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6, 7.5)
+shape = SubResource("RectangleShape2D_w6v38")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(6, 7.5)
+scale = Vector2(0.5, 0.65)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

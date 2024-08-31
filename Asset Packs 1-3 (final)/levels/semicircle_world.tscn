@@ -1,0 +1,114 @@
+[gd_scene load_steps=12 format=3 uid="uid://d0sbc0g7uxin7"]
+
+[ext_resource type="Script" path="res://scripts/semicircle_world.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://dw6i34wt4qlay" path="res://Player/player.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://b3t3iqopiqur1" path="res://zone_de_vent.tscn" id="3_5yfbx"]
+[ext_resource type="PackedScene" uid="uid://dsqye2sc2h2yf" path="res://c_gravity_area.tscn" id="3_28lfq"]
+[ext_resource type="Texture2D" uid="uid://dd7jn2sw1rpjf" path="res://icon.png" id="4_x3sdy"]
+[ext_resource type="PackedScene" uid="uid://b5sg6qeettbpx" path="res://level_transition.tscn" id="5_hgfhu"]
+[ext_resource type="PackedScene" uid="uid://dpt1tspxyomxg" path="res://moving_plateform.tscn" id="6_qd6qb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oxvn6"]
+size = Vector2(238.556, 435.766)
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(864, 40)
+
+[sub_resource type="RectangleShape2D" id="5"]
+size = Vector2(864, 32)
+
+[sub_resource type="RectangleShape2D" id="6"]
+size = Vector2(16, 432)
+
+[node name="semicircle_world" type="Node2D"]
+script = ExtResource("2")
+
+[node name="player" parent="." instance=ExtResource("3")]
+position = Vector2(866, 417)
+floor_constant_speed = true
+floor_snap_length = 2.0
+
+[node name="zones forces mvt" type="Node2D" parent="."]
+position = Vector2(988, 368)
+
+[node name="c_gravity_area" parent="zones forces mvt" instance=ExtResource("3_28lfq")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zones forces mvt/c_gravity_area"]
+position = Vector2(-22.2103, 8.1834)
+shape = SubResource("RectangleShape2D_oxvn6")
+
+[node name="zone de vent" parent="zones forces mvt" instance=ExtResource("3_5yfbx")]
+position = Vector2(-694, -140)
+priority = 10
+
+[node name="center_of_gravity" type="Node2D" parent="."]
+position = Vector2(884, 248)
+
+[node name="murs" type="Node2D" parent="."]
+
+[node name="circle" type="StaticBody2D" parent="murs"]
+position = Vector2(648, 72)
+collision_layer = 3
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="murs/circle"]
+position = Vector2(40, -56)
+polygon = PackedVector2Array(192, 48, 224, 48, 272, 64, 312, 88, 336, 104, 360, 136, 376, 160, 384, 184, 392, 232, 392, 256, 384, 304, 376, 336, 360, 360, 336, 384, 312, 400, 280, 408, 232, 416, 192, 416, 192, 448, 264, 448, 336, 432, 408, 424, 464, 400, 504, 352, 520, 288, 512, 240, 488, 168, 424, 96, 360, 56, 304, 24, 192, 8)
+
+[node name="Polygon2D" type="Polygon2D" parent="murs/circle/CollisionPolygon2D"]
+
+[node name="roof" type="StaticBody2D" parent="murs"]
+position = Vector2(448, 44)
+collision_layer = 3
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="murs/roof"]
+shape = SubResource("1")
+
+[node name="Sprite2D" type="Sprite2D" parent="murs/roof"]
+position = Vector2(-1.52588e-05, -4.76837e-07)
+scale = Vector2(13.5, 0.625)
+texture = ExtResource("4_x3sdy")
+
+[node name="floor" type="StaticBody2D" parent="murs"]
+position = Vector2(448, 448)
+collision_layer = 3
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="murs/floor"]
+shape = SubResource("5")
+
+[node name="Sprite2D" type="Sprite2D" parent="murs/floor"]
+position = Vector2(-1.52588e-05, 7.62939e-06)
+scale = Vector2(13.5, 0.5)
+texture = ExtResource("4_x3sdy")
+
+[node name="flat wall" type="StaticBody2D" parent="murs"]
+position = Vector2(8, 248)
+collision_layer = 3
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="murs/flat wall"]
+shape = SubResource("6")
+
+[node name="Sprite2D" type="Sprite2D" parent="murs/flat wall"]
+scale = Vector2(0.25, 6.75)
+texture = ExtResource("4_x3sdy")
+
+[node name="LevelTransition" parent="." instance=ExtResource("5_hgfhu")]
+
+[node name="moving plateform" parent="." instance=ExtResource("6_qd6qb")]
+position = Vector2(441, 194)
+t_cycle = 3.142
+
+[node name="moving plateform2" parent="." instance=ExtResource("6_qd6qb")]
+position = Vector2(183, 112)
+t_cycle = 13.0
+
+[node name="moving plateform3" parent="." instance=ExtResource("6_qd6qb")]
+position = Vector2(267, 285)
+t_cycle = 7.0

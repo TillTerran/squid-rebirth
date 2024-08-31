@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpt1tspxyomxg"]
+
+[ext_resource type="Script" path="res://scripts/moving plateform.gd" id="1_uryt0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qmjga"]
+size = Vector2(68, 20)
+
+[node name="moving plateform" type="AnimatableBody2D"]
+collision_layer = 255
+script = ExtResource("1_uryt0")
+metadata/_edit_group_ = true
+
+[node name="C_m_plateform" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-34, -10, 34, -10, 34, 10, -34, 10)
+
+[node name="S_m_plateform" type="Polygon2D" parent="C_m_plateform"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qmjga")

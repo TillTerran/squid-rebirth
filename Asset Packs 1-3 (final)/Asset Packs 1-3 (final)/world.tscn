@@ -1,0 +1,117 @@
+[gd_scene load_steps=9 format=3 uid="uid://cauc6jtpagsxm"]
+
+[ext_resource type="PackedScene" uid="uid://dw6i34wt4qlay" path="res://Player/player.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://dd7jn2sw1rpjf" path="res://icon.png" id="2"]
+[ext_resource type="Script" path="res://scripts/world.gd" id="3"]
+[ext_resource type="PackedScene" uid="uid://dpt1tspxyomxg" path="res://moving_plateform.tscn" id="4_jocwe"]
+
+[sub_resource type="CapsuleShape2D" id="3"]
+
+[sub_resource type="RectangleShape2D" id="2"]
+size = Vector2(10.3333, 10.3333)
+
+[sub_resource type="GDScript" id="GDScript_b60ng"]
+script/source = "extends Area2D
+
+@onready var player = $\"../../player\"
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+#var force = 100
+#var direction = Vector2(1,0)
+
+
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	
+	#if direction.dot(player.velocity)<force:
+		#player.add_force(direction*delta*max(1,min(force,force-direction.dot(player.velocity))))
+	
+	
+	#player.add_force(direction*delta*max(10,min(force,force-direction.dot(player.velocity))))
+	pass
+
+#player.can_translate_messages()
+
+
+
+
+
+
+
+
+
+"
+
+[sub_resource type="SpriteFrames" id="6"]
+
+[node name="world" type="Node2D"]
+script = ExtResource("3")
+
+[node name="player" parent="." instance=ExtResource("1")]
+position = Vector2(501, 582)
+scale = Vector2(1, 1)
+
+[node name="moving plateform2" parent="." instance=ExtResource("4_jocwe")]
+position = Vector2(800, 418)
+t_cycle = 12.0
+max_angle = 0.5
+theta = 1.0
+
+[node name="pitit ennemi" type="CharacterBody2D" parent="."]
+position = Vector2(608, 296)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pitit ennemi"]
+shape = SubResource("3")
+
+[node name="mur" type="StaticBody2D" parent="."]
+position = Vector2(-88, 168)
+
+[node name="mur_1" type="Sprite2D" parent="mur"]
+position = Vector2(-1, 0)
+texture = ExtResource("2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mur"]
+position = Vector2(-1, 0)
+shape = SubResource("2")
+
+[node name="terrain de test" type="StaticBody2D" parent="."]
+collision_layer = 255
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="terrain de test"]
+position = Vector2(215.8, 95.2396)
+scale = Vector2(1.86458, 1.86458)
+polygon = PackedVector2Array(0, 47, 0, 359, 832, 359, 832, -1, 640, -1, 64, -1, 120, 63, 208, 23, 240, 135, 312, 55, 312, 143, 520, 55, 520, 119, 464, 151, 416, 151, 416, 183, 464, 183, 520, 151, 648, 151, 624, 119, 568, 119, 568, 55, 632, 23, 800, 63, 800, 319, 24, 319, 24, 71)
+
+[node name="Polygon2D" type="Polygon2D" parent="terrain de test/CollisionPolygon2D"]
+position = Vector2(0, -1)
+
+[node name="moving plateform" parent="." instance=ExtResource("4_jocwe")]
+position = Vector2(466, 470)
+t_cycle = 16.0
+max_angle = -0.8
+length = 150
+theta = 1.0
+
+[node name="zones forces mvt" type="Node2D" parent="."]
+position = Vector2(392, 296)
+
+[node name="zone de vent" type="Area2D" parent="zones forces mvt"]
+position = Vector2(-576, -240)
+script = SubResource("GDScript_b60ng")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zones forces mvt/zone de vent"]
+position = Vector2(-1, 0)
+shape = SubResource("2")
+
+[node name="wind" type="AnimatedSprite2D" parent="zones forces mvt/zone de vent"]
+sprite_frames = SubResource("6")

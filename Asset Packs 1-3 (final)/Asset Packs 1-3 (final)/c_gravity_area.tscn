@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsqye2sc2h2yf"]
+
+[ext_resource type="Script" path="res://scripts/c_gravity_area.gd" id="1_j354v"]
+
+[node name="c_gravity_area" type="Area2D"]
+position = Vector2(4, -120)
+scale = Vector2(-1.21565, 0.97759)
+collision_layer = 0
+monitorable = false
+gravity_space_override = 3
+gravity_point = true
+gravity_point_unit_distance = 10.0
+gravity_point_center = Vector2(855, 248)
+gravity_direction = Vector2(855, 248)
+gravity = -500.0
+script = ExtResource("1_j354v")
+metadata/_edit_group_ = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
