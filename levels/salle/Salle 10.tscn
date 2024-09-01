@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://baj6g6e137i4"]
 
-[ext_resource type="PackedScene" uid="uid://da44wr7601ca0" path="res://level_template.tscn" id="1_5p05v"]
+[ext_resource type="PackedScene" uid="uid://b32tvkldvdtr7" path="res://level_template.tscn" id="1_5p05v"]
 [ext_resource type="PackedScene" uid="uid://bclewffjxdq25" path="res://scene_change/change_scene_area.tscn" id="2_mq8je"]
 
 [node name="level_template" instance=ExtResource("1_5p05v")]
@@ -16,7 +16,7 @@ position = Vector2(66, 25)
 connected_scene = "res://levels/salle/Salle 08.tscn"
 
 [node name="change_scene_area5" parent="." index="5" instance=ExtResource("2_mq8je")]
-position = Vector2(-47, 298)
+position = Vector2(-53, 288)
 connected_scene = "res://levels/salle/Salle 11.tscn"
 
 [node name="change_scene_area7" parent="." index="6" instance=ExtResource("2_mq8je")]
