@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var player = $player
 @export var tp_points_array:Array
-
+var in_secret_zone=false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -43,6 +43,16 @@ func to_main_menu():
 
 
 func _on_revealing_hidden_layer_area_body_entered(body: Node2D) -> void:
-	if $TileMap.get_layer_modulate(2)==Color.WHITE:
-		$AnimationPlayer.play("illusion_fading")
+	if "illusion_coming_back"in$AnimationPlayer.get_queue():
+		$AnimationPlayer.clear_queue()
+	else:
+		$AnimationPlayer.queue("illusion_fading")
+	
+
+
+func _on_revealing_hidden_layer_area_body_exited(body: Node2D) -> void:
+	if "illusion_fading"in$AnimationPlayer.get_queue():
+		$AnimationPlayer.clear_queue()
+	else:
+		$AnimationPlayer.queue("illusion_coming_back")
 	
