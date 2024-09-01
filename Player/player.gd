@@ -191,6 +191,7 @@ func get_inputs(delta,input_vector:Vector2,vec_gravity:Vector2):
 		
 		accel+=vec_gravity*delta
 		accel+=jump_(delta)
+		
 		accel+=input_vector*input_left_dir*p_walkaccel*delta
 	
 	return input_vector
@@ -504,7 +505,8 @@ func apply_accel(delta,a_vector,v_vector,max_hSpeed=300,max_vSpeed=2000):
 	
 	#the line below limits the strength of the vector, it's ugly but I didn't know how to do differently at the time.
 	v_vector = left_dir*min(abs(max_hSpeed*left_dir.dot(left_dir)),abs(v_vector.dot(left_dir)))*sign(v_vector.dot(left_dir))   +   up_direction*min(abs(max_vSpeed*up_direction.dot(up_direction)),abs(v_vector.dot(up_direction)))*sign(v_vector.dot(up_direction))
-	
+	if ($AnimationPlayer.current_animation == "PL_player_punch"):
+		v_vector-=left_dir*v_vector.dot(left_dir)*1/4
 	
 	
 	return v_vector

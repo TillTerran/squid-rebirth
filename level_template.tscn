@@ -773,6 +773,7 @@ script = ExtResource("1_xpoyw")
 
 [node name="player" parent="." instance=ExtResource("2_xafe8")]
 position = Vector2(98, 48)
+scale = Vector2(2, 1)
 level = ExtResource("3_rvf25")
 
 [node name="TileMap" type="TileMap" parent="."]

@@ -25,19 +25,22 @@ visible = false
 mouse_filter = 1
 
 [node name="change_scene_area2" parent="." index="4" instance=ExtResource("2_clp50")]
-position = Vector2(-4, -95)
+position = Vector2(1, -93)
+scale = Vector2(3, 1)
 connected_scene = "res://levels/salle/Salle 06.tscn"
 
 [node name="change_scene_area6" parent="." index="5" instance=ExtResource("2_clp50")]
-position = Vector2(322, -11)
+position = Vector2(322, -8)
+scale = Vector2(1, 2)
 connected_scene = "res://levels/salle/Salle 09.tscn"
 
 [node name="change_scene_area10" parent="." index="6" instance=ExtResource("2_clp50")]
 position = Vector2(-193, 151)
+scale = Vector2(1, 2)
 connected_scene = "res://levels/salle/Salle 10.tscn"
 
 [node name="change_scene_area13" parent="." index="7" instance=ExtResource("2_clp50")]
-position = Vector2(528, 150)
+position = Vector2(519, 161)
 connected_scene = "res://levels/salle/Salle 13.tscn"
 
 [node name="CastorMitrailette" parent="." index="8" instance=ExtResource("3_gvjwl")]
