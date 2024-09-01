@@ -66,7 +66,7 @@ func _on_projectile_timer_timeout():
 			var vitesse_initiale = calculer_vitesse_initiale(position_ennemi, position_joueur, hauteur_max)
 
 			var Projectile = projectile.instantiate()  # Crée une instance de ton projectile
-			get_tree().root.add_child(Projectile)
+			get_tree().current_scene.add_child(Projectile)
 			Projectile.position = position_ennemi
 			Projectile.lancer(vitesse_initiale)
 			tir_actuel+=1
@@ -150,7 +150,7 @@ func fire():
 			var vitesse_initiale = calculer_vitesse_initiale(position_ennemi, position_joueur, hauteur_max)
 
 			var Projectile = projectile.instantiate()  # Crée une instance de ton projectile
-			get_tree().root.add_child(Projectile)
+			get_tree().current_scene.add_child(Projectile)
 			Projectile.position = position_ennemi
 			Projectile.lancer(vitesse_initiale)
 			#(tir_actuel+=1

@@ -39,8 +39,10 @@ func change_scene(new_scene:String) -> void:
 	#$LevelTransition.fade_from_black()
 
 func to_main_menu():
-	await change_scene("res://levels/main_menu_good.tscn")
+	await change_scene(GlobalVariables.main_menu)
 
 
 func _on_revealing_hidden_layer_area_body_entered(body: Node2D) -> void:
-	$TileMap.set_layer_modulate(-1,Color("ffffff00"))
+	print("aaaaaaaaaaaaaahhhh")
+	$AnimationPlayer.play("illusion_fading")
+	

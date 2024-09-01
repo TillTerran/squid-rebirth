@@ -65,7 +65,8 @@ var pickup_list = []
 func _ready():
 	
 	held_keys=GlobalVariables.held_keys
-	
+	hp_max=GlobalVariables.max_hp
+	current_hp=GlobalVariables.current_player_hp
 	
 	
 	
@@ -514,7 +515,9 @@ func apply_accel(delta,a_vector,v_vector,max_hSpeed=300,max_vSpeed=2000):
 	#return v_vector.limit_length(max_velocity)
 
 
-
+func reset_position()->void:
+	position=respawn_point
+	velocity*=0
 
 
 
@@ -537,12 +540,16 @@ func add_more_health() :
 	if current_hp < hp_max :
 			current_hp = (current_hp +2) % (hp_max+1)
 
-func lose_hp(hp_lost:int)->void:
+func lose_hp(hp_lost:int,reset_position:bool =false)->void:
 	
 	current_hp -= hp_lost
+	GlobalVariables.current_player_hp-=hp_lost
+	if reset_position:
+		reset_position()
+	
 	if current_hp <= 0 :
 		game_over()
-	print(current_hp)
+	#print(current_hp)
 
 
 
@@ -627,3 +634,7 @@ func _on_char_switch_timeout():
 func _on_punch_body_entered(body: Node2D) -> void:
 	body.position.y-=30
 	pass
+
+
+func _on_hurtbox_body_entered(body: Node2D) -> void:
+	lose_hp(body.get_meta("damage_dealt",0),body.get_meta("resets_position",0))

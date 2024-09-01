@@ -8,4 +8,5 @@ func _pressed():
 
 func startthegame():
 	print("game_starts")
+	GlobalVariables._ready()
 	Events.change_scene.emit(first_level)

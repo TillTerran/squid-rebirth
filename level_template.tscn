@@ -1,8 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://b32tvkldvdtr7"]
+[gd_scene load_steps=37 format=3 uid="uid://b32tvkldvdtr7"]
 
 [ext_resource type="Script" path="res://scripts/level_template.gd" id="1_xpoyw"]
 [ext_resource type="PackedScene" uid="uid://s77rdbs0u3dk" path="res://player.tscn" id="2_xafe8"]
-[ext_resource type="PackedScene" path="res://main_menu.tscn" id="3_rvf25"]
+[ext_resource type="PackedScene" uid="uid://b2rko3ijjih3y" path="res://main_menu.tscn" id="3_rvf25"]
 [ext_resource type="Theme" path="res://nice_theme.tres" id="4_4o0sd"]
 [ext_resource type="Texture2D" uid="uid://blcaa3rlbsmkb" path="res://tileset.png" id="4_judaa"]
 [ext_resource type="Texture2D" uid="uid://oh6scn5s6fn5" path="res://icon.png" id="5_p7dwc"]
@@ -11,6 +11,102 @@
 [ext_resource type="Texture2D" uid="uid://dcydv1wrkir36" path="res://slopes_flipped.png" id="6_t7nkq"]
 [ext_resource type="Texture2D" uid="uid://dbomxutnviumh" path="res://Tilemap/tuiles_map_1.png" id="7_wdiad"]
 [ext_resource type="PackedScene" path="res://questpanel.tscn" id="9_e03ur"]
+[ext_resource type="Texture2D" uid="uid://w0hb30w8xuqf" path="res://Tilemap/spikes.png" id="12_hw8n7"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nbtc2"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_alu6j"]
+animation = &"illusion_fading"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_db8l2"]
+animation = &"stay_hidden"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hjw2g"]
+animation = &"stay_hidden"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pv612"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8kx7n"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rkrv3"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2kv77"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_x1swb"]
+states/End/position = Vector2(1015, 92)
+states/RESET/node = SubResource("AnimationNodeAnimation_nbtc2")
+states/RESET/position = Vector2(441, 56)
+states/illusion_fading/node = SubResource("AnimationNodeAnimation_alu6j")
+states/illusion_fading/position = Vector2(578, 92)
+states/stay_hidden/node = SubResource("AnimationNodeAnimation_hjw2g")
+states/stay_hidden/position = Vector2(792, 100)
+"states/stay_hidden 2/node" = SubResource("AnimationNodeAnimation_db8l2")
+"states/stay_hidden 2/position" = Vector2(792, 196)
+transitions = ["illusion_fading", "stay_hidden", SubResource("AnimationNodeStateMachineTransition_pv612"), "RESET", "illusion_fading", SubResource("AnimationNodeStateMachineTransition_8kx7n"), "stay_hidden", "stay_hidden 2", SubResource("AnimationNodeStateMachineTransition_rkrv3"), "stay_hidden 2", "stay_hidden", SubResource("AnimationNodeStateMachineTransition_2kv77")]
+
+[sub_resource type="Animation" id="Animation_6nojf"]
+resource_name = "illusion_fading"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:layer_2/modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_s10vy"]
+resource_name = "illusion_coming_back"
+
+[sub_resource type="Animation" id="Animation_m3t2t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:layer_2/modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1ofy1"]
+resource_name = "stay_hidden"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:layer_2/modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6gy7m"]
+_data = {
+"RESET": SubResource("Animation_m3t2t"),
+"illusion_coming_back": SubResource("Animation_s10vy"),
+"illusion_fading": SubResource("Animation_6nojf"),
+"stay_hidden": SubResource("Animation_1ofy1")
+}
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fsoyo"]
 texture = ExtResource("4_judaa")
@@ -438,7 +534,6 @@ use_texture_padding = false
 0:12/0 = 0
 0:12/0/terrain_set = 0
 0:12/0/terrain = 0
-0:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64, -64, -64)
 0:12/0/terrains_peering_bit/right_side = 0
 0:12/0/terrains_peering_bit/bottom_right_corner = 0
 0:12/0/terrains_peering_bit/bottom_side = 0
@@ -765,11 +860,83 @@ sources/2 = SubResource("TileSetAtlasSource_tx1co")
 sources/3 = SubResource("TileSetAtlasSource_tmvag")
 sources/4 = SubResource("TileSetAtlasSource_3k8as")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_peglg"]
+texture = ExtResource("7_wdiad")
+margins = Vector2i(53, 61)
+separation = Vector2i(20, 20)
+texture_region_size = Vector2i(128, 128)
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wphfh"]
+resource_name = "spikes"
+texture = ExtResource("12_hw8n7")
+texture_region_size = Vector2i(146, 146)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, 64, 64, 64, 64, 16, -64, 16)
+0:0/0/terrains_peering_bit/right_side = 0
+0:0/0/terrains_peering_bit/bottom_side = 0
+0:0/0/terrains_peering_bit/left_side = 0
+1:0/0 = 0
+1:0/0/terrain_set = 0
+1:0/0/terrain = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -16, 64, -16, 64, -64, -64, -64)
+1:0/0/terrains_peering_bit/right_side = 0
+1:0/0/terrains_peering_bit/left_side = 0
+1:0/0/terrains_peering_bit/top_side = 0
+2:0/0 = 0
+2:0/0/terrain_set = 0
+2:0/0/terrain = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, 64, -16, 64, -16, -64, -64, -64)
+2:0/0/terrains_peering_bit/bottom_side = 0
+2:0/0/terrains_peering_bit/left_side = 0
+2:0/0/terrains_peering_bit/top_side = 0
+3:0/0 = 0
+3:0/0/terrain_set = 0
+3:0/0/terrain = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 64, 64, 64, 64, -64, 16, -64)
+3:0/0/terrains_peering_bit/right_side = 0
+3:0/0/terrains_peering_bit/bottom_side = 0
+3:0/0/terrains_peering_bit/top_side = 0
+
+[sub_resource type="TileSet" id="TileSet_6c6l8"]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 256
+physics_layer_0/collision_mask = 0
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Terrain 0"
+terrain_set_0/terrain_0/color = Color(0.546918, 0.08196, 0, 1)
+sources/0 = SubResource("TileSetAtlasSource_peglg")
+sources/1 = SubResource("TileSetAtlasSource_wphfh")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7of1a"]
 size = Vector2(84.0897, 73.9989)
 
 [node name="level_template" type="Node2D"]
 script = ExtResource("1_xpoyw")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../TileMap")
+tree_root = SubResource("AnimationNodeStateMachine_x1swb")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../TileMap")
+libraries = {
+"": SubResource("AnimationLibrary_6gy7m")
+}
 
 [node name="player" parent="." instance=ExtResource("2_xafe8")]
 position = Vector2(98, 48)
@@ -784,12 +951,18 @@ layer_1/name = "Slopes"
 layer_2/name = "Fake walls"
 layer_2/z_index = 4
 
+[node name="spykes" type="TileMapLayer" parent="."]
+scale = Vector2(0.125, 0.125)
+tile_set = SubResource("TileSet_6c6l8")
+use_kinematic_bodies = true
+metadata/damage_dealt = 1
+metadata/resets_position = true
+
 [node name="revealing hidden_layer area" type="Area2D" parent="."]
 modulate = Color(1, 1, 1, 0)
 scale = Vector2(0.125, 0.125)
 collision_layer = 0
 collision_mask = 128
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="revealing hidden_layer area"]
 shape = SubResource("RectangleShape2D_7of1a")

@@ -15,6 +15,7 @@ func player_died():
 	$"in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer/header".text="GAME-OVER"
 	player_is_dead=true
 	get_tree().paused=true
+	GlobalVariables.current_player_hp=GlobalVariables.max_hp
 
 func _on_continue_pressed() -> void:
 	if player_is_dead:
@@ -26,7 +27,8 @@ func _on_continue_pressed() -> void:
 
 
 func _on_quit_pressed() -> void:
-	Events.main_menu.emit()
+	GlobalVariables.current_player_hp=GlobalVariables.max_hp
+	get_tree().change_scene_to_file(GlobalVariables.main_menu)
 	hide()
 	$"in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer/header".text="PAUSED"
 	get_tree().paused=false
