@@ -15,3 +15,6 @@ layer_0/tile_data = PackedInt32Array(-196613, 131075, 3, -131077, 65539, 2, -655
 position = Vector2(-82, 22)
 connected_scene = "res://levels/salle/Salle 08.tscn"
 tp_point_id = 1
+
+[node name="in-game menu" parent="." index="8"]
+visible = false

@@ -1,14 +1,19 @@
 extends CanvasLayer
 
-var player_is_dead=false
-var loading_screen=false
+var player_is_dead:bool=false
+#var loading_screen:bool=false
 
 func _ready() -> void:
 	hide()
+	Events.player_died.connect(player_died)
+	Events.loading_screen=false
+	player_is_dead=false
+	$"in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer/header".text="PAUSED"
 
 
-func _process(delta: float) -> void:
-	if !loading_screen:
+
+func _process(_delta: float) -> void:
+	if !Events.loading_screen:
 		show()
 
 func player_died():
@@ -28,7 +33,5 @@ func _on_continue_pressed() -> void:
 
 func _on_quit_pressed() -> void:
 	GlobalVariables.current_player_hp=GlobalVariables.max_hp
-	get_tree().change_scene_to_file(GlobalVariables.main_menu)
-	hide()
-	$"in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer/header".text="PAUSED"
-	get_tree().paused=false
+	Events.main_menu.emit()
+	#get_tree().paused=false

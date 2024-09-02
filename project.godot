@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="basic project"
-run/main_scene="res://levels/salle/Salle 01.tscn"
+run/main_scene="res://menus/main_menu_good.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 run/max_fps=60
 config/icon="res://icon.svg"
@@ -21,7 +21,6 @@ config/icon="res://icon.svg"
 Events="*res://scripts/Events.gd"
 LevelTransition="*res://level_transition.tscn"
 GlobalVariables="*res://global_variables.tscn"
-InGameMenu="*res://menus/in_game_menu.tscn"
 
 [display]
 

@@ -566,7 +566,7 @@ func game_over():
 		#$Ghost/Jump.visible = false
 	#$AnimationPlayer.stop()
 	#await $AnimationPlayer.play("PL_player_death")
-	InGameMenu.player_died()
+	Events.player_died.emit()
 	pass
 
 
