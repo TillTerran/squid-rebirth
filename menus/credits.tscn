@@ -1,0 +1,106 @@
+[gd_scene load_steps=2 format=3 uid="uid://cg8h0mvpx6x0r"]
+
+[ext_resource type="Script" path="res://menus/scroll.gd" id="1_23bgg"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0646965, 0.0646965, 0.0646965, 1)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 75
+theme_override_constants/margin_bottom = 30
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+scroll_vertical_custom_step = 3.0
+vertical_scroll_mode = 3
+script = ExtResource("1_23bgg")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "
+
+
+
+
+
+[center][b]PROJECT BABYLON[/b]
+
+
+
+
+
+membres du projet:
+
+
+
+
+[b]Développeurs :[/b]
+- X-24(Logan Guerin)
+- Goulven Divet
+- Kevin Moreau
+
+
+[b]Lore :[/b]
+-Yohanna Rosa
+- Ando Radjef
+- Mathieu Brousse
+-Thomas Beslier
+-Freya Lebrech
+
+
+[b]Graphistes :[/b]
+- Thibaud Demoulin
+- Louis Guinier
+- Samuel Coquemer
+- Léa Garraut
+- Lou Vasseur
+- Chloé Cheguillaume
+
+
+[b]Mapping :[/b]
+-Thomas Beslier
+- X-24(Logan Guerin)
+-Thibaud Demoulin
+-Louis Guinier
+
+
+[b]Musique :[/b]
+-Beny
+-Pierrick Lermite
+-Christopher Chiaberge
+- Jolan Riallot
+
+
+[b]Communication :[/b]
+-Freya Lebrech
+-Chloé Cheguilaume
+
+
+
+[/center]"
+fit_content = true

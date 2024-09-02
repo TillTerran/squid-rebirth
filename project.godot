@@ -29,6 +29,10 @@ window/size/viewport_width=960
 window/size/viewport_height=540
 window/vsync/vsync_mode=0
 
+[editor]
+
+movie_writer/movie_file="demo.avi"
+
 [global_group]
 
 tp_points=""
