@@ -42,7 +42,7 @@ func to_main_menu():
 	await change_scene(GlobalVariables.main_menu)
 
 
-func _on_revealing_hidden_layer_area_body_entered(body: Node2D) -> void:
+func _on_revealing_hidden_layer_area_body_entered(_body: Node2D) -> void:
 	if "illusion_coming_back"in$AnimationPlayer.get_queue():
 		$AnimationPlayer.clear_queue()
 	else:
@@ -50,7 +50,7 @@ func _on_revealing_hidden_layer_area_body_entered(body: Node2D) -> void:
 	
 
 
-func _on_revealing_hidden_layer_area_body_exited(body: Node2D) -> void:
+func _on_revealing_hidden_layer_area_body_exited(_body: Node2D) -> void:
 	if "illusion_fading"in$AnimationPlayer.get_queue():
 		$AnimationPlayer.clear_queue()
 	else:

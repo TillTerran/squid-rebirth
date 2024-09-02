@@ -898,7 +898,7 @@ sources/1 = SubResource("TileSetAtlasSource_wphfh")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7of1a"]
 size = Vector2(778.091, 388.999)
 
-[node name="level_template" type="Node2D"]
+[node name="level_template2" type="Node2D"]
 script = ExtResource("1_xpoyw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
