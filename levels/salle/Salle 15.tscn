@@ -26,7 +26,6 @@ connected_scene = "res://levels/salle/Salle 14.tscn"
 position = Vector2(-150, -326)
 scale = Vector2(3, 3)
 connected_scene = "res://levels/salle/Salle 14.tscn"
-tp_point_id = 2
 
 [node name="change_scene_area10" parent="." index="6" instance=ExtResource("2_qocga")]
 position = Vector2(981, 217)
@@ -37,15 +36,3 @@ connected_scene = "res://levels/salle/Salle 16.tscn"
 position = Vector2(394, 321)
 scale = Vector2(10, 5)
 tp_id = 2
-
-[node name="tp_point1" parent="." index="11" instance=ExtResource("3_dcbwx")]
-position = Vector2(394, -45)
-tp_id = 3
-
-[node name="tp_point2" parent="." index="12" instance=ExtResource("3_dcbwx")]
-position = Vector2(927, 225)
-tp_id = 0
-
-[node name="tp_point3" parent="." index="13" instance=ExtResource("3_dcbwx")]
-position = Vector2(-103, -314)
-tp_id = 1
