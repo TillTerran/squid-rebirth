@@ -58,7 +58,7 @@ func _process(delta):
 			velocity.y+=gravity*delta
 			velocity.x=0
 	move_and_slide()
-	print(STATE.keys()[Legrorat_state])
+	#print(STATE.keys()[Legrorat_state])
 
 
 
@@ -74,7 +74,7 @@ func _on_direction_timeout() -> void:
 
 func _on_wait_to_change_direction_timeout() -> void:
 	Legrorat_state=STATE.WALK
-	print("change direction")
+	#print("change direction")
 	$Direction.start()
 
 

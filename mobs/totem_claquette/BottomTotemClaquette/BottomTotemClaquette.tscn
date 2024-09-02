@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://mtdhfmqptfli"]
 
 [ext_resource type="Script" path="res://mobs/totem_claquette/BottomTotemClaquette/BottomTotemClaquette.gd" id="1_q8lht"]
-[ext_resource type="Texture2D" uid="uid://c2xq8bg6i6jau" path="res://mobs/totem_claquette/TopTotemClaquette/idle_animation/Idle_animation_1.jpg" id="2_3qtpk"]
+[ext_resource type="Texture2D" uid="uid://usek4fd1o6hh" path="res://mobs/totem_claquette/TopTotemClaquette/idle_animation/Idle_animation_1.jpg" id="2_3qtpk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hyb8k"]
 animations = [{

@@ -79,15 +79,6 @@ func _on_detection_area_player_body_entered(body):
 	$Jump_before_attack.start()
 	velocity.y=-100
 
-func calculer_vitesse_initiale(position_ennemi, position_joueur, hauteur_max):
-	var distance = position_joueur - position_ennemi
-	var temps_de_vol = sqrt(2 * hauteur_max / gravite) + sqrt(2 * (hauteur_max - distance.y) / gravite)
-	var vitesse_x = distance.x / temps_de_vol
-	var vitesse_y = sqrt(2 * gravite * hauteur_max)
-	return Vector2(vitesse_x, -vitesse_y)  # Applique le facteur de vitesse
-
-
-
 func _on_reloading_timeout():
 	tir_actuel=0
 	$ProjectileTimer.start()
@@ -123,7 +114,7 @@ func _on_detection_area_player_body_exited(body):
 
 func _on_wait_to_change_direction_timeout():
 	Castor_state=STATE.WALK
-	print("change direction")
+	#print("change direction")
 	$Direction.start()
 
 
@@ -158,6 +149,13 @@ func fire():
 		else:
 			#$Reloading.start()
 			pass
+func calculer_vitesse_initiale(position_ennemi, position_joueur, hauteur_max):
+	var distance = position_joueur - position_ennemi
+	var temps_de_vol = sqrt(2 * hauteur_max / gravite) + sqrt(2 * (hauteur_max - distance.y) / gravite)
+	var vitesse_x = distance.x / temps_de_vol
+	var vitesse_y = sqrt(2 * gravite * hauteur_max)
+	return Vector2(vitesse_x, -vitesse_y)  # Applique le facteur de vitesse
+
 func _on_animated_sprite_2d_frame_changed():
 	if ($AnimatedSprite2D.get_animation())=="attack":
 		if $AnimatedSprite2D.get_frame()==7:
