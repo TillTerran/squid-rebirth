@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b32tvkldvdtr7" path="res://level_template.tscn" id="1_ysl0s"]
 [ext_resource type="PackedScene" uid="uid://bclewffjxdq25" path="res://scene_change/change_scene_area.tscn" id="2_clp50"]
 [ext_resource type="PackedScene" uid="uid://b7x1st8766bcw" path="res://mobs/Castor_mitraillette/Castor_mitraillette.tscn" id="3_gvjwl"]
-[ext_resource type="PackedScene" uid="uid://b6eoak8jx38d" path="res://save_point.tscn" id="4_sqto6"]
+[ext_resource type="PackedScene" path="res://save_point.tscn" id="4_sqto6"]
 [ext_resource type="PackedScene" uid="uid://c833s1u5hyolg" path="res://scene_change/tp_point.tscn" id="5_w4gf0"]
 
 [node name="level_template" instance=ExtResource("1_ysl0s")]

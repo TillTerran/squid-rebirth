@@ -28,7 +28,7 @@ func _on_continue_pressed() -> void:
 		$"in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer/header".text="PAUSED"
 	hide()
 	player_is_dead=false
-	get_tree().paused=false
+	#get_tree().paused=false
 
 
 func _on_quit_pressed() -> void:

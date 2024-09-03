@@ -1,7 +1,7 @@
 extends CharacterBody2D
 var projectile= preload("res://mobs/Castor_mitraillette/projectile/projectile.tscn")
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var gravite=9.80
+var _gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var gravite=_gravity
 var player=null
 var player_chase=false
 var hauteur_max=100
@@ -29,21 +29,21 @@ func _process(delta):
 			$IdleCollision.disabled=false
 			$AttackCollision.disabled=true
 			$WalkCollision.disabled=true
-			velocity.y+=gravity*delta
+			velocity.y+=_gravity*delta
 			velocity.x=0
 		STATE.WALK:
 			$AnimatedSprite2D.play("walk")
 			$IdleCollision.disabled=true
 			$AttackCollision.disabled=true
 			$WalkCollision.disabled=false
-			velocity.y+=gravity*delta
+			velocity.y+=_gravity*delta
 			velocity.x=speed*direction
 		STATE.ATTACK:
 			$AnimatedSprite2D.play("attack")
 			$IdleCollision.disabled=true
 			$AttackCollision.disabled=false
 			$WalkCollision.disabled=true
-			velocity.y+=gravity*delta
+			velocity.y+=_gravity*delta
 			velocity.x=0
 			if player!=null:
 				chase_player()
@@ -63,8 +63,12 @@ func _on_projectile_timer_timeout():
 		if tir_actuel<nb_tir:
 			var position_ennemi = global_position  # Position actuelle de l'ennemi
 			var position_joueur = player.global_position  # Position du joueur
-			var vitesse_initiale = calculer_vitesse_initiale(position_ennemi, position_joueur, hauteur_max)
-
+			var hauteur_max_reel= -(position_joueur.y-position_ennemi.y)+hauteur_max
+			#if hauteur_max_reel!=0:
+				#position_joueur.x-=position_ennemi.y-position_joueur.y
+			var vitesse_initiale = calculer_vitesse_initiale(position_ennemi, position_joueur, hauteur_max_reel)
+			
+			
 			var Projectile = projectile.instantiate()  # Crée une instance de ton projectile
 			get_tree().current_scene.add_child(Projectile)
 			Projectile.position = position_ennemi
@@ -79,12 +83,14 @@ func _on_detection_area_player_body_entered(body):
 	$Jump_before_attack.start()
 	velocity.y=-100
 
-func calculer_vitesse_initiale(position_ennemi, position_joueur, hauteur_max):
+func calculer_vitesse_initiale(position_ennemi, position_joueur, hauteur_max_projectile):#hauteur inutilisée
 	var distance = position_joueur - position_ennemi
-	var temps_de_vol = sqrt(2 * hauteur_max / gravite) + sqrt(2 * (hauteur_max - distance.y) / gravite)
-	var vitesse_x = distance.x / temps_de_vol
-	var vitesse_y = sqrt(2 * gravite * hauteur_max)
-	return Vector2(vitesse_x, -vitesse_y)  # Applique le facteur de vitesse
+	var temps_de_vol = sqrt(abs(distance.x))/16
+	var vitesse_x = distance.x /(temps_de_vol)
+	var vitesse_y=0
+	vitesse_y = distance.y/(temps_de_vol) - gravite*temps_de_vol/2
+	
+	return Vector2(vitesse_x, vitesse_y)  # Applique le facteur de vitesse
 
 
 
