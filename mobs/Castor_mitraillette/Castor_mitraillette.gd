@@ -1,7 +1,7 @@
 extends CharacterBody2D
 var projectile= preload("res://mobs/Castor_mitraillette/projectile/projectile.tscn")
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var gravite=9.80
+var _gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var gravite=_gravity
 var player=null
 var player_chase=false
 var hauteur_max=100
@@ -29,21 +29,21 @@ func _process(delta):
 			$IdleCollision.disabled=false
 			$AttackCollision.disabled=true
 			$WalkCollision.disabled=true
-			velocity.y+=gravity*delta
+			velocity.y+=gravite*delta
 			velocity.x=0
 		STATE.WALK:
 			$AnimatedSprite2D.play("walk")
 			$IdleCollision.disabled=true
 			$AttackCollision.disabled=true
 			$WalkCollision.disabled=false
-			velocity.y+=gravity*delta
+			velocity.y+=gravite*delta
 			velocity.x=speed*direction
 		STATE.ATTACK:
 			$AnimatedSprite2D.play("attack")
 			$IdleCollision.disabled=true
 			$AttackCollision.disabled=false
 			$WalkCollision.disabled=true
-			velocity.y+=gravity*delta
+			velocity.y+=gravite*delta
 			velocity.x=0
 			if player!=null:
 				chase_player()
@@ -149,12 +149,14 @@ func fire():
 		else:
 			#$Reloading.start()
 			pass
-func calculer_vitesse_initiale(position_ennemi, position_joueur, hauteur_max):
+func calculer_vitesse_initiale(position_ennemi, position_joueur, hauteur_max_projectile):#hauteur inutilisée
 	var distance = position_joueur - position_ennemi
-	var temps_de_vol = sqrt(2 * hauteur_max / gravite) + sqrt(2 * (hauteur_max - distance.y) / gravite)
-	var vitesse_x = distance.x / temps_de_vol
-	var vitesse_y = sqrt(2 * gravite * hauteur_max)
-	return Vector2(vitesse_x, -vitesse_y)  # Applique le facteur de vitesse
+	var temps_de_vol = sqrt(abs(distance.x))/16
+	var vitesse_x = distance.x /(temps_de_vol)
+	var vitesse_y=0
+	vitesse_y = distance.y/(temps_de_vol) - gravite*temps_de_vol/2
+
+	return Vector2(vitesse_x, vitesse_y)  # Applique le facteur de vitesse
 
 func _on_animated_sprite_2d_frame_changed():
 	if ($AnimatedSprite2D.get_animation())=="attack":

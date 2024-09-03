@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://gw56g0nea6og"]
 
 [ext_resource type="Script" path="res://mobs/totem_claquette/projectile/totem_claquette_projectile.gd" id="1_24iou"]
-[ext_resource type="Texture2D" uid="uid://5iarb77epo35" path="res://mobs/totem_claquette/projectile/bean_projectile_[1_4].jpg" id="2_y478w"]
+[ext_resource type="Texture2D" uid="uid://cnwjnpjd4bcau" path="res://mobs/totem_claquette/projectile/bean_projectile_[1_4].jpg" id="2_y478w"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p4cqa"]
 animations = [{
@@ -18,7 +18,8 @@ animations = [{
 size = Vector2(10, 13)
 
 [node name="Area2D" type="Area2D"]
-collision_layer = 7
+collision_layer = 0
+collision_mask = 128
 script = ExtResource("1_24iou")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -34,4 +35,5 @@ shape = SubResource("RectangleShape2D_w6v38")
 position = Vector2(6, 7.5)
 scale = Vector2(0.5, 0.65)
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

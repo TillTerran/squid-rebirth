@@ -19,7 +19,7 @@ size = Vector2(106.245, 60.1233)
 [node name="level_template" instance=ExtResource("1_xtlbv")]
 
 [node name="player" parent="." index="0" groups=["Player"]]
-position = Vector2(3392, -1048)
+position = Vector2(1736, -1056)
 
 [node name="TileMap" parent="." index="1"]
 position = Vector2(-280, -88)
@@ -68,7 +68,7 @@ connected_scene = "res://levels/circle_world.tscn"
 position = Vector2(600, -368)
 
 [node name="TopTotemClaquette" parent="." index="10" instance=ExtResource("5_551i2")]
-position = Vector2(256, -376)
+position = Vector2(-136, -384)
 
 [node name="Onyx" parent="." index="11" instance=ExtResource("6_j08w2")]
 position = Vector2(1604, 130)

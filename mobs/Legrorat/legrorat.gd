@@ -8,6 +8,7 @@ enum STATE {
 	WALK,
 	ATTACK,
 	STUN,
+	DEATH
 }
 var Legrorat_state=STATE.IDLE
 @onready var IdleCollision=get_node("AreaIdle/IdleCollision")
@@ -57,6 +58,8 @@ func _process(delta):
 			WalkCollision.disabled=true
 			velocity.y+=gravity*delta
 			velocity.x=0
+		STATE.DEATH:
+			death()
 	move_and_slide()
 	#print(STATE.keys()[Legrorat_state])
 
@@ -145,3 +148,14 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	Legrorat_state=STATE.IDLE
 	$WaitToChangeDirection.start()
 	player=null
+
+
+func _on_area_2d_2_body_entered(body: Node2D) -> void:
+	$AnimatedSprite2D.stop()
+	$AnimatedSprite2D.play("Death")
+	Legrorat_state=STATE.DEATH
+	
+func death():
+	await $AnimatedSprite2D.animation_finished
+	print("Death")
+	queue_free()
