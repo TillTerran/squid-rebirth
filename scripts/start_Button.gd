@@ -2,6 +2,9 @@ extends Button
 
 var first_level:String = "res://levels/salle/Salle 01.tscn"
 
+func _ready():
+	pass
+
 func _pressed():
 	startthegame()
 
