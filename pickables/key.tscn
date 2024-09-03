@@ -1,16 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://tw2avpitjgu5"]
+[gd_scene load_steps=5 format=3 uid="uid://tw2avpitjgu5"]
 
 [ext_resource type="Script" path="res://scripts/key.gd" id="1_18bjb"]
-[ext_resource type="Texture2D" uid="uid://ccpthmvog7mid" path="res://icon.png" id="2_l3p31"]
+[ext_resource type="Texture2D" uid="uid://bkk0p6jql2vuj" path="res://icon.png" id="2_l3p31"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4a1n2"]
 
-[node name="key" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4li3h"]
+
+[node name="key" type="CharacterBody2D"]
+z_index = -1
+collision_layer = 4
 script = ExtResource("1_18bjb")
+metadata/name = "key"
+
+[node name="key" type="Node2D" parent="."]
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 128
+collision_layer = 4
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_4a1n2")
@@ -21,4 +28,7 @@ position = Vector2(4.76837e-07, 0)
 scale = Vector2(0.320313, 0.3125)
 texture = ExtResource("2_l3p31")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4li3h")
+
+[connection signal="body_entered" from="Area2D" to="key" method="_on_area_2d_body_entered"]

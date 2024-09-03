@@ -60,7 +60,11 @@ var gravity_vect = -up_direction
 
 
 var is_punching = false
+
 var pickup_list = []
+var held_objects = {
+	"key":0
+}
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
@@ -110,6 +114,8 @@ func _process(delta):# try to change to _physics_process
 		get_tree().paused=true
 		#InGameMenu.
 	
+	if Input.is_action_just_pressed("Grab"):
+		grab()
 	
 	
 	
@@ -575,8 +581,14 @@ func save():
 	GlobalVariables.last_save_point=get_tree().current_scene.scene_file_path
 
 
-
-
+func grab():
+	if pickup_list!=[]:
+		held_objects.get_or_add(pickup_list[0].get_meta("name",""),0)
+		held_objects[pickup_list[0].get_meta("name","")]+=1
+		if pickup_list[0].has_method(&"pick_up") :
+			pickup_list[0].pick_up()
+		else:
+			pickup_list[0].queue_free()
 
 
 func change_floating():#change this name, it's so bad
@@ -603,16 +615,23 @@ func _on_loot_range_body_entered(body):
 		body.queue_free()
 
 func _on_pickup_range_body_entered(body):
-	if body.is_in_group("Grab"):
+	#if body.is_in_group("Grab"):
+		#pickup_list.insert(pickup_list.size(), body)
+		#print('Loot Entered')
+		#print(pickup_list.size())
 		pickup_list.insert(pickup_list.size(), body)
 		print('Loot Entered')
 		print(pickup_list.size())
+	
 
 func _on_pickup_range_body_exited(body):
-	if body.is_in_group("Grab"):
-		pickup_list.erase(body)
-		print('Loot Exited')
-		print(pickup_list.size())
+	#if body.is_in_group("Grab"):
+		#pickup_list.erase(body)
+		#print('Loot Exited')
+		#print(pickup_list.size())
+	pickup_list.erase(body)
+	print('Loot Exited')
+	print(pickup_list.size())
 
 
 

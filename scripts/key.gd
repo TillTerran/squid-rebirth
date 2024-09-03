@@ -11,9 +11,13 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
+
+
+func pick_up():
+	GlobalVariables.held_keys+=1
+	if key_number !=-1:
+		GlobalVariables.taken_keys[key_number]=true
+	queue_free()
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
