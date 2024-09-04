@@ -1,24 +1,151 @@
-[gd_scene load_steps=8 format=3 uid="uid://mtdhfmqptfli"]
+[gd_scene load_steps=31 format=3 uid="uid://mtdhfmqptfli"]
 
 [ext_resource type="Script" path="res://mobs/totem_claquette/BottomTotemClaquette/BottomTotemClaquette.gd" id="1_q8lht"]
-[ext_resource type="Texture2D" uid="uid://c2xq8bg6i6jau" path="res://mobs/totem_claquette/TopTotemClaquette/idle_animation/Idle_animation_1.jpg" id="2_3qtpk"]
+[ext_resource type="Texture2D" uid="uid://nmq3nd4q0qnv" path="res://mobs/totem_claquette/Animations/Animations.png" id="2_i16v3"]
+[ext_resource type="Texture2D" uid="uid://jvds3dhxovh7" path="res://mobs/Boss/Ecureuil/Animation/Death/Death.png" id="2_is2v7"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_hyb8k"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_d15ln"]
+atlas = ExtResource("2_is2v7")
+region = Rect2(0, 0, 503, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2pgk"]
+atlas = ExtResource("2_is2v7")
+region = Rect2(503, 0, 503, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lyopc"]
+atlas = ExtResource("2_is2v7")
+region = Rect2(1006, 0, 503, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbufy"]
+atlas = ExtResource("2_is2v7")
+region = Rect2(1509, 0, 503, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5ia6"]
+atlas = ExtResource("2_is2v7")
+region = Rect2(2012, 0, 503, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_228ei"]
+atlas = ExtResource("2_is2v7")
+region = Rect2(2515, 0, 503, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1d3mx"]
+atlas = ExtResource("2_is2v7")
+region = Rect2(3018, 0, 503, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1sxj"]
+atlas = ExtResource("2_is2v7")
+region = Rect2(3521, 0, 503, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0vfa"]
+atlas = ExtResource("2_i16v3")
+region = Rect2(99, 306, 158, 283)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtchd"]
+atlas = ExtResource("2_i16v3")
+region = Rect2(24, 7, 252, 298)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmm6p"]
+atlas = ExtResource("2_i16v3")
+region = Rect2(277, 7, 238, 298)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qsc8"]
+atlas = ExtResource("2_i16v3")
+region = Rect2(521, 7, 241, 298)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6tpt"]
+atlas = ExtResource("2_i16v3")
+region = Rect2(771, 7, 244, 298)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xb814"]
+atlas = ExtResource("2_i16v3")
+region = Rect2(1015, 7, 244, 298)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txv6i"]
+atlas = ExtResource("2_i16v3")
+region = Rect2(1262, 7, 240, 298)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qylw"]
+atlas = ExtResource("2_i16v3")
+region = Rect2(1508, 7, 241, 298)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qm1i"]
+atlas = ExtResource("2_i16v3")
+region = Rect2(1742, 7, 240, 298)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_638yc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_3qtpk")
+"texture": SubResource("AtlasTexture_d15ln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2pgk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lyopc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xbufy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i5ia6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_228ei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1d3mx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1sxj")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h0vfa")
+}],
+"loop": true,
+"name": &"OnBottomTotem",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtchd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qmm6p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7qsc8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6tpt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xb814")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txv6i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qylw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2qm1i")
+}],
+"loop": true,
+"name": &"Walk",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dk3ok"]
-size = Vector2(23, 5)
+size = Vector2(17, 5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hghxe"]
-size = Vector2(32, 36)
+size = Vector2(19, 33)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8rcdp"]
 size = Vector2(443, 310)
@@ -26,26 +153,261 @@ size = Vector2(443, 310)
 [sub_resource type="CircleShape2D" id="CircleShape2D_nda7s"]
 radius = 116.004
 
+[sub_resource type="Animation" id="Animation_tkrfd"]
+resource_name = "Death"
+length = 0.8
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Death"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_rduum"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_f54ol"]
+resource_name = "WalkLeft"
+length = 0.8
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Walk"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HitboxBottomTotem:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(7.5, 19.5)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Hitbox/HitboxBottomTotem:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(24.5, 3.5)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BodyHitboxBottomTotem/HitboxBottomTotem2:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BodyHitboxBottomTotem/HitboxBottomTotem2:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(7.5, 19.5)]
+}
+
+[sub_resource type="Animation" id="Animation_byw5i"]
+resource_name = "WalkRight"
+length = 0.8
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Walk"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HitboxBottomTotem:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(17.5, 19.5)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Hitbox/HitboxBottomTotem:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(33.5, 3.5)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BodyHitboxBottomTotem/HitboxBottomTotem2:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(17.5, 19.5)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BodyHitboxBottomTotem/HitboxBottomTotem2:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tsulw"]
+_data = {
+"Death": SubResource("Animation_tkrfd"),
+"RESET": SubResource("Animation_rduum"),
+"WalkLeft": SubResource("Animation_f54ol"),
+"WalkRight": SubResource("Animation_byw5i")
+}
+
 [node name="BottomTotemClaquette" type="CharacterBody2D" groups=["BottomTotemClaquette"]]
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_q8lht")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(16, 18)
-scale = Vector2(0.045, 0.047)
-sprite_frames = SubResource("SpriteFrames_hyb8k")
-animation = &"idle"
+position = Vector2(13, 12.5)
+scale = Vector2(0.150794, 0.157718)
+sprite_frames = SubResource("SpriteFrames_638yc")
+animation = &"Death"
+frame = 1
 
 [node name="Hitbox" type="Area2D" parent="."]
-visible = false
+position = Vector2(-17, 0)
+collision_layer = 0
+collision_mask = 128
 
 [node name="HitboxBottomTotem" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(15.5, 1.5)
+position = Vector2(33.5, 3.5)
 shape = SubResource("RectangleShape2D_dk3ok")
 
 [node name="HitboxBottomTotem" type="CollisionShape2D" parent="."]
-position = Vector2(16, 18)
+position = Vector2(17.5, 19.5)
 shape = SubResource("RectangleShape2D_hghxe")
 
 [node name="DetectionAreaPlayer" type="Area2D" parent="."]
@@ -69,9 +431,23 @@ wait_time = 2.0
 
 [node name="BackToPosition" type="Timer" parent="."]
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tsulw")
+}
+
+[node name="BodyHitboxBottomTotem" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 128
+
+[node name="HitboxBottomTotem2" type="CollisionShape2D" parent="BodyHitboxBottomTotem"]
+position = Vector2(17.5, 19.5)
+shape = SubResource("RectangleShape2D_hghxe")
+
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_entered" from="DetectionAreaPlayer" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionAreaPlayer" to="." method="_on_detection_area_body_exited"]
 [connection signal="body_entered" from="DetectionAreaTopTotem" to="." method="_on_detection_area_totem_body_entered"]
 [connection signal="body_exited" from="DetectionAreaTopTotem" to="." method="_on_detection_area_totem_body_exited"]
 [connection signal="timeout" from="ProjectileTimer" to="." method="_on_projectile_timer_timeout"]
+[connection signal="area_entered" from="BodyHitboxBottomTotem" to="." method="_on_body_hitbox_bottom_totem_area_entered"]
