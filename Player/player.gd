@@ -60,12 +60,17 @@ var gravity_vect = -up_direction
 
 
 var is_punching = false
+
 var pickup_list = []
+var held_objects = {
+	"key":0
+}
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
 	held_keys=GlobalVariables.held_keys
-	
+	hp_max=GlobalVariables.max_hp
+	current_hp=GlobalVariables.current_player_hp
 	
 	
 	
@@ -99,12 +104,18 @@ func _process(delta):# try to change to _physics_process
 #	if Input.is_action_just_pressed("ui_select"): # obsolete... for now
 #		change_gravity_type(not centered_gravity)
 #		print("space")
+	if !get_window().has_focus():
+		get_tree().paused = true
 	
 	centered_gravity = (gravity_point != null)
 	
 	if Input.is_action_just_pressed("ui_cancel"):
-		Events.main_menu.emit()
+		#Events.main_menu.emit()
+		get_tree().paused=true
+		#InGameMenu.
 	
+	if Input.is_action_just_pressed("Grab"):
+		grab()
 	
 	
 	
@@ -187,6 +198,7 @@ func get_inputs(delta,input_vector:Vector2,vec_gravity:Vector2):
 		
 		accel+=vec_gravity*delta
 		accel+=jump_(delta)
+		
 		accel+=input_vector*input_left_dir*p_walkaccel*delta
 	
 	return input_vector
@@ -415,6 +427,21 @@ func update_animation_ghost(input_vector):
 		$AnimationPlayer.play("PL_player_fall")
 
 
+
+
+
+
+
+
+#========================================================================================================
+#========================================================================================================
+#========================================================================================================
+
+
+
+
+
+
 func change_left_perception(input_vector):
 	"""makes the right/left direction correspond to what's displayed on the screen
 	(character upside-down => left input makes the character go left even though the actual left of the character is 
@@ -485,12 +512,31 @@ func apply_accel(delta,a_vector,v_vector,max_hSpeed=300,max_vSpeed=2000):
 	
 	#the line below limits the strength of the vector, it's ugly but I didn't know how to do differently at the time.
 	v_vector = left_dir*min(abs(max_hSpeed*left_dir.dot(left_dir)),abs(v_vector.dot(left_dir)))*sign(v_vector.dot(left_dir))   +   up_direction*min(abs(max_vSpeed*up_direction.dot(up_direction)),abs(v_vector.dot(up_direction)))*sign(v_vector.dot(up_direction))
-	
+	if ($AnimationPlayer.current_animation == "PL_player_punch"):
+		v_vector-=left_dir*v_vector.dot(left_dir)*1/4
 	
 	
 	return v_vector
 #	print(v_vector)#for tests
 	#return v_vector.limit_length(max_velocity)
+
+
+func reset_position()->void:
+	position=respawn_point
+	velocity*=0
+
+
+
+
+#========================================================================================================
+#========================================================================================================
+#========================================================================================================
+
+
+
+
+
+
 
 func add_health() :
 	if current_hp < hp_max :
@@ -500,6 +546,49 @@ func add_more_health() :
 	if current_hp < hp_max :
 			current_hp = (current_hp +2) % (hp_max+1)
 
+func lose_hp(hp_lost:int,reset_position:bool =false)->void:
+	
+	current_hp -= hp_lost
+	GlobalVariables.current_player_hp-=hp_lost
+	if reset_position:
+		reset_position()
+	
+	if current_hp <= 0 :
+		game_over()
+	#print(current_hp)
+
+
+
+func game_over():
+	#if is_monke:
+		#$Monke/Idle.visible = false 
+		#$Monke/Run.visible = false 
+		#$Monke/Punch.visible = false
+		#$Monke/Jump.visible = false
+	#else:
+		#$Ghost/Idle.visible = false 
+		#$Ghost/Run.visible = false 
+		#$Ghost/Punch.visible = false
+		#$Ghost/Jump.visible = false
+	#$AnimationPlayer.stop()
+	#await $AnimationPlayer.play("PL_player_death")
+	Events.player_died.emit()
+	pass
+
+
+
+func save():
+	GlobalVariables.last_save_point=get_tree().current_scene.scene_file_path
+
+
+func grab():
+	if pickup_list!=[]:
+		held_objects.get_or_add(pickup_list[0].get_meta("name",""),0)
+		held_objects[pickup_list[0].get_meta("name","")]+=1
+		if pickup_list[0].has_method(&"pick_up") :
+			pickup_list[0].pick_up()
+		else:
+			pickup_list[0].queue_free()
 
 
 func change_floating():#change this name, it's so bad
@@ -526,16 +615,23 @@ func _on_loot_range_body_entered(body):
 		body.queue_free()
 
 func _on_pickup_range_body_entered(body):
-	if body.is_in_group("Grab"):
+	#if body.is_in_group("Grab"):
+		#pickup_list.insert(pickup_list.size(), body)
+		#print('Loot Entered')
+		#print(pickup_list.size())
 		pickup_list.insert(pickup_list.size(), body)
 		print('Loot Entered')
 		print(pickup_list.size())
+	
 
 func _on_pickup_range_body_exited(body):
-	if body.is_in_group("Grab"):
-		pickup_list.erase(body)
-		print('Loot Exited')
-		print(pickup_list.size())
+	#if body.is_in_group("Grab"):
+		#pickup_list.erase(body)
+		#print('Loot Exited')
+		#print(pickup_list.size())
+	pickup_list.erase(body)
+	print('Loot Exited')
+	print(pickup_list.size())
 
 
 
@@ -544,11 +640,20 @@ func _on_char_switch_timeout():
 	if is_monke :
 		$Monke.visible = false
 		$Ghost.visible = true
-		height_of_jump = 1.2
+		height_of_jump = 1.5
 	else :
 		$Monke.visible = true
 		$Ghost.visible = false
-		height_of_jump = 1.5
+		height_of_jump = 3.5
 	is_monke = !is_monke
 	stuck = false
 	 # Replace with function body.
+
+
+func _on_punch_body_entered(body: Node2D) -> void:
+	body.position.y-=30
+	pass
+
+
+func _on_hurtbox_body_entered(body: Node2D) -> void:
+	lose_hp(body.get_meta("damage_dealt",0),body.get_meta("resets_position",0))

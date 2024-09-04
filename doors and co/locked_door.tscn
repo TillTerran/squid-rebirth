@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://mb77c60asxf6"]
 
 [ext_resource type="Script" path="res://doors and co/locked_door.gd" id="1_jp76d"]
-[ext_resource type="Texture2D" uid="uid://dxvg605jludo6" path="res://icon.png" id="2_2cl2d"]
+[ext_resource type="Texture2D" uid="uid://bkk0p6jql2vuj" path="res://icon.png" id="2_2cl2d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ukjby"]
 size = Vector2(34, 20)

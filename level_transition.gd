@@ -5,9 +5,11 @@ extends Node
 var previous_scene = ""
 
 func _ready() -> void:
+	self.visible=true
 	fade_from_black()
 
 func fade_from_black():
+	Events.loading_screen=false
 	animation_player.play("fade_from_black")
 	await animation_player.animation_finished
 
@@ -15,6 +17,7 @@ func fade_from_black():
 
 
 func fade_to_black():
+	Events.loading_screen=true
 	animation_player.play("fade_to_black")
 	previous_scene = get_tree().current_scene.scene_file_path
 	await animation_player.animation_finished

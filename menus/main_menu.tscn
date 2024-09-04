@@ -1,0 +1,292 @@
+[gd_scene load_steps=29 format=3 uid="uid://b2rko3ijjih3y"]
+
+[ext_resource type="Texture2D" uid="uid://d2skdpgiv4xnc" path="res://menus/menu babylon fond.png" id="1_qvvt2"]
+[ext_resource type="Texture2D" uid="uid://w6mam8qooa21" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/start Txt Light L.png" id="2_rfdqk"]
+[ext_resource type="Texture2D" uid="uid://dnu7vmcptec5j" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/start Txt Light S.png" id="3_pml60"]
+[ext_resource type="Script" path="res://scripts/quit_Button.gd" id="3_u72ov"]
+[ext_resource type="Script" path="res://scripts/start_Button.gd" id="3_x8wav"]
+[ext_resource type="Texture2D" uid="uid://cgj6bo73tf16w" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/start Txt Light D.png" id="4_cbw2s"]
+[ext_resource type="Script" path="res://scripts/continue_button.gd" id="4_qjge1"]
+[ext_resource type="Texture2D" uid="uid://caaaf1pw8u6qj" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/Continuer Txt light S.png" id="6_k12or"]
+[ext_resource type="Texture2D" uid="uid://c1s2om4vapidp" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/Continuer Txt light L.png" id="7_2d2yc"]
+[ext_resource type="Texture2D" uid="uid://cvoouox1anh4o" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/Continuer Txt light D.png" id="8_a2vi6"]
+[ext_resource type="Texture2D" uid="uid://bibc0pyosghoy" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/quitter Txt Light L.png" id="10_24skl"]
+[ext_resource type="Texture2D" uid="uid://c8kph1rabjx4q" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/quitter Txt Light S.png" id="11_a5lra"]
+[ext_resource type="Texture2D" uid="uid://c86sxwiy48sql" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/quitter Txt Light D.png" id="12_gjcl1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ubfuj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c1o7b"]
+texture = ExtResource("2_rfdqk")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ldbbu"]
+texture = ExtResource("3_pml60")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6fvav"]
+texture = ExtResource("4_cbw2s")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="Theme" id="Theme_xcooj"]
+Button/colors/font_outline_color = Color(0, 0, 0, 0)
+Button/styles/disabled = null
+Button/styles/focus = SubResource("StyleBoxEmpty_ubfuj")
+Button/styles/hover = SubResource("StyleBoxTexture_c1o7b")
+Button/styles/normal = SubResource("StyleBoxTexture_ldbbu")
+Button/styles/pressed = SubResource("StyleBoxTexture_6fvav")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yb0fs"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_br3tw"]
+texture = ExtResource("6_k12or")
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_taui5"]
+texture = ExtResource("7_2d2yc")
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6wjkr"]
+texture = ExtResource("8_a2vi6")
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="Theme" id="Theme_41fle"]
+Button/styles/focus = SubResource("StyleBoxEmpty_yb0fs")
+Button/styles/hover = SubResource("StyleBoxTexture_br3tw")
+Button/styles/normal = SubResource("StyleBoxTexture_taui5")
+Button/styles/pressed = SubResource("StyleBoxTexture_6wjkr")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n32dv"]
+texture = ExtResource("10_24skl")
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_85nfb"]
+texture = ExtResource("10_24skl")
+texture_margin_bottom = 5.0
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_omndu"]
+texture = ExtResource("11_a5lra")
+texture_margin_bottom = 5.0
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2uqad"]
+texture = ExtResource("12_gjcl1")
+texture_margin_bottom = 5.0
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="Theme" id="Theme_32puo"]
+Button/styles/focus = SubResource("StyleBoxTexture_n32dv")
+Button/styles/hover = SubResource("StyleBoxTexture_85nfb")
+Button/styles/normal = SubResource("StyleBoxTexture_omndu")
+Button/styles/pressed = SubResource("StyleBoxTexture_2uqad")
+
+[node name="MarginContainer" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_qvvt2")
+expand_mode = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 25.0
+text = "PROJECT BABYLON"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 45.0
+alignment = 1
+
+[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="Control3" type="Control" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Control3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control4" type="Control" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="start_Button" type="Button" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 62.0
+mouse_filter = 1
+theme = SubResource("Theme_xcooj")
+text = " "
+script = ExtResource("3_x8wav")
+
+[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 8.0
+
+[node name="continue_Button" type="Button" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 80.0
+theme = SubResource("Theme_41fle")
+text = " "
+script = ExtResource("4_qjge1")
+
+[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 6.0
+
+[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 30.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 85.0
+
+[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="quit_Button" type="Button" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer3/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 80.0
+theme = SubResource("Theme_32puo")
+text = "                    "
+script = ExtResource("3_u72ov")
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 20.0
+
+[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 30.0
+
+[node name="Control3" type="Control" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 6.0

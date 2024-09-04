@@ -1,0 +1,62 @@
+[gd_scene load_steps=14 format=3 uid="uid://dxfjfleu6eo4a"]
+
+[ext_resource type="Texture2D" uid="uid://d2skdpgiv4xnc" path="res://menus/menu babylon fond.png" id="1_5mdle"]
+[ext_resource type="Texture2D" uid="uid://hg0ooiv2b3s8" path="res://sprites/bouttons/Colo + txt/Continuer Txt.png" id="2_6kjmw"]
+[ext_resource type="Texture2D" uid="uid://ckmq4siers2pj" path="res://sprites/bouttons/Colo + txt/Light effect/Continuer Txt light D.png" id="3_hwwlc"]
+[ext_resource type="Texture2D" uid="uid://bolspgkdv6ac5" path="res://sprites/bouttons/Colo + txt/Light effect/Continuer Txt light L.png" id="4_uc7vv"]
+[ext_resource type="Script" path="res://scripts/start_texture_button.gd.gd" id="5_1k7pb"]
+[ext_resource type="Texture2D" uid="uid://3ydve80ws7im" path="res://sprites/bouttons/Colo + txt/start Txt.png" id="6_lv3og"]
+[ext_resource type="Texture2D" uid="uid://331p2mgw8vvt" path="res://sprites/bouttons/Colo + txt/Light effect/start Txt Light D.png" id="7_cgnv4"]
+[ext_resource type="Texture2D" uid="uid://cn6va0japypky" path="res://sprites/bouttons/Colo + txt/Light effect/start Txt Light L.png" id="8_jdkjx"]
+[ext_resource type="Script" path="res://scripts/continue_texture_button.gd" id="9_ev88a"]
+[ext_resource type="Texture2D" uid="uid://bkm7jxvhcyvnr" path="res://sprites/bouttons/Colo + txt/quitter Txt.png" id="10_okfmw"]
+[ext_resource type="Texture2D" uid="uid://demlvl28e0j1n" path="res://sprites/bouttons/Colo + txt/Light effect/quitter Txt Light D.png" id="11_2g0nm"]
+[ext_resource type="Texture2D" uid="uid://bnguh0vkjmodc" path="res://sprites/bouttons/Colo + txt/Light effect/quitter Txt Light L.png" id="12_bovmt"]
+[ext_resource type="Script" path="res://scripts/quit_texture_button.gd" id="13_5uavl"]
+
+[node name="MarginContainer2" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_5mdle")
+expand_mode = 5
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+theme_override_constants/separation = 10
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("2_6kjmw")
+texture_pressed = ExtResource("3_hwwlc")
+texture_hover = ExtResource("4_uc7vv")
+stretch_mode = 0
+script = ExtResource("5_1k7pb")
+
+[node name="TextureButton2" type="TextureButton" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_lv3og")
+texture_pressed = ExtResource("7_cgnv4")
+texture_hover = ExtResource("8_jdkjx")
+stretch_mode = 0
+script = ExtResource("9_ev88a")
+
+[node name="TextureButton3" type="TextureButton" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("10_okfmw")
+texture_pressed = ExtResource("11_2g0nm")
+texture_hover = ExtResource("12_bovmt")
+stretch_mode = 0
+script = ExtResource("13_5uavl")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ch7ynqpw38r3t"]
 
 [ext_resource type="Script" path="res://mobs/Castor_mitraillette/projectile/projectile.gd" id="1_gd675"]
-[ext_resource type="Texture2D" uid="uid://frbvnrwmhcb3" path="res://mobs/Castor_mitraillette/projectile/f_tronc.png" id="2_b5i3m"]
+[ext_resource type="Texture2D" uid="uid://gup68amecp2k" path="res://mobs/Castor_mitraillette/projectile/f_tronc.png" id="2_b5i3m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0bonq"]
 size = Vector2(32, 16)
@@ -19,7 +19,7 @@ animations = [{
 
 [node name="projectile" type="Area2D"]
 collision_layer = 7
-collision_mask = 128
+collision_mask = 129
 script = ExtResource("1_gd675")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

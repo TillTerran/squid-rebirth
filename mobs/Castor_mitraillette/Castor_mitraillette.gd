@@ -61,10 +61,14 @@ func _on_projectile_timer_timeout():
 		if tir_actuel<nb_tir:
 			var position_ennemi = global_position  # Position actuelle de l'ennemi
 			var position_joueur = player.global_position  # Position du joueur
-			var vitesse_initiale = calculer_vitesse_initiale(position_ennemi, position_joueur, hauteur_max)
-
+			var hauteur_max_reel= -(position_joueur.y-position_ennemi.y)+hauteur_max
+			#if hauteur_max_reel!=0:
+				#position_joueur.x-=position_ennemi.y-position_joueur.y
+			var vitesse_initiale = calculer_vitesse_initiale(position_ennemi, position_joueur, hauteur_max_reel)
+			
+			
 			var Projectile = projectile.instantiate()  # Crée une instance de ton projectile
-			get_tree().root.add_child(Projectile)
+			get_tree().current_scene.add_child(Projectile)
 			Projectile.position = position_ennemi
 			Projectile.lancer(vitesse_initiale)
 			tir_actuel+=1
@@ -76,6 +80,7 @@ func _on_detection_area_player_body_entered(body):
 	player=body
 	$Jump_before_attack.start()
 	velocity.y=-100
+
 
 func _on_reloading_timeout():
 	tir_actuel=0
@@ -139,7 +144,7 @@ func fire():
 			var vitesse_initiale = calculer_vitesse_initiale(position_ennemi, position_joueur, hauteur_max)
 
 			var Projectile = projectile.instantiate()  # Crée une instance de ton projectile
-			get_tree().root.add_child(Projectile)
+			get_tree().current_scene.add_child(Projectile)
 			Projectile.position = position_ennemi
 			Projectile.lancer(vitesse_initiale)
 			#(tir_actuel+=1

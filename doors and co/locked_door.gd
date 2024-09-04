@@ -18,9 +18,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if player_is_there and Input.is_action_pressed("Interract") and (player.held_keys>=1):
-		player.held_keys-=1
-		GlobalVariables.held_keys-=1
+	if player_is_there and Input.is_action_pressed("Interract") and (player.held_objects["key"]>=1):
+		player.held_objects["key"]-=1
+		#GlobalVariables.held_objects["key"]-=1
 		if door_number !=-1:
 			GlobalVariables.opened_doors[door_number]=true
 		else :

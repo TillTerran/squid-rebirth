@@ -3,3 +3,6 @@
 /.godot
 *.import
 *.tmp
+export_presets.cfg
+demo.zip
+demo.avi

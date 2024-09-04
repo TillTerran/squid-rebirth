@@ -7,14 +7,6 @@ extends Node2D
 @onready var c_gravity_area = $"zones forces mvt/c_gravity_area"
 
 
-@export var level_right:PackedScene
-@export var level_left:PackedScene
-@export var level_up:PackedScene
-@export var level_down:PackedScene
-@export var level_door1:PackedScene
-@export var level_door2:PackedScene
-@export var level_door3:PackedScene
-@export var level_door4:PackedScene
 
 
 
@@ -26,14 +18,6 @@ func _ready():
 	gravity_center_position = Vector2(center_of_gravity.position.x,center_of_gravity.position.y)
 	
 	Events.main_menu.connect(to_main_menu)
-	Events.right_level.connect(change_level_right)
-	Events.left_level.connect(change_level_left)
-	Events.up_level.connect(change_level_up)
-	Events.down_level.connect(change_level_down)
-	Events.door1.connect(change_level_door1)
-	Events.door2.connect(change_level_door2)
-	Events.door3.connect(change_level_door3)
-	Events.door4.connect(change_level_door4)
 
 
 
@@ -59,35 +43,3 @@ func change_scene(new_scene) -> void:
 
 func to_main_menu():
 	await change_scene("res://main_menu.tscn")
-
-
-func change_level_right():
-	await change_scene(level_right)
-
-
-func change_level_left():
-	await change_scene(level_left)
-
-
-func change_level_up():
-	await change_scene(level_up)
-
-
-func change_level_down():
-	await change_scene(level_down)
-
-
-func change_level_door1():
-	await change_scene(level_door1)
-
-
-func change_level_door2():
-	await change_scene(level_door2)
-
-
-func change_level_door3():
-	await change_scene(level_door3)
-
-
-func change_level_door4():
-	await change_scene(level_door4)

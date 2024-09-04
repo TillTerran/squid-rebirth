@@ -1,12 +1,15 @@
-[gd_scene load_steps=22 format=3 uid="uid://dw6i34wt4qlay"]
+[gd_scene load_steps=23 format=3 uid="uid://s77rdbs0u3dk"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1"]
+
+
 [ext_resource type="Texture2D" uid="uid://cl4bbypn8w6jg" path="res://Asset Packs 1-3 (final)/Asset Pack-V1/Sprite Sheets/Character Idle 48x48.png" id="2_qub0q"]
 [ext_resource type="Texture2D" uid="uid://cmf3l63u8lfkw" path="res://Asset Packs 1-3 (final)/Asset Pack-V1/Sprite Sheets/run cycle 48x48.png" id="3_1dxfa"]
 [ext_resource type="Texture2D" uid="uid://d104iq2p5324i" path="res://Asset Packs 1-3 (final)/Asset Pack-V3/Player Punch/Player Punch 64x64.png" id="4_6t0ue"]
 [ext_resource type="Texture2D" uid="uid://cwit6yl168ymx" path="res://Asset Packs 1-3 (final)/Asset Pack-V1/Sprite Sheets/player jump 48x48.png" id="5_yg1eo"]
 [ext_resource type="Texture2D" uid="uid://b1qvpby7kru51" path="res://stickman.png" id="6_f3q7p"]
 [ext_resource type="Texture2D" uid="uid://djkw237etw5j7" path="res://Asset Packs 1-3 (final)/Asset Pack-V3/Player Death/Player Death 64x64.png" id="6_otery"]
+
 
 [sub_resource type="RectangleShape2D" id="4"]
 size = Vector2(16, 8)
@@ -243,9 +246,14 @@ size = Vector2(13, 4)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ky2dk"]
 size = Vector2(9.5, 6)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gbiyu"]
+size = Vector2(6, 13)
+
 [node name="player" type="CharacterBody2D"]
 scale = Vector2(2, 2)
 collision_layer = 128
+floor_constant_speed = true
+floor_snap_length = 5.0
 safe_margin = 0.2
 script = ExtResource("1")
 
@@ -345,7 +353,7 @@ hframes = 3
 one_shot = true
 
 [node name="Pickup_range" type="Area2D" parent="."]
-collision_mask = 5
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pickup_range"]
 position = Vector2(0, 5.5)
@@ -360,8 +368,20 @@ position = Vector2(11, 0)
 shape = SubResource("RectangleShape2D_ky2dk")
 disabled = true
 
+[node name="hurtbox" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 256
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_gbiyu")
+debug_color = Color(0.968627, 0, 0, 0.419608)
+
 [connection signal="input_event" from="." to="." method="_on_player_input_event"]
 [connection signal="body_entered" from="Loot_range" to="." method="_on_loot_range_body_entered"]
 [connection signal="timeout" from="CharSwitch" to="." method="_on_char_switch_timeout"]
 [connection signal="body_entered" from="Pickup_range" to="." method="_on_pickup_range_body_entered"]
 [connection signal="body_exited" from="Pickup_range" to="." method="_on_pickup_range_body_exited"]
+[connection signal="body_entered" from="Punch" to="." method="_on_punch_body_entered"]
+[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
