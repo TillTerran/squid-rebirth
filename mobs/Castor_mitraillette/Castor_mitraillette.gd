@@ -158,6 +158,9 @@ func calculer_vitesse_initiale(position_ennemi, position_joueur, hauteur_max_pro
 	var vitesse_x = distance.x /(temps_de_vol)
 	var vitesse_y=0
 	vitesse_y = distance.y/(temps_de_vol) - gravite*temps_de_vol/2
+	print(temps_de_vol)
+	print(vitesse_y)
+	print(vitesse_x)
 
 	return Vector2(vitesse_x, vitesse_y)  # Applique le facteur de vitesse
 
