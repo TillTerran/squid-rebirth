@@ -3,16 +3,16 @@
 [ext_resource type="Script" path="res://scripts/level_template.gd" id="1_xpoyw"]
 [ext_resource type="PackedScene" uid="uid://s77rdbs0u3dk" path="res://player.tscn" id="2_xafe8"]
 [ext_resource type="PackedScene" uid="uid://b2rko3ijjih3y" path="res://menus/main_menu.tscn" id="3_rvf25"]
-[ext_resource type="Theme" uid="uid://ierb8sk14ach" path="res://nice_theme.tres" id="4_4o0sd"]
-[ext_resource type="Texture2D" uid="uid://duc8ogo1jhcyp" path="res://tileset.png" id="4_judaa"]
-[ext_resource type="Texture2D" uid="uid://bkk0p6jql2vuj" path="res://icon.png" id="5_p7dwc"]
-[ext_resource type="Texture2D" uid="uid://dyceycdsa3sg0" path="res://slopes.png" id="5_qiqoe"]
-[ext_resource type="PackedScene" uid="uid://b5sg6qeettbpx" path="res://level_transition.tscn" id="6_114by"]
-[ext_resource type="Texture2D" uid="uid://xodpmdg18rmo" path="res://slopes_flipped.png" id="6_t7nkq"]
-[ext_resource type="Texture2D" uid="uid://1ho6nqrh3xk" path="res://Tilemap/tuiles map 1.5.png" id="7_6816a"]
-[ext_resource type="Texture2D" uid="uid://dggiloxfdrv40" path="res://Tilemap/tuiles_map_1.png" id="7_wdiad"]
-[ext_resource type="PackedScene" uid="uid://du845748ywqgk" path="res://questpanel.tscn" id="9_e03ur"]
-[ext_resource type="Texture2D" uid="uid://b5k2vv87w2bk2" path="res://Tilemap/spikes.png" id="12_hw8n7"]
+[ext_resource type="Theme" path="res://nice_theme.tres" id="4_4o0sd"]
+[ext_resource type="Texture2D" uid="uid://blcaa3rlbsmkb" path="res://tileset.png" id="4_judaa"]
+[ext_resource type="Texture2D" uid="uid://oh6scn5s6fn5" path="res://icon.png" id="5_p7dwc"]
+[ext_resource type="Texture2D" uid="uid://d112t6q8u7m6l" path="res://slopes.png" id="5_qiqoe"]
+[ext_resource type="PackedScene" path="res://level_transition.tscn" id="6_114by"]
+[ext_resource type="Texture2D" uid="uid://dcydv1wrkir36" path="res://slopes_flipped.png" id="6_t7nkq"]
+[ext_resource type="Texture2D" uid="uid://cjyg4paaqhd04" path="res://Tilemap/tuiles map 1.5.png" id="7_6816a"]
+[ext_resource type="Texture2D" uid="uid://dbomxutnviumh" path="res://Tilemap/tuiles_map_1.png" id="7_wdiad"]
+[ext_resource type="PackedScene" path="res://questpanel.tscn" id="9_e03ur"]
+[ext_resource type="Texture2D" uid="uid://w0hb30w8xuqf" path="res://Tilemap/spikes.png" id="12_hw8n7"]
 [ext_resource type="PackedScene" uid="uid://ctk5pf3p7atjs" path="res://menus/in_game_menu.tscn" id="12_ulxt8"]
 
 [sub_resource type="Animation" id="Animation_m3t2t"]
@@ -898,7 +898,7 @@ sources/1 = SubResource("TileSetAtlasSource_wphfh")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7of1a"]
 size = Vector2(778.091, 388.999)
 
-[node name="level_template2" type="Node2D"]
+[node name="level_template4" type="Node2D"]
 script = ExtResource("1_xpoyw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

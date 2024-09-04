@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bclewffjxdq25" path="res://scene_change/change_scene_area.tscn" id="2_qocga"]
 [ext_resource type="PackedScene" uid="uid://c833s1u5hyolg" path="res://scene_change/tp_point.tscn" id="3_dcbwx"]
 
-[node name="level_template" instance=ExtResource("1_cg3pg")]
+[node name="level_template4" instance=ExtResource("1_cg3pg")]
 
 [node name="player" parent="." index="1"]
 position = Vector2(371, 275)
@@ -49,3 +49,5 @@ tp_id = 0
 [node name="tp_point3" parent="." index="13" instance=ExtResource("3_dcbwx")]
 position = Vector2(-103, -314)
 tp_id = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="15"]

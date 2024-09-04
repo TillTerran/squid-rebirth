@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://tw2avpitjgu5" path="res://pickables/key.tscn" id="4_o1si8"]
 [ext_resource type="PackedScene" uid="uid://mb77c60asxf6" path="res://doors and co/locked_door.tscn" id="5_sjckd"]
 
-[node name="level_template" instance=ExtResource("1_qotwk")]
+[node name="level_template2" instance=ExtResource("1_qotwk")]
 
 [node name="player" parent="." index="1"]
 position = Vector2(8, 32)

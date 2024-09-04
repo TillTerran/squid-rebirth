@@ -2,6 +2,7 @@ extends CanvasLayer
 
 var player_is_dead:bool=false
 var new_pause:bool=true
+@onready var header = $"in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer/VBoxContainer/header"
 #var loading_screen:bool=false
 
 func _ready() -> void:
@@ -9,7 +10,7 @@ func _ready() -> void:
 	Events.player_died.connect(player_died)
 	Events.loading_screen=false
 	player_is_dead=false
-	$"in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer/header".text="PAUSED"
+	header.text="PAUSED"
 
 
 
@@ -21,7 +22,7 @@ func _process(_delta: float) -> void:
 		show()
 
 func player_died():
-	$"in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer/header".text="GAME-OVER"
+	header.text="GAME-OVER"
 	player_is_dead=true
 	get_tree().paused=true
 	GlobalVariables.current_player_hp=GlobalVariables.max_hp
@@ -29,7 +30,7 @@ func player_died():
 func _on_continue_pressed() -> void:
 	if player_is_dead:
 		get_tree().change_scene_to_file(GlobalVariables.last_save_point)
-		$"in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer/header".text="PAUSED"
+		header.text="PAUSED"
 	else:
 		get_tree().paused=false
 	hide()

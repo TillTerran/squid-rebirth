@@ -1,11 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://ctk5pf3p7atjs"]
+[gd_scene load_steps=7 format=3 uid="uid://ctk5pf3p7atjs"]
 
 [ext_resource type="Script" path="res://menus/in_game_menu.gd" id="1_mxadn"]
-[ext_resource type="Theme" uid="uid://ierb8sk14ach" path="res://nice_theme.tres" id="1_ove8w"]
+[ext_resource type="Theme" path="res://nice_theme.tres" id="1_ove8w"]
+[ext_resource type="FontFile" uid="uid://b33vedn2vstl0" path="res://sprites/fonts/SuperMario256.ttf" id="3_ed8nn"]
+[ext_resource type="Texture2D" uid="uid://dp7jtonslt7rb" path="res://sprites/bouttons/quitter.png" id="4_7pmop"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ucupi"]
+texture = ExtResource("4_7pmop")
+texture_margin_top = 8.0
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="Theme" id="Theme_eryi3"]
+Label/font_sizes/font_size = 50
+Label/fonts/font = ExtResource("3_ed8nn")
+Label/styles/normal = SubResource("StyleBoxTexture_ucupi")
 
 [node name="in-game menu" type="CanvasLayer"]
 process_mode = 2
-visible = false
 script = ExtResource("1_mxadn")
 
 [node name="in-game menu" type="Control" parent="."]
@@ -41,15 +55,25 @@ theme_override_constants/margin_bottom = 30
 [node name="GridContainer" type="VBoxContainer" parent="in-game menu/MarginContainer/quest panel/MarginContainer"]
 layout_mode = 2
 
-[node name="header" type="Label" parent="in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer"]
+[node name="VBoxContainer" type="HBoxContainer" parent="in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "
-PAUSED
-"
+
+[node name="Control" type="Control" parent="in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="header" type="Label" parent="in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_eryi3")
+text = "PAUSED"
 horizontal_alignment = 1
 autowrap_mode = 2
 uppercase = true
+
+[node name="Control2" type="Control" parent="in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Control2" type="Control" parent="in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer"]
 layout_mode = 2
