@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b32tvkldvdtr7"]
+[gd_scene load_steps=30 format=3 uid="uid://b32tvkldvdtr7"]
 
 [ext_resource type="Script" path="res://scripts/level_template.gd" id="1_xpoyw"]
 [ext_resource type="PackedScene" uid="uid://s77rdbs0u3dk" path="res://player.tscn" id="2_xafe8"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://d112t6q8u7m6l" path="res://slopes.png" id="5_qiqoe"]
 [ext_resource type="PackedScene" path="res://level_transition.tscn" id="6_114by"]
 [ext_resource type="Texture2D" uid="uid://dcydv1wrkir36" path="res://slopes_flipped.png" id="6_t7nkq"]
+[ext_resource type="Texture2D" uid="uid://cjyg4paaqhd04" path="res://Tilemap/tuiles map 1.5.png" id="7_6816a"]
 [ext_resource type="Texture2D" uid="uid://dbomxutnviumh" path="res://Tilemap/tuiles_map_1.png" id="7_wdiad"]
 [ext_resource type="PackedScene" path="res://questpanel.tscn" id="9_e03ur"]
 [ext_resource type="Texture2D" uid="uid://w0hb30w8xuqf" path="res://Tilemap/spikes.png" id="12_hw8n7"]
@@ -216,7 +217,7 @@ texture = ExtResource("6_t7nkq")
 6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 8, -8, 8, -8, -8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tmvag"]
-texture = ExtResource("7_wdiad")
+texture = ExtResource("7_6816a")
 margins = Vector2i(53, 61)
 separation = Vector2i(20, 20)
 texture_region_size = Vector2i(128, 128)
