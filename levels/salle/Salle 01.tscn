@@ -16,7 +16,6 @@ layer_0/tile_data = PackedInt32Array(-131076, 131075, 3, -65540, 65539, 2, -4, 6
 layer_2/tile_data = PackedInt32Array(-131076, 4, 12, -65540, 4, 12, -4, 4, 12, 65532, 131075, 3, -131075, 4, 12, -65539, 4, 12, -3, 4, 12, 65533, 131076, 2, -131074, 4, 12, -65538, 4, 12, -2, 4, 12, 65534, 131076, 2, -131073, 4, 12, -65537, 4, 12, -1, 4, 12, 65535, 131076, 2, -196608, 4, 12, -131072, 4, 12, -65536, 4, 12, 0, 131076, 2, -196607, 4, 12, -131071, 4, 12, -65535, 4, 12, 1, 131076, 2, -196606, 4, 12, -131070, 4, 12, -65534, 4, 12, 2, 131076, 2, -196605, 4, 12, -131069, 4, 12, -65533, 4, 12)
 
 [node name="change_scene_area" parent="." index="4" instance=ExtResource("2_4ulbk")]
-visible = false
 position = Vector2(70, 31)
 scale = Vector2(2, 2)
 connected_scene = "res://levels/salle/Salle 02.tscn"
@@ -40,3 +39,9 @@ position = Vector2(58, 33)
 [node name="CollisionShape2D" parent="revealing hidden_layer area" index="0"]
 position = Vector2(34.9546, -101.5)
 debug_color = Color(0.376471, 0.47451, 1, 0.45098)
+
+[node name="CanvasLayer" parent="." index="10"]
+visible = true
+
+[node name="quest?" parent="CanvasLayer" index="2"]
+visible = false
