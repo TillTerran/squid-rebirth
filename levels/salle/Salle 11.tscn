@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://btc7hqu3enahf"]
+[gd_scene load_steps=4 format=3 uid="uid://btc7hqu3enahf"]
 
 [ext_resource type="PackedScene" uid="uid://b32tvkldvdtr7" path="res://level_template.tscn" id="1_5c888"]
 [ext_resource type="PackedScene" uid="uid://bclewffjxdq25" path="res://scene_change/change_scene_area.tscn" id="2_5u5qa"]
+[ext_resource type="PackedScene" uid="uid://irpquugqy33h" path="res://mobs/onyx/onyx.tscn" id="3_hc8hy"]
 
 [node name="level_template" instance=ExtResource("1_5c888")]
 
@@ -14,3 +15,6 @@ layer_0/tile_data = PackedInt32Array(196601, 3, 2, 196602, 3, 2, 196603, 3, 2, 1
 [node name="change_scene_area2" parent="." index="4" instance=ExtResource("2_5u5qa")]
 position = Vector2(116, 15)
 connected_scene = "res://levels/salle/Salle 10.tscn"
+
+[node name="Onyx2" parent="." index="9" instance=ExtResource("3_hc8hy")]
+position = Vector2(-44, -79)

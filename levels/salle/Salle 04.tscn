@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://v0n2tvwk8rwp"]
+[gd_scene load_steps=6 format=3 uid="uid://v0n2tvwk8rwp"]
 
 [ext_resource type="PackedScene" uid="uid://b32tvkldvdtr7" path="res://level_template.tscn" id="1_5drt6"]
 [ext_resource type="PackedScene" uid="uid://bclewffjxdq25" path="res://scene_change/change_scene_area.tscn" id="2_abuqy"]
 [ext_resource type="PackedScene" uid="uid://c833s1u5hyolg" path="res://scene_change/tp_point.tscn" id="3_yc3v4"]
+[ext_resource type="PackedScene" uid="uid://mtdhfmqptfli" path="res://mobs/totem_claquette/BottomTotemClaquette/BottomTotemClaquette.tscn" id="4_xurin"]
+[ext_resource type="PackedScene" uid="uid://b7x1st8766bcw" path="res://mobs/Castor_mitraillette/Castor_mitraillette.tscn" id="5_xcru0"]
 
 [node name="level_template" instance=ExtResource("1_5drt6")]
 
@@ -28,3 +30,12 @@ tp_id = 0
 [node name="tp_point2" parent="." index="7" instance=ExtResource("3_yc3v4")]
 position = Vector2(-68, 69)
 tp_id = 1
+
+[node name="in-game menu" parent="." index="11"]
+visible = false
+
+[node name="BottomTotemClaquette" parent="." index="12" instance=ExtResource("4_xurin")]
+position = Vector2(67, 52)
+
+[node name="CastorMitrailette" parent="." index="13" instance=ExtResource("5_xcru0")]
+position = Vector2(-5, 86)

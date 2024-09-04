@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://box7g6l5h7ltw"]
+[gd_scene load_steps=5 format=3 uid="uid://box7g6l5h7ltw"]
 
 [ext_resource type="PackedScene" uid="uid://b32tvkldvdtr7" path="res://level_template.tscn" id="1_tariu"]
 [ext_resource type="PackedScene" uid="uid://bclewffjxdq25" path="res://scene_change/change_scene_area.tscn" id="2_a6lup"]
 [ext_resource type="PackedScene" uid="uid://c833s1u5hyolg" path="res://scene_change/tp_point.tscn" id="3_44jvr"]
+[ext_resource type="PackedScene" uid="uid://b7x1st8766bcw" path="res://mobs/Castor_mitraillette/Castor_mitraillette.tscn" id="5_342dc"]
 
 [node name="level_template4" instance=ExtResource("1_tariu")]
 
@@ -28,3 +29,9 @@ tp_id = 0
 [node name="tp_point2" parent="." index="10" instance=ExtResource("3_44jvr")]
 position = Vector2(52, 185)
 tp_id = 1
+
+[node name="in-game menu" parent="." index="11"]
+visible = false
+
+[node name="CastorMitrailette" parent="." index="12" instance=ExtResource("5_342dc")]
+position = Vector2(-53, 182)

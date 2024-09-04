@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=4 uid="uid://bx2ogbx1q5t2y"]
+[gd_scene load_steps=6 format=4 uid="uid://bx2ogbx1q5t2y"]
 
 [ext_resource type="PackedScene" uid="uid://b32tvkldvdtr7" path="res://level_template.tscn" id="1_1x1cr"]
 [ext_resource type="PackedScene" uid="uid://bclewffjxdq25" path="res://scene_change/change_scene_area.tscn" id="2_oovbj"]
 [ext_resource type="PackedScene" uid="uid://c833s1u5hyolg" path="res://scene_change/tp_point.tscn" id="3_jbbd4"]
+[ext_resource type="PackedScene" uid="uid://irpquugqy33h" path="res://mobs/onyx/onyx.tscn" id="4_uhkas"]
+[ext_resource type="PackedScene" uid="uid://ci32ibukbp6pi" path="res://mobs/Legrorat/legrorat.tscn" id="5_gc2od"]
 
 [node name="level_template4" instance=ExtResource("1_1x1cr")]
 
@@ -38,3 +40,15 @@ tp_id = 0
 [node name="tp_point2" parent="." index="10" instance=ExtResource("3_jbbd4")]
 position = Vector2(1006, -357)
 tp_id = 1
+
+[node name="in-game menu" parent="." index="11"]
+visible = false
+
+[node name="Onyx2" parent="." index="12" instance=ExtResource("4_uhkas")]
+position = Vector2(294, -65)
+
+[node name="Legrorat" parent="Onyx2" index="7" instance=ExtResource("5_gc2od")]
+position = Vector2(531, -17)
+
+[node name="Onyx" parent="." index="13" instance=ExtResource("4_uhkas")]
+position = Vector2(53, -66)
