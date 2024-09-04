@@ -2,8 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://d2skdpgiv4xnc" path="res://menus/menu babylon fond.png" id="1_qvvt2"]
 [ext_resource type="Texture2D" uid="uid://w6mam8qooa21" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/start Txt Light L.png" id="2_rfdqk"]
-[ext_resource type="Texture2D" uid="uid://ds2n4gwcts70f" path="res://menus/menu_rendering_template.png" id="2_vp6fa"]
-[ext_resource type="FontFile" uid="uid://t7nlkayot8jj" path="res://sprites/fonts/SuperMario256.ttf" id="3_fue6u"]
 [ext_resource type="Texture2D" uid="uid://dnu7vmcptec5j" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/start Txt Light S.png" id="3_pml60"]
 [ext_resource type="Script" path="res://scripts/quit_Button.gd" id="3_u72ov"]
 [ext_resource type="Script" path="res://scripts/start_Button.gd" id="3_x8wav"]
@@ -16,15 +14,14 @@
 [ext_resource type="Texture2D" uid="uid://c8kph1rabjx4q" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/quitter Txt Light S.png" id="11_a5lra"]
 [ext_resource type="Texture2D" uid="uid://c86sxwiy48sql" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/quitter Txt Light D.png" id="12_gjcl1"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_l85j1"]
-font = ExtResource("3_fue6u")
-font_size = 80
-font_color = Color(0.858824, 0, 0, 1)
-shadow_color = Color(0, 0, 0, 0.666667)
-shadow_offset = Vector2(4, 4)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ubfuj"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c1o7b"]
 texture = ExtResource("2_rfdqk")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
 expand_margin_left = 10.0
 expand_margin_top = 10.0
 expand_margin_right = 10.0
@@ -43,16 +40,24 @@ expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6fvav"]
 texture = ExtResource("4_cbw2s")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
 expand_margin_left = 10.0
 expand_margin_top = 10.0
 expand_margin_right = 10.0
 expand_margin_bottom = 10.0
 
 [sub_resource type="Theme" id="Theme_xcooj"]
+Button/colors/font_outline_color = Color(0, 0, 0, 0)
 Button/styles/disabled = null
+Button/styles/focus = SubResource("StyleBoxEmpty_ubfuj")
 Button/styles/hover = SubResource("StyleBoxTexture_c1o7b")
 Button/styles/normal = SubResource("StyleBoxTexture_ldbbu")
 Button/styles/pressed = SubResource("StyleBoxTexture_6fvav")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yb0fs"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_br3tw"]
 texture = ExtResource("6_k12or")
@@ -76,9 +81,17 @@ expand_margin_right = 10.0
 expand_margin_bottom = 10.0
 
 [sub_resource type="Theme" id="Theme_41fle"]
+Button/styles/focus = SubResource("StyleBoxEmpty_yb0fs")
 Button/styles/hover = SubResource("StyleBoxTexture_br3tw")
 Button/styles/normal = SubResource("StyleBoxTexture_taui5")
 Button/styles/pressed = SubResource("StyleBoxTexture_6wjkr")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n32dv"]
+texture = ExtResource("10_24skl")
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_85nfb"]
 texture = ExtResource("10_24skl")
@@ -105,6 +118,7 @@ expand_margin_right = 10.0
 expand_margin_bottom = 10.0
 
 [sub_resource type="Theme" id="Theme_32puo"]
+Button/styles/focus = SubResource("StyleBoxTexture_n32dv")
 Button/styles/hover = SubResource("StyleBoxTexture_85nfb")
 Button/styles/normal = SubResource("StyleBoxTexture_omndu")
 Button/styles/pressed = SubResource("StyleBoxTexture_2uqad")
@@ -121,50 +135,37 @@ layout_mode = 2
 texture = ExtResource("1_qvvt2")
 expand_mode = 3
 
-[node name="TextureRect2" type="TextureRect" parent="."]
-visible = false
-layout_mode = 2
-texture = ExtResource("2_vp6fa")
-expand_mode = 3
-
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 2
-alignment = 1
-
-[node name="Control2" type="Control" parent="HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Control" type="Control" parent="HBoxContainer/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 31.0
-
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Control"]
-layout_mode = 0
-offset_left = -227.0
-offset_top = 79.0
-offset_right = 563.0
-offset_bottom = 159.0
+size_flags_stretch_ratio = 25.0
 text = "PROJECT BABYLON"
-label_settings = SubResource("LabelSettings_l85j1")
-horizontal_alignment = 1
-vertical_alignment = 1
-justification_flags = 162
 
-[node name="Control2" type="Control" parent="HBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 45.0
+alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/Control2"]
+[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="Control3" type="Control" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Control3"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -172,22 +173,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Control4" type="Control" parent="HBoxContainer/VBoxContainer/Control2/VBoxContainer"]
+[node name="Control4" type="Control" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.0
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/Control2/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 10.0
 
-[node name="Control" type="Control" parent="HBoxContainer/VBoxContainer/Control2/VBoxContainer/HBoxContainer2"]
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 10.0
 
-[node name="start_Button" type="Button" parent="HBoxContainer/VBoxContainer/Control2/VBoxContainer/HBoxContainer2"]
+[node name="start_Button" type="Button" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -197,27 +198,27 @@ theme = SubResource("Theme_xcooj")
 text = " "
 script = ExtResource("3_x8wav")
 
-[node name="Control2" type="Control" parent="HBoxContainer/VBoxContainer/Control2/VBoxContainer/HBoxContainer2"]
+[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 10.0
 
-[node name="Control" type="Control" parent="HBoxContainer/VBoxContainer/Control2/VBoxContainer"]
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 4.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/Control2/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 10.0
 
-[node name="Control" type="Control" parent="HBoxContainer/VBoxContainer/Control2/VBoxContainer/HBoxContainer"]
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 8.0
 
-[node name="continue_Button" type="Button" parent="HBoxContainer/VBoxContainer/Control2/VBoxContainer/HBoxContainer"]
+[node name="continue_Button" type="Button" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -226,37 +227,37 @@ theme = SubResource("Theme_41fle")
 text = " "
 script = ExtResource("4_qjge1")
 
-[node name="Control2" type="Control" parent="HBoxContainer/VBoxContainer/Control2/VBoxContainer/HBoxContainer"]
+[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 6.0
 
-[node name="Control2" type="Control" parent="HBoxContainer/VBoxContainer/Control2/VBoxContainer"]
+[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 4.0
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/Control2/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 10.0
 
-[node name="Control" type="Control" parent="HBoxContainer/VBoxContainer/Control2/VBoxContainer/HBoxContainer3"]
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 30.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/Control2/VBoxContainer/HBoxContainer3"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 85.0
 
-[node name="Control2" type="Control" parent="HBoxContainer/VBoxContainer/Control2/VBoxContainer/HBoxContainer3/VBoxContainer"]
+[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer3/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 10.0
 
-[node name="quit_Button" type="Button" parent="HBoxContainer/VBoxContainer/Control2/VBoxContainer/HBoxContainer3/VBoxContainer"]
+[node name="quit_Button" type="Button" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer3/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -265,21 +266,27 @@ theme = SubResource("Theme_32puo")
 text = "                    "
 script = ExtResource("3_u72ov")
 
-[node name="Control" type="Control" parent="HBoxContainer/VBoxContainer/Control2/VBoxContainer/HBoxContainer3/VBoxContainer"]
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer3/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 20.0
 
-[node name="Control2" type="Control" parent="HBoxContainer/VBoxContainer/Control2/VBoxContainer/HBoxContainer3"]
+[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 30.0
 
-[node name="Control3" type="Control" parent="HBoxContainer/VBoxContainer/Control2/VBoxContainer"]
+[node name="Control3" type="Control" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 10.0
 
-[node name="Control" type="Control" parent="HBoxContainer"]
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 6.0

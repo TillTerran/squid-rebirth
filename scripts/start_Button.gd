@@ -3,6 +3,7 @@ extends Button
 var first_level:String = "res://levels/salle/Salle 01.tscn"
 
 func _ready():
+	grab_focus()
 	pass
 
 func _pressed():
