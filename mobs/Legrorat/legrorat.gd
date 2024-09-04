@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var speed=100
+@export var HP:int=4
+@export var DamageGiveByPlayer:int=2
+@export var attack_strength=2
 var direction=-1
 enum STATE {
 	IDLE,
@@ -59,7 +62,7 @@ func _process(delta):
 			velocity.y+=gravity*delta
 			velocity.x=0
 		STATE.DEATH:
-			death()
+				$AnimatedSprite2D.play("Death")
 	move_and_slide()
 	#print(STATE.keys()[Legrorat_state])
 
@@ -151,11 +154,24 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 
 
 func _on_area_2d_2_body_entered(body: Node2D) -> void:
-	$AnimatedSprite2D.stop()
-	$AnimatedSprite2D.play("Death")
-	Legrorat_state=STATE.DEATH
+	hurt()
 	
 func death():
 	await $AnimatedSprite2D.animation_finished
 	print("Death")
 	queue_free()
+
+func hurt():
+	if HP<=0:
+		Legrorat_state=STATE.DEATH
+		death()
+	elif Legrorat_state==STATE.ATTACK:
+		pass
+	else:
+		HP-=DamageGiveByPlayer
+		print("Ouille")
+
+
+func _on_area_attack_body_entered(body: Node2D) -> void:
+		if body.has_method(&"lose_hp"):
+			body.lose_hp(attack_strength)

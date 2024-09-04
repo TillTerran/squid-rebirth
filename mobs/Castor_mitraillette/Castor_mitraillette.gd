@@ -7,6 +7,9 @@ var player_chase=false
 var hauteur_max=100
 var facteur_vitesse=2
 @export var nb_tir=1
+@export var stun_time:float=1.0
+@export var HP:int=4
+@onready var animation=$AnimationPlayer
 var tir_actuel=0
 var direction=-1
 var speed=50
@@ -14,6 +17,7 @@ enum STATE {
 	IDLE,
 	WALK,
 	ATTACK,
+	DEATH,
 }
 var Castor_state=STATE.IDLE
 # Called when the node enters the scene tree for the first time.
@@ -25,28 +29,22 @@ func _ready():
 func _process(delta):
 	match Castor_state:
 		STATE.IDLE:
-			$AnimatedSprite2D.play("idle")
-			$IdleCollision.disabled=false
-			$AttackCollision.disabled=true
-			$WalkCollision.disabled=true
+			animation.play("Idle")
 			velocity.y+=gravite*delta
 			velocity.x=0
 		STATE.WALK:
-			$AnimatedSprite2D.play("walk")
-			$IdleCollision.disabled=true
-			$AttackCollision.disabled=true
-			$WalkCollision.disabled=false
+			animation.play("Walk")
 			velocity.y+=gravite*delta
 			velocity.x=speed*direction
 		STATE.ATTACK:
-			$AnimatedSprite2D.play("attack")
-			$IdleCollision.disabled=true
-			$AttackCollision.disabled=false
-			$WalkCollision.disabled=true
+			animation.play("Attack")
 			velocity.y+=gravite*delta
 			velocity.x=0
 			if player!=null:
 				chase_player()
+		STATE.DEATH:
+			velocity=Vector2()
+			animation.play("Death")
 	move_and_slide()
 	#print(STATE.keys()[Castor_state])
 
@@ -162,3 +160,29 @@ func _on_animated_sprite_2d_frame_changed():
 	if ($AnimatedSprite2D.get_animation())=="attack":
 		if $AnimatedSprite2D.get_frame()==7:
 			fire()
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Stun"):
+		Castor_state=STATE.IDLE
+		await get_tree().create_timer(stun_time).timeout
+		print("Stun")
+		Castor_state=STATE.ATTACK
+
+func death():
+	Castor_state=STATE.DEATH
+	await animation.animation_finished
+	print("Death")
+	queue_free()
+	
+func hurt():
+	if HP<=0:
+		death()
+	else:
+		print("-2")
+		HP-=2
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	print("Ouille")
+	hurt()

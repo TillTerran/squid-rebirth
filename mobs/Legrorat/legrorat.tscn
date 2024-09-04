@@ -232,12 +232,13 @@ animations = [{
 size = Vector2(42, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t7yxk"]
-size = Vector2(50, 22)
+size = Vector2(50, 23)
 
 [node name="Legrorat" type="CharacterBody2D"]
 script = ExtResource("1_1bao3")
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 128
 
@@ -249,10 +250,8 @@ shape = SubResource("CircleShape2D_w5mtj")
 position = Vector2(24, 8)
 scale = Vector2(0.091954, 0.0666667)
 sprite_frames = SubResource("SpriteFrames_qnxnd")
-animation = &"Death"
+animation = &"attack"
 autoplay = "idle"
-frame = 7
-frame_progress = 1.0
 
 [node name="AreaIdle" type="Area2D" parent="."]
 visible = false
@@ -268,10 +267,11 @@ collision_layer = 0
 collision_mask = 128
 
 [node name="AttackCollision" type="CollisionShape2D" parent="AreaAttack"]
-position = Vector2(23, 11)
+position = Vector2(23, 10.5)
 shape = SubResource("RectangleShape2D_t7yxk")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(27, 11.5)
 shape = SubResource("RectangleShape2D_3dpek")
 
@@ -281,7 +281,6 @@ one_shot = true
 autostart = true
 
 [node name="AreaWalk" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 128
 
@@ -310,6 +309,7 @@ shape = SubResource("RectangleShape2D_3dpek")
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="area_entered" from="AreaAttack" to="." method="_on_area_attack_area_entered"]
+[connection signal="body_entered" from="AreaAttack" to="." method="_on_area_attack_body_entered"]
 [connection signal="timeout" from="Direction" to="." method="_on_direction_timeout"]
 [connection signal="timeout" from="WaitToChangeDirection" to="." method="_on_wait_to_change_direction_timeout"]
 [connection signal="timeout" from="Stun" to="." method="_on_stun_timeout"]

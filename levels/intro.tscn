@@ -19,7 +19,7 @@ size = Vector2(106.245, 60.1233)
 [node name="level_template" instance=ExtResource("1_xtlbv")]
 
 [node name="player" parent="." index="0" groups=["Player"]]
-position = Vector2(1736, -1056)
+position = Vector2(1952, -1104)
 
 [node name="TileMap" parent="." index="1"]
 position = Vector2(-280, -88)

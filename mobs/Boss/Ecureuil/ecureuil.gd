@@ -3,6 +3,8 @@ extends CharacterBody2D
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animation=$AnimationPlayer
 @onready var Ecureuil=$"."
+@export var HP:int=4
+@export var DamageGiveByPlayer:int=2
 var player_chase=false
 var player=null
 var change_direction=false
@@ -12,6 +14,7 @@ enum STATE {
 	IDLE,
 	RUN,
 	ATTACK,
+	DEATH
 }
 var Ecureuil_state=STATE.IDLE
 @export var direction=["Right","Left"]
@@ -34,6 +37,8 @@ func _process(delta: float) -> void:
 				chase_player()
 		STATE.ATTACK:
 			special_attack()
+		STATE.DEATH:
+			animation.play("Death")
 	move_and_slide()
 
 func chase_player() -> void:
@@ -130,3 +135,21 @@ func death():
 	animation.play("Death")
 	await animation.animation_finished
 	queue_free()
+
+func hurt():
+	if HP<=0:
+		Ecureuil_state=STATE.DEATH
+		death()
+	else:
+		HP-=DamageGiveByPlayer
+		
+func _on_attack_area_body_entered(body: Node2D) -> void:
+	hurt()
+
+
+func _on_start_running_area_body_entered(body: Node2D) -> void:
+	hurt()
+
+
+func _on_running_area_body_entered(body: Node2D) -> void:
+	hurt()
