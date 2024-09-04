@@ -221,7 +221,6 @@ texture = ExtResource("7_6816a")
 margins = Vector2i(53, 61)
 separation = Vector2i(20, 20)
 texture_region_size = Vector2i(128, 128)
-use_texture_padding = false
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/terrain = 0
