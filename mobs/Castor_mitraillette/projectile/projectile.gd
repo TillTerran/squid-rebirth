@@ -2,10 +2,10 @@ extends Area2D
 
 
 var direction=null
-var speed=10
 var _gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var gravite=_gravity
 var vitesse = Vector2()
+var speed=10
 var attack_strength=2
 # Called when the node enters the scene tree for the first time.
 func lancer(vitesse_initiale):
