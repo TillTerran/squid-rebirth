@@ -1,15 +1,12 @@
 [gd_scene load_steps=23 format=3 uid="uid://s77rdbs0u3dk"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1"]
-
-
 [ext_resource type="Texture2D" uid="uid://cl4bbypn8w6jg" path="res://Asset Packs 1-3 (final)/Asset Pack-V1/Sprite Sheets/Character Idle 48x48.png" id="2_qub0q"]
 [ext_resource type="Texture2D" uid="uid://cmf3l63u8lfkw" path="res://Asset Packs 1-3 (final)/Asset Pack-V1/Sprite Sheets/run cycle 48x48.png" id="3_1dxfa"]
 [ext_resource type="Texture2D" uid="uid://d104iq2p5324i" path="res://Asset Packs 1-3 (final)/Asset Pack-V3/Player Punch/Player Punch 64x64.png" id="4_6t0ue"]
 [ext_resource type="Texture2D" uid="uid://cwit6yl168ymx" path="res://Asset Packs 1-3 (final)/Asset Pack-V1/Sprite Sheets/player jump 48x48.png" id="5_yg1eo"]
 [ext_resource type="Texture2D" uid="uid://b1qvpby7kru51" path="res://stickman.png" id="6_f3q7p"]
 [ext_resource type="Texture2D" uid="uid://djkw237etw5j7" path="res://Asset Packs 1-3 (final)/Asset Pack-V3/Player Death/Player Death 64x64.png" id="6_otery"]
-
 
 [sub_resource type="RectangleShape2D" id="4"]
 size = Vector2(16, 8)
@@ -362,6 +359,7 @@ debug_color = Color(0.54902, 0.443137, 0.223529, 0.619608)
 
 [node name="Punch" type="Area2D" parent="." groups=["Stun"]]
 collision_layer = 128
+collision_mask = 0
 
 [node name="punchhitbox" type="CollisionShape2D" parent="Punch"]
 position = Vector2(11, 0)

@@ -181,11 +181,9 @@ func death():
 	queue_free()
 	
 func hurt():
+	HP-=2
 	if HP<=0:
 		death()
-	else:
-		print("-2")
-		HP-=2
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
