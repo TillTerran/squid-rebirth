@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://ctk5pf3p7atjs"]
+[gd_scene load_steps=9 format=3 uid="uid://ctk5pf3p7atjs"]
 
 [ext_resource type="Script" path="res://menus/in_game_menu.gd" id="1_mxadn"]
 [ext_resource type="Theme" path="res://nice_theme.tres" id="1_ove8w"]
 [ext_resource type="FontFile" uid="uid://b33vedn2vstl0" path="res://sprites/fonts/SuperMario256.ttf" id="3_ed8nn"]
 [ext_resource type="Texture2D" uid="uid://dp7jtonslt7rb" path="res://sprites/bouttons/quitter.png" id="4_7pmop"]
+[ext_resource type="Theme" uid="uid://b5krwt60ribkx" path="res://sprites/bouttons/continue_button.tres" id="5_q0m32"]
+[ext_resource type="Theme" uid="uid://cqgedean00vud" path="res://sprites/bouttons/quit_button.tres" id="6_vekfb"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ucupi"]
 texture = ExtResource("4_7pmop")
@@ -14,6 +16,7 @@ expand_margin_right = 10.0
 expand_margin_bottom = 10.0
 
 [sub_resource type="Theme" id="Theme_eryi3"]
+Label/colors/font_color = Color(0.239216, 0.0862745, 0.0862745, 1)
 Label/font_sizes/font_size = 50
 Label/fonts/font = ExtResource("3_ed8nn")
 Label/styles/normal = SubResource("StyleBoxTexture_ucupi")
@@ -81,47 +84,46 @@ size_flags_vertical = 3
 
 [node name="text" type="Label" parent="in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer"]
 layout_mode = 2
+size_flags_vertical = 6
+size_flags_stretch_ratio = 5.0
 autowrap_mode = 2
 
-[node name="Control" type="MarginContainer" parent="in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer"]
-custom_minimum_size = Vector2(10, 0)
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/margin_top = 20
-
-[node name="HBoxContainer" type="HBoxContainer" parent="in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer/Control"]
+[node name="HBoxContainer" type="HBoxContainer" parent="in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Control" type="Control" parent="in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer/Control/HBoxContainer"]
+[node name="Control" type="Control" parent="in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Continue" type="Button" parent="in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer/Control/HBoxContainer"]
+[node name="Continue" type="Button" parent="in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Continue"
+theme = ExtResource("5_q0m32")
+text = " "
 icon_alignment = 1
 expand_icon = true
 
-[node name="Control3" type="Control" parent="in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer/Control/HBoxContainer"]
+[node name="Control3" type="Control" parent="in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.25
 
-[node name="Quit" type="Button" parent="in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer/Control/HBoxContainer"]
+[node name="Quit" type="Button" parent="in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Quit"
+theme = ExtResource("6_vekfb")
+text = " "
 icon_alignment = 1
 expand_icon = true
 
-[node name="Control2" type="Control" parent="in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer/Control/HBoxContainer"]
+[node name="Control2" type="Control" parent="in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Control3" type="Control" parent="in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
-[connection signal="pressed" from="in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer/Control/HBoxContainer/Continue" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer/Control/HBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer/HBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer/HBoxContainer/Quit" to="." method="_on_quit_pressed"]

@@ -1,0 +1,34 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://b5krwt60ribkx"]
+
+[ext_resource type="Texture2D" uid="uid://qycqchoqcg4" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/Continuer Txt light S.png" id="1_mkyxp"]
+[ext_resource type="Texture2D" uid="uid://cej0hhnhfeh2" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/Continuer Txt light L.png" id="2_klgas"]
+[ext_resource type="Texture2D" uid="uid://haq4d6xbd41p" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/Continuer Txt light D.png" id="3_hiutb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yb0fs"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_br3tw"]
+texture = ExtResource("1_mkyxp")
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_taui5"]
+texture = ExtResource("2_klgas")
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6wjkr"]
+texture = ExtResource("3_hiutb")
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[resource]
+Button/styles/focus = SubResource("StyleBoxEmpty_yb0fs")
+Button/styles/hover = SubResource("StyleBoxTexture_br3tw")
+Button/styles/normal = SubResource("StyleBoxTexture_taui5")
+Button/styles/pressed = SubResource("StyleBoxTexture_6wjkr")

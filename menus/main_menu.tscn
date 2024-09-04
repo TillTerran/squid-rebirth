@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://b2rko3ijjih3y"]
+[gd_scene load_steps=17 format=3 uid="uid://b2rko3ijjih3y"]
 
 [ext_resource type="Texture2D" uid="uid://bps1v3s8ppjps" path="res://menus/menu babylon fond.png" id="1_qvvt2"]
 [ext_resource type="FontFile" uid="uid://b33vedn2vstl0" path="res://sprites/fonts/SuperMario256.ttf" id="2_kl01w"]
@@ -8,12 +8,8 @@
 [ext_resource type="Script" path="res://scripts/start_Button.gd" id="3_x8wav"]
 [ext_resource type="Texture2D" uid="uid://brrmfxggkyg4f" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/start Txt Light D.png" id="4_cbw2s"]
 [ext_resource type="Script" path="res://scripts/continue_button.gd" id="4_qjge1"]
-[ext_resource type="Texture2D" uid="uid://qycqchoqcg4" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/Continuer Txt light S.png" id="6_k12or"]
-[ext_resource type="Texture2D" uid="uid://cej0hhnhfeh2" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/Continuer Txt light L.png" id="7_2d2yc"]
-[ext_resource type="Texture2D" uid="uid://haq4d6xbd41p" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/Continuer Txt light D.png" id="8_a2vi6"]
-[ext_resource type="Texture2D" uid="uid://c5a3m5h2wxps5" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/quitter Txt Light L.png" id="10_24skl"]
-[ext_resource type="Texture2D" uid="uid://ctlilggkj8xha" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/quitter Txt Light S.png" id="11_a5lra"]
-[ext_resource type="Texture2D" uid="uid://c8ixeenmlo4mh" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/quitter Txt Light D.png" id="12_gjcl1"]
+[ext_resource type="Theme" uid="uid://b5krwt60ribkx" path="res://sprites/bouttons/continue_button.tres" id="7_sjmhq"]
+[ext_resource type="Theme" uid="uid://cqgedean00vud" path="res://sprites/bouttons/quit_button.tres" id="9_4kykg"]
 
 [sub_resource type="Theme" id="Theme_lrsnm"]
 RichTextLabel/colors/default_color = Color(0.85098, 0, 0, 1)
@@ -62,72 +58,6 @@ Button/styles/focus = SubResource("StyleBoxEmpty_ubfuj")
 Button/styles/hover = SubResource("StyleBoxTexture_c1o7b")
 Button/styles/normal = SubResource("StyleBoxTexture_ldbbu")
 Button/styles/pressed = SubResource("StyleBoxTexture_6fvav")
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yb0fs"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_br3tw"]
-texture = ExtResource("6_k12or")
-expand_margin_left = 10.0
-expand_margin_top = 10.0
-expand_margin_right = 10.0
-expand_margin_bottom = 10.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_taui5"]
-texture = ExtResource("7_2d2yc")
-expand_margin_left = 10.0
-expand_margin_top = 10.0
-expand_margin_right = 10.0
-expand_margin_bottom = 10.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6wjkr"]
-texture = ExtResource("8_a2vi6")
-expand_margin_left = 10.0
-expand_margin_top = 10.0
-expand_margin_right = 10.0
-expand_margin_bottom = 10.0
-
-[sub_resource type="Theme" id="Theme_41fle"]
-Button/styles/focus = SubResource("StyleBoxEmpty_yb0fs")
-Button/styles/hover = SubResource("StyleBoxTexture_br3tw")
-Button/styles/normal = SubResource("StyleBoxTexture_taui5")
-Button/styles/pressed = SubResource("StyleBoxTexture_6wjkr")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n32dv"]
-texture = ExtResource("10_24skl")
-expand_margin_left = 10.0
-expand_margin_top = 10.0
-expand_margin_right = 10.0
-expand_margin_bottom = 10.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_85nfb"]
-texture = ExtResource("10_24skl")
-texture_margin_bottom = 5.0
-expand_margin_left = 10.0
-expand_margin_top = 10.0
-expand_margin_right = 10.0
-expand_margin_bottom = 10.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_omndu"]
-texture = ExtResource("11_a5lra")
-texture_margin_bottom = 5.0
-expand_margin_left = 10.0
-expand_margin_top = 10.0
-expand_margin_right = 10.0
-expand_margin_bottom = 10.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2uqad"]
-texture = ExtResource("12_gjcl1")
-texture_margin_bottom = 5.0
-expand_margin_left = 10.0
-expand_margin_top = 10.0
-expand_margin_right = 10.0
-expand_margin_bottom = 10.0
-
-[sub_resource type="Theme" id="Theme_32puo"]
-Button/styles/focus = SubResource("StyleBoxTexture_n32dv")
-Button/styles/hover = SubResource("StyleBoxTexture_85nfb")
-Button/styles/normal = SubResource("StyleBoxTexture_omndu")
-Button/styles/pressed = SubResource("StyleBoxTexture_2uqad")
 
 [node name="MarginContainer" type="MarginContainer"]
 anchors_preset = 15
@@ -232,7 +162,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 80.0
-theme = SubResource("Theme_41fle")
+theme = ExtResource("7_sjmhq")
 text = " "
 script = ExtResource("4_qjge1")
 
@@ -271,7 +201,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 80.0
-theme = SubResource("Theme_32puo")
+theme = ExtResource("9_4kykg")
 text = "                    "
 script = ExtResource("3_u72ov")
 
