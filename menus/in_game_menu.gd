@@ -30,10 +30,11 @@ func _on_continue_pressed() -> void:
 	if player_is_dead:
 		get_tree().change_scene_to_file(GlobalVariables.last_save_point)
 		$"in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer/header".text="PAUSED"
+	else:
+		get_tree().paused=false
 	hide()
 	new_pause=true
 	player_is_dead=false
-	get_tree().paused=false
 	#get_tree().paused=false
 
 

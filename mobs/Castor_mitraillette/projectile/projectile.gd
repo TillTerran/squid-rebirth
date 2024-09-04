@@ -9,6 +9,7 @@ var speed=10
 var attack_strength=2
 # Called when the node enters the scene tree for the first time.
 func lancer(vitesse_initiale):
+	print(vitesse_initiale)
 	vitesse=vitesse_initiale-Vector2(0,gravite/60)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
