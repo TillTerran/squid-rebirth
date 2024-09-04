@@ -43,6 +43,7 @@ func to_main_menu():
 
 
 func _on_revealing_hidden_layer_area_body_entered(_body: Node2D) -> void:
+	print(_body)
 	if "illusion_coming_back"in$AnimationPlayer.get_queue():
 		$AnimationPlayer.clear_queue()
 	else:

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b2rko3ijjih3y" path="res://main_menu.tscn" id="2_6vn60"]
 [ext_resource type="Script" path="res://levels/no pause.gd" id="3_f65ay"]
 
-[node name="level_template" instance=ExtResource("1_gfrm5")]
+[node name="level_template2" instance=ExtResource("1_gfrm5")]
 visible = false
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="." index="2"]

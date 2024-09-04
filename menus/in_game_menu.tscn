@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ctk5pf3p7atjs"]
 
 [ext_resource type="Script" path="res://menus/in_game_menu.gd" id="1_mxadn"]
-[ext_resource type="Theme" path="res://nice_theme.tres" id="1_ove8w"]
+[ext_resource type="Theme" uid="uid://ierb8sk14ach" path="res://nice_theme.tres" id="1_ove8w"]
 
 [node name="in-game menu" type="CanvasLayer"]
 process_mode = 2

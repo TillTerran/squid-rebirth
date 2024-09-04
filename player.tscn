@@ -1,12 +1,12 @@
 [gd_scene load_steps=23 format=3 uid="uid://s77rdbs0u3dk"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://d181ihjjdnona" path="res://Asset Packs 1-3 (final)/Asset Pack-V1/Sprite Sheets/Character Idle 48x48.png" id="2_qub0q"]
-[ext_resource type="Texture2D" uid="uid://bs0m8cis086i" path="res://Asset Packs 1-3 (final)/Asset Pack-V1/Sprite Sheets/run cycle 48x48.png" id="3_1dxfa"]
-[ext_resource type="Texture2D" uid="uid://x7psav1qs7tx" path="res://Asset Packs 1-3 (final)/Asset Pack-V3/Player Punch/Player Punch 64x64.png" id="4_6t0ue"]
-[ext_resource type="Texture2D" uid="uid://cfbebtrjhl86g" path="res://Asset Packs 1-3 (final)/Asset Pack-V1/Sprite Sheets/player jump 48x48.png" id="5_yg1eo"]
-[ext_resource type="Texture2D" uid="uid://ci5ic6wwpvwmk" path="res://stickman.png" id="6_f3q7p"]
-[ext_resource type="Texture2D" uid="uid://bb0r0fc5dvkao" path="res://Asset Packs 1-3 (final)/Asset Pack-V3/Player Death/Player Death 64x64.png" id="6_otery"]
+[ext_resource type="Texture2D" uid="uid://dt07t8bj3kij2" path="res://Asset Packs 1-3 (final)/Asset Pack-V1/Sprite Sheets/Character Idle 48x48.png" id="2_qub0q"]
+[ext_resource type="Texture2D" uid="uid://djehny52oqbpn" path="res://Asset Packs 1-3 (final)/Asset Pack-V1/Sprite Sheets/run cycle 48x48.png" id="3_1dxfa"]
+[ext_resource type="Texture2D" uid="uid://db4g0wuqhud2l" path="res://Asset Packs 1-3 (final)/Asset Pack-V3/Player Punch/Player Punch 64x64.png" id="4_6t0ue"]
+[ext_resource type="Texture2D" uid="uid://djt7kta5t2ll0" path="res://Asset Packs 1-3 (final)/Asset Pack-V1/Sprite Sheets/player jump 48x48.png" id="5_yg1eo"]
+[ext_resource type="Texture2D" uid="uid://dky3c0h1jb358" path="res://stickman.png" id="6_f3q7p"]
+[ext_resource type="Texture2D" uid="uid://bmcj2ljf3uwmk" path="res://Asset Packs 1-3 (final)/Asset Pack-V3/Player Death/Player Death 64x64.png" id="6_otery"]
 
 [sub_resource type="RectangleShape2D" id="4"]
 size = Vector2(16, 8)
