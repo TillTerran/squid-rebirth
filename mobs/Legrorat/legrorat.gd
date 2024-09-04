@@ -162,14 +162,14 @@ func death():
 	queue_free()
 
 func hurt():
-	if HP<=0:
-		Legrorat_state=STATE.DEATH
+	if Legrorat_state==STATE.ATTACK:
 		death()
-	elif Legrorat_state==STATE.ATTACK:
 		pass
 	else:
 		HP-=DamageGiveByPlayer
 		print("Ouille")
+		if HP<=0:
+			death()
 
 
 func _on_area_attack_body_entered(body: Node2D) -> void:

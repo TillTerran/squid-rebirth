@@ -6,6 +6,7 @@ var player=null
 var player_chase=null
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var jump_height=-350
+@export var attack_strength=2
 var target_position=Vector2(0,0)
 var pos_init=null
 
@@ -17,6 +18,7 @@ enum STATE {
 	WAITING,
 	FLY_AWAY,
 	BACK_TO_POSITION,
+	DEATH
 }
 var Onyx_state=STATE.WAITING
 # Called when the node enters the scene tree for the first time.
@@ -28,6 +30,7 @@ func _process(delta):
 		match Onyx_state:
 			STATE.FALL:
 				velocity.y += gravity * delta
+				$AnimatedSprite2D.play("Fall")
 				if is_on_floor():
 					Onyx_state=STATE.ON_GROUND
 			STATE.ON_GROUND:
@@ -35,15 +38,20 @@ func _process(delta):
 				print("Position on ground")
 				Onyx_state=STATE.WAITING
 			STATE.WAITING:
+				$AnimatedSprite2D.play("Idle")
 				velocity=Vector2(0,0)
 				fall()
 			STATE.FLY:
 				velocity.y=0
+				$AnimatedSprite2D.play("Fly")
 				chase_player()
 			STATE.FLY_AWAY:
 				velocity.y=jump_height
 			STATE.BACK_TO_POSITION:
 				back_to_position(delta)
+			STATE.DEATH:
+				$PositionTimer.stop()
+				death()
 		move_and_slide()
 		#print(STATE.keys()[Onyx_state])
 	else:
@@ -118,10 +126,10 @@ func back_to_position(delta):
 #		
 #		
 func _on_hitbox_body_entered(body):
-	if body.is_in_group("Player"):
-		death()
-
+	if body.has_method(&"lose_hp"):
+			body.lose_hp(attack_strength)
 func death():
+	await $AnimatedSprite2D.animation_finished
 	queue_free()
 
 
@@ -132,3 +140,24 @@ func _on_timer_timeout():
 #When the Onyx is on his initial position, he wait for the player
 func _on_navigation_agent_2d_target_reached():
 	Onyx_state=STATE.WAITING
+
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Stun"):
+		Onyx_state=STATE.WAITING
+		await get_tree().create_timer(1.0).timeout
+		print("Stun")
+		Onyx_state=STATE.FLY
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Stun"):
+		Onyx_state=STATE.WAITING
+		await get_tree().create_timer(1.0).timeout
+		print("Stun")
+		Onyx_state=STATE.FLY
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	$AnimatedSprite2D.play("Death")
+	Onyx_state=STATE.DEATH

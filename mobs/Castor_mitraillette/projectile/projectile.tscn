@@ -1,7 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://ch7ynqpw38r3t"]
 
 [ext_resource type="Script" path="res://mobs/Castor_mitraillette/projectile/projectile.gd" id="1_gd675"]
-[ext_resource type="Texture2D" uid="uid://dqxghl8647rub" path="res://mobs/Castor_mitraillette/projectile/f_tronc.png" id="2_b5i3m"]
+[ext_resource type="Texture2D" uid="uid://frbvnrwmhcb3" path="res://mobs/Castor_mitraillette/projectile/f_tronc.png" id="2_b5i3m"]
+
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0bonq"]
 size = Vector2(32, 16)

@@ -137,11 +137,10 @@ func death():
 	queue_free()
 
 func hurt():
+	HP-=DamageGiveByPlayer
 	if HP<=0:
 		Ecureuil_state=STATE.DEATH
 		death()
-	else:
-		HP-=DamageGiveByPlayer
 		
 func _on_attack_area_body_entered(body: Node2D) -> void:
 	hurt()

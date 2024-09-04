@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://gw56g0nea6og"]
 
 [ext_resource type="Script" path="res://mobs/totem_claquette/projectile/totem_claquette_projectile.gd" id="1_24iou"]
-[ext_resource type="Texture2D" uid="uid://cnwjnpjd4bcau" path="res://mobs/totem_claquette/projectile/bean_projectile_[1_4].jpg" id="2_y478w"]
+[ext_resource type="Texture2D" uid="uid://bl4r48d1kixji" path="res://mobs/totem_claquette/projectile/bean_projectile_[1_4].png" id="2_bcnxa"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p4cqa"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_y478w")
+"texture": ExtResource("2_bcnxa")
 }],
 "loop": true,
 "name": &"default",
