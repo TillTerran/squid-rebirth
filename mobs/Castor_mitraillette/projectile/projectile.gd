@@ -2,17 +2,19 @@ extends Area2D
 
 
 var direction=null
-var gravite=9.80
+var _gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var gravite=_gravity
 var vitesse = Vector2()
 var speed=10
 var attack_strength=2
 # Called when the node enters the scene tree for the first time.
 func lancer(vitesse_initiale):
-	vitesse=vitesse_initiale
+	print(vitesse_initiale)
+	vitesse=vitesse_initiale-Vector2(0,gravite/60)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	vitesse.y += gravite * delta*speed
-	position += vitesse * delta*speed
+	vitesse.y += gravite * delta
+	position += vitesse * delta
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():

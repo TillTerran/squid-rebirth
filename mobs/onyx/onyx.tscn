@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://irpquugqy33h"]
 
-[ext_resource type="Texture2D" uid="uid://tlaqw7ft37y4" path="res://mobs/onyx/animation/idle_animation/idle_animation[1].jpg" id="1_6475j"]
+[ext_resource type="Texture2D" uid="uid://cavefbyh8ak4g" path="res://mobs/onyx/animation/idle_animation/idle_animation[1].jpg" id="1_6475j"]
 [ext_resource type="Script" path="res://mobs/onyx/onyx.gd" id="1_fnkml"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ocjb2"]

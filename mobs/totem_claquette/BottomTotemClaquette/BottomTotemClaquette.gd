@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 @export var speed = 100
+@export var stun_time:float=1.0
+@onready var animation=$AnimationPlayer
 var projectile = preload("res://mobs/totem_claquette/projectile/totem_claquette_projectile.tscn")
 var player_chase = false
 var player = null
@@ -76,10 +78,10 @@ func chase_player():
 	if player_chase:
 		var direction = (player.global_position - self.position).normalized()#* speed
 		if direction.x>0:
-			get_node("AnimatedSprite2D").flip_h=true
 			projectile_direction=true
+			animation.play("WalkRight")
 		else:
-			get_node("AnimatedSprite2D").flip_h = false
+			animation.play("WalkLeft")
 			projectile_direction = false
 		if ((player.global_position - self.position).x)**2>=tile_length*tile_length*25:
 			velocity.x = sign(direction.x)*speed
@@ -94,14 +96,29 @@ func chase_player():
 #When the timer is timeout, a projectile spawn
 func _on_projectile_timer_timeout():
 	var b = projectile.instantiate()
-	get_tree().get_current_scene().add_child(b)
+	get_tree().current_scene.add_child(b)
 	b.start(position,projectile_direction)
 	$ProjectileTimer.start()
 
 func death():
+	print("Death")
+	BottomTotemState=STATE.WAITING
+	if totem!=null:
+		fusion=false
+	player_chase=false
+	player=null
+	animation.play("Death")
+	await animation.animation_finished
 	queue_free()
-
 
 func _on_hitbox_body_entered(body):
 	if body.is_in_group("Player"):
 		death()
+
+
+func _on_body_hitbox_bottom_totem_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Stun"):
+		BottomTotemState=STATE.WAITING
+		await get_tree().create_timer(stun_time).timeout
+		print("Stun")
+		BottomTotemState=STATE.CHASE
