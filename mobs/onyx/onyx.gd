@@ -6,6 +6,7 @@ var player=null
 var player_chase=null
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var jump_height=-350
+@export var attack_strength=2
 var target_position=Vector2(0,0)
 var pos_init=null
 
@@ -125,9 +126,8 @@ func back_to_position(delta):
 #		
 #		
 func _on_hitbox_body_entered(body):
-	if body.is_in_group("Player"):
-		death()
-
+	if body.has_method(&"lose_hp"):
+			body.lose_hp(attack_strength)
 func death():
 	await $AnimatedSprite2D.animation_finished
 	queue_free()

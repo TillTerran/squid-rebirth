@@ -19,7 +19,7 @@ size = Vector2(106.245, 60.1233)
 [node name="level_template" instance=ExtResource("1_xtlbv")]
 
 [node name="player" parent="." index="1" groups=["Player"]]
-position = Vector2(1128, 160)
+position = Vector2(3320, -1056)
 
 [node name="TileMap" parent="." index="2"]
 position = Vector2(-280, -88)
@@ -68,7 +68,7 @@ position = Vector2(600, -368)
 position = Vector2(-136, -384)
 
 [node name="Onyx" parent="." index="11" instance=ExtResource("6_j08w2")]
-position = Vector2(1240, 40)
+position = Vector2(1392, 40)
 
 [node name="CastorMitrailette" parent="." index="12" instance=ExtResource("7_3lolx")]
 position = Vector2(1784, -568)

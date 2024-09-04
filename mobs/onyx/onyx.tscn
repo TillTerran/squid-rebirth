@@ -242,7 +242,7 @@ animations = [{
 size = Vector2(32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sb261"]
-size = Vector2(12, 23.5)
+size = Vector2(12, 26.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7s2ea"]
 radius = 288.111
@@ -272,7 +272,7 @@ collision_layer = 0
 collision_mask = 128
 
 [node name="HitboxOnyx" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(16, 20.25)
+position = Vector2(16, 21.75)
 shape = SubResource("RectangleShape2D_sb261")
 
 [node name="DetectionAreaPlayer" type="Area2D" parent="."]
