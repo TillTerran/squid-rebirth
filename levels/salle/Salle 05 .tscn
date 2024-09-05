@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c833s1u5hyolg" path="res://scene_change/tp_point.tscn" id="3_44jvr"]
 [ext_resource type="PackedScene" uid="uid://b7x1st8766bcw" path="res://mobs/Castor_mitraillette/Castor_mitraillette.tscn" id="5_342dc"]
 
-[node name="level_template5" instance=ExtResource("1_tariu")]
+[node name="level_template4" instance=ExtResource("1_tariu")]
 
 [node name="player" parent="." index="1"]
 position = Vector2(29, 63)

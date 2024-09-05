@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://b32tvkldvdtr7" path="res://level_template.tscn" id="1_0j6gh"]
 [ext_resource type="PackedScene" uid="uid://bclewffjxdq25" path="res://scene_change/change_scene_area.tscn" id="2_t6q18"]
-[ext_resource type="PackedScene" path="res://mobs/Legrorat/legrorat.tscn" id="3_jlfyi"]
+[ext_resource type="PackedScene" uid="uid://ci32ibukbp6pi" path="res://mobs/Legrorat/legrorat.tscn" id="3_jlfyi"]
 
-[node name="level_template2" instance=ExtResource("1_0j6gh")]
+[node name="level_template" instance=ExtResource("1_0j6gh")]
 position = Vector2(1, -1)
 
 [node name="player" parent="." index="1"]

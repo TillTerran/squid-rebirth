@@ -4,7 +4,7 @@ const main_menu:String="res://menus/main_menu_good.tscn"
 const tile_length:int=16
 
 
-
+var is_monke : bool
 var current_player_hp:int
 var max_hp:int
 var held_keys:int
@@ -25,6 +25,7 @@ func _ready() -> void:
 	#tile_length=16
 	current_player_hp=5
 	max_hp=5
+	is_monke = true
 	pass
 
 func change_save_point(new_save_point:String):

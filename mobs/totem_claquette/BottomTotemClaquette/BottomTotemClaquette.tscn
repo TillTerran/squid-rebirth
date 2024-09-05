@@ -1,8 +1,8 @@
 [gd_scene load_steps=31 format=3 uid="uid://mtdhfmqptfli"]
 
 [ext_resource type="Script" path="res://mobs/totem_claquette/BottomTotemClaquette/BottomTotemClaquette.gd" id="1_q8lht"]
-[ext_resource type="Texture2D" uid="uid://blegki24sxhvr" path="res://mobs/totem_claquette/Animations/Animations.png" id="2_i16v3"]
-[ext_resource type="Texture2D" uid="uid://b24yfy1iu4kkm" path="res://mobs/Boss/Ecureuil/Animation/Death/Death.png" id="2_is2v7"]
+[ext_resource type="Texture2D" uid="uid://nmq3nd4q0qnv" path="res://mobs/totem_claquette/Animations/Animations.png" id="2_i16v3"]
+[ext_resource type="Texture2D" uid="uid://jvds3dhxovh7" path="res://mobs/Boss/Ecureuil/Animation/Death/Death.png" id="2_is2v7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d15ln"]
 atlas = ExtResource("2_is2v7")
@@ -145,7 +145,7 @@ animations = [{
 size = Vector2(17, 5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hghxe"]
-size = Vector2(19, 31.5)
+size = Vector2(19, 33)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8rcdp"]
 size = Vector2(443, 310)
@@ -394,7 +394,7 @@ script = ExtResource("1_q8lht")
 position = Vector2(13, 12.5)
 scale = Vector2(0.150794, 0.157718)
 sprite_frames = SubResource("SpriteFrames_638yc")
-animation = &"Walk"
+animation = &"Death"
 frame = 1
 
 [node name="Hitbox" type="Area2D" parent="."]
@@ -407,7 +407,7 @@ position = Vector2(33.5, 3.5)
 shape = SubResource("RectangleShape2D_dk3ok")
 
 [node name="HitboxBottomTotem" type="CollisionShape2D" parent="."]
-position = Vector2(17.5, 20)
+position = Vector2(17.5, 19.5)
 shape = SubResource("RectangleShape2D_hghxe")
 
 [node name="DetectionAreaPlayer" type="Area2D" parent="."]
@@ -441,7 +441,7 @@ collision_layer = 0
 collision_mask = 128
 
 [node name="HitboxBottomTotem2" type="CollisionShape2D" parent="BodyHitboxBottomTotem"]
-position = Vector2(17.5, 19.75)
+position = Vector2(17.5, 19.5)
 shape = SubResource("RectangleShape2D_hghxe")
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

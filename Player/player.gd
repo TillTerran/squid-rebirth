@@ -7,12 +7,12 @@ extends CharacterBody2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var is_monke = true
+var is_monke = GlobalVariables.is_monke
 var speed_scale = 1.0
-var hp_max = 5
-var current_hp = 5
+var hp_max : int
+var current_hp : int
 #var velocity = Vector2.ZERO
-var stuck
+var stuck : bool
 var animation_prefix=""
 var floating=false #is not affected by gravity ?
 
@@ -67,6 +67,18 @@ var held_objects = {
 }
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Scare/ScareHitbox.disabled = true
+	$Punch/punchhitbox.disabled = true
+	
+	is_monke = GlobalVariables.is_monke
+	
+	if is_monke :
+		$Enki.visible = true
+		$Aerin.visible = false
+	else : 
+		$Enki.visible = false
+		$Aerin.visible = true
+	
 	
 	held_keys=GlobalVariables.held_keys
 	hp_max=GlobalVariables.max_hp
@@ -303,141 +315,71 @@ func update_animation_monke(input_vector):
 	var cur_act_unstoppable = ($AnimationPlayer.current_animation == "PL_player_punch") || ($AnimationPlayer.current_animation == "PL_player_grab")
 	
 	if !stuck :
-		if Input.is_action_pressed("ui_right") and !cur_act_unstoppable:
-			if $Punch/punchhitbox.position.x < 0 :
+		if Input.is_action_pressed("ui_right") and $AnimationPlayer.current_animation != "PL_player_punch":
+			if $Punch/punchhitbox.position.x < 0 or $Scare/ScareHitbox.position.x < 0:
 				$Punch/punchhitbox.position.x = $Punch/punchhitbox.position.x * -1
-			$Monke/Run.flip_h = false
-			$Monke/Idle.flip_h = false
-			$Monke/Punch.flip_h = false
-			$Monke/Jump.flip_h = false
-		if Input.is_action_pressed("ui_left") and !cur_act_unstoppable:
-			if $Punch/punchhitbox.position.x > 0 :
+				$Scare/ScareHitbox.position.x = $Scare/ScareHitbox.position.x * -1
+			$Aerin.flip_h = true
+			$Enki.flip_h = true
+		if Input.is_action_pressed("ui_left") and $AnimationPlayer.current_animation != "PL_player_punch":
+			if $Punch/punchhitbox.position.x > 0 or $Scare/ScareHitbox.position.x > 0:
 				$Punch/punchhitbox.position.x = $Punch/punchhitbox.position.x * -1
-			$Monke/Run.flip_h = true
-			$Monke/Idle.flip_h = true
-			$Monke/Punch.flip_h = true
-			$Monke/Jump.flip_h = true
+				$Scare/ScareHitbox.position.x = $Scare/ScareHitbox.position.x * -1
+			$Aerin.flip_h = false
+			$Enki.flip_h = false
 
 	if input_vector!=Vector2.ZERO and !cur_act_unstoppable and $AnimationPlayer.current_animation != "PL_player_jump":
-		"Deux ligne suivant forcée due au faite ques les sprites sont séparé en plusieurs fichiers"
-		$Monke/Idle.visible = false 
-		$Monke/Run.visible = true
-		$Monke/Jump.visible = false
-		$Monke/Punch.visible = false
-		$Monke/Death.visible = false
-		"$Monke/Run.flip_h = (input_vector.dot(-left_dir)<0)"
 		$AnimationPlayer.play("PL_player_run")
 	else:
 		if !cur_act_unstoppable and $AnimationPlayer.current_animation != "PL_player_grab":
-			"Deux ligne suivant forcée due au faite ques les sprites sont séparé en plusieurs fichiers"
-			$Monke/Idle.visible = true 
-			$Monke/Run.visible = false 
-			$Monke/Jump.visible = false
-			$Monke/Punch.visible = false
-			$Monke/Death.visible = false
-			"$Monke/Run.flip_h = (input_vector.dot(-left_dir)<0)"
 			$AnimationPlayer.play("PL_player_idle")
 
 
-	if Input.is_action_just_pressed("Punch") and $PunchCooldown.is_stopped():
-		$Monke/Idle.visible = false 
-		$Monke/Run.visible = false 
-		$Monke/Punch.visible = true
-		$Monke/Jump.visible = false
-		$Monke/Death.visible = false
-		$AnimationPlayer.play("PL_player_punch")
-		$PunchCooldown.start()
+	
 	
 	if Input.is_action_just_pressed("Grab") and !cur_act_unstoppable:
 		if pickup_list.size() != 0 :
 			var current_pick = pickup_list[0]
 			pickup_list.remove_at(0)
-			$Monke/Idle.visible = false
-			$Monke/Run.visible = false 
-			$Monke/Jump.visible = false
-			$Monke/Punch.visible = false
-			$Monke/Death.visible = true
-			$AnimationPlayer.play("PL_player_grab")
 			#Et la on peut faire ce qu'on veut avec l'item au sol
 			current_pick.queue_free()
 	
 	
 	if not is_on_floor() and velocity.y > 0 and !cur_act_unstoppable:
-		$Monke/Idle.visible = false 
-		$Monke/Run.visible = false 
-		$Monke/Punch.visible = false
-		$Monke/Jump.visible = true
-		$Monke/Death.visible = false
 		$AnimationPlayer.play("PL_player_jump")
 	
 	if not is_on_floor() and velocity.y < 0 and !cur_act_unstoppable:
-		$Monke/Idle.visible = false 
-		$Monke/Run.visible = false 
-		$Monke/Punch.visible = false
-		$Monke/Jump.visible = true
-		$Monke/Death.visible = false
 		$AnimationPlayer.play("PL_player_fall")
+		
+	
+	if Input.is_action_just_pressed("Punch") and $PunchCooldown.is_stopped():
+		$AnimationPlayer.play("PL_player_punch")
+		$PunchCooldown.start()
 
 func update_animation_ghost(input_vector):
 	
 	var cur_act_unstoppable = ($AnimationPlayer.current_animation == "GHOST_player_punch") || ($AnimationPlayer.current_animation == "GHOST_player_grab")
 	
 	
-	if Input.is_action_just_pressed("ui_right") and $AnimationPlayer.current_animation != "PL_player_punch":
-		if $Punch/punchhitbox.position.x < 0 :
+	if Input.is_action_pressed("ui_right") and $AnimationPlayer.current_animation != "GHOST_player_scare":
+		if $Punch/punchhitbox.position.x < 0 or $Scare/ScareHitbox.position.x < 0:
 			$Punch/punchhitbox.position.x = $Punch/punchhitbox.position.x * -1
-		$Ghost/Run.flip_h = false
-		$Ghost/Idle.flip_h = false
-		$Ghost/Punch.flip_h = false
-		$Ghost/Jump.flip_h = false
-	if Input.is_action_just_pressed("ui_left") and $AnimationPlayer.current_animation != "PL_player_punch":
-		if $Punch/punchhitbox.position.x > 0 :
+			$Scare/ScareHitbox.position.x = $Scare/ScareHitbox.position.x * -1
+		$Aerin.flip_h = true
+		$Enki.flip_h = true
+	if Input.is_action_pressed("ui_left") and $AnimationPlayer.current_animation != "GHOST_player_scare":
+		if $Punch/punchhitbox.position.x > 0 or $Scare/ScareHitbox.position.x > 0:
 			$Punch/punchhitbox.position.x = $Punch/punchhitbox.position.x * -1
-		$Ghost/Run.flip_h = true
-		$Ghost/Idle.flip_h = true
-		$Ghost/Punch.flip_h = true
-		$Ghost/Jump.flip_h = true
+			$Scare/ScareHitbox.position.x = $Scare/ScareHitbox.position.x * -1
+		$Aerin.flip_h = false
+		$Enki.flip_h = false
 
-	if input_vector!=Vector2.ZERO and $AnimationPlayer.current_animation != "PL_player_punch" and $AnimationPlayer.current_animation != "PL_player_jump":
-		"Deux ligne suivant forcée due au faite ques les sprites sont séparé en plusieurs fichiers"
-		$Ghost/Idle.visible = false 
-		$Ghost/Run.visible = true 
-		$Ghost/Jump.visible = false
-		$Ghost/Punch.visible = false
-		"$Ghost/Run.flip_h = (input_vector.dot(-left_dir)<0)"
-		$AnimationPlayer.play("PL_player_run")
-	else:
-		if $AnimationPlayer.current_animation != "PL_player_punch":
-			"Deux ligne suivant forcée due au faite ques les sprites sont séparé en plusieurs fichiers"
-			$Ghost/Idle.visible = true 
-			$Ghost/Run.visible = false 
-			$Ghost/Jump.visible = false
-			$Ghost/Punch.visible = false
-			"$Ghost/Run.flip_h = (input_vector.dot(-left_dir)<0)"
-			$AnimationPlayer.play("GHOST_player_idle")
+	if $AnimationPlayer.current_animation != "GHOST_player_scare":
+		$AnimationPlayer.play("GHOST_player_idle")
+	
 	if Input.is_action_just_pressed("Punch") and $PunchCooldown.is_stopped():
-		$Ghost/Idle.visible = false 
-		$Ghost/Run.visible = false 
-		$Ghost/Punch.visible = true
-		$Ghost/Jump.visible = false
-		$AnimationPlayer.play("PL_player_punch")
+		$AnimationPlayer.play("GHOST_player_scare")
 		$PunchCooldown.start()
-	
-	
-	if not is_on_floor() and velocity.y > 0 and $AnimationPlayer.current_animation != "PL_player_punch":
-		$Ghost/Idle.visible = false 
-		$Ghost/Run.visible = false 
-		$Ghost/Punch.visible = false
-		$Ghost/Jump.visible = true
-		$AnimationPlayer.play("PL_player_jump")
-	
-	if not is_on_floor() and velocity.y < 0 and $AnimationPlayer.current_animation != "PL_player_punch":
-		$Ghost/Idle.visible = false 
-		$Ghost/Run.visible = false 
-		$Ghost/Punch.visible = false
-		$Ghost/Jump.visible = true
-		$AnimationPlayer.play("PL_player_fall")
-
 
 
 
@@ -553,31 +495,32 @@ func reset_position()->void:
 func add_health() :
 	if current_hp < hp_max :
 			current_hp = current_hp +1
-	
 
 func add_more_health() :
 	if current_hp < hp_max :
 			current_hp = (current_hp +2) % (hp_max+1)
 
 func lose_hp(hp_lost:int,reset_position:bool =false)->void:
+	if $Invicible.is_stopped() :
+		current_hp -= hp_lost
+		print("Degat", current_hp)
+		GlobalVariables.current_player_hp-=hp_lost
+		if reset_position:
+			reset_position()
+		if current_hp<5:
+			$CanvasLayer/PanelContainer/HBoxContainer2/HBoxContainer/TextureRect5.hide()
+		if current_hp<4:
+			$CanvasLayer/PanelContainer/HBoxContainer2/HBoxContainer/TextureRect4.hide()
+		if current_hp<3:
+			$CanvasLayer/PanelContainers/HBoxContainer2/HBoxContainer/TextureRect3.hide()
+		if current_hp<2:
+			$CanvasLayer/PanelContainer/HBoxContainer2/HBoxContainer/TextureRect2.hide()
+		if current_hp<1:
+			$CanvasLayer/PanelContainer/HBoxContainer2/HBoxContainer/TextureRect.hide()
 	
-	current_hp -= hp_lost
-	GlobalVariables.current_player_hp-=hp_lost
-	if reset_position:
-		reset_position()
-	if current_hp<5:
-		$CanvasLayer/PanelContainer/HBoxContainer2/HBoxContainer/TextureRect5.hide()
-	if current_hp<4:
-		$CanvasLayer/PanelContainer/HBoxContainer2/HBoxContainer/TextureRect4.hide()
-	if current_hp<3:
-		$CanvasLayer/PanelContainer/HBoxContainer2/HBoxContainer/TextureRect3.hide()
-	if current_hp<2:
-		$CanvasLayer/PanelContainer/HBoxContainer2/HBoxContainer/TextureRect2.hide()
-	if current_hp<1:
-		$CanvasLayer/PanelContainer/HBoxContainer2/HBoxContainer/TextureRect.hide()
-	
-	if current_hp <= 0 :
-		game_over()
+		if current_hp <= 0 :
+			game_over()
+		$Invicible.start()
 	#print(current_hp)
 
 
@@ -661,14 +604,15 @@ func _on_pickup_range_body_exited(body):
 func _on_char_switch_timeout():
 	print('hp : ', current_hp, ", max : ", hp_max)
 	if is_monke :
-		$Monke.visible = false
-		$Ghost.visible = true
+		$Enki.visible = false
+		$Aerin.visible = true
 		height_of_jump = 1.5
 	else :
-		$Monke.visible = true
-		$Ghost.visible = false
+		$Enki.visible = true
+		$Aerin.visible = false
 		height_of_jump = 3.5
 	is_monke = !is_monke
+	GlobalVariables.is_monke = !GlobalVariables.is_monke
 	stuck = false
 	 # Replace with function body.
 
@@ -679,4 +623,7 @@ func _on_punch_body_entered(body: Node2D) -> void:
 
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
-	lose_hp(body.get_meta("damage_dealt",0),body.get_meta("resets_position",0))
+	if $Invicible.is_stopped() :
+		print("damage")
+		lose_hp(body.get_meta("damage_dealt",0),body.get_meta("resets_position",0))
+		$Invicible.start()

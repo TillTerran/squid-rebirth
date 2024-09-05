@@ -1,10 +1,10 @@
 [gd_scene load_steps=38 format=3 uid="uid://ci32ibukbp6pi"]
 
 [ext_resource type="Script" path="res://mobs/Legrorat/legrorat.gd" id="1_1bao3"]
-[ext_resource type="Texture2D" uid="uid://ccwt4vyh8qh2k" path="res://mobs/Legrorat/animations/idle/idle rat.png" id="1_5nagp"]
-[ext_resource type="Texture2D" uid="uid://dqmqudqyy4l2n" path="res://mobs/Legrorat/animations/attack/charge rat.png" id="2_irsce"]
-[ext_resource type="Texture2D" uid="uid://jvds3dhxovh7" path="res://mobs/Boss/Ecureuil/Animation/Death/Death.png" id="2_iua5i"]
-[ext_resource type="Texture2D" uid="uid://cm16m4bbo0k1q" path="res://mobs/Legrorat/animations/walk/walk_rat.png" id="4_0l8cl"]
+[ext_resource type="Texture2D" uid="uid://bco3rwxon47py" path="res://mobs/Legrorat/animations/idle/idle rat.png" id="1_5nagp"]
+[ext_resource type="Texture2D" uid="uid://db6atdvknquqe" path="res://mobs/Legrorat/animations/attack/charge rat.png" id="2_irsce"]
+[ext_resource type="Texture2D" uid="uid://c421s7he7g7hy" path="res://mobs/Boss/Ecureuil/Animation/Death/Death.png" id="2_iua5i"]
+[ext_resource type="Texture2D" uid="uid://b32f15c7lhk5v" path="res://mobs/Legrorat/animations/walk/walk_rat.png" id="4_0l8cl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w5mtj"]
 radius = 232.019

@@ -3,10 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://b32tvkldvdtr7" path="res://level_template.tscn" id="1_if8b2"]
 [ext_resource type="PackedScene" uid="uid://bclewffjxdq25" path="res://scene_change/change_scene_area.tscn" id="2_3rt3p"]
 [ext_resource type="PackedScene" uid="uid://c833s1u5hyolg" path="res://scene_change/tp_point.tscn" id="3_dfntw"]
-[ext_resource type="PackedScene" path="res://mobs/Legrorat/legrorat.tscn" id="4_e655x"]
+[ext_resource type="PackedScene" uid="uid://ci32ibukbp6pi" path="res://mobs/Legrorat/legrorat.tscn" id="4_e655x"]
 [ext_resource type="PackedScene" uid="uid://irpquugqy33h" path="res://mobs/onyx/onyx.tscn" id="5_mvsqc"]
 
-[node name="level_template2" instance=ExtResource("1_if8b2")]
+[node name="level_template" instance=ExtResource("1_if8b2")]
 
 [node name="player" parent="." index="1"]
 position = Vector2(-8, -15)

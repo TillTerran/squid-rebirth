@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://mtdhfmqptfli" path="res://mobs/totem_claquette/BottomTotemClaquette/BottomTotemClaquette.tscn" id="4_xurin"]
 [ext_resource type="PackedScene" uid="uid://b7x1st8766bcw" path="res://mobs/Castor_mitraillette/Castor_mitraillette.tscn" id="5_xcru0"]
 
-[node name="level_template2" instance=ExtResource("1_5drt6")]
+[node name="level_template" instance=ExtResource("1_5drt6")]
 
 [node name="player" parent="." index="1"]
 position = Vector2(175, 61)

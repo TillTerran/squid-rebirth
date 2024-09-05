@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bclewffjxdq25" path="res://scene_change/change_scene_area.tscn" id="2_5u5qa"]
 [ext_resource type="PackedScene" uid="uid://irpquugqy33h" path="res://mobs/onyx/onyx.tscn" id="3_hc8hy"]
 
-[node name="level_template2" instance=ExtResource("1_5c888")]
+[node name="level_template" instance=ExtResource("1_5c888")]
 
 [node name="player" parent="." index="1"]
 position = Vector2(79, 12)

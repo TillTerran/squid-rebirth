@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://bclewffjxdq25" path="res://scene_change/change_scene_area.tscn" id="2_oovbj"]
 [ext_resource type="PackedScene" uid="uid://c833s1u5hyolg" path="res://scene_change/tp_point.tscn" id="3_jbbd4"]
 [ext_resource type="PackedScene" uid="uid://irpquugqy33h" path="res://mobs/onyx/onyx.tscn" id="4_uhkas"]
-[ext_resource type="PackedScene" path="res://mobs/Legrorat/legrorat.tscn" id="5_gc2od"]
+[ext_resource type="PackedScene" uid="uid://ci32ibukbp6pi" path="res://mobs/Legrorat/legrorat.tscn" id="5_gc2od"]
 
-[node name="level_template7" instance=ExtResource("1_1x1cr")]
+[node name="level_template4" instance=ExtResource("1_1x1cr")]
 
 [node name="player" parent="." index="1"]
 position = Vector2(-61, 54)
