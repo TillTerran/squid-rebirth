@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-var text_array_number=0
+var text_array_number=-1
 var visible_characters=-15.0
 var monologue=false
 
@@ -22,8 +22,8 @@ func _ready() -> void:
 	continue_quit_button.disabled=true
 	text_array_number=0
 	text_body.visible_characters=0
-	text_body.text=texts[0]
-	header.text=speakers[0]
+	
+	
 	if texts.size()-1==text_array_number:
 		$"MarginContainer/quest panel/MarginContainer/GridContainer/Control/HBoxContainer/continue_or_quit".text="Continue"
 	
@@ -50,6 +50,7 @@ func set_text(speaker_array,text_array):
 
 func _on_skip_pressed() -> void:
 	get_tree().paused=false
+	Events.loading_screen=false
 	queue_free()
 
 
@@ -57,12 +58,13 @@ func _on_continue_or_quit_pressed() -> void:
 	text_array_number+=1
 	visible_characters=-5.0
 	text_body.visible_characters=0
+	$"MarginContainer/quest panel/MarginContainer/GridContainer/Control/HBoxContainer/continue_or_quit".disabled=true
 	if texts.size()>text_array_number:
-		
 		text_body.text=texts[text_array_number]
 		header.text=speakers[text_array_number]
 	else:
 		get_tree().paused=false
+		Events.loading_screen=false
 		queue_free()
 	if texts.size()-1==text_array_number:
 		continue_quit_button.text="Continue"

@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cf0byd8diu5qy"]
+[gd_scene load_steps=6 format=3 uid="uid://cf0byd8diu5qy"]
 
 [ext_resource type="PackedScene" uid="uid://b32tvkldvdtr7" path="res://level_template.tscn" id="1_ysl0s"]
 [ext_resource type="PackedScene" uid="uid://bclewffjxdq25" path="res://scene_change/change_scene_area.tscn" id="2_clp50"]
 [ext_resource type="PackedScene" uid="uid://b7x1st8766bcw" path="res://mobs/Castor_mitraillette/Castor_mitraillette.tscn" id="3_gvjwl"]
-[ext_resource type="PackedScene" uid="uid://mtdhfmqptfli" path="res://mobs/totem_claquette/BottomTotemClaquette/BottomTotemClaquette.tscn" id="4_5ik7d"]
 [ext_resource type="PackedScene" uid="uid://b6eoak8jx38d" path="res://save_point.tscn" id="4_sqto6"]
 [ext_resource type="PackedScene" uid="uid://c833s1u5hyolg" path="res://scene_change/tp_point.tscn" id="5_w4gf0"]
 
@@ -38,7 +37,7 @@ connected_scene = "res://levels/salle/Salle 13.tscn"
 tp_point_id = 3
 
 [node name="CastorMitrailette" parent="." index="8" instance=ExtResource("3_gvjwl")]
-position = Vector2(-104, 169)
+position = Vector2(-65, 158)
 
 [node name="save_point" parent="." index="9" instance=ExtResource("4_sqto6")]
 position = Vector2(-2, -35)
@@ -75,9 +74,3 @@ tp_id = 0
 
 [node name="in-game menu" parent="." index="17"]
 visible = false
-
-[node name="BottomTotemClaquette2" parent="." index="18" instance=ExtResource("4_5ik7d")]
-position = Vector2(260, 141)
-
-[node name="BottomTotemClaquette" parent="." index="19" instance=ExtResource("4_5ik7d")]
-position = Vector2(-78, 135)

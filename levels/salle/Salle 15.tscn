@@ -57,9 +57,6 @@ tp_id = 0
 position = Vector2(-103, -314)
 tp_id = 1
 
-[node name="in-game menu" parent="." index="15"]
-visible = false
-
 [node name="Sprite2D" type="Sprite2D" parent="." index="16"]
 
 [node name="meet_aerin_detection" type="Area2D" parent="." index="17"]
@@ -68,6 +65,8 @@ collision_layer = 0
 collision_mask = 128
 monitorable = false
 script = ExtResource("5_m0e2l")
+texts = PackedStringArray("(Est ce que c\'est… un fantôme ?)", "[i][b]Le fantôme semble perdu, ou bien plutôt immobile, ne sachant pas ou il est, et pourquoi il est encore dans ce lieu. Enki curieux d\'un être aussi passif sur le moment va s\'approcher du fantôme. Essayant de capter l\'attention du fantôme mais celui-ci surpris s\'éloigne de quelque \"pas\"[/i][/b]", "Non, attend ! Je... euhm...", "[i][b]Enki tente de trouver ses mots.[/i][/b]", "Je me nomme Enki, je suis coincer ici, est ce que tu pense pouvoir m\'aider ?", "Je pense oui mais je ne devrais pas être ic-", "")
+speakers = PackedStringArray("Enki", "", "Enki", "", "Enki", "???", "")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="meet_aerin_detection" index="0"]
 position = Vector2(48.625, 330)

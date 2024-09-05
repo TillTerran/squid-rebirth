@@ -19,7 +19,10 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	GlobalVariables.can_swap_char=true
-	var cur_discussion_panel = discussion_panel.instanciate()
+	var cur_discussion_panel = discussion_panel.instantiate()
 	get_tree().current_scene.add_child(cur_discussion_panel)
 	cur_discussion_panel.set_text(speakers,texts)
+	cur_discussion_panel._on_continue_or_quit_pressed()
+	get_tree().paused=true
+	Events.loading_screen=true
 	queue_free()
