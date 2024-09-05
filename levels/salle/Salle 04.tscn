@@ -22,6 +22,7 @@ connected_scene = "res://levels/salle/Salle 05 .tscn"
 
 [node name="change_scene_area5" parent="." index="5" instance=ExtResource("2_abuqy")]
 position = Vector2(226, 71)
+scale = Vector2(1, 2)
 connected_scene = "res://levels/salle/Salle 03.tscn"
 
 [node name="tp_point1" parent="." index="6" instance=ExtResource("3_yc3v4")]
@@ -33,7 +34,7 @@ position = Vector2(-68, 69)
 tp_id = 1
 
 [node name="BottomTotemClaquette" parent="." index="12" instance=ExtResource("4_xurin")]
-position = Vector2(67, 52)
+position = Vector2(89, 75)
 
 [node name="CastorMitrailette" parent="." index="13" instance=ExtResource("5_xcru0")]
 position = Vector2(-5, 86)

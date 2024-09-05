@@ -1,8 +1,8 @@
 [gd_scene load_steps=42 format=3 uid="uid://b6t12ei2nosv6"]
 
-[ext_resource type="Texture2D" uid="uid://nmq3nd4q0qnv" path="res://mobs/totem_claquette/Animations/Animations.png" id="1_1q3y5"]
-[ext_resource type="Texture2D" uid="uid://jvds3dhxovh7" path="res://mobs/Boss/Ecureuil/Animation/Death/Death.png" id="1_130ox"]
-[ext_resource type="Texture2D" uid="uid://d1jusd0hbfuu0" path="res://mobs/totem_claquette/Animations/Animations - Copie.png" id="1_ta6y5"]
+[ext_resource type="Texture2D" uid="uid://cddsaoxdpke6b" path="res://mobs/totem_claquette/Animations/Animations.png" id="1_1q3y5"]
+[ext_resource type="Texture2D" uid="uid://c421s7he7g7hy" path="res://mobs/Boss/Ecureuil/Animation/Death/Death.png" id="1_130ox"]
+[ext_resource type="Texture2D" uid="uid://dqwsik0lgap2x" path="res://mobs/totem_claquette/Animations/Animations - Copie.png" id="1_ta6y5"]
 
 [sub_resource type="GDScript" id="GDScript_omxb6"]
 script/source = "extends CharacterBody2D
@@ -962,6 +962,7 @@ _data = {
 size = Vector2(16, 24)
 
 [node name="TopTotemClaquette" type="CharacterBody2D" groups=["TopTotemClaquette"]]
+scale = Vector2(0.5, 0.5)
 collision_layer = 3
 script = SubResource("GDScript_omxb6")
 

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c833s1u5hyolg" path="res://scene_change/tp_point.tscn" id="3_p6sko"]
 [ext_resource type="PackedScene" uid="uid://ci32ibukbp6pi" path="res://mobs/Legrorat/legrorat.tscn" id="4_xnms5"]
 [ext_resource type="Script" path="res://levels/salle/max_health_+.gd" id="5_al1ql"]
-[ext_resource type="Texture2D" uid="uid://c8eos7tf055gk" path="res://sprites/Item_PVMax.png" id="6_gnop1"]
+[ext_resource type="Texture2D" uid="uid://ppei3nk6m3me" path="res://sprites/Item_PVMax.png" id="6_gnop1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hcf5k"]
 size = Vector2(12, 12)

@@ -29,8 +29,5 @@ tp_id = 0
 position = Vector2(515, 131)
 tp_id = 1
 
-[node name="in-game menu" parent="." index="11"]
-visible = false
-
 [node name="BottomTotemClaquette" parent="." index="12" instance=ExtResource("4_kcjh2")]
 position = Vector2(-87, 115)

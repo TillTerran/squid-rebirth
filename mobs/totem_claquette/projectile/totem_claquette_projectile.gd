@@ -7,6 +7,7 @@ func start(pos, direction):
 	direction_proj=direction
 
 func _process(delta):
+	rotation=rotation+delta*60*2
 	if direction_proj:
 		position.x+=speed*delta
 	else:

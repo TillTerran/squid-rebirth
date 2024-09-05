@@ -1,14 +1,14 @@
 [gd_scene load_steps=46 format=3 uid="uid://b7x1st8766bcw"]
 
 [ext_resource type="Script" path="res://mobs/Castor_mitraillette/Castor_mitraillette.gd" id="1_38nya"]
-[ext_resource type="Texture2D" uid="uid://llm2vbssofb5" path="res://mobs/Boss/Ecureuil/Animation/Death/Death.png" id="2_d76di"]
-[ext_resource type="Texture2D" uid="uid://bqrm7mckr3ccv" path="res://mobs/Castor_mitraillette/animation/attack/f9-imageonline.co-merged (1).png" id="2_esgdq"]
-[ext_resource type="Texture2D" uid="uid://bs7lya8frkwhl" path="res://mobs/Castor_mitraillette/animation/idle/st1.png" id="3_k801j"]
-[ext_resource type="Texture2D" uid="uid://cc3u4utk1ymmj" path="res://mobs/Castor_mitraillette/animation/walk/m9-imageonline.co-merged.png" id="4_p8qrh"]
-[ext_resource type="Texture2D" uid="uid://dciq8jebs736e" path="res://mobs/Castor_mitraillette/animation/idle/st2.png" id="4_u2fcm"]
-[ext_resource type="Texture2D" uid="uid://b50hc5qluvg22" path="res://mobs/Castor_mitraillette/animation/idle/st3.png" id="5_2h0as"]
-[ext_resource type="Texture2D" uid="uid://drqbitflt6v7n" path="res://mobs/Castor_mitraillette/animation/idle/st4.png" id="6_03wjj"]
-[ext_resource type="Texture2D" uid="uid://dhkadtr8fueyo" path="res://mobs/Castor_mitraillette/animation/idle/st5.png" id="7_sx2y3"]
+[ext_resource type="Texture2D" uid="uid://c421s7he7g7hy" path="res://mobs/Boss/Ecureuil/Animation/Death/Death.png" id="2_d76di"]
+[ext_resource type="Texture2D" uid="uid://n4sop2obhx8t" path="res://mobs/Castor_mitraillette/animation/attack/f9-imageonline.co-merged (1).png" id="2_esgdq"]
+[ext_resource type="Texture2D" uid="uid://b6jbdkd20jjpv" path="res://mobs/Castor_mitraillette/animation/idle/st1.png" id="3_k801j"]
+[ext_resource type="Texture2D" uid="uid://cbev8sp0cvbr4" path="res://mobs/Castor_mitraillette/animation/walk/m9-imageonline.co-merged.png" id="4_p8qrh"]
+[ext_resource type="Texture2D" uid="uid://cgi8nwym3c3sb" path="res://mobs/Castor_mitraillette/animation/idle/st2.png" id="4_u2fcm"]
+[ext_resource type="Texture2D" uid="uid://wujio1j5phwa" path="res://mobs/Castor_mitraillette/animation/idle/st3.png" id="5_2h0as"]
+[ext_resource type="Texture2D" uid="uid://bfmknk0dbpx4v" path="res://mobs/Castor_mitraillette/animation/idle/st4.png" id="6_03wjj"]
+[ext_resource type="Texture2D" uid="uid://cjwomfhxcrmbg" path="res://mobs/Castor_mitraillette/animation/idle/st5.png" id="7_sx2y3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d15ln"]
 atlas = ExtResource("2_d76di")
@@ -478,6 +478,7 @@ _data = {
 size = Vector2(39, 43)
 
 [node name="CastorMitrailette" type="CharacterBody2D" groups=["Castor_mitraillette"]]
+scale = Vector2(0.75, 0.75)
 collision_layer = 16
 script = ExtResource("1_38nya")
 

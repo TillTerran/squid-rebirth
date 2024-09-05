@@ -1,8 +1,8 @@
 [gd_resource type="Theme" load_steps=8 format=3 uid="uid://bpo1yy4sasfng"]
 
-[ext_resource type="Texture2D" uid="uid://bibc0pyosghoy" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/quitter Txt Light L.png" id="1_w2tx8"]
-[ext_resource type="Texture2D" uid="uid://c8kph1rabjx4q" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/quitter Txt Light S.png" id="2_q3bro"]
-[ext_resource type="Texture2D" uid="uid://c86sxwiy48sql" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/quitter Txt Light D.png" id="3_inntl"]
+[ext_resource type="Texture2D" uid="uid://csmv304y1hxpx" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/quitter Txt Light L.png" id="1_w2tx8"]
+[ext_resource type="Texture2D" uid="uid://b4tnyue66mdja" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/quitter Txt Light S.png" id="2_q3bro"]
+[ext_resource type="Texture2D" uid="uid://d28e5e5uf4v7s" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/quitter Txt Light D.png" id="3_inntl"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n32dv"]
 texture = ExtResource("1_w2tx8")
