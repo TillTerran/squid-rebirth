@@ -1,10 +1,10 @@
 [gd_scene load_steps=38 format=3 uid="uid://ci32ibukbp6pi"]
 
 [ext_resource type="Script" path="res://mobs/Legrorat/legrorat.gd" id="1_1bao3"]
-[ext_resource type="Texture2D" uid="uid://bco3rwxon47py" path="res://mobs/Legrorat/animations/idle/idle rat.png" id="1_5nagp"]
-[ext_resource type="Texture2D" uid="uid://db6atdvknquqe" path="res://mobs/Legrorat/animations/attack/charge rat.png" id="2_irsce"]
-[ext_resource type="Texture2D" uid="uid://c421s7he7g7hy" path="res://mobs/Boss/Ecureuil/Animation/Death/Death.png" id="2_iua5i"]
-[ext_resource type="Texture2D" uid="uid://b32f15c7lhk5v" path="res://mobs/Legrorat/animations/walk/walk_rat.png" id="4_0l8cl"]
+[ext_resource type="Texture2D" uid="uid://bulo715d8digi" path="res://mobs/Legrorat/animations/idle/idle rat.png" id="1_5nagp"]
+[ext_resource type="Texture2D" uid="uid://bxoe1odp4xn0n" path="res://mobs/Legrorat/animations/attack/charge rat.png" id="2_irsce"]
+[ext_resource type="Texture2D" uid="uid://by842obq5ywmk" path="res://mobs/Boss/Ecureuil/Animation/Death/Death.png" id="2_iua5i"]
+[ext_resource type="Texture2D" uid="uid://beg2ht7s3k0sx" path="res://mobs/Legrorat/animations/walk/walk_rat.png" id="4_0l8cl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w5mtj"]
 radius = 232.019
@@ -236,6 +236,8 @@ size = Vector2(50, 23)
 
 [node name="Legrorat" type="CharacterBody2D"]
 script = ExtResource("1_1bao3")
+DamageGiveByPlayer = 1
+attack_strength = 1
 
 [node name="Area2D" type="Area2D" parent="."]
 visible = false
@@ -247,7 +249,7 @@ position = Vector2(22, 11)
 shape = SubResource("CircleShape2D_w5mtj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(24, 8)
+position = Vector2(3, -3)
 scale = Vector2(0.091954, 0.0666667)
 sprite_frames = SubResource("SpriteFrames_qnxnd")
 animation = &"attack"
@@ -267,7 +269,7 @@ collision_layer = 0
 collision_mask = 128
 
 [node name="AttackCollision" type="CollisionShape2D" parent="AreaAttack"]
-position = Vector2(23, 10.5)
+position = Vector2(2, -0.5)
 shape = SubResource("RectangleShape2D_t7yxk")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
@@ -285,7 +287,7 @@ collision_layer = 0
 collision_mask = 128
 
 [node name="WalkCollision" type="CollisionShape2D" parent="AreaWalk"]
-position = Vector2(27, 11.5)
+position = Vector2(6, 0.5)
 shape = SubResource("RectangleShape2D_3dpek")
 
 [node name="WaitToChangeDirection" type="Timer" parent="."]
@@ -303,7 +305,7 @@ collision_layer = 0
 collision_mask = 128
 
 [node name="Collision" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(27, 11)
+position = Vector2(6, 0)
 shape = SubResource("RectangleShape2D_3dpek")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

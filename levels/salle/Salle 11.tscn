@@ -16,5 +16,5 @@ layer_0/tile_data = PackedInt32Array(196601, 3, 2, 196602, 3, 2, 196603, 3, 2, 1
 position = Vector2(116, 15)
 connected_scene = "res://levels/salle/Salle 10.tscn"
 
-[node name="Onyx2" parent="." index="9" instance=ExtResource("3_hc8hy")]
-position = Vector2(-44, -79)
+[node name="Onyx" parent="." index="9" instance=ExtResource("3_hc8hy")]
+position = Vector2(-42, -64)

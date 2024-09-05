@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b32tvkldvdtr7" path="res://level_template.tscn" id="1_ysl0s"]
 [ext_resource type="PackedScene" uid="uid://bclewffjxdq25" path="res://scene_change/change_scene_area.tscn" id="2_clp50"]
-[ext_resource type="PackedScene" uid="uid://b7x1st8766bcw" path="res://mobs/Castor_mitraillette/Castor_mitraillette.tscn" id="3_gvjwl"]
+[ext_resource type="PackedScene" uid="uid://c3mu4obaf2s8k" path="res://mobs/Castor_mitraillette/Castor_mitraillette.tscn" id="3_gvjwl"]
 [ext_resource type="PackedScene" uid="uid://b6eoak8jx38d" path="res://save_point.tscn" id="4_sqto6"]
 [ext_resource type="PackedScene" uid="uid://c833s1u5hyolg" path="res://scene_change/tp_point.tscn" id="5_w4gf0"]
 
@@ -36,17 +36,14 @@ position = Vector2(519, 161)
 connected_scene = "res://levels/salle/Salle 13.tscn"
 tp_point_id = 3
 
-[node name="CastorMitrailette" parent="." index="8" instance=ExtResource("3_gvjwl")]
-position = Vector2(-65, 158)
-
-[node name="save_point" parent="." index="9" instance=ExtResource("4_sqto6")]
+[node name="save_point" parent="." index="8" instance=ExtResource("4_sqto6")]
 position = Vector2(-2, -35)
 scale = Vector2(5, 1)
 
-[node name="revealing hidden_layer area" parent="." index="10"]
+[node name="revealing hidden_layer area" parent="." index="9"]
 visible = false
 
-[node name="CanvasLayer" parent="." index="11"]
+[node name="CanvasLayer" parent="." index="10"]
 visible = true
 
 [node name="PanelContainer" parent="CanvasLayer" index="1"]
@@ -56,18 +53,21 @@ visible = false
 visible = false
 mouse_filter = 1
 
-[node name="tp_point1" parent="." index="13" instance=ExtResource("5_w4gf0")]
+[node name="tp_point1" parent="." index="12" instance=ExtResource("5_w4gf0")]
 position = Vector2(-148, 154)
 tp_id = 2
 
-[node name="tp_point2" parent="." index="14" instance=ExtResource("5_w4gf0")]
+[node name="tp_point2" parent="." index="13" instance=ExtResource("5_w4gf0")]
 position = Vector2(282, -3)
 tp_id = 1
 
-[node name="tp_point3" parent="." index="15" instance=ExtResource("5_w4gf0")]
+[node name="tp_point3" parent="." index="14" instance=ExtResource("5_w4gf0")]
 position = Vector2(482, 160)
 tp_id = 3
 
-[node name="tp_point4" parent="." index="16" instance=ExtResource("5_w4gf0")]
+[node name="tp_point4" parent="." index="15" instance=ExtResource("5_w4gf0")]
 position = Vector2(-1, -62)
 tp_id = 0
+
+[node name="CastorMitrailette" parent="." index="17" instance=ExtResource("3_gvjwl")]
+position = Vector2(-93, 140)

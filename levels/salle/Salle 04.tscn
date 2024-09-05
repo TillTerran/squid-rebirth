@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bclewffjxdq25" path="res://scene_change/change_scene_area.tscn" id="2_abuqy"]
 [ext_resource type="PackedScene" uid="uid://c833s1u5hyolg" path="res://scene_change/tp_point.tscn" id="3_yc3v4"]
 [ext_resource type="PackedScene" uid="uid://mtdhfmqptfli" path="res://mobs/totem_claquette/BottomTotemClaquette/BottomTotemClaquette.tscn" id="4_xurin"]
-[ext_resource type="PackedScene" uid="uid://b7x1st8766bcw" path="res://mobs/Castor_mitraillette/Castor_mitraillette.tscn" id="5_xcru0"]
+[ext_resource type="PackedScene" uid="uid://c3mu4obaf2s8k" path="res://mobs/Castor_mitraillette/Castor_mitraillette.tscn" id="5_xcru0"]
 
 [node name="level_template" instance=ExtResource("1_5drt6")]
 
@@ -34,7 +34,7 @@ position = Vector2(-68, 69)
 tp_id = 1
 
 [node name="BottomTotemClaquette" parent="." index="12" instance=ExtResource("4_xurin")]
-position = Vector2(89, 75)
+position = Vector2(70, 82)
 
 [node name="CastorMitrailette" parent="." index="13" instance=ExtResource("5_xcru0")]
-position = Vector2(-5, 86)
+position = Vector2(-25, 60)

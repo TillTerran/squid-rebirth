@@ -41,4 +41,4 @@ position = Vector2(-363, 137)
 tp_id = 2
 
 [node name="Legrorat" parent="." index="13" instance=ExtResource("4_e655x")]
-position = Vector2(-168, -105)
+position = Vector2(-233, -94)

@@ -45,10 +45,7 @@ tp_id = 6
 position = Vector2(-54, 176)
 tp_id = 9
 
-[node name="Legrorat" parent="." index="14" instance=ExtResource("4_xnms5")]
-position = Vector2(112, 9)
-
-[node name="max_health_+" type="Area2D" parent="." index="15"]
+[node name="max_health_+" type="Area2D" parent="." index="14"]
 visible = false
 collision_layer = 0
 collision_mask = 128
@@ -63,5 +60,8 @@ disabled = true
 position = Vector2(172, -57)
 scale = Vector2(0.027865, 0.027865)
 texture = ExtResource("6_gnop1")
+
+[node name="Legrorat2" parent="." index="15" instance=ExtResource("4_xnms5")]
+position = Vector2(206, 16)
 
 [connection signal="body_entered" from="max_health_+" to="max_health_+" method="_on_body_entered"]

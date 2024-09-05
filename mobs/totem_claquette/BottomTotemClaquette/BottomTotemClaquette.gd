@@ -122,3 +122,5 @@ func _on_body_hitbox_bottom_totem_area_entered(area: Area2D) -> void:
 		await get_tree().create_timer(stun_time).timeout
 		print("Stun")
 		BottomTotemState=STATE.CHASE
+	else:
+		death()

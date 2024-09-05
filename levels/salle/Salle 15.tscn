@@ -37,29 +37,26 @@ position = Vector2(981, 217)
 scale = Vector2(3, 4)
 connected_scene = "res://levels/salle/Salle 16.tscn"
 
-[node name="Onyx" parent="." index="7" instance=ExtResource("3_druw4")]
-position = Vector2(190, 239)
-
-[node name="tp_point" parent="." index="10" instance=ExtResource("3_dcbwx")]
+[node name="tp_point" parent="." index="9" instance=ExtResource("3_dcbwx")]
 position = Vector2(394, 321)
 scale = Vector2(10, 5)
 tp_id = 2
 
-[node name="tp_point1" parent="." index="12" instance=ExtResource("3_dcbwx")]
+[node name="tp_point1" parent="." index="11" instance=ExtResource("3_dcbwx")]
 position = Vector2(394, -45)
 tp_id = 3
 
-[node name="tp_point2" parent="." index="13" instance=ExtResource("3_dcbwx")]
+[node name="tp_point2" parent="." index="12" instance=ExtResource("3_dcbwx")]
 position = Vector2(927, 225)
 tp_id = 0
 
-[node name="tp_point3" parent="." index="14" instance=ExtResource("3_dcbwx")]
+[node name="tp_point3" parent="." index="13" instance=ExtResource("3_dcbwx")]
 position = Vector2(-103, -314)
 tp_id = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="16"]
+[node name="Sprite2D" type="Sprite2D" parent="." index="15"]
 
-[node name="meet_aerin_detection" type="Area2D" parent="." index="17"]
+[node name="meet_aerin_detection" type="Area2D" parent="." index="16"]
 scale = Vector2(8, 1)
 collision_layer = 0
 collision_mask = 128
@@ -72,5 +69,8 @@ speakers = PackedStringArray("Enki", "", "Enki", "", "Enki", "???", "")
 position = Vector2(48.625, 330)
 shape = SubResource("RectangleShape2D_jgeam")
 debug_color = Color(0.810341, 0.00215934, 0.986044, 0.42)
+
+[node name="Onyx" parent="." index="17" instance=ExtResource("3_druw4")]
+position = Vector2(172, 233)
 
 [connection signal="body_entered" from="meet_aerin_detection" to="meet_aerin_detection" method="_on_body_entered"]

@@ -79,7 +79,7 @@ func _on_projectile_timer_timeout():
 func _on_detection_area_player_body_entered(body):
 	player=body
 	$Jump_before_attack.start()
-	velocity.y=-100
+	#velocity.y=-100
 
 
 func _on_reloading_timeout():
@@ -176,6 +176,8 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		await get_tree().create_timer(stun_time).timeout
 		print("Stun")
 		Castor_state=STATE.ATTACK
+	else:
+		hurt()
 
 func death():
 	Castor_state=STATE.DEATH

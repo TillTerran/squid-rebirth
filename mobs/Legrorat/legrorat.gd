@@ -130,6 +130,8 @@ func _on_area_attack_area_entered(area: Area2D) -> void:
 		print("Stun")
 		Legrorat_state=STATE.STUN
 		$Stun.start()
+	if Legrorat_state==STATE.IDLE:
+		hurt()
 
 
 

@@ -1,8 +1,8 @@
 [gd_scene load_steps=42 format=3 uid="uid://b6t12ei2nosv6"]
 
-[ext_resource type="Texture2D" uid="uid://cddsaoxdpke6b" path="res://mobs/totem_claquette/Animations/Animations.png" id="1_1q3y5"]
-[ext_resource type="Texture2D" uid="uid://c421s7he7g7hy" path="res://mobs/Boss/Ecureuil/Animation/Death/Death.png" id="1_130ox"]
-[ext_resource type="Texture2D" uid="uid://dqwsik0lgap2x" path="res://mobs/totem_claquette/Animations/Animations - Copie.png" id="1_ta6y5"]
+[ext_resource type="Texture2D" uid="uid://cyeo6nad3dc71" path="res://mobs/totem_claquette/Animations/Animations.png" id="1_1q3y5"]
+[ext_resource type="Texture2D" uid="uid://by842obq5ywmk" path="res://mobs/Boss/Ecureuil/Animation/Death/Death.png" id="1_130ox"]
+[ext_resource type="Texture2D" uid="uid://cr15mr3sugo52" path="res://mobs/totem_claquette/Animations/Animations - Copie.png" id="1_ta6y5"]
 
 [sub_resource type="GDScript" id="GDScript_omxb6"]
 script/source = "extends CharacterBody2D
@@ -171,6 +171,8 @@ func _on_hitbox_body_entered(body):
 func _on_area_2d_2_area_entered(area: Area2D) -> void:
 		if area.is_in_group(\"Stun\"):
 			stun()
+		else:
+			death()
 
 func stun():
 	TopTotemState=STATE.WAITING
@@ -962,7 +964,6 @@ _data = {
 size = Vector2(16, 24)
 
 [node name="TopTotemClaquette" type="CharacterBody2D" groups=["TopTotemClaquette"]]
-scale = Vector2(0.5, 0.5)
 collision_layer = 3
 script = SubResource("GDScript_omxb6")
 

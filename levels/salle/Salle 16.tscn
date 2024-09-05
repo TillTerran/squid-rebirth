@@ -19,4 +19,4 @@ scale = Vector2(3, 3)
 connected_scene = "res://levels/salle/Salle 15.tscn"
 
 [node name="Legrorat" parent="." index="9" instance=ExtResource("3_jlfyi")]
-position = Vector2(15, 23)
+position = Vector2(14, 22)
