@@ -70,6 +70,7 @@ func _on_projectile_timer_timeout():
 			var Projectile = projectile.instantiate()  # Crée une instance de ton projectile
 			get_tree().current_scene.add_child(Projectile)
 			Projectile.position = position_ennemi
+			Projectile.flip_h($Sprite2D.flip_h)
 			Projectile.lancer(vitesse_initiale)
 			tir_actuel+=1
 			$ProjectileTimer.start()

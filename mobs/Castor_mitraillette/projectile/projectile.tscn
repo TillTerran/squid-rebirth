@@ -1,41 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://ch7ynqpw38r3t"]
+[gd_scene load_steps=4 format=3 uid="uid://ch7ynqpw38r3t"]
 
 [ext_resource type="Script" path="res://mobs/Castor_mitraillette/projectile/projectile.gd" id="1_gd675"]
 [ext_resource type="Texture2D" uid="uid://g1ylmwol2xg3" path="res://mobs/Castor_mitraillette/projectile/f_tronc.png" id="2_b5i3m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0bonq"]
-size = Vector2(32, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_lamcs"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_b5i3m")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+size = Vector2(29.3333, 19)
 
 [node name="projectile" type="Area2D"]
-scale = Vector2(0.75, 0.75)
 collision_layer = 7
 collision_mask = 129
 script = ExtResource("1_gd675")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.90735e-06, -6)
+position = Vector2(4.76837e-07, -9.5)
 shape = SubResource("RectangleShape2D_0bonq")
 debug_color = Color(0.45098, 0.588235, 0, 0.419608)
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(2.38421e-07, -6)
-scale = Vector2(0.064, 0.064)
-sprite_frames = SubResource("SpriteFrames_lamcs")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 visible = false
 scale = Vector2(0.8, 0.8)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -10)
+scale = Vector2(0.0641094, 0.0967742)
+texture = ExtResource("2_b5i3m")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

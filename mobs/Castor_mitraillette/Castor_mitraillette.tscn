@@ -485,7 +485,7 @@ script = ExtResource("1_38nya")
 position = Vector2(0, 15)
 scale = Vector2(0.0769231, 0.0987654)
 sprite_frames = SubResource("SpriteFrames_j3wsb")
-animation = &"idle"
+animation = &"attack"
 autoplay = "idle"
 speed_scale = 0.5
 

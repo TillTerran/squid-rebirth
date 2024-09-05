@@ -10,11 +10,15 @@ var attack_strength=2
 # Called when the node enters the scene tree for the first time.
 func lancer(vitesse_initiale):
 	print(vitesse_initiale)
+	position+=vitesse/60
+	$Sprite2D.flip_h=vitesse_initiale.x>=0
 	vitesse=vitesse_initiale-Vector2(0,gravite/60)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	vitesse.y += gravite * delta
 	position += vitesse * delta
+
+
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
