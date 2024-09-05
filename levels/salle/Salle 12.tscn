@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1fukrka3faa5"]
+[gd_scene load_steps=8 format=3 uid="uid://b1fukrka3faa5"]
 
 [ext_resource type="PackedScene" uid="uid://b32tvkldvdtr7" path="res://level_template.tscn" id="1_xxcfp"]
 [ext_resource type="PackedScene" uid="uid://bclewffjxdq25" path="res://scene_change/change_scene_area.tscn" id="2_w50p0"]
 [ext_resource type="PackedScene" uid="uid://c833s1u5hyolg" path="res://scene_change/tp_point.tscn" id="3_p6sko"]
 [ext_resource type="PackedScene" uid="uid://ci32ibukbp6pi" path="res://mobs/Legrorat/legrorat.tscn" id="4_xnms5"]
+[ext_resource type="Script" path="res://levels/salle/max_health_+.gd" id="5_al1ql"]
+[ext_resource type="Texture2D" uid="uid://c8eos7tf055gk" path="res://sprites/Item_PVMax.png" id="6_gnop1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hcf5k"]
+size = Vector2(12, 12)
 
 [node name="level_template4" instance=ExtResource("1_xxcfp")]
 
@@ -40,8 +45,21 @@ tp_id = 6
 position = Vector2(-54, 176)
 tp_id = 9
 
-[node name="in-game menu" parent="." index="13"]
-visible = false
-
 [node name="Legrorat" parent="." index="14" instance=ExtResource("4_xnms5")]
 position = Vector2(112, 9)
+
+[node name="max_health_+" type="Area2D" parent="." index="15"]
+collision_layer = 0
+collision_mask = 128
+script = ExtResource("5_al1ql")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="max_health_+" index="0"]
+position = Vector2(172, -57)
+shape = SubResource("RectangleShape2D_hcf5k")
+
+[node name="Sprite2D" type="Sprite2D" parent="max_health_+" index="1"]
+position = Vector2(172, -57)
+scale = Vector2(0.027865, 0.027865)
+texture = ExtResource("6_gnop1")
+
+[connection signal="body_entered" from="max_health_+" to="max_health_+" method="_on_body_entered"]

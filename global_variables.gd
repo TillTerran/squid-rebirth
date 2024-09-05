@@ -11,7 +11,7 @@ var held_keys:int
 var last_save_point:String
 var can_swap_char:bool
 var visited_discussions:Array[bool]
-
+var hp_pickup_taken=false
 
 var opened_doors:Array[bool]
 var taken_keys:Array[bool]
@@ -27,6 +27,7 @@ func _ready() -> void:
 	max_hp=5
 	is_monke = true
 	can_swap_char=false
+	hp_pickup_taken=false
 	pass
 
 func change_save_point(new_save_point:String):

@@ -37,6 +37,3 @@ tp_id = 0
 [node name="tp_point3" parent="." index="12" instance=ExtResource("3_a664v")]
 position = Vector2(33, 286)
 tp_id = 2
-
-[node name="in-game menu" parent="." index="13"]
-visible = false

@@ -38,9 +38,6 @@ tp_id = 0
 position = Vector2(-363, 137)
 tp_id = 2
 
-[node name="in-game menu" parent="." index="12"]
-visible = false
-
 [node name="Legrorat" parent="." index="13" instance=ExtResource("4_e655x")]
 position = Vector2(-168, -105)
 
