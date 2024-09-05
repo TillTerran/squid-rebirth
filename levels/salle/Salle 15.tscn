@@ -63,12 +63,15 @@ visible = false
 [node name="Sprite2D" type="Sprite2D" parent="." index="16"]
 
 [node name="meet_aerin_detection" type="Area2D" parent="." index="17"]
+scale = Vector2(8, 1)
 collision_layer = 0
 collision_mask = 128
 monitorable = false
 script = ExtResource("5_m0e2l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="meet_aerin_detection" index="0"]
+position = Vector2(48.625, 330)
 shape = SubResource("RectangleShape2D_jgeam")
+debug_color = Color(0.810341, 0.00215934, 0.986044, 0.42)
 
 [connection signal="body_entered" from="meet_aerin_detection" to="meet_aerin_detection" method="_on_body_entered"]
