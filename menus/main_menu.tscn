@@ -1,19 +1,19 @@
 [gd_scene load_steps=17 format=3 uid="uid://b2rko3ijjih3y"]
 
-[ext_resource type="Texture2D" uid="uid://d2skdpgiv4xnc" path="res://menus/menu babylon fond.png" id="1_qvvt2"]
-[ext_resource type="FontFile" uid="uid://t7nlkayot8jj" path="res://sprites/fonts/SuperMario256.ttf" id="2_kl01w"]
-[ext_resource type="Texture2D" uid="uid://w6mam8qooa21" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/start Txt Light L.png" id="2_rfdqk"]
-[ext_resource type="Texture2D" uid="uid://dnu7vmcptec5j" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/start Txt Light S.png" id="3_pml60"]
+[ext_resource type="Texture2D" uid="uid://llhvydo40tw0" path="res://menus/menu babylon fond.png" id="1_qvvt2"]
+[ext_resource type="FontFile" uid="uid://ctm146t7sg8ve" path="res://sprites/fonts/SuperMario256.ttf" id="2_kl01w"]
+[ext_resource type="Texture2D" uid="uid://igc3vuoegdcx" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/start Txt Light L.png" id="2_rfdqk"]
+[ext_resource type="Texture2D" uid="uid://bfxqw1rax8oy6" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/start Txt Light S.png" id="3_pml60"]
 [ext_resource type="Script" path="res://scripts/quit_Button.gd" id="3_u72ov"]
 [ext_resource type="Script" path="res://scripts/start_Button.gd" id="3_x8wav"]
-[ext_resource type="Texture2D" uid="uid://cgj6bo73tf16w" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/start Txt Light D.png" id="4_cbw2s"]
+[ext_resource type="Texture2D" uid="uid://chot5ewqwecne" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/start Txt Light D.png" id="4_cbw2s"]
 [ext_resource type="Script" path="res://scripts/continue_button.gd" id="4_qjge1"]
 [ext_resource type="Theme" uid="uid://cnq7lc5llgja5" path="res://sprites/bouttons/continue_button.tres" id="7_sjmhq"]
 [ext_resource type="Theme" uid="uid://bpo1yy4sasfng" path="res://sprites/bouttons/quit_button.tres" id="9_4kykg"]
 
 [sub_resource type="Theme" id="Theme_lrsnm"]
 RichTextLabel/colors/default_color = Color(0.839216, 0, 0, 1)
-RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 0.254902)
+RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 0.392157)
 RichTextLabel/constants/shadow_offset_x = 4
 RichTextLabel/constants/shadow_offset_y = 4
 RichTextLabel/font_sizes/normal_font_size = 115

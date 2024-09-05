@@ -42,10 +42,10 @@ position = Vector2(1006, -357)
 tp_id = 1
 
 [node name="Onyx" parent="." index="12" instance=ExtResource("4_uhkas")]
-position = Vector2(83, -62)
+position = Vector2(83, -46)
 
 [node name="Legrorat" parent="." index="13" instance=ExtResource("5_gc2od")]
 position = Vector2(825, -82)
 
 [node name="Onyx2" parent="." index="14" instance=ExtResource("4_uhkas")]
-position = Vector2(305, -61)
+position = Vector2(307, -45)

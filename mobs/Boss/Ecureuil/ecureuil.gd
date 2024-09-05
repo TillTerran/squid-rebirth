@@ -28,6 +28,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("ui_graph_delete"):
+		HP=0
+		Ecureuil_state=STATE.DEATH
 	velocity.y+=gravity*delta
 	match Ecureuil_state:
 		STATE.IDLE:
@@ -38,7 +41,7 @@ func _process(delta: float) -> void:
 		STATE.ATTACK:
 			special_attack()
 		STATE.DEATH:
-			animation.play("Death")
+			death()
 	move_and_slide()
 
 func chase_player() -> void:
@@ -74,22 +77,23 @@ func _on_detection_area_body_entered(body: Node2D) -> void:
 	Ecureuil_state=STATE.RUN
 	
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	var direction=(global_position- player.global_position).normalized()
-	if anim_name=="StartRunning" or anim_name=="StartRunningRight":
-		print("startRunning")
-		if (direction.x>0):
-			animation.play("Running")
-		else:
-			animation.play("Running_Right")
-		Ecureuil_state=STATE.RUN
-	elif anim_name=="Running" or anim_name=="Running_Right":
-		change_direction==true
-	elif anim_name=="Attack" or anim_name=="Attack_Right":
-		if (direction.x>0):
-			print(true)
-			animation.play("Attack_right")
-		else:
-			animation.play("Attack")
+	if not(Ecureuil_state==STATE.DEATH):
+		var direction=(global_position- player.global_position).normalized()
+		if anim_name=="StartRunning" or anim_name=="StartRunningRight":
+			print("startRunning")
+			if (direction.x>0):
+				animation.play("Running")
+			else:
+				animation.play("Running_Right")
+			Ecureuil_state=STATE.RUN
+		elif anim_name=="Running" or anim_name=="Running_Right":
+			change_direction==true
+		elif anim_name=="Attack" or anim_name=="Attack_Right":
+			if (direction.x>0):
+				print(true)
+				animation.play("Attack_right")
+			else:
+				animation.play("Attack")
 func _on_attack_detection_area_body_entered(body: Node2D) -> void:
 	if body==player:
 		var position_ennemi = global_position  # Position actuelle de l'ennemi

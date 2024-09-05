@@ -4,7 +4,7 @@ var pos=null
 @export var speed=300
 var player=null
 var player_chase=null
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var gravity = 1.75*ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var jump_height=-350
 @export var attack_strength=2
 var target_position=Vector2(0,0)
@@ -27,9 +27,12 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if player!=null:
+		if is_on_floor():
+			velocity=Vector2(0,0)
 		match Onyx_state:
 			STATE.FALL:
-				velocity.y += gravity * 2 * delta
+				velocity.y += gravity * delta
+				#print("fall")
 				$AnimatedSprite2D.play("Fall")
 				if is_on_floor():
 					Onyx_state=STATE.ON_GROUND
@@ -39,12 +42,12 @@ func _process(delta):
 				Onyx_state=STATE.WAITING
 			STATE.WAITING:
 				$AnimatedSprite2D.play("Idle")
-				velocity=Vector2(0,0)
 				fall()
 			STATE.FLY:
 				velocity.y=0
 				$AnimatedSprite2D.play("Fly")
 				chase_player()
+				print(player_chase)
 			STATE.FLY_AWAY:
 				velocity.y=jump_height
 			STATE.BACK_TO_POSITION:
@@ -79,20 +82,26 @@ func fall():
 	#When the player is under the Onyx, he fall on the ground
 	pos=(player.global_position - self.global_position).normalized()
 	
-	if (pos.x<=0.05) and (pos.x>=-0.05) and (pos.y>0):
+	if (pos.y>0.99):
 		Onyx_state=STATE.FALL
 		
 func chase_player():
 	#The Onyx follow the player and fall on him when he is close enough
 	if player_chase:
-			pos=(player.global_position - self.global_position)
+			pos=(player.global_position - self.global_position).normalized()
+			var pos_rela_joueur=(player.global_position - self.global_position)
 			var direction = (player.global_position - self.position).normalized()* speed
 			if direction.x>0:
 					get_node("AnimatedSprite2D").flip_h=true
 			else:
 					get_node("AnimatedSprite2D").flip_h = false
 			velocity.x = sign(direction.x)*speed
-			if abs(pos.x)/velocity.x < sqrt(abs(4*pos.y*2*gravity)):#temps pour atteindre le x du joueur < temps pour atteindre le y du joueur
+			print(sqrt(abs(4*pos_rela_joueur.y*gravity)))
+			print(abs(pos_rela_joueur.x/velocity.x))
+			if abs(pos_rela_joueur.x/velocity.x) < sqrt(abs(4*pos_rela_joueur.y*gravity)):#temps pour atteindre le x du joueur < temps pour atteindre le y du joueur
+				
+				
+				
 				Onyx_state=STATE.FALL
 	else:
 		velocity = lerp(velocity, Vector2.ZERO, 0.01)
@@ -137,6 +146,7 @@ func death():
 #When the Onyx finish to fly away, he fly and chase the player
 func _on_timer_timeout():
 	Onyx_state=STATE.FLY
+	print("FLY")
 
 #When the Onyx is on his initial position, he wait for the player
 func _on_navigation_agent_2d_target_reached():
