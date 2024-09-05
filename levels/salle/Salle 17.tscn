@@ -41,9 +41,6 @@ tp_id = 0
 position = Vector2(1006, -357)
 tp_id = 1
 
-[node name="in-game menu" parent="." index="11"]
-visible = false
-
 [node name="Onyx2" parent="." index="12" instance=ExtResource("4_uhkas")]
 position = Vector2(294, -65)
 

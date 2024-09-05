@@ -49,6 +49,7 @@ tp_id = 9
 position = Vector2(112, 9)
 
 [node name="max_health_+" type="Area2D" parent="." index="15"]
+visible = false
 collision_layer = 0
 collision_mask = 128
 script = ExtResource("5_al1ql")
@@ -56,6 +57,7 @@ script = ExtResource("5_al1ql")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="max_health_+" index="0"]
 position = Vector2(172, -57)
 shape = SubResource("RectangleShape2D_hcf5k")
+disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="max_health_+" index="1"]
 position = Vector2(172, -57)

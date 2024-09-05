@@ -14,6 +14,7 @@ layer_0/tile_data = PackedInt32Array(-851971, 131075, 3, -786435, 65539, 2, -720
 
 [node name="change_scene_area2" parent="." index="4" instance=ExtResource("2_mq8je")]
 position = Vector2(66, 25)
+scale = Vector2(1, 2)
 connected_scene = "res://levels/salle/Salle 08.tscn"
 tp_point_id = 2
 

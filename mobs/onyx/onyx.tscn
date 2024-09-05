@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://irpquugqy33h"]
 
-[ext_resource type="Texture2D" uid="uid://cavefbyh8ak4g" path="res://mobs/onyx/animation/idle_animation/idle_animation[1].jpg" id="1_6475j"]
+[ext_resource type="Texture2D" uid="uid://211y5rpt37d6" path="res://mobs/onyx/animation/idle_animation/idle_animation[1].jpg" id="1_6475j"]
 [ext_resource type="Script" path="res://mobs/onyx/onyx.gd" id="1_fnkml"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ocjb2"]
@@ -24,6 +24,7 @@ size = Vector2(12, 24)
 radius = 288.111
 
 [node name="Onyx" type="CharacterBody2D"]
+collision_mask = 129
 script = ExtResource("1_fnkml")
 jump_height = -400
 
@@ -35,6 +36,7 @@ sprite_frames = SubResource("SpriteFrames_ocjb2")
 animation = &"idle"
 
 [node name="HitboxOnyx" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(24.125, 28.125)
 shape = SubResource("RectangleShape2D_gmb5t")
 
@@ -45,6 +47,7 @@ position = Vector2(24, 44)
 shape = SubResource("RectangleShape2D_sb261")
 
 [node name="DetectionAreaPlayer" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 128
 

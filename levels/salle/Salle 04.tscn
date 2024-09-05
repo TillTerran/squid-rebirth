@@ -17,6 +17,7 @@ layer_0/tile_data = PackedInt32Array(-262151, 131075, 3, -196615, 65539, 2, -131
 
 [node name="change_scene_area2" parent="." index="4" instance=ExtResource("2_abuqy")]
 position = Vector2(-112, 72)
+scale = Vector2(1, 2)
 connected_scene = "res://levels/salle/Salle 05 .tscn"
 
 [node name="change_scene_area5" parent="." index="5" instance=ExtResource("2_abuqy")]
@@ -30,9 +31,6 @@ tp_id = 0
 [node name="tp_point2" parent="." index="7" instance=ExtResource("3_yc3v4")]
 position = Vector2(-68, 69)
 tp_id = 1
-
-[node name="in-game menu" parent="." index="11"]
-visible = false
 
 [node name="BottomTotemClaquette" parent="." index="12" instance=ExtResource("4_xurin")]
 position = Vector2(67, 52)
