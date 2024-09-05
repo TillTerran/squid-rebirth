@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bgr4qcsfhtvyj"]
 
-[ext_resource type="Theme" path="res://nice_theme.tres" id="1_o7vni"]
+[ext_resource type="Theme" uid="uid://ierb8sk14ach" path="res://nice_theme.tres" id="1_o7vni"]
 [ext_resource type="Script" path="res://menus/discussion_panel.gd" id="1_xn2t4"]
 
 [sub_resource type="Theme" id="Theme_mce1x"]

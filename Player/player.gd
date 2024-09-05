@@ -72,12 +72,9 @@ func _ready():
 	
 	is_monke = GlobalVariables.is_monke
 	
-	if is_monke :
-		$Enki.visible = true
-		$Aerin.visible = false
-	else : 
-		$Enki.visible = false
-		$Aerin.visible = true
+	$Enki.visible = is_monke
+	$Aerin.visible = not(is_monke)
+	
 	
 	
 	held_keys=GlobalVariables.held_keys
@@ -85,16 +82,7 @@ func _ready():
 	current_hp=GlobalVariables.current_player_hp
 	
 	
-	if current_hp<5:
-		$CanvasLayer/PanelContainer/HBoxContainer2/HBoxContainer/TextureRect5.hide()
-	if current_hp<4:
-		$CanvasLayer/PanelContainer/HBoxContainer2/HBoxContainer/TextureRect4.hide()
-	if current_hp<3:
-		$CanvasLayer/PanelContainer/HBoxContainer2/HBoxContainer/TextureRect3.hide()
-	if current_hp<2:
-		$CanvasLayer/PanelContainer/HBoxContainer2/HBoxContainer/TextureRect2.hide()
-	if current_hp<1:
-		$CanvasLayer/PanelContainer/HBoxContainer2/HBoxContainer/TextureRect.hide()
+	$CanvasLayer.hide_hp_fruit(current_hp)
 	
 	
 	
@@ -182,8 +170,9 @@ func p_mvt(delta):
 	test_impacts()
 	
 	if Input.is_action_just_pressed("Swap") :
-		$CharSwitch.start()
-		stuck = true
+		if GlobalVariables.can_swap_char:
+			$CharSwitch.start()
+			stuck = true
 	#impacts = []
 	var input_vector = Vector2.ZERO
 	#var bounced_vec=Vector2.ZERO
@@ -507,16 +496,8 @@ func lose_hp(hp_lost:int,reset_position:bool =false)->void:
 		GlobalVariables.current_player_hp-=hp_lost
 		if reset_position:
 			reset_position()
-		if current_hp<5:
-			$CanvasLayer/PanelContainer/HBoxContainer2/HBoxContainer/TextureRect5.hide()
-		if current_hp<4:
-			$CanvasLayer/PanelContainer/HBoxContainer2/HBoxContainer/TextureRect4.hide()
-		if current_hp<3:
-			$CanvasLayer/PanelContainers/HBoxContainer2/HBoxContainer/TextureRect3.hide()
-		if current_hp<2:
-			$CanvasLayer/PanelContainer/HBoxContainer2/HBoxContainer/TextureRect2.hide()
-		if current_hp<1:
-			$CanvasLayer/PanelContainer/HBoxContainer2/HBoxContainer/TextureRect.hide()
+		
+		$CanvasLayer.hide_hp_fruit(current_hp)
 	
 		if current_hp <= 0 :
 			game_over()

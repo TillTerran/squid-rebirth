@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=3 uid="uid://di4fq573a43ys"]
+
+[ext_resource type="Script" path="res://health_bar.gd" id="1_d2j0h"]
+[ext_resource type="Texture2D" uid="uid://gyp8onrbjulr" path="res://sprites/Barre de vie.png" id="1_hreda"]
+[ext_resource type="Texture2D" uid="uid://2x27qi5kcql4" path="res://sprites/coeur.png" id="2_g5t5m"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q6log"]
+texture = ExtResource("1_hreda")
+region_rect = Rect2(276.897, 134.35, 1310.96, 437.576)
+
+[sub_resource type="Theme" id="Theme_jooat"]
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_q6log")
+
+[sub_resource type="Theme" id="Theme_ick0s"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_d2j0h")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_right = 633.0
+offset_bottom = 219.0
+theme = SubResource("Theme_jooat")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="PanelContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/HBoxContainer2"]
+clip_contents = true
+custom_minimum_size = Vector2(460, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme = SubResource("Theme_ick0s")
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer2/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+texture = ExtResource("2_g5t5m")
+expand_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="PanelContainer/HBoxContainer2/HBoxContainer"]
+clip_contents = true
+layout_mode = 2
+texture = ExtResource("2_g5t5m")
+expand_mode = 3
+
+[node name="TextureRect3" type="TextureRect" parent="PanelContainer/HBoxContainer2/HBoxContainer"]
+clip_contents = true
+layout_mode = 2
+texture = ExtResource("2_g5t5m")
+expand_mode = 3
+
+[node name="TextureRect4" type="TextureRect" parent="PanelContainer/HBoxContainer2/HBoxContainer"]
+clip_contents = true
+layout_mode = 2
+texture = ExtResource("2_g5t5m")
+expand_mode = 3
+
+[node name="TextureRect5" type="TextureRect" parent="PanelContainer/HBoxContainer2/HBoxContainer"]
+clip_contents = true
+layout_mode = 2
+texture = ExtResource("2_g5t5m")
+expand_mode = 3
+
+[node name="Control" type="Control" parent="PanelContainer/HBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0

@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=4 uid="uid://db21sqta0v6nl"]
+[gd_scene load_steps=7 format=4 uid="uid://db21sqta0v6nl"]
 
 [ext_resource type="PackedScene" uid="uid://b32tvkldvdtr7" path="res://level_template.tscn" id="1_cg3pg"]
 [ext_resource type="PackedScene" uid="uid://bclewffjxdq25" path="res://scene_change/change_scene_area.tscn" id="2_qocga"]
 [ext_resource type="PackedScene" uid="uid://c833s1u5hyolg" path="res://scene_change/tp_point.tscn" id="3_dcbwx"]
 [ext_resource type="PackedScene" uid="uid://irpquugqy33h" path="res://mobs/onyx/onyx.tscn" id="3_druw4"]
+[ext_resource type="Script" path="res://levels/salle/meet_aerin_detection.gd" id="5_m0e2l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jgeam"]
 
 [node name="level_template4" instance=ExtResource("1_cg3pg")]
 
@@ -58,3 +61,14 @@ tp_id = 1
 visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="16"]
+
+[node name="meet_aerin_detection" type="Area2D" parent="." index="17"]
+collision_layer = 0
+collision_mask = 128
+monitorable = false
+script = ExtResource("5_m0e2l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="meet_aerin_detection" index="0"]
+shape = SubResource("RectangleShape2D_jgeam")
+
+[connection signal="body_entered" from="meet_aerin_detection" to="meet_aerin_detection" method="_on_body_entered"]

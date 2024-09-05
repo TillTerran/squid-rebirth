@@ -9,7 +9,7 @@ var current_player_hp:int
 var max_hp:int
 var held_keys:int
 var last_save_point:String
-
+var can_swap_char:bool
 var visited_discussions:Array[bool]
 
 
@@ -26,6 +26,7 @@ func _ready() -> void:
 	current_player_hp=5
 	max_hp=5
 	is_monke = true
+	can_swap_char=false
 	pass
 
 func change_save_point(new_save_point:String):

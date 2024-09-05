@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://s77rdbs0u3dk"]
+[gd_scene load_steps=77 format=3 uid="uid://s77rdbs0u3dk"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://b6fdowwixl8s4" path="res://Player/animations/enki_idle_2.png" id="2_7fmvs"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://crhifynwchny2" path="res://Player/animations/gtest2.png" id="6_ecn43"]
 [ext_resource type="Texture2D" uid="uid://ci3nw0pkeehur" path="res://stickman.png" id="6_f3q7p"]
 [ext_resource type="Texture2D" uid="uid://ck7rgnx7jn577" path="res://Asset Packs 1-3 (final)/Asset Pack-V3/Player Death/Player Death 64x64.png" id="6_otery"]
+[ext_resource type="PackedScene" uid="uid://di4fq573a43ys" path="res://health_bar.tscn" id="13_gece0"]
 
 [sub_resource type="RectangleShape2D" id="4"]
 size = Vector2(8.57143, 8)
@@ -868,64 +869,6 @@ position = Vector2(0, 3.9)
 shape = SubResource("RectangleShape2D_gbiyu")
 debug_color = Color(0.968627, 0, 0, 0.419608)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
-anchors_preset = -1
-offset_right = 633.0
-offset_bottom = 219.0
-theme = SubResource("Theme_jooat")
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/PanelContainer"]
-layout_mode = 2
-
-[node name="Control" type="Control" parent="CanvasLayer/PanelContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer/HBoxContainer2"]
-clip_contents = true
-custom_minimum_size = Vector2(460, 0)
-layout_mode = 2
-size_flags_vertical = 4
-theme = SubResource("Theme_ick0s")
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/HBoxContainer2/HBoxContainer"]
-clip_contents = true
-custom_minimum_size = Vector2(10, 10)
-layout_mode = 2
-texture = ExtResource("9_1j24v")
-expand_mode = 3
-
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/PanelContainer/HBoxContainer2/HBoxContainer"]
-clip_contents = true
-layout_mode = 2
-texture = ExtResource("9_1j24v")
-expand_mode = 3
-
-[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/PanelContainer/HBoxContainer2/HBoxContainer"]
-clip_contents = true
-layout_mode = 2
-texture = ExtResource("9_1j24v")
-expand_mode = 3
-
-[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/PanelContainer/HBoxContainer2/HBoxContainer"]
-clip_contents = true
-layout_mode = 2
-texture = ExtResource("9_1j24v")
-expand_mode = 3
-
-[node name="TextureRect5" type="TextureRect" parent="CanvasLayer/PanelContainer/HBoxContainer2/HBoxContainer"]
-clip_contents = true
-layout_mode = 2
-texture = ExtResource("9_1j24v")
-expand_mode = 3
-
-[node name="Control" type="Control" parent="CanvasLayer/PanelContainer/HBoxContainer2/HBoxContainer"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
 [node name="Scare" type="Area2D" parent="." groups=["Stun"]]
 collision_layer = 128
 collision_mask = 0
@@ -934,6 +877,8 @@ collision_mask = 0
 position = Vector2(15, 1)
 shape = SubResource("RectangleShape2D_5v1a1")
 debug_color = Color(0.778642, 0.43666, 0.093506, 0.42)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("13_gece0")]
 
 [connection signal="input_event" from="." to="." method="_on_player_input_event"]
 [connection signal="timeout" from="CharSwitch" to="." method="_on_char_switch_timeout"]
