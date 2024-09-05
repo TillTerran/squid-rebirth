@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6eoak8jx38d"]
+[gd_scene load_steps=3 format=3 uid="uid://b4yqvhncn5bmi"]
 
 [ext_resource type="Script" path="res://levels/salle/save_point.gd" id="1_3invs"]
 

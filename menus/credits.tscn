@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://cg8h0mvpx6x0r"]
+[gd_scene load_steps=2 format=3 uid="uid://f4ogou6q151j"]
 
 [ext_resource type="Script" path="res://menus/scroll.gd" id="1_23bgg"]
 
@@ -38,9 +38,16 @@ scroll_vertical_custom_step = 3.0
 vertical_scroll_mode = 3
 script = ExtResource("1_23bgg")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 54
+theme_override_font_sizes/bold_font_size = 54
 bbcode_enabled = true
 text = "
 
@@ -104,3 +111,30 @@ membres du projet:
 
 [/center]"
 fit_content = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Control/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.0
+
+[node name="Button" type="Button" parent="Control/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 60
+text = "menu principal"
+
+[node name="Control2" type="Control" parent="Control/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.0
+
+[node name="Control" type="Control" parent="Control/MarginContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="pressed" from="Control/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Button" to="Control/MarginContainer/ScrollContainer" method="_on_button_pressed"]

@@ -23,8 +23,8 @@ func _ready() -> void:
 	taken_keys=[0,0,0,0]
 	held_keys=0
 	#tile_length=16
-	current_player_hp=6
-	max_hp=6
+	current_player_hp=5
+	max_hp=5
 	pass
 
 func change_save_point(new_save_point:String):

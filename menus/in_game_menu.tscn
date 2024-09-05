@@ -17,7 +17,7 @@ expand_margin_bottom = 10.0
 
 [sub_resource type="Theme" id="Theme_eryi3"]
 Label/colors/font_color = Color(0.239216, 0.0862745, 0.0862745, 1)
-Label/font_sizes/font_size = 50
+Label/font_sizes/font_size = 80
 Label/fonts/font = ExtResource("3_ed8nn")
 Label/styles/normal = SubResource("StyleBoxTexture_ucupi")
 
@@ -58,25 +58,37 @@ theme_override_constants/margin_bottom = 30
 [node name="GridContainer" type="VBoxContainer" parent="in-game menu/MarginContainer/quest panel/MarginContainer"]
 layout_mode = 2
 
+[node name="Control" type="Control" parent="in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 24.0
+
 [node name="VBoxContainer" type="HBoxContainer" parent="in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
 
 [node name="Control" type="Control" parent="in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
 
 [node name="header" type="Label" parent="in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 3.0
 theme = SubResource("Theme_eryi3")
 text = "PAUSED"
 horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 2
 uppercase = true
 
 [node name="Control2" type="Control" parent="in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
 
 [node name="Control2" type="Control" parent="in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer"]
 layout_mode = 2
@@ -85,12 +97,13 @@ size_flags_vertical = 3
 [node name="text" type="Label" parent="in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_vertical = 6
-size_flags_stretch_ratio = 5.0
+size_flags_stretch_ratio = 30.0
 autowrap_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
 
 [node name="Control" type="Control" parent="in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer/HBoxContainer"]
 layout_mode = 2
@@ -124,6 +137,7 @@ size_flags_horizontal = 3
 [node name="Control3" type="Control" parent="in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 31.0
 
 [connection signal="pressed" from="in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer/HBoxContainer/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer/HBoxContainer/Quit" to="." method="_on_quit_pressed"]

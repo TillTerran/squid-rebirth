@@ -6,7 +6,6 @@ var in_secret_zone=false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Events.main_menu.connect(to_main_menu)
 	Events.change_scene.connect(change_scene)
 	get_tree().paused=false
 	var tp_points = get_tree().get_nodes_in_group("tp_points")
@@ -38,8 +37,8 @@ func change_scene(new_scene:String) -> void:
 		return
 	#$LevelTransition.fade_from_black()
 
-func to_main_menu():
-	await change_scene(GlobalVariables.main_menu)
+#func to_main_menu():
+	#await change_scene(GlobalVariables.main_menu)
 
 
 func _on_revealing_hidden_layer_area_body_entered(_body: Node2D) -> void:

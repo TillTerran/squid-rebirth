@@ -22,7 +22,7 @@ func _process(_delta: float) -> void:
 		show()
 
 func player_died():
-	header.text="GAME-OVER"
+	header.text="GAME OVER"
 	player_is_dead=true
 	get_tree().paused=true
 	GlobalVariables.current_player_hp=GlobalVariables.max_hp
@@ -42,5 +42,5 @@ func _on_continue_pressed() -> void:
 func _on_quit_pressed() -> void:
 	new_pause=true
 	GlobalVariables.current_player_hp=GlobalVariables.max_hp
-	Events.main_menu.emit()
+	Events.main_menu()
 	#get_tree().paused=false

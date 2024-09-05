@@ -134,6 +134,7 @@ func death():
 	print("Death")
 	animation.play("Death")
 	await animation.animation_finished
+	Events.open_door.emit()
 	queue_free()
 
 func hurt():

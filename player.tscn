@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://s77rdbs0u3dk"]
+[gd_scene load_steps=28 format=3 uid="uid://s77rdbs0u3dk"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://d181ihjjdnona" path="res://Asset Packs 1-3 (final)/Asset Pack-V1/Sprite Sheets/Character Idle 48x48.png" id="2_qub0q"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://cfbebtrjhl86g" path="res://Asset Packs 1-3 (final)/Asset Pack-V1/Sprite Sheets/player jump 48x48.png" id="5_yg1eo"]
 [ext_resource type="Texture2D" uid="uid://ci5ic6wwpvwmk" path="res://stickman.png" id="6_f3q7p"]
 [ext_resource type="Texture2D" uid="uid://bb0r0fc5dvkao" path="res://Asset Packs 1-3 (final)/Asset Pack-V3/Player Death/Player Death 64x64.png" id="6_otery"]
+[ext_resource type="Texture2D" uid="uid://gyp8onrbjulr" path="res://sprites/Barre de vie.png" id="8_1mecr"]
+[ext_resource type="Texture2D" uid="uid://2x27qi5kcql4" path="res://sprites/coeur.png" id="9_1j24v"]
 
 [sub_resource type="RectangleShape2D" id="4"]
 size = Vector2(16, 8)
@@ -246,6 +248,15 @@ size = Vector2(9.5, 6)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbiyu"]
 size = Vector2(6, 13)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q6log"]
+texture = ExtResource("8_1mecr")
+region_rect = Rect2(276.897, 134.35, 1310.96, 437.576)
+
+[sub_resource type="Theme" id="Theme_jooat"]
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_q6log")
+
+[sub_resource type="Theme" id="Theme_ick0s"]
+
 [node name="player" type="CharacterBody2D"]
 scale = Vector2(2, 2)
 collision_layer = 128
@@ -374,6 +385,65 @@ metadata/_edit_group_ = true
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_gbiyu")
 debug_color = Color(0.968627, 0, 0, 0.419608)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = -1
+offset_right = 633.0
+offset_bottom = 219.0
+theme = SubResource("Theme_jooat")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/PanelContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer/HBoxContainer2"]
+clip_contents = true
+custom_minimum_size = Vector2(460, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme = SubResource("Theme_ick0s")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/HBoxContainer2/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+texture = ExtResource("9_1j24v")
+expand_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/PanelContainer/HBoxContainer2/HBoxContainer"]
+clip_contents = true
+layout_mode = 2
+texture = ExtResource("9_1j24v")
+expand_mode = 3
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/PanelContainer/HBoxContainer2/HBoxContainer"]
+clip_contents = true
+layout_mode = 2
+texture = ExtResource("9_1j24v")
+expand_mode = 3
+
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/PanelContainer/HBoxContainer2/HBoxContainer"]
+clip_contents = true
+layout_mode = 2
+texture = ExtResource("9_1j24v")
+expand_mode = 3
+
+[node name="TextureRect5" type="TextureRect" parent="CanvasLayer/PanelContainer/HBoxContainer2/HBoxContainer"]
+clip_contents = true
+layout_mode = 2
+texture = ExtResource("9_1j24v")
+expand_mode = 3
+
+[node name="Control" type="Control" parent="CanvasLayer/PanelContainer/HBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
 
 [connection signal="input_event" from="." to="." method="_on_player_input_event"]
 [connection signal="body_entered" from="Loot_range" to="." method="_on_loot_range_body_entered"]

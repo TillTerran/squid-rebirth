@@ -9,8 +9,8 @@ extends CharacterBody2D
 # var b = "text"
 var is_monke = true
 var speed_scale = 1.0
-var hp_max = 4
-var current_hp = 3
+var hp_max = 5
+var current_hp = 5
 #var velocity = Vector2.ZERO
 var stuck
 var animation_prefix=""
@@ -73,7 +73,16 @@ func _ready():
 	current_hp=GlobalVariables.current_player_hp
 	
 	
-	
+	if current_hp<5:
+		$CanvasLayer/PanelContainer/HBoxContainer2/HBoxContainer/TextureRect5.hide()
+	if current_hp<4:
+		$CanvasLayer/PanelContainer/HBoxContainer2/HBoxContainer/TextureRect4.hide()
+	if current_hp<3:
+		$CanvasLayer/PanelContainer/HBoxContainer2/HBoxContainer/TextureRect3.hide()
+	if current_hp<2:
+		$CanvasLayer/PanelContainer/HBoxContainer2/HBoxContainer/TextureRect2.hide()
+	if current_hp<1:
+		$CanvasLayer/PanelContainer/HBoxContainer2/HBoxContainer/TextureRect.hide()
 	
 	
 	
@@ -112,7 +121,10 @@ func _process(delta):# try to change to _physics_process
 	if Input.is_action_just_pressed("ui_cancel"):
 		#Events.main_menu.emit()
 		get_tree().paused=true
-		#InGameMenu.
+	else:
+		if Input.is_action_pressed("ui_o") and Input.is_action_pressed("ui_y"):
+				Events.to_credits()
+	
 	
 	if Input.is_action_just_pressed("Grab"):
 		grab()
@@ -541,6 +553,7 @@ func reset_position()->void:
 func add_health() :
 	if current_hp < hp_max :
 			current_hp = current_hp +1
+	
 
 func add_more_health() :
 	if current_hp < hp_max :
@@ -552,6 +565,16 @@ func lose_hp(hp_lost:int,reset_position:bool =false)->void:
 	GlobalVariables.current_player_hp-=hp_lost
 	if reset_position:
 		reset_position()
+	if current_hp<5:
+		$CanvasLayer/PanelContainer/HBoxContainer2/HBoxContainer/TextureRect5.hide()
+	if current_hp<4:
+		$CanvasLayer/PanelContainer/HBoxContainer2/HBoxContainer/TextureRect4.hide()
+	if current_hp<3:
+		$CanvasLayer/PanelContainer/HBoxContainer2/HBoxContainer/TextureRect3.hide()
+	if current_hp<2:
+		$CanvasLayer/PanelContainer/HBoxContainer2/HBoxContainer/TextureRect2.hide()
+	if current_hp<1:
+		$CanvasLayer/PanelContainer/HBoxContainer2/HBoxContainer/TextureRect.hide()
 	
 	if current_hp <= 0 :
 		game_over()
