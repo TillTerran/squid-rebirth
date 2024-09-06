@@ -912,7 +912,6 @@ position = Vector2(98, 48)
 level = ExtResource("3_rvf25")
 
 [node name="TileMap" type="TileMap" parent="."]
-visible = false
 scale = Vector2(0.125, 0.125)
 tile_set = SubResource("TileSet_nosdh")
 format = 2

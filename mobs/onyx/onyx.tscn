@@ -1,11 +1,11 @@
 [gd_scene load_steps=41 format=3 uid="uid://irpquugqy33h"]
 
 [ext_resource type="Script" path="res://mobs/onyx/onyx.gd" id="1_fnkml"]
-[ext_resource type="Texture2D" uid="uid://b6m2kfnmsljwx" path="res://mobs/onyx/animation/AfterFall/AfterFall.png" id="2_frt3v"]
-[ext_resource type="Texture2D" uid="uid://by842obq5ywmk" path="res://mobs/Boss/Ecureuil/Animation/Death/Death.png" id="3_mg03e"]
-[ext_resource type="Texture2D" uid="uid://boigr45l8ufy0" path="res://mobs/onyx/animation/Fall/final-0004-imageonline.co-merged.png" id="3_v3t4d"]
-[ext_resource type="Texture2D" uid="uid://c72io0ea5yy56" path="res://mobs/onyx/animation/Fly/final-0008-imageonline.co-merged.png" id="4_cwc4q"]
-[ext_resource type="Texture2D" uid="uid://cxrhtvp3drikj" path="res://mobs/onyx/animation/Idle/final-0008-imageonline.co-merged.png" id="5_7pie4"]
+[ext_resource type="Texture2D" uid="uid://dpi6arpmfhy" path="res://mobs/onyx/animation/AfterFall/AfterFall.png" id="2_frt3v"]
+[ext_resource type="Texture2D" uid="uid://cir0qskghlp4p" path="res://mobs/Boss/Ecureuil/Animation/Death/Death.png" id="3_mg03e"]
+[ext_resource type="Texture2D" uid="uid://bhd5r5teopxvy" path="res://mobs/onyx/animation/Fall/final-0004-imageonline.co-merged.png" id="3_v3t4d"]
+[ext_resource type="Texture2D" uid="uid://d0vlkq22jvvk0" path="res://mobs/onyx/animation/Fly/final-0008-imageonline.co-merged.png" id="4_cwc4q"]
+[ext_resource type="Texture2D" uid="uid://graqcwfukiwq" path="res://mobs/onyx/animation/Idle/final-0008-imageonline.co-merged.png" id="5_7pie4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sqitv"]
 atlas = ExtResource("2_frt3v")
@@ -251,6 +251,7 @@ radius = 288.111
 size = Vector2(30, 34)
 
 [node name="Onyx" type="CharacterBody2D"]
+collision_layer = 0
 script = ExtResource("1_fnkml")
 jump_height = -400
 
