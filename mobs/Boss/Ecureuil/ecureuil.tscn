@@ -1,11 +1,11 @@
 [gd_scene load_steps=52 format=3 uid="uid://upnnk70g5w2i"]
 
 [ext_resource type="Script" path="res://mobs/Boss/Ecureuil/ecureuil.gd" id="1_4v2e7"]
-[ext_resource type="Texture2D" uid="uid://py5y1idj5cbk" path="res://mobs/Boss/Ecureuil/Animation/Attack/ecureuil hit.png" id="1_w3gke"]
-[ext_resource type="Texture2D" uid="uid://bhcyu7g3d7d5h" path="res://mobs/Boss/Ecureuil/Animation/Idle/écureil id.png" id="2_y0pjc"]
-[ext_resource type="Texture2D" uid="uid://by842obq5ywmk" path="res://mobs/Boss/Ecureuil/Animation/Death/Death.png" id="3_2c6cr"]
-[ext_resource type="Texture2D" uid="uid://b5c4xhhhuoyqj" path="res://mobs/Boss/Ecureuil/Animation/Running/écureuil run.png" id="3_5chug"]
-[ext_resource type="Texture2D" uid="uid://qwjv2l4px0uy" path="res://mobs/Boss/Ecureuil/Animation/StartRunning/écureuil start run.png" id="4_7mo4s"]
+[ext_resource type="Texture2D" uid="uid://bkxsmu3p81gds" path="res://mobs/Boss/Ecureuil/Animation/Attack/ecureuil hit.png" id="1_w3gke"]
+[ext_resource type="Texture2D" uid="uid://cb4r5l7y5126s" path="res://mobs/Boss/Ecureuil/Animation/Idle/écureil id.png" id="2_y0pjc"]
+[ext_resource type="Texture2D" uid="uid://cir0qskghlp4p" path="res://mobs/Boss/Ecureuil/Animation/Death/Death.png" id="3_2c6cr"]
+[ext_resource type="Texture2D" uid="uid://bdh4vb8wftf5b" path="res://mobs/Boss/Ecureuil/Animation/Running/écureuil run.png" id="3_5chug"]
+[ext_resource type="Texture2D" uid="uid://dwg218kq57weh" path="res://mobs/Boss/Ecureuil/Animation/StartRunning/écureuil start run.png" id="4_7mo4s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_38ymp"]
 atlas = ExtResource("1_w3gke")
@@ -1317,7 +1317,7 @@ tracks/8/keys = {
 [sub_resource type="Animation" id="Animation_6668l"]
 resource_name = "StartRunningRight"
 length = 0.35
-step = 0.1
+step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1373,10 +1373,10 @@ tracks/4/path = NodePath("ChainsawArea/ChainsawCollision:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.35, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1, 16), Vector2(39, 15), Vector2(39, 15), Vector2(20, -3), Vector2(20, -3), Vector2(31, -3)]
+"values": [Vector2(10, 2), Vector2(12, 3), Vector2(19, -7), Vector2(-3, -18), Vector2(-3, -18)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -1385,10 +1385,10 @@ tracks/5/path = NodePath("ChainsawArea/ChainsawCollision:rotation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3, 0.35, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1.07063, 1),
 "update": 0,
-"values": [0.0, 0.0, -1.5708, -1.5708, 1.5708]
+"values": [1.309, 1.8326, -1.5708, -1.5708]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
