@@ -4,15 +4,15 @@
 [ext_resource type="PackedScene" uid="uid://s77rdbs0u3dk" path="res://player.tscn" id="2_xafe8"]
 [ext_resource type="PackedScene" uid="uid://b2rko3ijjih3y" path="res://menus/main_menu.tscn" id="3_rvf25"]
 [ext_resource type="Theme" uid="uid://ierb8sk14ach" path="res://nice_theme.tres" id="4_4o0sd"]
-[ext_resource type="Texture2D" uid="uid://duc8ogo1jhcyp" path="res://tileset.png" id="4_judaa"]
-[ext_resource type="Texture2D" uid="uid://bkk0p6jql2vuj" path="res://icon.png" id="5_p7dwc"]
-[ext_resource type="Texture2D" uid="uid://dyceycdsa3sg0" path="res://slopes.png" id="5_qiqoe"]
+[ext_resource type="Texture2D" uid="uid://cnmtsmwo4dsry" path="res://tileset.png" id="4_judaa"]
+[ext_resource type="Texture2D" uid="uid://cej3ln6f4uchd" path="res://icon.png" id="5_p7dwc"]
+[ext_resource type="Texture2D" uid="uid://8cmijti3dtnw" path="res://slopes.png" id="5_qiqoe"]
 [ext_resource type="PackedScene" uid="uid://b5sg6qeettbpx" path="res://level_transition.tscn" id="6_114by"]
-[ext_resource type="Texture2D" uid="uid://xodpmdg18rmo" path="res://slopes_flipped.png" id="6_t7nkq"]
-[ext_resource type="Texture2D" uid="uid://1ho6nqrh3xk" path="res://Tilemap/tuiles map 1.5.png" id="7_6816a"]
-[ext_resource type="Texture2D" uid="uid://dggiloxfdrv40" path="res://Tilemap/tuiles_map_1.png" id="7_wdiad"]
+[ext_resource type="Texture2D" uid="uid://8o3leyh2ojel" path="res://slopes_flipped.png" id="6_t7nkq"]
+[ext_resource type="Texture2D" uid="uid://b5low2ytr3l5x" path="res://Tilemap/tuiles map 1.5.png" id="7_6816a"]
+[ext_resource type="Texture2D" uid="uid://bu1vgoqwkqhs3" path="res://Tilemap/tuiles_map_1.png" id="7_wdiad"]
 [ext_resource type="PackedScene" uid="uid://du845748ywqgk" path="res://questpanel.tscn" id="9_e03ur"]
-[ext_resource type="Texture2D" uid="uid://b5k2vv87w2bk2" path="res://Tilemap/spikes.png" id="12_hw8n7"]
+[ext_resource type="Texture2D" uid="uid://28p1a7ivfc5s" path="res://Tilemap/spikes.png" id="12_hw8n7"]
 [ext_resource type="PackedScene" uid="uid://ctk5pf3p7atjs" path="res://menus/in_game_menu.tscn" id="12_ulxt8"]
 
 [sub_resource type="Animation" id="Animation_m3t2t"]
@@ -912,6 +912,7 @@ position = Vector2(98, 48)
 level = ExtResource("3_rvf25")
 
 [node name="TileMap" type="TileMap" parent="."]
+visible = false
 scale = Vector2(0.125, 0.125)
 tile_set = SubResource("TileSet_nosdh")
 format = 2
@@ -1004,6 +1005,9 @@ visible = false
 
 [node name="in-game menu" parent="." instance=ExtResource("12_ulxt8")]
 visible = false
+
+[node name="close_background" type="Sprite2D" parent="."]
+z_index = -50
 
 [connection signal="body_entered" from="revealing hidden_layer area" to="." method="_on_revealing_hidden_layer_area_body_entered"]
 [connection signal="body_exited" from="revealing hidden_layer area" to="." method="_on_revealing_hidden_layer_area_body_exited"]

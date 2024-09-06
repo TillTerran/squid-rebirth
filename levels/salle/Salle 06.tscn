@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwli5u7fekuos"]
+[gd_scene load_steps=5 format=3 uid="uid://dwli5u7fekuos"]
 
 [ext_resource type="PackedScene" uid="uid://b32tvkldvdtr7" path="res://level_template.tscn" id="1_4jjd2"]
 [ext_resource type="PackedScene" uid="uid://bclewffjxdq25" path="res://scene_change/change_scene_area.tscn" id="2_olp6t"]
 [ext_resource type="PackedScene" uid="uid://c833s1u5hyolg" path="res://scene_change/tp_point.tscn" id="3_7wqrs"]
+[ext_resource type="Texture2D" uid="uid://bg8lr3t8u6xwo" path="res://sprites/paralax_layers/Salle_6__grille_fond.png" id="4_s6d66"]
 
 [node name="level_template" instance=ExtResource("1_4jjd2")]
 
@@ -35,3 +36,8 @@ tp_id = 0
 [node name="tp_point3" parent="." index="11" instance=ExtResource("3_7wqrs")]
 position = Vector2(140, 47)
 tp_id = 1
+
+[node name="close_background" parent="." index="13"]
+position = Vector2(101, 63)
+scale = Vector2(0.305, 0.217)
+texture = ExtResource("4_s6d66")

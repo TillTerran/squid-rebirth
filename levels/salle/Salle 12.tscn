@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://b1fukrka3faa5"]
+[gd_scene load_steps=9 format=3 uid="uid://b1fukrka3faa5"]
 
 [ext_resource type="PackedScene" uid="uid://b32tvkldvdtr7" path="res://level_template.tscn" id="1_xxcfp"]
 [ext_resource type="PackedScene" uid="uid://bclewffjxdq25" path="res://scene_change/change_scene_area.tscn" id="2_w50p0"]
 [ext_resource type="PackedScene" uid="uid://c833s1u5hyolg" path="res://scene_change/tp_point.tscn" id="3_p6sko"]
 [ext_resource type="PackedScene" uid="uid://ci32ibukbp6pi" path="res://mobs/Legrorat/legrorat.tscn" id="4_xnms5"]
 [ext_resource type="Script" path="res://levels/salle/max_health_+.gd" id="5_al1ql"]
-[ext_resource type="Texture2D" uid="uid://ppei3nk6m3me" path="res://sprites/Item_PVMax.png" id="6_gnop1"]
+[ext_resource type="Texture2D" uid="uid://cvqxutkdllhmh" path="res://sprites/Item_PVMax.png" id="6_gnop1"]
+[ext_resource type="Texture2D" uid="uid://y8tqoontr7f2" path="res://sprites/paralax_layers/Salle_12__grille_fond.png" id="7_ubn6v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hcf5k"]
 size = Vector2(12, 12)
@@ -63,5 +64,10 @@ texture = ExtResource("6_gnop1")
 
 [node name="Legrorat2" parent="." index="15" instance=ExtResource("4_xnms5")]
 position = Vector2(206, 16)
+
+[node name="close_background" parent="." index="16"]
+position = Vector2(50, 54)
+scale = Vector2(0.333, 0.361)
+texture = ExtResource("7_ubn6v")
 
 [connection signal="body_entered" from="max_health_+" to="max_health_+" method="_on_body_entered"]

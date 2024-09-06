@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=4 uid="uid://bx2ogbx1q5t2y"]
+[gd_scene load_steps=7 format=4 uid="uid://bx2ogbx1q5t2y"]
 
 [ext_resource type="PackedScene" uid="uid://b32tvkldvdtr7" path="res://level_template.tscn" id="1_1x1cr"]
 [ext_resource type="PackedScene" uid="uid://bclewffjxdq25" path="res://scene_change/change_scene_area.tscn" id="2_oovbj"]
 [ext_resource type="PackedScene" uid="uid://c833s1u5hyolg" path="res://scene_change/tp_point.tscn" id="3_jbbd4"]
 [ext_resource type="PackedScene" uid="uid://irpquugqy33h" path="res://mobs/onyx/onyx.tscn" id="4_uhkas"]
 [ext_resource type="PackedScene" uid="uid://ci32ibukbp6pi" path="res://mobs/Legrorat/legrorat.tscn" id="5_gc2od"]
+[ext_resource type="Texture2D" uid="uid://cqrvukwb5sdhr" path="res://sprites/paralax_layers/Salle_17__grille_fond.png" id="6_ranwt"]
 
-[node name="level_template4" instance=ExtResource("1_1x1cr")]
+[node name="level_template5" instance=ExtResource("1_1x1cr")]
 
 [node name="player" parent="." index="1"]
 position = Vector2(-61, 54)
@@ -49,3 +50,8 @@ position = Vector2(825, -82)
 
 [node name="Onyx2" parent="." index="14" instance=ExtResource("4_uhkas")]
 position = Vector2(307, -45)
+
+[node name="close_background" parent="." index="15"]
+position = Vector2(417, -83)
+scale = Vector2(0.947, 0.998)
+texture = ExtResource("6_ranwt")

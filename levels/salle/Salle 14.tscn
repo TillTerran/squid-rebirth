@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://cvqocjm01lcth"]
+[gd_scene load_steps=6 format=3 uid="uid://cvqocjm01lcth"]
 
 [ext_resource type="PackedScene" uid="uid://b32tvkldvdtr7" path="res://level_template.tscn" id="1_if8b2"]
 [ext_resource type="PackedScene" uid="uid://bclewffjxdq25" path="res://scene_change/change_scene_area.tscn" id="2_3rt3p"]
 [ext_resource type="PackedScene" uid="uid://c833s1u5hyolg" path="res://scene_change/tp_point.tscn" id="3_dfntw"]
 [ext_resource type="PackedScene" uid="uid://ci32ibukbp6pi" path="res://mobs/Legrorat/legrorat.tscn" id="4_e655x"]
+[ext_resource type="Texture2D" uid="uid://clbtno4v1ryho" path="res://sprites/paralax_layers/Salle_14__grille_fond.png" id="5_l716c"]
 
-[node name="level_template" instance=ExtResource("1_if8b2")]
+[node name="level_template2" instance=ExtResource("1_if8b2")]
 
 [node name="player" parent="." index="1"]
 position = Vector2(-8, -15)
@@ -42,3 +43,8 @@ tp_id = 2
 
 [node name="Legrorat" parent="." index="13" instance=ExtResource("4_e655x")]
 position = Vector2(-233, -94)
+
+[node name="close_background" parent="." index="14"]
+position = Vector2(-87, 145)
+scale = Vector2(0.635, 0.651)
+texture = ExtResource("5_l716c")

@@ -1,14 +1,15 @@
-[gd_scene load_steps=7 format=4 uid="uid://db21sqta0v6nl"]
+[gd_scene load_steps=8 format=4 uid="uid://db21sqta0v6nl"]
 
 [ext_resource type="PackedScene" uid="uid://b32tvkldvdtr7" path="res://level_template.tscn" id="1_cg3pg"]
 [ext_resource type="PackedScene" uid="uid://bclewffjxdq25" path="res://scene_change/change_scene_area.tscn" id="2_qocga"]
 [ext_resource type="PackedScene" uid="uid://c833s1u5hyolg" path="res://scene_change/tp_point.tscn" id="3_dcbwx"]
 [ext_resource type="PackedScene" uid="uid://irpquugqy33h" path="res://mobs/onyx/onyx.tscn" id="3_druw4"]
 [ext_resource type="Script" path="res://levels/salle/meet_aerin_detection.gd" id="5_m0e2l"]
+[ext_resource type="Texture2D" uid="uid://dr11gqxaod13x" path="res://sprites/paralax_layers/Salle_15__grille_fond.png" id="6_o7x0l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jgeam"]
 
-[node name="level_template4" instance=ExtResource("1_cg3pg")]
+[node name="level_template5" instance=ExtResource("1_cg3pg")]
 
 [node name="player" parent="." index="1"]
 position = Vector2(371, 275)
@@ -72,5 +73,10 @@ debug_color = Color(0.810341, 0.00215934, 0.986044, 0.42)
 
 [node name="Onyx" parent="." index="17" instance=ExtResource("3_druw4")]
 position = Vector2(172, 233)
+
+[node name="close_background" parent="." index="18"]
+position = Vector2(461, -21)
+scale = Vector2(1, 1.089)
+texture = ExtResource("6_o7x0l")
 
 [connection signal="body_entered" from="meet_aerin_detection" to="meet_aerin_detection" method="_on_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d1qeidb8nvc8s"]
+[gd_scene load_steps=9 format=3 uid="uid://d1qeidb8nvc8s"]
 
 [ext_resource type="PackedScene" uid="uid://b32tvkldvdtr7" path="res://level_template.tscn" id="1_tkx4x"]
 [ext_resource type="PackedScene" uid="uid://upnnk70g5w2i" path="res://mobs/Boss/Ecureuil/ecureuil.tscn" id="2_b1lku"]
@@ -6,11 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://c833s1u5hyolg" path="res://scene_change/tp_point.tscn" id="3_4fsbj"]
 [ext_resource type="PackedScene" uid="uid://b4lmree067k3h" path="res://doors and co/fight_door.tscn" id="5_86ydd"]
 [ext_resource type="Script" path="res://scene_change/to_credits_area.gd" id="6_gr1qy"]
+[ext_resource type="Texture2D" uid="uid://dayuxhuuuqlao" path="res://sprites/paralax_layers/Salle_19_grille_fond.png" id="7_pta7r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_huycd"]
 size = Vector2(20, 60)
 
-[node name="level_template" instance=ExtResource("1_tkx4x")]
+[node name="level_template2" instance=ExtResource("1_tkx4x")]
 
 [node name="player" parent="." index="1"]
 position = Vector2(85, 146)
@@ -45,5 +46,10 @@ script = ExtResource("6_gr1qy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 shape = SubResource("RectangleShape2D_huycd")
+
+[node name="close_background" parent="." index="14"]
+position = Vector2(172, 52)
+scale = Vector2(0.455, 0.396)
+texture = ExtResource("7_pta7r")
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
