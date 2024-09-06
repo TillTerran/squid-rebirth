@@ -444,6 +444,7 @@ position = Vector2(6, -6)
 scale = Vector2(0.150794, 0.157718)
 sprite_frames = SubResource("SpriteFrames_638yc")
 animation = &"Walk"
+frame = 1
 flip_h = true
 
 [node name="Hitbox" type="Area2D" parent="."]

@@ -10,7 +10,7 @@ var texts:PackedStringArray
 var speakers:PackedStringArray
 
 @onready var header=$"MarginContainer/quest panel/MarginContainer/GridContainer/header"
-@onready var text_body= $"MarginContainer/quest panel/MarginContainer/GridContainer/text"
+@onready var text_body= $"MarginContainer/quest panel/MarginContainer/GridContainer/RichTextLabel"
 @onready var continue_quit_button=$"MarginContainer/quest panel/MarginContainer/GridContainer/Control/HBoxContainer/continue_or_quit"
 @onready var skip_button=$"MarginContainer/quest panel/MarginContainer/GridContainer/Control/HBoxContainer/skip"
 # Called when the node enters the scene tree for the first time.

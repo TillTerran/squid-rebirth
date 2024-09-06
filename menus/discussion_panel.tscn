@@ -49,12 +49,10 @@ uppercase = true
 [node name="Control2" type="Control" parent="MarginContainer/quest panel/MarginContainer/GridContainer"]
 layout_mode = 2
 
-[node name="text" type="Label" parent="MarginContainer/quest panel/MarginContainer/GridContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/quest panel/MarginContainer/GridContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 16
-text = "you doofus"
-autowrap_mode = 2
-justification_flags = 67
+bbcode_enabled = true
+fit_content = true
 
 [node name="Control" type="MarginContainer" parent="MarginContainer/quest panel/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(10, 0)
