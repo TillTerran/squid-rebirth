@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://8fev3vidkrjt"]
+[gd_scene load_steps=7 format=3 uid="uid://di4fq573a43ys"]
 
 [ext_resource type="Script" path="res://health_bar.gd" id="1_d2j0h"]
 [ext_resource type="Texture2D" uid="uid://chpkbttavfvl5" path="res://sprites/Barre de vie.png" id="1_hreda"]
@@ -14,7 +14,6 @@ PanelContainer/styles/panel = SubResource("StyleBoxTexture_q6log")
 [sub_resource type="Theme" id="Theme_ick0s"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
-visible = false
 script = ExtResource("1_d2j0h")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]

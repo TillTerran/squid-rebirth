@@ -235,6 +235,7 @@ size = Vector2(42, 24)
 size = Vector2(50, 23)
 
 [node name="Legrorat" type="CharacterBody2D"]
+collision_layer = 17
 script = ExtResource("1_1bao3")
 DamageGiveByPlayer = 1
 attack_strength = 1
@@ -249,7 +250,7 @@ position = Vector2(22, 11)
 shape = SubResource("CircleShape2D_w5mtj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(3, -3)
+position = Vector2(0, -2)
 scale = Vector2(0.091954, 0.0666667)
 sprite_frames = SubResource("SpriteFrames_qnxnd")
 animation = &"attack"
@@ -273,8 +274,7 @@ position = Vector2(2, -0.5)
 shape = SubResource("RectangleShape2D_t7yxk")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(27, 11.5)
+position = Vector2(6, 0)
 shape = SubResource("RectangleShape2D_3dpek")
 
 [node name="Direction" type="Timer" parent="."]

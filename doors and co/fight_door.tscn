@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b4lmree067k3h"]
 
 [ext_resource type="Script" path="res://fight_door.gd" id="1_hkk88"]
-[ext_resource type="Texture2D" uid="uid://bxmyu7ui5it8d" path="res://sprites/porte_boss_lock.png" id="2_uxum2"]
+[ext_resource type="Texture2D" uid="uid://dx5y08od8klhg" path="res://sprites/porte_boss_lock.png" id="2_uxum2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4df60"]
 size = Vector2(20, 54)

@@ -1005,8 +1005,20 @@ visible = false
 [node name="in-game menu" parent="." instance=ExtResource("12_ulxt8")]
 visible = false
 
-[node name="close_background" type="Sprite2D" parent="."]
-z_index = -50
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.7, 0.7)
+
+[node name="ParallaxBackgroundFar" type="ParallaxLayer" parent="ParallaxBackground"]
+z_index = -10
+motion_scale = Vector2(0.1, 0.1)
+
+[node name="Parallaxforeground" type="ParallaxBackground" parent="."]
+layer = 10
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Parallaxforeground"]
+motion_scale = Vector2(1.43, 1.43)
 
 [connection signal="body_entered" from="revealing hidden_layer area" to="." method="_on_revealing_hidden_layer_area_body_entered"]
 [connection signal="body_exited" from="revealing hidden_layer area" to="." method="_on_revealing_hidden_layer_area_body_exited"]

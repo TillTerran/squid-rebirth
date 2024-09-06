@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://b1fukrka3faa5"]
+[gd_scene load_steps=10 format=3 uid="uid://b1fukrka3faa5"]
 
 [ext_resource type="PackedScene" uid="uid://b32tvkldvdtr7" path="res://level_template.tscn" id="1_xxcfp"]
+[ext_resource type="Texture2D" uid="uid://y8tqoontr7f2" path="res://levels/salle/paralax_sprites/Salle_12__grille_fond.png" id="2_nbmde"]
 [ext_resource type="PackedScene" uid="uid://bclewffjxdq25" path="res://scene_change/change_scene_area.tscn" id="2_w50p0"]
 [ext_resource type="PackedScene" uid="uid://c833s1u5hyolg" path="res://scene_change/tp_point.tscn" id="3_p6sko"]
-[ext_resource type="PackedScene" uid="uid://ci32ibukbp6pi" path="res://mobs/Legrorat/legrorat.tscn" id="4_xnms5"]
+[ext_resource type="Texture2D" uid="uid://co0rbhc4j4i5" path="res://levels/salle/paralax_sprites/RACINES_premier_plan_flou.png" id="4_3f4ma"]
 [ext_resource type="Script" path="res://levels/salle/max_health_+.gd" id="5_al1ql"]
 [ext_resource type="Texture2D" uid="uid://cvqxutkdllhmh" path="res://sprites/Item_PVMax.png" id="6_gnop1"]
-[ext_resource type="Texture2D" uid="uid://y8tqoontr7f2" path="res://sprites/paralax_layers/Salle_12__grille_fond.png" id="7_ubn6v"]
+[ext_resource type="PackedScene" uid="uid://ci32ibukbp6pi" path="res://mobs/Legrorat/legrorat.tscn" id="8_xfer4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hcf5k"]
 size = Vector2(12, 12)
@@ -34,19 +35,25 @@ position = Vector2(192, 166)
 scale = Vector2(1, 2)
 connected_scene = "res://levels/salle/Salle 17.tscn"
 
-[node name="tp_point1" parent="." index="10" instance=ExtResource("3_p6sko")]
+[node name="ParallaxBackground3" type="ParallaxBackground" parent="." index="9"]
+layer = 1
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground3" index="0"]
+motion_scale = Vector2(1.1, 1)
+
+[node name="tp_point1" parent="." index="11" instance=ExtResource("3_p6sko")]
 position = Vector2(-97, -15)
 tp_id = 0
 
-[node name="tp_point2" parent="." index="11" instance=ExtResource("3_p6sko")]
+[node name="tp_point2" parent="." index="12" instance=ExtResource("3_p6sko")]
 position = Vector2(160, 169)
 tp_id = 6
 
-[node name="tp_point3" parent="." index="12" instance=ExtResource("3_p6sko")]
+[node name="tp_point3" parent="." index="13" instance=ExtResource("3_p6sko")]
 position = Vector2(-54, 176)
 tp_id = 9
 
-[node name="max_health_+" type="Area2D" parent="." index="14"]
+[node name="max_health_+" type="Area2D" parent="." index="15"]
 visible = false
 collision_layer = 0
 collision_mask = 128
@@ -62,12 +69,32 @@ position = Vector2(172, -57)
 scale = Vector2(0.027865, 0.027865)
 texture = ExtResource("6_gnop1")
 
-[node name="Legrorat2" parent="." index="15" instance=ExtResource("4_xnms5")]
-position = Vector2(206, 16)
+[node name="ParallaxLayer" parent="ParallaxBackground" index="0"]
+motion_scale = Vector2(0.9, 0.9)
 
-[node name="close_background" parent="." index="16"]
-position = Vector2(50, 54)
-scale = Vector2(0.333, 0.361)
-texture = ExtResource("7_ubn6v")
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" index="0"]
+position = Vector2(49, 53)
+scale = Vector2(0.333333, 0.361111)
+texture = ExtResource("2_nbmde")
+
+[node name="ParallaxLayer" parent="Parallaxforeground" index="0"]
+motion_scale = Vector2(1.1, 1.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallaxforeground/ParallaxLayer" index="0"]
+position = Vector2(-200, 65)
+scale = Vector2(0.333333, 0.462037)
+texture = ExtResource("4_3f4ma")
+hframes = 5
+frame = 4
+
+[node name="Sprite2D2" type="Sprite2D" parent="Parallaxforeground/ParallaxLayer" index="1"]
+position = Vector2(298.25, 39.75)
+scale = Vector2(0.418452, 0.49213)
+texture = ExtResource("4_3f4ma")
+hframes = 5
+frame = 1
+
+[node name="Legrorat" parent="." index="18" instance=ExtResource("8_xfer4")]
+position = Vector2(182, 16)
 
 [connection signal="body_entered" from="max_health_+" to="max_health_+" method="_on_body_entered"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://baj6g6e137i4"]
+[gd_scene load_steps=6 format=3 uid="uid://baj6g6e137i4"]
 
 [ext_resource type="PackedScene" uid="uid://b32tvkldvdtr7" path="res://level_template.tscn" id="1_5p05v"]
 [ext_resource type="PackedScene" uid="uid://bclewffjxdq25" path="res://scene_change/change_scene_area.tscn" id="2_mq8je"]
+[ext_resource type="Texture2D" uid="uid://cnwkkoiu6g11p" path="res://levels/salle/paralax_sprites/salle_10__grille_fond.png" id="2_wvw2f"]
 [ext_resource type="PackedScene" uid="uid://c833s1u5hyolg" path="res://scene_change/tp_point.tscn" id="3_a664v"]
-[ext_resource type="Texture2D" uid="uid://cnwkkoiu6g11p" path="res://sprites/paralax_layers/salle_10__grille_fond.png" id="4_6457y"]
+[ext_resource type="Texture2D" uid="uid://co0rbhc4j4i5" path="res://levels/salle/paralax_sprites/RACINES_premier_plan_flou.png" id="5_aswni"]
 
 [node name="level_template4" instance=ExtResource("1_5p05v")]
 
@@ -27,20 +28,41 @@ connected_scene = "res://levels/salle/Salle 11.tscn"
 position = Vector2(65, 289)
 connected_scene = "res://levels/salle/Salle 12.tscn"
 
-[node name="tp_point1" parent="." index="10" instance=ExtResource("3_a664v")]
+[node name="ParallaxBackground3" type="ParallaxBackground" parent="." index="9"]
+layer = 1
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground3" index="0"]
+
+[node name="tp_point1" parent="." index="11" instance=ExtResource("3_a664v")]
 position = Vector2(40, 25)
 tp_id = 1
 
-[node name="tp_point2" parent="." index="11" instance=ExtResource("3_a664v")]
+[node name="tp_point2" parent="." index="12" instance=ExtResource("3_a664v")]
 position = Vector2(-24, 286)
 rotation = 1.5708
 tp_id = 0
 
-[node name="tp_point3" parent="." index="12" instance=ExtResource("3_a664v")]
+[node name="tp_point3" parent="." index="13" instance=ExtResource("3_a664v")]
 position = Vector2(33, 286)
 tp_id = 2
 
-[node name="close_background" parent="." index="14"]
-position = Vector2(11, 48)
-scale = Vector2(0.431, 0.381)
-texture = ExtResource("4_6457y")
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" index="0"]
+position = Vector2(9.50001, 48.75)
+scale = Vector2(0.430612, 0.380903)
+texture = ExtResource("2_wvw2f")
+
+[node name="ParallaxLayer" parent="Parallaxforeground" index="0"]
+motion_scale = Vector2(1.125, 1.125)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallaxforeground/ParallaxLayer" index="0"]
+position = Vector2(232, 129.156)
+scale = Vector2(0.367347, 0.649711)
+texture = ExtResource("5_aswni")
+hframes = 5
+frame = 4
+
+[node name="Sprite2D2" type="Sprite2D" parent="Parallaxforeground/ParallaxLayer" index="1"]
+position = Vector2(-232.857, 158)
+scale = Vector2(0.505102, 0.649711)
+texture = ExtResource("5_aswni")
+hframes = 5

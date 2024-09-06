@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cnc4iraa2wlyu"]
 
 [ext_resource type="PackedScene" uid="uid://b32tvkldvdtr7" path="res://level_template.tscn" id="1_0oatj"]
-[ext_resource type="PackedScene" uid="uid://irpquugqy33h" path="res://mobs/mobs/onyx/onyx.tscn" id="2_jt1hk"]
+[ext_resource type="PackedScene" uid="uid://irpquugqy33h" path="res://mobs/old/onyx/onyx.tscn" id="2_jt1hk"]
 
 [node name="level_template" instance=ExtResource("1_0oatj")]
 

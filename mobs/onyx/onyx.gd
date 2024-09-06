@@ -99,10 +99,10 @@ func chase_player():
 			print(sqrt(abs(4*pos_rela_joueur.y*gravity)))
 			print(abs(pos_rela_joueur.x/velocity.x))
 			if abs(pos_rela_joueur.x/velocity.x) < sqrt(abs(4*pos_rela_joueur.y*gravity)):#temps pour atteindre le x du joueur < temps pour atteindre le y du joueur
-				
-				
-				
 				Onyx_state=STATE.FALL
+				pass
+				
+			
 	else:
 		velocity = lerp(velocity, Vector2.ZERO, 0.01)
 		velocity.x = 0  # Stop horizontal movement when `player_chase` is disabled

@@ -4,7 +4,6 @@
 [ext_resource type="Script" path="res://audio/audio_stream_player.gd" id="1_4ky6o"]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer"]
-process_mode = 3
 stream = ExtResource("1_0y73x")
 autoplay = true
 playback_type = 1
