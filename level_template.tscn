@@ -908,6 +908,7 @@ libraries = {
 }
 
 [node name="player" parent="." instance=ExtResource("2_xafe8")]
+unique_name_in_owner = true
 position = Vector2(98, 48)
 level = ExtResource("3_rvf25")
 
@@ -1000,9 +1001,11 @@ text = "22er12"
 [node name="quest?" parent="CanvasLayer" instance=ExtResource("9_e03ur")]
 
 [node name="LevelTransition" parent="." instance=ExtResource("6_114by")]
+unique_name_in_owner = true
 visible = false
 
 [node name="in-game menu" parent="." instance=ExtResource("12_ulxt8")]
+unique_name_in_owner = true
 visible = false
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]

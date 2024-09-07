@@ -4,7 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://cqi3pl1yyjhwh" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/Continuer Txt light L.png" id="2_klgas"]
 [ext_resource type="Texture2D" uid="uid://bw1dwnvw0lpld" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/Continuer Txt light D.png" id="3_hiutb"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yb0fs"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r7gg2"]
+texture = ExtResource("1_mkyxp")
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_br3tw"]
 texture = ExtResource("1_mkyxp")
@@ -28,7 +33,7 @@ expand_margin_right = 10.0
 expand_margin_bottom = 10.0
 
 [resource]
-Button/styles/focus = SubResource("StyleBoxEmpty_yb0fs")
+Button/styles/focus = SubResource("StyleBoxTexture_r7gg2")
 Button/styles/hover = SubResource("StyleBoxTexture_br3tw")
 Button/styles/normal = SubResource("StyleBoxTexture_taui5")
 Button/styles/pressed = SubResource("StyleBoxTexture_6wjkr")

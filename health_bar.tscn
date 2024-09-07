@@ -13,7 +13,7 @@ PanelContainer/styles/panel = SubResource("StyleBoxTexture_q6log")
 
 [sub_resource type="Theme" id="Theme_ick0s"]
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="HealthBarLayer" type="CanvasLayer"]
 script = ExtResource("1_d2j0h")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]

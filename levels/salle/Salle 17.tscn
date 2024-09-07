@@ -28,7 +28,7 @@ connected_scene = "res://levels/salle/Salle 18.tscn"
 position = Vector2(-85, 40)
 scale = Vector2(1, 2)
 connected_scene = "res://levels/salle/Salle 12.tscn"
-tp_point_id = 6
+tp_point_id = 3
 
 [node name="revealing hidden_layer area" parent="." index="6"]
 position = Vector2(988, -103)
@@ -40,6 +40,9 @@ tp_id = 0
 [node name="tp_point2" parent="." index="10" instance=ExtResource("3_jbbd4")]
 position = Vector2(1006, -357)
 tp_id = 1
+
+[node name="ParallaxBackground" parent="." index="12"]
+visible = false
 
 [node name="ParallaxLayer" parent="ParallaxBackground" index="0"]
 motion_scale = Vector2(0.85, 0.85)

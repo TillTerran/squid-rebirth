@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgr4qcsfhtvyj"]
+[gd_scene load_steps=6 format=3 uid="uid://bgr4qcsfhtvyj"]
 
 [ext_resource type="Theme" uid="uid://ierb8sk14ach" path="res://nice_theme.tres" id="1_o7vni"]
 [ext_resource type="Script" path="res://menus/discussion_panel.gd" id="1_xn2t4"]
+[ext_resource type="Texture2D" uid="uid://yxlxtfuyo55w" path="res://menus/character_talking/Enki/enki_normal.png" id="2_n6ptb"]
+[ext_resource type="Texture2D" uid="uid://3holxyplcbk4" path="res://menus/menu_texte_top.png" id="2_wmf05"]
 
 [sub_resource type="Theme" id="Theme_mce1x"]
 
@@ -17,28 +19,51 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 80
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 80
-theme_override_constants/margin_bottom = 30
 
-[node name="quest panel" type="PanelContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = -56
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture = ExtResource("2_n6ptb")
+expand_mode = 3
+stretch_mode = 4
+flip_h = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_wmf05")
+
+[node name="quest panel" type="PanelContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 8
 theme = ExtResource("1_o7vni")
-metadata/_edit_group_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/quest panel"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/quest panel"]
 layout_mode = 2
-theme_override_constants/margin_left = 20
+theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 30
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 60
 
-[node name="GridContainer" type="VBoxContainer" parent="MarginContainer/quest panel/MarginContainer"]
+[node name="GridContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/quest panel/MarginContainer"]
 layout_mode = 2
 
-[node name="header" type="Label" parent="MarginContainer/quest panel/MarginContainer/GridContainer"]
+[node name="header" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/quest panel/MarginContainer/GridContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
 text = "don't disapoint me"
@@ -46,29 +71,29 @@ autowrap_mode = 2
 justification_flags = 67
 uppercase = true
 
-[node name="Control2" type="Control" parent="MarginContainer/quest panel/MarginContainer/GridContainer"]
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/VBoxContainer/quest panel/MarginContainer/GridContainer"]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/quest panel/MarginContainer/GridContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/VBoxContainer/quest panel/MarginContainer/GridContainer"]
 layout_mode = 2
 bbcode_enabled = true
 fit_content = true
 
-[node name="Control" type="MarginContainer" parent="MarginContainer/quest panel/MarginContainer/GridContainer"]
+[node name="Control" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/quest panel/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_top = 20
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/quest panel/MarginContainer/GridContainer/Control"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/quest panel/MarginContainer/GridContainer/Control"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Control" type="Control" parent="MarginContainer/quest panel/MarginContainer/GridContainer/Control/HBoxContainer"]
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/VBoxContainer/quest panel/MarginContainer/GridContainer/Control/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="skip" type="Button" parent="MarginContainer/quest panel/MarginContainer/GridContainer/Control/HBoxContainer"]
+[node name="skip" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/quest panel/MarginContainer/GridContainer/Control/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 tooltip_text = "Not reading this "
@@ -77,21 +102,21 @@ text = "skip"
 icon_alignment = 1
 expand_icon = true
 
-[node name="Control3" type="Control" parent="MarginContainer/quest panel/MarginContainer/GridContainer/Control/HBoxContainer"]
+[node name="Control3" type="Control" parent="MarginContainer/VBoxContainer/VBoxContainer/quest panel/MarginContainer/GridContainer/Control/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.25
 
-[node name="continue_or_quit" type="Button" parent="MarginContainer/quest panel/MarginContainer/GridContainer/Control/HBoxContainer"]
+[node name="continue_or_quit" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/quest panel/MarginContainer/GridContainer/Control/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Next"
 icon_alignment = 1
 expand_icon = true
 
-[node name="Control2" type="Control" parent="MarginContainer/quest panel/MarginContainer/GridContainer/Control/HBoxContainer"]
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/VBoxContainer/quest panel/MarginContainer/GridContainer/Control/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[connection signal="pressed" from="MarginContainer/quest panel/MarginContainer/GridContainer/Control/HBoxContainer/skip" to="." method="_on_skip_pressed"]
-[connection signal="pressed" from="MarginContainer/quest panel/MarginContainer/GridContainer/Control/HBoxContainer/continue_or_quit" to="." method="_on_continue_or_quit_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/quest panel/MarginContainer/GridContainer/Control/HBoxContainer/skip" to="." method="_on_skip_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/quest panel/MarginContainer/GridContainer/Control/HBoxContainer/continue_or_quit" to="." method="_on_continue_or_quit_pressed"]

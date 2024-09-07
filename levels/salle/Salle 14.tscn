@@ -27,7 +27,6 @@ tp_point_id = 9
 position = Vector2(170, 339)
 scale = Vector2(2, 1)
 connected_scene = "res://levels/salle/Salle 15.tscn"
-tp_point_id = 3
 
 [node name="change_scene_area7" parent="." index="6" instance=ExtResource("2_3rt3p")]
 position = Vector2(-335, 135)
@@ -43,6 +42,9 @@ tp_id = 0
 position = Vector2(-363, 137)
 tp_id = 2
 
+[node name="ParallaxBackground" parent="." index="13"]
+visible = false
+
 [node name="ParallaxLayer" parent="ParallaxBackground" index="0"]
 motion_scale = Vector2(0.8, 0.8)
 
@@ -50,6 +52,9 @@ motion_scale = Vector2(0.8, 0.8)
 position = Vector2(-92.25, 139.875)
 scale = Vector2(0.635069, 0.650709)
 texture = ExtResource("2_m4gep")
+
+[node name="Parallaxforeground" parent="." index="14"]
+visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallaxforeground/ParallaxLayer" index="0"]
 position = Vector2(226, 12)

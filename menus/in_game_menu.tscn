@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://ctk5pf3p7atjs"]
+[gd_scene load_steps=8 format=3 uid="uid://ctk5pf3p7atjs"]
 
 [ext_resource type="Script" path="res://menus/in_game_menu.gd" id="1_mxadn"]
-[ext_resource type="Theme" uid="uid://ierb8sk14ach" path="res://nice_theme.tres" id="1_ove8w"]
-[ext_resource type="FontFile" uid="uid://t7nlkayot8jj" path="res://sprites/fonts/SuperMario256.ttf" id="3_ed8nn"]
-[ext_resource type="Texture2D" uid="uid://bkfxm3p1uj0pi" path="res://sprites/bouttons/quitter.png" id="4_7pmop"]
+[ext_resource type="FontFile" uid="uid://bprtrpsaa8l6r" path="res://sprites/fonts/SuperMario256.ttf" id="3_ed8nn"]
+[ext_resource type="Texture2D" uid="uid://7frw6krmp6be" path="res://sprites/bouttons/quitter.png" id="4_7pmop"]
 [ext_resource type="Theme" uid="uid://cnq7lc5llgja5" path="res://sprites/bouttons/continue_button.tres" id="5_q0m32"]
 [ext_resource type="Theme" uid="uid://bpo1yy4sasfng" path="res://sprites/bouttons/quit_button.tres" id="6_vekfb"]
 
@@ -46,7 +45,6 @@ grow_vertical = 2
 
 [node name="quest panel" type="PanelContainer" parent="in-game menu/MarginContainer"]
 layout_mode = 2
-theme = ExtResource("1_ove8w")
 metadata/_edit_group_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="in-game menu/MarginContainer/quest panel"]

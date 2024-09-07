@@ -82,7 +82,7 @@ func _ready():
 	current_hp=GlobalVariables.current_player_hp
 	
 	
-	$CanvasLayer.hide_hp_fruit(current_hp)
+	$HealthBarLayer.hide_hp_fruit(current_hp)
 	
 	
 	
@@ -497,7 +497,7 @@ func lose_hp(hp_lost:int,reset_position:bool =false)->void:
 		if reset_position:
 			reset_position()
 		
-		$CanvasLayer.hide_hp_fruit(current_hp)
+		$HealthBarLayer.hide_hp_fruit(current_hp)
 	
 		if current_hp <= 0 :
 			game_over()

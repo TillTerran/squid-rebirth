@@ -1,4 +1,10 @@
-[gd_resource type="Theme" format=3 uid="uid://ierb8sk14ach"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://ierb8sk14ach"]
+
+[ext_resource type="Texture2D" uid="uid://opukfyx1mj5m" path="res://menus/menu_texte_bottom.png" id="1_6rxxi"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yearw"]
+texture = ExtResource("1_6rxxi")
 
 [resource]
 Label/fonts/font = null
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_yearw")

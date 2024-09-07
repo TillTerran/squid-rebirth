@@ -51,11 +51,11 @@ tp_id = 2
 
 [node name="tp_point1" parent="." index="12" instance=ExtResource("3_dcbwx")]
 position = Vector2(394, -45)
-tp_id = 3
+tp_id = 0
 
 [node name="tp_point2" parent="." index="13" instance=ExtResource("3_dcbwx")]
 position = Vector2(927, 225)
-tp_id = 0
+tp_id = 3
 
 [node name="tp_point3" parent="." index="14" instance=ExtResource("3_dcbwx")]
 position = Vector2(-103, -314)
@@ -76,6 +76,9 @@ speakers = PackedStringArray("Enki", "", "Enki", "", "Enki", "???", "")
 position = Vector2(48.625, 330)
 shape = SubResource("RectangleShape2D_jgeam")
 debug_color = Color(0.810341, 0.00215934, 0.986044, 0.42)
+
+[node name="ParallaxBackground" parent="." index="18"]
+visible = false
 
 [node name="ParallaxLayer" parent="ParallaxBackground" index="0"]
 motion_scale = Vector2(0.9, 0.9)

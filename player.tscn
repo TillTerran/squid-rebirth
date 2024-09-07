@@ -878,7 +878,7 @@ position = Vector2(15, 1)
 shape = SubResource("RectangleShape2D_5v1a1")
 debug_color = Color(0.778642, 0.43666, 0.093506, 0.42)
 
-[node name="CanvasLayer" parent="." instance=ExtResource("13_gece0")]
+[node name="HealthBarLayer" parent="." instance=ExtResource("13_gece0")]
 layer = 49
 visible = false
 
