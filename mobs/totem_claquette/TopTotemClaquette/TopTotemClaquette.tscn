@@ -964,7 +964,7 @@ _data = {
 size = Vector2(16, 24)
 
 [node name="TopTotemClaquette" type="CharacterBody2D" groups=["TopTotemClaquette"]]
-collision_layer = 3
+collision_layer = 19
 script = SubResource("GDScript_omxb6")
 
 [node name="HitboxTopTotem" type="CollisionShape2D" parent="."]
