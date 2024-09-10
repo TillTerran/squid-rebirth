@@ -2,11 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://b32tvkldvdtr7" path="res://level_template.tscn" id="1_cg3pg"]
 [ext_resource type="PackedScene" uid="uid://bclewffjxdq25" path="res://scene_change/change_scene_area.tscn" id="2_qocga"]
-[ext_resource type="Texture2D" uid="uid://k2427ya2jgpo" path="res://levels/salle/paralax_sprites/Salle_15__grille_fond.png" id="2_u8qyn"]
+[ext_resource type="Texture2D" uid="uid://dr11gqxaod13x" path="res://levels/salle/paralax_sprites/Salle_15__grille_fond.png" id="2_u8qyn"]
 [ext_resource type="PackedScene" uid="uid://c833s1u5hyolg" path="res://scene_change/tp_point.tscn" id="3_dcbwx"]
 [ext_resource type="PackedScene" uid="uid://irpquugqy33h" path="res://mobs/onyx/onyx.tscn" id="3_druw4"]
 [ext_resource type="Script" path="res://levels/salle/meet_aerin_detection.gd" id="5_m0e2l"]
-[ext_resource type="Texture2D" uid="uid://cm8ky1yyi7hg6" path="res://levels/salle/paralax_sprites/RACINES_premier_plan_flou.png" id="5_q3ayf"]
+[ext_resource type="Texture2D" uid="uid://co0rbhc4j4i5" path="res://levels/salle/paralax_sprites/RACINES_premier_plan_flou.png" id="5_q3ayf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jgeam"]
 
