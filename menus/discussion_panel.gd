@@ -8,6 +8,7 @@ var monologue=false
 
 var texts:PackedStringArray
 var speakers:PackedStringArray
+var moods:PackedStringArray
 
 @onready var header=$"MarginContainer/VBoxContainer/VBoxContainer/quest panel/MarginContainer/GridContainer/header"
 @onready var text_body= $"MarginContainer/VBoxContainer/VBoxContainer/quest panel/MarginContainer/GridContainer/RichTextLabel"
@@ -21,8 +22,6 @@ func _ready() -> void:
 	continue_quit_button.disabled=true
 	text_array_number=0
 	text_body.visible_characters=0
-	
-	
 	if texts.size()-1==text_array_number:
 		continue_quit_button.text="Continue"
 	
@@ -36,15 +35,34 @@ func _process(delta: float) -> void:
 			text_body.visible_characters=visible_characters
 	else:
 		continue_quit_button.disabled=false
-	
-	
-	
+
+
+func change_char_talking_texture(speaker:String="",mood:String="normal"):
+	if speaker=="":
+		$MarginContainer/VBoxContainer/TextureRect2.set_texture(null)
+		print("null")
+	else:
+		speaker=speaker.to_lower()
+		if mood=="":
+			mood="normal"
+		mood=mood.to_lower()
+		$MarginContainer/VBoxContainer/TextureRect2.set_texture(load("res://menus/character_talking/"+speaker+"/"+speaker+"_"+mood+".png"))
+		print("res://menus/character_talking/"+speaker+"/"+speaker+"_"+mood+".png")
+	pass
 
 
 
-func set_text(speaker_array,text_array):
+func set_text(speaker_array:PackedStringArray,text_array:PackedStringArray,mood_array=null):
 	speakers=speaker_array
 	texts=text_array
+	if mood_array!=null:
+		moods=mood_array
+	else:
+		var list1:Array[String]= []
+		list1.resize(texts.size())
+		list1.fill("")
+		moods=PackedStringArray(list1)
+		print("kujyhg")
 
 
 func _on_skip_pressed() -> void:
@@ -61,6 +79,7 @@ func _on_continue_or_quit_pressed() -> void:
 	if texts.size()>text_array_number:
 		text_body.text=texts[text_array_number]
 		header.text=speakers[text_array_number]
+		change_char_talking_texture(speakers[text_array_number],moods[text_array_number])
 	else:
 		get_tree().paused=false
 		Events.loading_screen=false
