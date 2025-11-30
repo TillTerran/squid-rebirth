@@ -18,12 +18,3 @@ func pick_up():
 	if key_number !=-1:
 		GlobalVariables.taken_keys[key_number]=true
 	queue_free()
-
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	body.held_keys+=1
-	GlobalVariables.held_keys+=1
-	print(body.held_keys)
-	if key_number !=-1:
-		GlobalVariables.taken_keys[key_number]=true
-	queue_free()
