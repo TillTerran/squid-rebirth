@@ -97,6 +97,8 @@ func _on_direction_timeout():
 	$WaitToChangeDirection.start()
 
 func _on_detection_area_player_body_exited(body):
+	if (get_tree()==null):
+		return
 	var position_ennemi = global_position  # Position actuelle de l'ennemi
 	var position_joueur = body.global_position  # Position du joueur
 	if (position_ennemi.x-position_joueur.x>0):
