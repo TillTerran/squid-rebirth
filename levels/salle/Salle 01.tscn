@@ -10,7 +10,7 @@
 [node name="level_template2" instance=ExtResource("1_qotwk")]
 
 [node name="change_scene_area" parent="." index="0" instance=ExtResource("2_4ulbk")]
-position = Vector2(58, 34)
+position = Vector2(80, 34)
 scale = Vector2(2, 2)
 connected_scene = "res://levels/salle/Salle 02.tscn"
 tp_point_id = 1
@@ -29,6 +29,7 @@ key_number = 0
 
 [node name="locked_door" parent="." index="4" instance=ExtResource("5_sjckd")]
 position = Vector2(58, 33)
+door_number = 0
 
 [node name="ParallaxBackground" parent="." index="5"]
 layer = -5

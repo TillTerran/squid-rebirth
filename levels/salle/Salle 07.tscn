@@ -22,7 +22,7 @@ scale = Vector2(0.265625, 0.255906)
 texture = ExtResource("2_3i3lu")
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallaxforeground/ParallaxLayer" index="0"]
-position = Vector2(-229, -26)
+position = Vector2(-294, -58)
 scale = Vector2(0.442336, 0.383508)
 texture = ExtResource("5_r5tyy")
 hframes = 5
