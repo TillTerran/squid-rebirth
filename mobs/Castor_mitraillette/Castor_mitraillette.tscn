@@ -1,14 +1,14 @@
 [gd_scene load_steps=46 format=3 uid="uid://c3mu4obaf2s8k"]
 
 [ext_resource type="Script" path="res://mobs/Castor_mitraillette/Castor_mitraillette.gd" id="1_38nya"]
-[ext_resource type="Texture2D" uid="uid://by842obq5ywmk" path="res://mobs/Boss/Ecureuil/Animation/Death/Death.png" id="2_d76di"]
-[ext_resource type="Texture2D" uid="uid://wavnhiy1g1ns" path="res://mobs/Castor_mitraillette/animation/attack/f9-imageonline.co-merged (1).png" id="2_esgdq"]
-[ext_resource type="Texture2D" uid="uid://c1vvse6ngfrqv" path="res://mobs/Castor_mitraillette/animation/idle/st1.png" id="3_k801j"]
-[ext_resource type="Texture2D" uid="uid://bqlpg2t06tsb0" path="res://mobs/Castor_mitraillette/animation/walk/m9-imageonline.co-merged.png" id="4_p8qrh"]
-[ext_resource type="Texture2D" uid="uid://tnp3sxqwg7be" path="res://mobs/Castor_mitraillette/animation/idle/st2.png" id="4_u2fcm"]
-[ext_resource type="Texture2D" uid="uid://23k1kngw3vdt" path="res://mobs/Castor_mitraillette/animation/idle/st3.png" id="5_2h0as"]
-[ext_resource type="Texture2D" uid="uid://bjlw8owrwnp2o" path="res://mobs/Castor_mitraillette/animation/idle/st4.png" id="6_03wjj"]
-[ext_resource type="Texture2D" uid="uid://d07u11ek2cp05" path="res://mobs/Castor_mitraillette/animation/idle/st5.png" id="7_sx2y3"]
+[ext_resource type="Texture2D" uid="uid://cir0qskghlp4p" path="res://mobs/Boss/Ecureuil/Animation/Death/Death.png" id="2_d76di"]
+[ext_resource type="Texture2D" uid="uid://pjioqwaavwww" path="res://mobs/Castor_mitraillette/animation/attack/f9-imageonline.co-merged (1).png" id="2_esgdq"]
+[ext_resource type="Texture2D" uid="uid://dkdgl61ul0gw5" path="res://mobs/Castor_mitraillette/animation/idle/st1.png" id="3_k801j"]
+[ext_resource type="Texture2D" uid="uid://cd1sqmoimtsll" path="res://mobs/Castor_mitraillette/animation/walk/m9-imageonline.co-merged.png" id="4_p8qrh"]
+[ext_resource type="Texture2D" uid="uid://bxoqy5rlyhqpb" path="res://mobs/Castor_mitraillette/animation/idle/st2.png" id="4_u2fcm"]
+[ext_resource type="Texture2D" uid="uid://ch7fmu6l6ba2y" path="res://mobs/Castor_mitraillette/animation/idle/st3.png" id="5_2h0as"]
+[ext_resource type="Texture2D" uid="uid://ccp3mg42b3jtg" path="res://mobs/Castor_mitraillette/animation/idle/st4.png" id="6_03wjj"]
+[ext_resource type="Texture2D" uid="uid://8g0yktg3vwfw" path="res://mobs/Castor_mitraillette/animation/idle/st5.png" id="7_sx2y3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d15ln"]
 atlas = ExtResource("2_d76di")
@@ -525,7 +525,6 @@ libraries = {
 [node name="WaitToChangeDirection" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
-autostart = true
 
 [node name="Jump_before_attack" type="Timer" parent="."]
 one_shot = true

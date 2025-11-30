@@ -148,7 +148,7 @@ size = Vector2(1621.05, 474.5)
 script = ExtResource("1_xpoyw")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-layer = 0
+layer = -1
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.7, 0.7)

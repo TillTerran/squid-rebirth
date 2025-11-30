@@ -326,11 +326,7 @@ func update_animation_monke(input_vector:Vector2):
 	var cur_act_unstoppable:bool = (($AnimationPlayer.current_animation == "Enki_punch") || ($AnimationPlayer.current_animation == "Enki_grab") || ($AnimationPlayer.current_animation == "Enki_jump"))
 	#if !stuck :#Why ?
 	
-			
-	
-	print(cur_act_unstoppable)
 	if !cur_act_unstoppable:
-		print("hhhhhhhhhh")
 		if input_vector.length_squared()!=0:
 			#TODO punching allows to move backwards even after the punch, correct that
 			if input_vector.x*velocity.x<=0:

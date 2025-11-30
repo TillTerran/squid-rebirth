@@ -75,7 +75,7 @@ func _on_direction_timeout() -> void:
 		$AnimatedSprite2D.flip_h=false
 	elif direction==1:
 		$AnimatedSprite2D.flip_h=true
-	$WaitToChangeDirection.start()
+	$WaitToChangeDirection.start(2)
 
 
 func _on_wait_to_change_direction_timeout() -> void:
@@ -151,7 +151,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	player_chase=false
 	print("Exit body")
 	Legrorat_state=STATE.IDLE
-	$WaitToChangeDirection.start()
+	$WaitToChangeDirection.start(2)
 	player=null
 
 

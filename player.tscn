@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=3 uid="uid://s77rdbs0u3dk"]
+[gd_scene load_steps=110 format=3 uid="uid://s77rdbs0u3dk"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://32j52s0u6a86" path="res://Player/animations/enki_idle.png" id="2_n7ms0"]
@@ -276,40 +276,69 @@ animation = &"Switch Aerin_to_Enki"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5241g"]
 animation = &"Switch_Enki_to_Aerin"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fxqsr"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bn0r8"]
+animation = &"empty"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cqi64"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_u0ru7"]
+animation = &"empty"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vsl2t"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pw132"]
+animation = &"empty"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yikij"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hkjny"]
+animation = &"empty"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7yjvu"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_asl4t"]
 switch_mode = 2
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gedfu"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jc7t6"]
+advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j4oc7"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1x058"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k3tvn"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m0d3d"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_adgoy"]
 switch_mode = 2
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tuwce"]
-switch_mode = 2
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x70rm"]
+advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jx6aj"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d7wlu"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r8ino"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3xkud"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ecbuh"]
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ec7vo"]
 states/Aerin/node = SubResource("AnimationNodeStateMachine_twt21")
-states/Aerin/position = Vector2(467, 373)
+states/Aerin/position = Vector2(487.87, 373)
 states/End/position = Vector2(902, 242.417)
 states/Enki/node = SubResource("AnimationNodeStateMachine_7dqv6")
 states/Enki/position = Vector2(467, 115)
-states/Start/position = Vector2(124, 194)
+states/Start/position = Vector2(341, 242.417)
 "states/Switch Aerin_to_Enki/node" = SubResource("AnimationNodeAnimation_jyy0s")
-"states/Switch Aerin_to_Enki/position" = Vector2(593, 242.417)
+"states/Switch Aerin_to_Enki/position" = Vector2(112, 264.417)
 states/Switch_Enki_to_Aerin/node = SubResource("AnimationNodeAnimation_5241g")
-states/Switch_Enki_to_Aerin/position = Vector2(345, 242.417)
-transitions = ["Start", "Enki", SubResource("AnimationNodeStateMachineTransition_fxqsr"), "Start", "Aerin", SubResource("AnimationNodeStateMachineTransition_cqi64"), "Enki", "Switch_Enki_to_Aerin", SubResource("AnimationNodeStateMachineTransition_vsl2t"), "Switch_Enki_to_Aerin", "Aerin", SubResource("AnimationNodeStateMachineTransition_yikij"), "Aerin", "Switch Aerin_to_Enki", SubResource("AnimationNodeStateMachineTransition_gedfu"), "Switch Aerin_to_Enki", "Enki", SubResource("AnimationNodeStateMachineTransition_j4oc7"), "Enki", "End", SubResource("AnimationNodeStateMachineTransition_tuwce"), "Aerin", "End", SubResource("AnimationNodeStateMachineTransition_jx6aj")]
-graph_offset = Vector2(-126.13, 51.8093)
+states/Switch_Enki_to_Aerin/position = Vector2(549.87, 188.417)
+states/post-aerin/node = SubResource("AnimationNodeAnimation_bn0r8")
+states/post-aerin/position = Vector2(487.87, 475.809)
+states/post-enki/node = SubResource("AnimationNodeAnimation_u0ru7")
+states/post-enki/position = Vector2(634.87, 121.809)
+states/pre-aerin/node = SubResource("AnimationNodeAnimation_pw132")
+states/pre-aerin/position = Vector2(510.87, 279.809)
+states/pre-enki/node = SubResource("AnimationNodeAnimation_hkjny")
+states/pre-enki/position = Vector2(318.87, 145.809)
+transitions = ["Start", "pre-enki", SubResource("AnimationNodeStateMachineTransition_7yjvu"), "Switch Aerin_to_Enki", "pre-enki", SubResource("AnimationNodeStateMachineTransition_asl4t"), "pre-enki", "Enki", SubResource("AnimationNodeStateMachineTransition_jc7t6"), "Enki", "post-enki", SubResource("AnimationNodeStateMachineTransition_1x058"), "post-enki", "End", SubResource("AnimationNodeStateMachineTransition_k3tvn"), "post-enki", "Switch_Enki_to_Aerin", SubResource("AnimationNodeStateMachineTransition_m0d3d"), "Switch_Enki_to_Aerin", "pre-aerin", SubResource("AnimationNodeStateMachineTransition_adgoy"), "pre-aerin", "Aerin", SubResource("AnimationNodeStateMachineTransition_x70rm"), "Start", "pre-aerin", SubResource("AnimationNodeStateMachineTransition_d7wlu"), "Aerin", "post-aerin", SubResource("AnimationNodeStateMachineTransition_r8ino"), "post-aerin", "Switch Aerin_to_Enki", SubResource("AnimationNodeStateMachineTransition_3xkud"), "post-aerin", "End", SubResource("AnimationNodeStateMachineTransition_ecbuh")]
+graph_offset = Vector2(-126.13, 200.665)
 
 [sub_resource type="Animation" id="Animation_vgneh"]
 resource_name = "Enki_Rise_to_Fall"

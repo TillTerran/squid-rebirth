@@ -10,7 +10,7 @@
 [node name="level_template2" instance=ExtResource("1_qotwk")]
 
 [node name="change_scene_area" parent="." index="0" instance=ExtResource("2_4ulbk")]
-position = Vector2(92, 34)
+position = Vector2(58, 34)
 scale = Vector2(2, 2)
 connected_scene = "res://levels/salle/Salle 02.tscn"
 tp_point_id = 1
@@ -32,7 +32,6 @@ position = Vector2(58, 33)
 
 [node name="ParallaxBackground" parent="." index="5"]
 layer = -5
-visible = false
 
 [node name="CanvasLayer2_ParallaxBackground_ParallaxBackgroundFar#ParallaxBackground_ParallaxLayer#Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxBackgroundFar" index="0"]
 position = Vector2(32.875, 51.75)
