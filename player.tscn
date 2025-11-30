@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://s77rdbs0u3dk"]
+[gd_scene load_steps=102 format=3 uid="uid://s77rdbs0u3dk"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://32j52s0u6a86" path="res://Player/animations/enki_idle.png" id="2_n7ms0"]
@@ -50,7 +50,7 @@ transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransitio
 animation = &"Enki_fall"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4teuo"]
-animation = &"loop"
+animation = &"empty"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0jwh5"]
 advance_mode = 2
@@ -83,6 +83,9 @@ animation = &"Enki_Rise_to_Fall"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fs050"]
 animation = &"Enki_rise_up"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yqivd"]
+animation = &"empty"
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ohbf5"]
 advance_mode = 2
 
@@ -91,11 +94,20 @@ switch_mode = 2
 advance_mode = 2
 advance_condition = &"is_falling"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3ck54"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_c5hja"]
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_64vtp"]
 state_machine_type = 2
 states/Enki_rise_up/node = SubResource("AnimationNodeAnimation_fs050")
 states/Enki_rise_up/position = Vector2(432, 61)
-transitions = ["Start", "Enki_rise_up", SubResource("AnimationNodeStateMachineTransition_ohbf5"), "Enki_rise_up", "End", SubResource("AnimationNodeStateMachineTransition_15n5h")]
+states/empty/node = SubResource("AnimationNodeAnimation_yqivd")
+states/empty/position = Vector2(466, 140)
+transitions = ["Start", "Enki_rise_up", SubResource("AnimationNodeStateMachineTransition_ohbf5"), "Enki_rise_up", "End", SubResource("AnimationNodeStateMachineTransition_15n5h"), "Enki_rise_up", "empty", SubResource("AnimationNodeStateMachineTransition_3ck54"), "empty", "Enki_rise_up", SubResource("AnimationNodeStateMachineTransition_c5hja")]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0c6tr"]
 switch_mode = 2
@@ -109,6 +121,7 @@ advance_mode = 2
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_t2sco"]
+priority = 0
 switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_wuqr8"]
@@ -133,7 +146,7 @@ animation = &"Enki_land_fall"
 animation = &"Enki_idle"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xdkr5"]
-animation = &"loop"
+animation = &"empty"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ese7h"]
 advance_mode = 2
@@ -160,7 +173,7 @@ transitions = ["Start", "Enki_idle", SubResource("AnimationNodeStateMachineTrans
 animation = &"Enki_run"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_214f6"]
-animation = &"loop"
+animation = &"empty"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_giuv2"]
 advance_mode = 2
@@ -183,35 +196,55 @@ states/loop/node = SubResource("AnimationNodeAnimation_214f6")
 states/loop/position = Vector2(374, 184)
 transitions = ["Start", "Enki_run", SubResource("AnimationNodeStateMachineTransition_giuv2"), "Enki_run", "loop", SubResource("AnimationNodeStateMachineTransition_a21xa"), "loop", "Enki_run", SubResource("AnimationNodeStateMachineTransition_0t2l3"), "Enki_run", "End", SubResource("AnimationNodeStateMachineTransition_5ff38")]
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_id526"]
+animation = &"empty"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7v3oc"]
+animation = &"empty"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rs8tw"]
+animation = &"empty"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f5hpw"]
+animation = &"empty"
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5drt0"]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xaunx"]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_018g4"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_og72y"]
 switch_mode = 2
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1xta3"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5gaec"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_abt1a"]
-priority = 0
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gg33r"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l3i4o"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gge2d"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bxdfm"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3gtya"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nrkpw"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_f4b4e"]
 switch_mode = 2
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5ijdx"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4xwbt"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7yx5j"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pnrlg"]
+advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6vi1v"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_73aqe"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a3ryl"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kr7ps"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8bv6c"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8qxab"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3iiv1"]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_7dqv6"]
 state_machine_type = 2
@@ -222,10 +255,19 @@ states/Enki_jump/position = Vector2(616, 199)
 states/Enki_land_fall/node = SubResource("AnimationNodeAnimation_8mhfd")
 states/Enki_land_fall/position = Vector2(323, -30)
 states/Idle/node = SubResource("AnimationNodeStateMachine_ygh7k")
-states/Idle/position = Vector2(366, 86)
+states/Idle/position = Vector2(323, 64)
 states/Run/node = SubResource("AnimationNodeStateMachine_dyq0g")
-states/Run/position = Vector2(454, 236)
-transitions = ["Airborne", "Enki_land_fall", SubResource("AnimationNodeStateMachineTransition_5drt0"), "Run", "Enki_jump", SubResource("AnimationNodeStateMachineTransition_xaunx"), "Enki_jump", "Airborne", SubResource("AnimationNodeStateMachineTransition_018g4"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_1xta3"), "Idle", "End", SubResource("AnimationNodeStateMachineTransition_abt1a"), "Enki_land_fall", "Idle", SubResource("AnimationNodeStateMachineTransition_l3i4o"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_5ijdx"), "Idle", "Enki_jump", SubResource("AnimationNodeStateMachineTransition_7yx5j"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_6vi1v"), "Idle", "Airborne", SubResource("AnimationNodeStateMachineTransition_a3ryl"), "Run", "Airborne", SubResource("AnimationNodeStateMachineTransition_8bv6c")]
+states/Run/position = Vector2(423, 147)
+states/Start/position = Vector2(118, 100)
+"states/empty 3/node" = SubResource("AnimationNodeAnimation_id526")
+"states/empty 3/position" = Vector2(591, 49.2252)
+states/post-idle/node = SubResource("AnimationNodeAnimation_7v3oc")
+states/post-idle/position = Vector2(430.039, 94.2252)
+states/post-run/node = SubResource("AnimationNodeAnimation_rs8tw")
+states/post-run/position = Vector2(401.039, 263.225)
+states/pre-idle/node = SubResource("AnimationNodeAnimation_f5hpw")
+states/pre-idle/position = Vector2(225.038, 49.2252)
+transitions = ["Airborne", "Enki_land_fall", SubResource("AnimationNodeStateMachineTransition_5drt0"), "Enki_land_fall", "pre-idle", SubResource("AnimationNodeStateMachineTransition_og72y"), "pre-idle", "Idle", SubResource("AnimationNodeStateMachineTransition_5gaec"), "Idle", "post-idle", SubResource("AnimationNodeStateMachineTransition_gg33r"), "post-idle", "Enki_jump", SubResource("AnimationNodeStateMachineTransition_gge2d"), "post-idle", "Run", SubResource("AnimationNodeStateMachineTransition_bxdfm"), "post-idle", "End", SubResource("AnimationNodeStateMachineTransition_3gtya"), "Start", "pre-idle", SubResource("AnimationNodeStateMachineTransition_nrkpw"), "Enki_jump", "empty 3", SubResource("AnimationNodeStateMachineTransition_f4b4e"), "post-idle", "empty 3", SubResource("AnimationNodeStateMachineTransition_4xwbt"), "empty 3", "Airborne", SubResource("AnimationNodeStateMachineTransition_pnrlg"), "Run", "post-run", SubResource("AnimationNodeStateMachineTransition_73aqe"), "post-run", "pre-idle", SubResource("AnimationNodeStateMachineTransition_kr7ps"), "post-run", "empty 3", SubResource("AnimationNodeStateMachineTransition_8qxab"), "post-run", "Enki_jump", SubResource("AnimationNodeStateMachineTransition_3iiv1")]
 graph_offset = Vector2(-13.9615, -73.7748)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jyy0s"]
@@ -568,7 +610,8 @@ resource_name = "Switch Aerin_to_Enki"
 resource_name = "Switch_Enki_to_Aerin"
 
 [sub_resource type="Animation" id="Animation_5c3j2"]
-resource_name = "loop"
+resource_name = "empty"
+length = 0.001
 step = 0.125
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1uypr"]
@@ -584,7 +627,7 @@ _data = {
 "RESET": SubResource("Animation_ake7r"),
 "Switch Aerin_to_Enki": SubResource("Animation_ea7fb"),
 "Switch_Enki_to_Aerin": SubResource("Animation_dqe88"),
-"loop": SubResource("Animation_5c3j2")
+"empty": SubResource("Animation_5c3j2")
 }
 
 [node name="player" type="CharacterBody2D"]
