@@ -667,7 +667,6 @@ safe_margin = 0.2
 script = ExtResource("1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CapsuleShape2D_gaimj")
 debug_color = Color(0.451119, 0.584072, 0.341836, 0.42)
 

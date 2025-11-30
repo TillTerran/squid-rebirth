@@ -79,6 +79,11 @@ func _ready():
 	
 	$AnimationPlayer.play("Enki_idle")
 	$AnimationPlayer.animation_changed.connect(dispay_animation)
+	$Pickup_range.area_entered.connect(_on_pickup_range_obj_entered)
+	$Pickup_range.body_entered.connect(_on_pickup_range_obj_entered)
+	$Pickup_range.area_exited.connect(_on_pickup_range_obj_exited)
+	$Pickup_range.body_exited.connect(_on_pickup_range_obj_exited)
+	
 	
 	
 	held_keys=GlobalVariables.held_keys
@@ -347,11 +352,7 @@ func update_animation_monke(input_vector:Vector2):
 			animation_state_machine.travel("Enki_punch")
 			$PunchCooldown.start()
 		if Input.is_action_just_pressed("Grab"):
-			if pickup_list.size() != 0 :
-				var current_pick = pickup_list[0]
-				pickup_list.remove_at(0)
-				#Et la on peut faire ce qu'on veut avec l'item au sol
-				current_pick.queue_free()
+			grab()
 		
 		if is_on_floor():
 			if input_vector.x!=0:
@@ -554,11 +555,13 @@ func save():
 func grab():
 	if pickup_list!=[]:
 		held_objects.get_or_add(pickup_list[0].get_meta("name",""),0)
-		held_objects[pickup_list[0].get_meta("name","")]+=1
+		held_objects[pickup_list[0].get_meta("name","unlisted")]+=1
+		
 		if pickup_list[0].has_method(&"pick_up") :
 			pickup_list[0].pick_up()
 		else:
 			pickup_list[0].queue_free()
+			push_error("grab : object in pickup_list cannop be picked up")
 
 
 func change_floating():#change this name, it's so bad
@@ -584,24 +587,22 @@ func _on_loot_range_body_entered(body):
 	if body.is_in_group("Drop") :
 		body.queue_free()
 
-func _on_pickup_range_body_entered(body):
+func _on_pickup_range_obj_entered(obj):
 	#if body.is_in_group("Grab"):
 		#pickup_list.insert(pickup_list.size(), body)
 		#print('Loot Entered')
 		#print(pickup_list.size())
-		pickup_list.insert(pickup_list.size(), body)
+		pickup_list.append(obj)
 		print('Loot Entered')
 		print(pickup_list.size())
 	
 
-func _on_pickup_range_body_exited(body):
-	#if body.is_in_group("Grab"):
-		#pickup_list.erase(body)
-		#print('Loot Exited')
-		#print(pickup_list.size())
-	pickup_list.erase(body)
+func _on_pickup_range_obj_exited(obj):
+	pickup_list.erase(obj)
 	print('Loot Exited')
 	print(pickup_list.size())
+
+
 
 
 
