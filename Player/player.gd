@@ -19,6 +19,8 @@ var floating=false #is not affected by gravity ?
 @export var height_of_jump=3.5 #height of the jump in tiles
 @export var tile_size=16.0#size of a tile in pixel
 
+@onready var animation_state_machine:AnimationNodeStateMachinePlayback = $AnimationTree.get("parameters/playback")
+
 var dynamic_left_perception=false
 
 var respawn_point=Vector2.ZERO
@@ -75,6 +77,8 @@ func _ready():
 	$Enki.visible = is_monke
 	$Aerin.visible = not(is_monke)
 	
+	$AnimationPlayer.play("Enki_idle")
+	$AnimationPlayer.animation_changed.connect(dispay_animation)
 	
 	
 	held_keys=GlobalVariables.held_keys
@@ -101,8 +105,14 @@ func _ready():
 	animation_prefix=get_animation_prefix()
 	held_keys=GlobalVariables.held_keys
 	
+	
+	
+	
+	
 	pass # Replace with function body.
 
+func dispay_animation(_old_animation,new_animation):
+	print(new_animation)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):# try to change to _physics_process
@@ -113,6 +123,8 @@ func _process(delta):# try to change to _physics_process
 #	if Input.is_action_just_pressed("ui_select"): # obsolete... for now
 #		change_gravity_type(not centered_gravity)
 #		print("space")
+	
+	
 	if !get_window().has_focus():
 		get_tree().paused = true
 	
@@ -139,6 +151,16 @@ func _process(delta):# try to change to _physics_process
 	
 	if Input.is_action_pressed("ui_a"):
 		print(rotation_degrees)
+	
+	#$AnimationTree.set("parameters/Enki/conditions/is_in_air", not(is_on_floor()))
+	#$AnimationTree.set("parameters/Enki/conditions/is_jumping", is_on_floor() and Input.is_action_just_pressed("jump"))
+	#$AnimationTree.set("parameters/Enki/conditions/is_moving_on_ground", is_on_floor() and (velocity.dot(left_dir) != 0))
+	#$AnimationTree.set("parameters/Enki/conditions/is_on_ground", is_on_floor())
+	#$AnimationTree.set("parameters/Enki/Airborne/fall_loop/conditions/is_on_ground", is_on_floor())
+	#$AnimationTree.set("parameters/Enki/conditions/idle", is_on_floor() and (velocity.dot(left_dir) == 0))
+	#$AnimationTree.set("parameters/Enki/Airborne/Rise_up_loop/conditions/is_falling", not(is_on_floor()) and (velocity.dot(up_direction)<0))
+	#
+	#$AnimationTree.set("parameters/Enki/conditions/is_moving_on_ground", is_on_floor and (velocity.x != 0))
 	
 	p_mvt(delta)
 
@@ -299,53 +321,58 @@ func add_force(force):
 #	change_up_direction(up_direction)
 
 
-func update_animation_monke(input_vector):
+func update_animation_monke(input_vector:Vector2):
 	
-	var cur_act_unstoppable = ($AnimationPlayer.current_animation == "PL_player_punch") || ($AnimationPlayer.current_animation == "PL_player_grab")
+	var cur_act_unstoppable:bool = (($AnimationPlayer.current_animation == "Enki_punch") || ($AnimationPlayer.current_animation == "Enki_grab") || ($AnimationPlayer.current_animation == "Enki_jump"))
+	#if !stuck :#Why ?
 	
-	if !stuck :
-		if Input.is_action_pressed("ui_right") and $AnimationPlayer.current_animation != "PL_player_punch":
-			if $Punch/punchhitbox.position.x < 0 or $Scare/ScareHitbox.position.x < 0:
-				$Punch/punchhitbox.position.x = $Punch/punchhitbox.position.x * -1
-				$Scare/ScareHitbox.position.x = $Scare/ScareHitbox.position.x * -1
-			$Aerin.flip_h = true
-			$Enki.flip_h = true
-		if Input.is_action_pressed("ui_left") and $AnimationPlayer.current_animation != "PL_player_punch":
-			if $Punch/punchhitbox.position.x > 0 or $Scare/ScareHitbox.position.x > 0:
-				$Punch/punchhitbox.position.x = $Punch/punchhitbox.position.x * -1
-				$Scare/ScareHitbox.position.x = $Scare/ScareHitbox.position.x * -1
-			$Aerin.flip_h = false
-			$Enki.flip_h = false
-
-	if input_vector!=Vector2.ZERO and !cur_act_unstoppable and $AnimationPlayer.current_animation != "PL_player_jump":
-		$AnimationPlayer.play("PL_player_run")
-	else:
-		if !cur_act_unstoppable and $AnimationPlayer.current_animation != "PL_player_grab":
-			$AnimationPlayer.play("PL_player_idle")
-
-
+			
 	
-	
-	if Input.is_action_just_pressed("Grab") and !cur_act_unstoppable:
-		if pickup_list.size() != 0 :
-			var current_pick = pickup_list[0]
-			pickup_list.remove_at(0)
-			#Et la on peut faire ce qu'on veut avec l'item au sol
-			current_pick.queue_free()
-	
-	
-	if not is_on_floor() and velocity.y > 0 and !cur_act_unstoppable:
-		$AnimationPlayer.play("PL_player_jump")
-	
-	if not is_on_floor() and velocity.y < 0 and !cur_act_unstoppable:
-		$AnimationPlayer.play("PL_player_fall")
+	print(cur_act_unstoppable)
+	if !cur_act_unstoppable:
+		print("hhhhhhhhhh")
+		if input_vector.length_squared()!=0:
+			#TODO punching allows to move backwards even after the punch, correct that
+			if input_vector.x*velocity.x<=0:
+				$Enki/Idle.flip_h=input_vector.x>0
+				$Enki/Run.flip_h=$Enki/Idle.flip_h
+				$Enki/Punch.flip_h=$Enki/Idle.flip_h
+				$Enki/Jump.flip_h=$Enki/Idle.flip_h
+				$Enki/Death.flip_h=$Enki/Idle.flip_h
+				if $Enki/Idle.flip_h:
+					$Punch.position.x = abs($Punch.position.x)
+					$Scare.position.x = abs($Scare.position.x)
+				else:
+					$Punch.position.x = -abs($Punch.position.x)
+					$Scare.position.x = -abs($Scare.position.x)
 		
-	
-	if Input.is_action_just_pressed("Punch") and $PunchCooldown.is_stopped():
-		$AnimationPlayer.play("PL_player_punch")
-		$PunchCooldown.start()
+		
+		if Input.is_action_just_pressed("Punch") and $PunchCooldown.is_stopped():
+			animation_state_machine.travel("Enki_punch")
+			$PunchCooldown.start()
+		if Input.is_action_just_pressed("Grab"):
+			if pickup_list.size() != 0 :
+				var current_pick = pickup_list[0]
+				pickup_list.remove_at(0)
+				#Et la on peut faire ce qu'on veut avec l'item au sol
+				current_pick.queue_free()
+		
+		if is_on_floor():
+			if input_vector.x!=0:
+				animation_state_machine.travel("Enki/Run")
+			else:
+				animation_state_machine.travel("Enki/Idle")
+		else:
+			if  velocity.y > 0:
+				animation_state_machine.travel("Enki/Airborne/Rise_up")
+			
+			if  velocity.y < 0:
+				animation_state_machine.travel("Enki/Airborne/Fall")
+			
+		
 
-func update_animation_ghost(input_vector):
+
+func update_animation_ghost(input_vector:Vector2):
 	
 	var cur_act_unstoppable = ($AnimationPlayer.current_animation == "GHOST_player_punch") || ($AnimationPlayer.current_animation == "GHOST_player_grab")
 	
@@ -455,7 +482,7 @@ func apply_accel(delta,a_vector,v_vector,max_hSpeed=300,max_vSpeed=2000):
 	
 	#the line below limits the strength of the vector, it's ugly but I didn't know how to do differently at the time.
 	v_vector = left_dir*min(abs(max_hSpeed*left_dir.dot(left_dir)),abs(v_vector.dot(left_dir)))*sign(v_vector.dot(left_dir))   +   up_direction*min(abs(max_vSpeed*up_direction.dot(up_direction)),abs(v_vector.dot(up_direction)))*sign(v_vector.dot(up_direction))
-	if ($AnimationPlayer.current_animation == "PL_player_punch"):
+	if ($AnimationPlayer.current_animation == "Enki_punch"):
 		v_vector-=left_dir*v_vector.dot(left_dir)*1/4
 	
 	
@@ -518,7 +545,7 @@ func game_over():
 		#$Ghost/Punch.visible = false
 		#$Ghost/Jump.visible = false
 	#$AnimationPlayer.stop()
-	#await $AnimationPlayer.play("PL_player_death")
+	#await $AnimationPlayer.play("Enki_death")
 	Events.player_died.emit()
 	pass
 

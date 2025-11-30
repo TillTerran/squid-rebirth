@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var player = %player
+@onready var player = $player
 @export var tp_points_array:Array
 var in_secret_zone=false
 
@@ -43,16 +43,16 @@ func change_scene(new_scene:String) -> void:
 
 func _on_revealing_hidden_layer_area_body_entered(_body: Node2D) -> void:
 	print(_body)
-	if "illusion_coming_back"in%Hidden_layers_animations.get_queue():
-		%Hidden_layers_animations.clear_queue()
+	if "illusion_coming_back"in$AnimationPlayer.get_queue():
+		$AnimationPlayer.clear_queue()
 	else:
-		%Hidden_layers_animations.queue("illusion_fading")
+		$AnimationPlayer.queue("illusion_fading")
 	
 
 
 func _on_revealing_hidden_layer_area_body_exited(_body: Node2D) -> void:
-	if "illusion_fading"in%Hidden_layers_animations.get_queue():
-		%Hidden_layers_animations.clear_queue()
+	if "illusion_fading"in$AnimationPlayer.get_queue():
+		$AnimationPlayer.clear_queue()
 	else:
-		%Hidden_layers_animations.queue("illusion_coming_back")
+		$AnimationPlayer.queue("illusion_coming_back")
 	
