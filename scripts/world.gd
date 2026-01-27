@@ -28,12 +28,3 @@ func level_transition():
 #	get_tree().change_scene_to_packed(next_level)
 	get_tree().paused=true
 	LevelTransition.fade_from_black()
-
-
-
-
-
-
-
-
-

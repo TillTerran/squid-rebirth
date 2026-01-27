@@ -74,7 +74,7 @@ func _on_detection_area_player_body_entered(body):
 	$WaitingTimerGoBackToPosition.stop()
 		
 func _on_detection_area_player_body_exited(body):
-	if get_tree()==null:
+	if get_tree()==null or !is_inside_tree():
 		return
 	player=null
 	player_chase=false
