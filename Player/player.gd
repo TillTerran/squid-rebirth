@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends PlayableCharacter
 
 @onready var world = $".."
 
@@ -16,8 +16,8 @@ var stuck : bool
 var animation_prefix=""
 var floating=false #is not affected by gravity ?
 
-@export var height_of_jump=3.5 #height of the jump in tiles
-@export var tile_size=16.0#size of a tile in pixel
+
+
 
 @onready var animation_state_machine:AnimationNodeStateMachinePlayback = $AnimationTree.get("parameters/playback")
 
@@ -32,9 +32,7 @@ var held_keys=0 #number of unused keys the player currently has.
 var gravity=-1000.0  #gravity strength
 var p_walkaccel = 500 
 var max_velocity = 2000
-var jump= sqrt(2.0*abs(gravity)*(1+height_of_jump*tile_size))# 16 pixel per tile; expected 
 
-var coyote_jump = 0
 #onready var collision_polygon_2d = $"../terrain de test/CollisionPolygon2D"
 
 #var up_direction = Vector2(0,-1)
@@ -83,6 +81,10 @@ func _ready():
 	$Pickup_range.body_entered.connect(_on_pickup_range_obj_entered)
 	$Pickup_range.area_exited.connect(_on_pickup_range_obj_exited)
 	$Pickup_range.body_exited.connect(_on_pickup_range_obj_exited)
+	
+	
+	#define movement characteristics
+	set_jump_height(3.5)
 	
 	
 	
@@ -237,7 +239,7 @@ func get_inputs(delta,input_vector:Vector2,vec_gravity:Vector2):
 			change_left_perception(input_vector)
 		
 		accel+=vec_gravity*delta
-		accel+=jump_(delta)
+		accel+=jump_(delta,Input.is_action_pressed("ui_up"))
 		
 		accel+=input_vector*input_left_dir*p_walkaccel*delta
 	
@@ -273,23 +275,7 @@ func respawn(cause:int)->void:
 
 
 
-func jump_(delta):
-	if is_on_floor():
-		coyote_jump = 0.2
-		
-	
-	
-	if not is_on_floor():
-		coyote_jump -= delta
-	if Input.is_action_pressed("ui_up"):
-		if coyote_jump>0:
-			coyote_jump=0
-			#print(up_direction)
-			return jump*up_direction 
-	else:
-		pass
-			
-	return Vector2.ZERO
+
 	
 func process_movement():
 	if bouncing:
@@ -302,8 +288,10 @@ func process_movement():
 		set_up_direction(up_direction)
 		move_and_slide()
 		#velocity = velocity
-	
-	
+
+
+
+
 
 func receive_impactv1(impact_vec):
 	"""à utiliser avec de l'invincibilité pour éviter une création trop grande de distance"""
@@ -361,7 +349,7 @@ func update_animation_monke(input_vector:Vector2):
 				animation_state_machine.travel("Enki/Idle")
 		else:
 			if  velocity.y > 0:
-				animation_state_machine.travel("Enki/Airborne/Rise_up")
+				animation_state_machine.travel("Enki/Airborne/Rise_Up")
 			
 			if  velocity.y < 0:
 				animation_state_machine.travel("Enki/Airborne/Fall")
