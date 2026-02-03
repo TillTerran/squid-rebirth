@@ -1,13 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://b2rko3ijjih3y"]
+[gd_scene load_steps=16 format=3 uid="uid://b2rko3ijjih3y"]
 
+[ext_resource type="Script" uid="uid://dvaob6b6nopun" path="res://menus/main_menu.gd" id="1_caclp"]
 [ext_resource type="Texture2D" uid="uid://kjwupdai52mq" path="res://menus/menu babylon fond.png" id="1_qvvt2"]
 [ext_resource type="FontFile" uid="uid://bprtrpsaa8l6r" path="res://sprites/fonts/SuperMario256.ttf" id="2_kl01w"]
 [ext_resource type="Texture2D" uid="uid://dmk8a72n1j338" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/start Txt Light L.png" id="2_rfdqk"]
 [ext_resource type="Texture2D" uid="uid://dy7n06nqx344" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/start Txt Light S.png" id="3_pml60"]
-[ext_resource type="Script" uid="uid://b8e540qt6ssej" path="res://scripts/quit_Button.gd" id="3_u72ov"]
-[ext_resource type="Script" uid="uid://bqcyyk5od1se1" path="res://scripts/start_Button.gd" id="3_x8wav"]
 [ext_resource type="Texture2D" uid="uid://c5evk4ac1pk5i" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/start Txt Light D.png" id="4_cbw2s"]
-[ext_resource type="Script" uid="uid://c6356ew5odkdu" path="res://scripts/continue_button.gd" id="4_qjge1"]
 [ext_resource type="Theme" uid="uid://cnq7lc5llgja5" path="res://sprites/bouttons/continue_button.tres" id="7_sjmhq"]
 [ext_resource type="Theme" uid="uid://bpo1yy4sasfng" path="res://sprites/bouttons/quit_button.tres" id="9_4kykg"]
 
@@ -71,26 +69,32 @@ Button/styles/hover = SubResource("StyleBoxTexture_c1o7b")
 Button/styles/normal = SubResource("StyleBoxTexture_ldbbu")
 Button/styles/pressed = SubResource("StyleBoxTexture_6fvav")
 
-[node name="MarginContainer" type="MarginContainer"]
+[sub_resource type="Theme" id="Theme_caclp"]
+Button/font_sizes/font_size = 40
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_caclp")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
 layout_mode = 2
 texture = ExtResource("1_qvvt2")
 expand_mode = 3
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 size_flags_stretch_ratio = 25.0
@@ -99,24 +103,24 @@ bbcode_enabled = true
 text = "[center]PROJECT BABYLON[/center]"
 fit_content = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 45.0
 alignment = 1
 
-[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer"]
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 10.0
 
-[node name="Control3" type="Control" parent="VBoxContainer/HBoxContainer"]
+[node name="Control3" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 10.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Control3"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/Control3"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -124,22 +128,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Control4" type="Control" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer"]
+[node name="Control4" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/Control3/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.0
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/Control3/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 10.0
 
-[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer2"]
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 10.0
 
-[node name="start_Button" type="Button" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer2"]
+[node name="start_Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -147,97 +152,120 @@ size_flags_stretch_ratio = 62.0
 mouse_filter = 1
 theme = SubResource("Theme_xcooj")
 text = " "
-script = ExtResource("3_x8wav")
 
-[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer2"]
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 10.0
 
-[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer"]
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/Control3/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 4.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/Control3/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 10.0
 
-[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer"]
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 8.0
 
-[node name="continue_Button" type="Button" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer"]
+[node name="continue_Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 80.0
 theme = ExtResource("7_sjmhq")
 text = " "
-script = ExtResource("4_qjge1")
 
-[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer"]
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 6.0
 
-[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer"]
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/Control3/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 4.0
+size_flags_stretch_ratio = 3.0
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/Control3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="credits_Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = SubResource("Theme_caclp")
+text = "Credits
+"
+
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control5" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/Control3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/Control3/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 10.0
 
-[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer3"]
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 30.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer3"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 85.0
 
-[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer3/VBoxContainer"]
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer3/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 10.0
 
-[node name="quit_Button" type="Button" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer3/VBoxContainer"]
+[node name="quit_Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer3/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 80.0
 theme = ExtResource("9_4kykg")
 text = "                    "
-script = ExtResource("3_u72ov")
 
-[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer3/VBoxContainer"]
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer3/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 20.0
 
-[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer3"]
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 30.0
 
-[node name="Control3" type="Control" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer"]
+[node name="Control3" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/Control3/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 10.0
 
-[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer"]
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 10.0
 
-[node name="Control" type="Control" parent="VBoxContainer"]
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 6.0
