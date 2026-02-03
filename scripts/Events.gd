@@ -16,4 +16,4 @@ func main_menu():
 	get_tree().change_scene_to_file(GlobalVariables.main_menu)
 
 func to_credits():
-	get_tree().change_scene_to_file("res://menus/credits.tscn")
+	get_tree().change_scene_to_file.call_deferred("res://menus/credits.tscn")

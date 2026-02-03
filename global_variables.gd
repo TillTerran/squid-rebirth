@@ -2,6 +2,7 @@ extends Node
 
 const main_menu:String="res://menus/main_menu_good.tscn"
 const tile_length:int=16
+const base_gravity_strength:float=980
 
 
 var is_monke : bool

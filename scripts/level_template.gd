@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var player = $player
+@onready var player = %player
 @export var tp_points_array:Array
 var in_secret_zone=false
 
@@ -14,6 +14,13 @@ func _ready():
 			player.position=tp_point.position
 	#player.position = tp_points[Events.tp_point_id].position
 	Events.tp_point_id=0#value of the tp point where you respawn if you load from the main menu.
+	
+	for revealing_area in find_children("IllusionDispellerArea*"):
+		revealing_area.body_entered.connect(_on_revealing_hidden_layer_area_body_entered)
+		revealing_area.body_exited.connect(_on_revealing_hidden_layer_area_body_exited)
+		print("area_found")
+		
+		
 	pass # Replace with function body.
 
 
@@ -42,17 +49,13 @@ func change_scene(new_scene:String) -> void:
 
 
 func _on_revealing_hidden_layer_area_body_entered(_body: Node2D) -> void:
-	print(_body)
-	if "illusion_coming_back"in$AnimationPlayer.get_queue():
-		$AnimationPlayer.clear_queue()
-	else:
-		$AnimationPlayer.queue("illusion_fading")
-	
+	var state_machine = $AnimationTreeHiddenLayers.get("parameters/playback")
+	state_machine.travel("illusion_fading")
+	print("fade")
 
 
 func _on_revealing_hidden_layer_area_body_exited(_body: Node2D) -> void:
-	if "illusion_fading"in$AnimationPlayer.get_queue():
-		$AnimationPlayer.clear_queue()
-	else:
-		$AnimationPlayer.queue("illusion_coming_back")
+	var state_machine = $AnimationTreeHiddenLayers.get("parameters/playback")
+	state_machine.travel("illusion_coming_back")
+	print("come back")
 	

@@ -4,10 +4,10 @@
 [ext_resource type="FontFile" uid="uid://bprtrpsaa8l6r" path="res://sprites/fonts/SuperMario256.ttf" id="2_kl01w"]
 [ext_resource type="Texture2D" uid="uid://dmk8a72n1j338" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/start Txt Light L.png" id="2_rfdqk"]
 [ext_resource type="Texture2D" uid="uid://dy7n06nqx344" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/start Txt Light S.png" id="3_pml60"]
-[ext_resource type="Script" path="res://scripts/quit_Button.gd" id="3_u72ov"]
-[ext_resource type="Script" path="res://scripts/start_Button.gd" id="3_x8wav"]
+[ext_resource type="Script" uid="uid://b8e540qt6ssej" path="res://scripts/quit_Button.gd" id="3_u72ov"]
+[ext_resource type="Script" uid="uid://bqcyyk5od1se1" path="res://scripts/start_Button.gd" id="3_x8wav"]
 [ext_resource type="Texture2D" uid="uid://c5evk4ac1pk5i" path="res://sprites/bouttons/Colo + txt/Light effect/version finie/start Txt Light D.png" id="4_cbw2s"]
-[ext_resource type="Script" path="res://scripts/continue_button.gd" id="4_qjge1"]
+[ext_resource type="Script" uid="uid://c6356ew5odkdu" path="res://scripts/continue_button.gd" id="4_qjge1"]
 [ext_resource type="Theme" uid="uid://cnq7lc5llgja5" path="res://sprites/bouttons/continue_button.tres" id="7_sjmhq"]
 [ext_resource type="Theme" uid="uid://bpo1yy4sasfng" path="res://sprites/bouttons/quit_button.tres" id="9_4kykg"]
 

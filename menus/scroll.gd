@@ -16,6 +16,7 @@ func _process(delta: float) -> void:
 	else:
 		vertical_scroll_mode=1
 		$VBoxContainer/HBoxContainer/Button.show()
+		$VBoxContainer/HBoxContainer/Button.grab_focus()
 		pass
 
 

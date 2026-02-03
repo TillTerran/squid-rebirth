@@ -1,13 +1,13 @@
 [gd_scene load_steps=10 format=3 uid="uid://d1qeidb8nvc8s"]
 
 [ext_resource type="PackedScene" uid="uid://b32tvkldvdtr7" path="res://level_template.tscn" id="1_tkx4x"]
-[ext_resource type="Texture2D" uid="uid://dayuxhuuuqlao" path="res://levels/salle/paralax_sprites/Salle_19_grille_fond.png" id="2_bxohi"]
+[ext_resource type="Texture2D" uid="uid://ny1s7yyqtrlf" path="res://levels/salle/paralax_sprites/Salle_19_grille_fond.png" id="2_bxohi"]
 [ext_resource type="PackedScene" uid="uid://bclewffjxdq25" path="res://scene_change/change_scene_area.tscn" id="2_rd1ct"]
 [ext_resource type="PackedScene" uid="uid://c833s1u5hyolg" path="res://scene_change/tp_point.tscn" id="3_4fsbj"]
-[ext_resource type="Texture2D" uid="uid://co0rbhc4j4i5" path="res://levels/salle/paralax_sprites/RACINES_premier_plan_flou.png" id="5_h0wrb"]
+[ext_resource type="Texture2D" uid="uid://cm8ky1yyi7hg6" path="res://levels/salle/paralax_sprites/RACINES_premier_plan_flou.png" id="5_h0wrb"]
 [ext_resource type="PackedScene" uid="uid://upnnk70g5w2i" path="res://mobs/Boss/Ecureuil/ecureuil.tscn" id="6_lbhlf"]
 [ext_resource type="PackedScene" uid="uid://b4lmree067k3h" path="res://doors and co/fight_door.tscn" id="7_qfpa5"]
-[ext_resource type="Script" path="res://scene_change/to_credits_area.gd" id="8_a0gbt"]
+[ext_resource type="Script" uid="uid://du6qho43j2b5s" path="res://scene_change/to_credits_area.gd" id="8_a0gbt"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_0eowg"]
 a = Vector2(0, -30)

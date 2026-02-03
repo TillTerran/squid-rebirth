@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dpk6apkk1nwgm"]
+[gd_scene load_steps=4 format=3 uid="uid://dpk6apkk1nwgm"]
 
-[ext_resource type="Script" path="res://scripts/circle_world.gd" id="1_72bwq"]
-[ext_resource type="PackedScene" uid="uid://dw6i34wt4qlay" path="res://Player/player.tscn" id="2_dyxwr"]
+[ext_resource type="Script" uid="uid://c04iedascbftx" path="res://scripts/circle_world.gd" id="1_72bwq"]
 [ext_resource type="PackedScene" uid="uid://dsqye2sc2h2yf" path="res://c_gravity_area.tscn" id="3_ugdiv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0o7tu"]
@@ -10,9 +9,6 @@ size = Vector2(423.642, 471.568)
 [node name="circle_world" type="Node2D"]
 position = Vector2(297, 190)
 script = ExtResource("1_72bwq")
-
-[node name="player" parent="." instance=ExtResource("2_dyxwr")]
-position = Vector2(7, 113)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(-289, -191)

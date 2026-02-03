@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://f4ogou6q151j"]
 
-[ext_resource type="Script" path="res://menus/scroll.gd" id="1_23bgg"]
+[ext_resource type="Script" uid="uid://bvrpjkfeva8gl" path="res://menus/scroll.gd" id="1_23bgg"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 

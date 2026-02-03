@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://btux15yg5e2ke"]
 
-[ext_resource type="Script" path="res://help_interract.gd" id="1_pou7p"]
+[ext_resource type="Script" uid="uid://cgfxy3wjfuv1m" path="res://help_interract.gd" id="1_pou7p"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yxjjv"]
 

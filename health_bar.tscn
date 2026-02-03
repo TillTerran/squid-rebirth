@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://di4fq573a43ys"]
 
-[ext_resource type="Script" path="res://health_bar.gd" id="1_d2j0h"]
+[ext_resource type="Script" uid="uid://bectt8flnb4al" path="res://health_bar.gd" id="1_d2j0h"]
 [ext_resource type="Texture2D" uid="uid://chpkbttavfvl5" path="res://sprites/Barre de vie.png" id="1_hreda"]
 [ext_resource type="Texture2D" uid="uid://dbef3ccfavqsi" path="res://sprites/coeur.png" id="2_g5t5m"]
 

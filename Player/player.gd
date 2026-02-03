@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends PlayableCharacter
 
 @onready var world = $".."
 
@@ -9,15 +9,22 @@ extends CharacterBody2D
 # var b = "text"
 var is_monke = GlobalVariables.is_monke
 var speed_scale = 1.0
-var hp_max : int
-var current_hp : int
+@export var hp_max : int:
+	set(value):
+		hp_max=value
+		current_hp=value
+var current_hp : int:
+	set(value):
+		current_hp=min(value,hp_max)
 #var velocity = Vector2.ZERO
 var stuck : bool
 var animation_prefix=""
 var floating=false #is not affected by gravity ?
 
-@export var height_of_jump=3.5 #height of the jump in tiles
-@export var tile_size=16.0#size of a tile in pixel
+
+
+
+@onready var animation_state_machine:AnimationNodeStateMachinePlayback = $AnimationTree.get("parameters/playback")
 
 var dynamic_left_perception=false
 
@@ -30,9 +37,7 @@ var held_keys=0 #number of unused keys the player currently has.
 var gravity=-1000.0  #gravity strength
 var p_walkaccel = 500 
 var max_velocity = 2000
-var jump= sqrt(2.0*abs(gravity)*(1+height_of_jump*tile_size))# 16 pixel per tile; expected 
 
-var coyote_jump = 0
 #onready var collision_polygon_2d = $"../terrain de test/CollisionPolygon2D"
 
 #var up_direction = Vector2(0,-1)
@@ -75,6 +80,17 @@ func _ready():
 	$Enki.visible = is_monke
 	$Aerin.visible = not(is_monke)
 	
+	$AnimationPlayer.play("Enki_idle")
+	$AnimationPlayer.animation_changed.connect(dispay_animation)
+	$Pickup_range.area_entered.connect(_on_pickup_range_obj_entered)
+	$Pickup_range.body_entered.connect(_on_pickup_range_obj_entered)
+	$Pickup_range.area_exited.connect(_on_pickup_range_obj_exited)
+	$Pickup_range.body_exited.connect(_on_pickup_range_obj_exited)
+	$AnimationPlayer.animation_finished.connect(update_character_sprite_direction)
+	
+	#define movement characteristics
+	set_jump_height(3.5)
+	
 	
 	
 	held_keys=GlobalVariables.held_keys
@@ -101,8 +117,14 @@ func _ready():
 	animation_prefix=get_animation_prefix()
 	held_keys=GlobalVariables.held_keys
 	
+	
+	
+	
+	
 	pass # Replace with function body.
 
+func dispay_animation(_old_animation,new_animation):
+	print(new_animation)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):# try to change to _physics_process
@@ -113,6 +135,8 @@ func _process(delta):# try to change to _physics_process
 #	if Input.is_action_just_pressed("ui_select"): # obsolete... for now
 #		change_gravity_type(not centered_gravity)
 #		print("space")
+	
+	
 	if !get_window().has_focus():
 		get_tree().paused = true
 	
@@ -140,6 +164,16 @@ func _process(delta):# try to change to _physics_process
 	if Input.is_action_pressed("ui_a"):
 		print(rotation_degrees)
 	
+	#$AnimationTree.set("parameters/Enki/conditions/is_in_air", not(is_on_floor()))
+	#$AnimationTree.set("parameters/Enki/conditions/is_jumping", is_on_floor() and Input.is_action_just_pressed("jump"))
+	#$AnimationTree.set("parameters/Enki/conditions/is_moving_on_ground", is_on_floor() and (velocity.dot(left_dir) != 0))
+	#$AnimationTree.set("parameters/Enki/conditions/is_on_ground", is_on_floor())
+	#$AnimationTree.set("parameters/Enki/Airborne/fall_loop/conditions/is_on_ground", is_on_floor())
+	#$AnimationTree.set("parameters/Enki/conditions/idle", is_on_floor() and (velocity.dot(left_dir) == 0))
+	#$AnimationTree.set("parameters/Enki/Airborne/Rise_up_loop/conditions/is_falling", not(is_on_floor()) and (velocity.dot(up_direction)<0))
+	#
+	#$AnimationTree.set("parameters/Enki/conditions/is_moving_on_ground", is_on_floor and (velocity.x != 0))
+	
 	p_mvt(delta)
 
 
@@ -154,7 +188,8 @@ func _process(delta):# try to change to _physics_process
 
 
 
-
+func update_direction_on_touch_ground():
+	pass
 
 
 
@@ -210,7 +245,7 @@ func get_inputs(delta,input_vector:Vector2,vec_gravity:Vector2):
 			change_left_perception(input_vector)
 		
 		accel+=vec_gravity*delta
-		accel+=jump_(delta)
+		accel+=jump_(delta,Input.is_action_pressed("ui_up"))
 		
 		accel+=input_vector*input_left_dir*p_walkaccel*delta
 	
@@ -246,23 +281,7 @@ func respawn(cause:int)->void:
 
 
 
-func jump_(delta):
-	if is_on_floor():
-		coyote_jump = 0.2
-		
-	
-	
-	if not is_on_floor():
-		coyote_jump -= delta
-	if Input.is_action_pressed("ui_up"):
-		if coyote_jump>0:
-			coyote_jump=0
-			#print(up_direction)
-			return jump*up_direction 
-	else:
-		pass
-			
-	return Vector2.ZERO
+
 	
 func process_movement():
 	if bouncing:
@@ -275,8 +294,10 @@ func process_movement():
 		set_up_direction(up_direction)
 		move_and_slide()
 		#velocity = velocity
-	
-	
+
+
+
+
 
 func receive_impactv1(impact_vec):
 	"""à utiliser avec de l'invincibilité pour éviter une création trop grande de distance"""
@@ -298,54 +319,55 @@ func add_force(force):
 #	#print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaah")
 #	change_up_direction(up_direction)
 
+func update_character_sprite_direction():
+	if (velocity.dot(up_direction.rotated(-PI/2))==0):return
+	if $Enki/Idle.flip_h!=(velocity.dot(up_direction.rotated(-PI/2))<=0):
+		$Enki/Idle.flip_h=velocity.dot(up_direction.rotated(-PI/2))<=0
+		$Enki/Run.flip_h=$Enki/Idle.flip_h
+		$Enki/Punch.flip_h=$Enki/Idle.flip_h
+		$Enki/Jump.flip_h=$Enki/Idle.flip_h
+		$Enki/Death.flip_h=$Enki/Idle.flip_h
+		if $Enki/Idle.flip_h:
+			$Punch.position.x = abs($Punch.position.x)
+			$Scare.position.x = abs($Scare.position.x)
+		else:
+			$Punch.position.x = -abs($Punch.position.x)
+			$Scare.position.x = -abs($Scare.position.x)
+	
 
-func update_animation_monke(input_vector):
+func update_animation_monke(input_vector:Vector2):
 	
-	var cur_act_unstoppable = ($AnimationPlayer.current_animation == "PL_player_punch") || ($AnimationPlayer.current_animation == "PL_player_grab")
+	var cur_act_unstoppable:bool = (($AnimationPlayer.current_animation == "Enki_punch") || ($AnimationPlayer.current_animation == "Enki_grab") || ($AnimationPlayer.current_animation == "Enki_jump"))
+	#if !stuck :#Why ?
 	
-	if !stuck :
-		if Input.is_action_pressed("ui_right") and $AnimationPlayer.current_animation != "PL_player_punch":
-			if $Punch/punchhitbox.position.x < 0 or $Scare/ScareHitbox.position.x < 0:
-				$Punch/punchhitbox.position.x = $Punch/punchhitbox.position.x * -1
-				$Scare/ScareHitbox.position.x = $Scare/ScareHitbox.position.x * -1
-			$Aerin.flip_h = true
-			$Enki.flip_h = true
-		if Input.is_action_pressed("ui_left") and $AnimationPlayer.current_animation != "PL_player_punch":
-			if $Punch/punchhitbox.position.x > 0 or $Scare/ScareHitbox.position.x > 0:
-				$Punch/punchhitbox.position.x = $Punch/punchhitbox.position.x * -1
-				$Scare/ScareHitbox.position.x = $Scare/ScareHitbox.position.x * -1
-			$Aerin.flip_h = false
-			$Enki.flip_h = false
-
-	if input_vector!=Vector2.ZERO and !cur_act_unstoppable and $AnimationPlayer.current_animation != "PL_player_jump":
-		$AnimationPlayer.play("PL_player_run")
-	else:
-		if !cur_act_unstoppable and $AnimationPlayer.current_animation != "PL_player_grab":
-			$AnimationPlayer.play("PL_player_idle")
-
-
-	
-	
-	if Input.is_action_just_pressed("Grab") and !cur_act_unstoppable:
-		if pickup_list.size() != 0 :
-			var current_pick = pickup_list[0]
-			pickup_list.remove_at(0)
-			#Et la on peut faire ce qu'on veut avec l'item au sol
-			current_pick.queue_free()
-	
-	
-	if not is_on_floor() and velocity.y > 0 and !cur_act_unstoppable:
-		$AnimationPlayer.play("PL_player_jump")
-	
-	if not is_on_floor() and velocity.y < 0 and !cur_act_unstoppable:
-		$AnimationPlayer.play("PL_player_fall")
+	if !cur_act_unstoppable:
+		if input_vector.length_squared()!=0:
+			#TODO punching allows to move backwards even after the punch, correct that
+			update_character_sprite_direction()
 		
-	
-	if Input.is_action_just_pressed("Punch") and $PunchCooldown.is_stopped():
-		$AnimationPlayer.play("PL_player_punch")
-		$PunchCooldown.start()
+		
+		if Input.is_action_just_pressed("Punch") and $PunchCooldown.is_stopped():
+			animation_state_machine.travel("Enki_punch")
+			$PunchCooldown.start()
+		if Input.is_action_just_pressed("Grab"):
+			grab()
+		
+		if is_on_floor():
+			if input_vector.x!=0:
+				animation_state_machine.travel("Enki/Run")
+			else:
+				animation_state_machine.travel("Enki/Idle")
+		else:
+			if  velocity.y > 0:
+				animation_state_machine.travel("Enki/Airborne/Rise_Up")
+			
+			if  velocity.y < 0:
+				animation_state_machine.travel("Enki/Airborne/Fall")
+			
+		
 
-func update_animation_ghost(input_vector):
+
+func update_animation_ghost(input_vector:Vector2):
 	
 	var cur_act_unstoppable = ($AnimationPlayer.current_animation == "GHOST_player_punch") || ($AnimationPlayer.current_animation == "GHOST_player_grab")
 	
@@ -455,7 +477,7 @@ func apply_accel(delta,a_vector,v_vector,max_hSpeed=300,max_vSpeed=2000):
 	
 	#the line below limits the strength of the vector, it's ugly but I didn't know how to do differently at the time.
 	v_vector = left_dir*min(abs(max_hSpeed*left_dir.dot(left_dir)),abs(v_vector.dot(left_dir)))*sign(v_vector.dot(left_dir))   +   up_direction*min(abs(max_vSpeed*up_direction.dot(up_direction)),abs(v_vector.dot(up_direction)))*sign(v_vector.dot(up_direction))
-	if ($AnimationPlayer.current_animation == "PL_player_punch"):
+	if ($AnimationPlayer.current_animation == "Enki_punch"):
 		v_vector-=left_dir*v_vector.dot(left_dir)*1/4
 	
 	
@@ -518,7 +540,7 @@ func game_over():
 		#$Ghost/Punch.visible = false
 		#$Ghost/Jump.visible = false
 	#$AnimationPlayer.stop()
-	#await $AnimationPlayer.play("PL_player_death")
+	#await $AnimationPlayer.play("Enki_death")
 	Events.player_died.emit()
 	pass
 
@@ -531,11 +553,13 @@ func save():
 func grab():
 	if pickup_list!=[]:
 		held_objects.get_or_add(pickup_list[0].get_meta("name",""),0)
-		held_objects[pickup_list[0].get_meta("name","")]+=1
+		held_objects[pickup_list[0].get_meta("name","unlisted")]+=1
+		
 		if pickup_list[0].has_method(&"pick_up") :
 			pickup_list[0].pick_up()
 		else:
 			pickup_list[0].queue_free()
+			push_error("grab : object in pickup_list cannop be picked up")
 
 
 func change_floating():#change this name, it's so bad
@@ -561,24 +585,22 @@ func _on_loot_range_body_entered(body):
 	if body.is_in_group("Drop") :
 		body.queue_free()
 
-func _on_pickup_range_body_entered(body):
+func _on_pickup_range_obj_entered(obj):
 	#if body.is_in_group("Grab"):
 		#pickup_list.insert(pickup_list.size(), body)
 		#print('Loot Entered')
 		#print(pickup_list.size())
-		pickup_list.insert(pickup_list.size(), body)
+		pickup_list.append(obj)
 		print('Loot Entered')
 		print(pickup_list.size())
 	
 
-func _on_pickup_range_body_exited(body):
-	#if body.is_in_group("Grab"):
-		#pickup_list.erase(body)
-		#print('Loot Exited')
-		#print(pickup_list.size())
-	pickup_list.erase(body)
+func _on_pickup_range_obj_exited(obj):
+	pickup_list.erase(obj)
 	print('Loot Exited')
 	print(pickup_list.size())
+
+
 
 
 

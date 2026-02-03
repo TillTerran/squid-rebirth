@@ -1,8 +1,8 @@
 [gd_scene load_steps=31 format=3 uid="uid://mtdhfmqptfli"]
 
-[ext_resource type="Script" path="res://mobs/totem_claquette/BottomTotemClaquette/BottomTotemClaquette.gd" id="1_q8lht"]
-[ext_resource type="Texture2D" uid="uid://cyeo6nad3dc71" path="res://mobs/totem_claquette/Animations/Animations.png" id="2_i16v3"]
-[ext_resource type="Texture2D" uid="uid://by842obq5ywmk" path="res://mobs/Boss/Ecureuil/Animation/Death/Death.png" id="2_is2v7"]
+[ext_resource type="Script" uid="uid://2gyisdguow0d" path="res://mobs/totem_claquette/BottomTotemClaquette/BottomTotemClaquette.gd" id="1_q8lht"]
+[ext_resource type="Texture2D" uid="uid://chm1m1rfogbtk" path="res://mobs/totem_claquette/Animations/Animations.png" id="2_i16v3"]
+[ext_resource type="Texture2D" uid="uid://cir0qskghlp4p" path="res://mobs/Boss/Ecureuil/Animation/Death/Death.png" id="2_is2v7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d15ln"]
 atlas = ExtResource("2_is2v7")
@@ -427,10 +427,10 @@ tracks/7/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tsulw"]
 _data = {
-"Death": SubResource("Animation_tkrfd"),
-"RESET": SubResource("Animation_rduum"),
-"WalkLeft": SubResource("Animation_f54ol"),
-"WalkRight": SubResource("Animation_byw5i")
+&"Death": SubResource("Animation_tkrfd"),
+&"RESET": SubResource("Animation_rduum"),
+&"WalkLeft": SubResource("Animation_f54ol"),
+&"WalkRight": SubResource("Animation_byw5i")
 }
 
 [node name="BottomTotemClaquette" type="CharacterBody2D" groups=["BottomTotemClaquette"]]

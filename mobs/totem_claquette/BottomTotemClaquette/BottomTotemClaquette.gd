@@ -53,6 +53,8 @@ func _process(delta):
 	#print(STATE.keys()[BottomTotemState]) 
 
 func _on_detection_area_body_entered(body):
+	if get_tree()==null:
+		return
 	player = body
 	player_chase = true
 	BottomTotemState=STATE.CHASE

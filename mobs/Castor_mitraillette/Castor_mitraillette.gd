@@ -75,7 +75,8 @@ func _on_projectile_timer_timeout():
 			tir_actuel+=1
 			start_timer($ProjectileTimer)
 		else:
-			start_timer($Reloading)
+			$Reloading.start()
+			
 
 func _on_detection_area_player_body_entered(body):
 	player=body
@@ -97,6 +98,9 @@ func _on_direction_timeout():
 	start_timer($WaitToChangeDirection)
 
 func _on_detection_area_player_body_exited(body):
+	for node in [self,$Reloading,$WaitToChangeDirection] :
+		if not node.is_inside_tree():
+			return
 	var position_ennemi = global_position  # Position actuelle de l'ennemi
 	var position_joueur = body.global_position  # Position du joueur
 	if (position_ennemi.x-position_joueur.x>0):
@@ -108,7 +112,8 @@ func _on_detection_area_player_body_exited(body):
 	player_chase=false
 	print("Exit body")
 	Castor_state=STATE.IDLE
-	start_timer($WaitToChangeDirection)
+	
+	$WaitToChangeDirection.start()
 	player=null
 	$Reloading.stop()
 

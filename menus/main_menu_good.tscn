@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b32tvkldvdtr7" path="res://level_template.tscn" id="1_gfrm5"]
 [ext_resource type="PackedScene" uid="uid://b2rko3ijjih3y" path="res://menus/main_menu.tscn" id="2_6vn60"]
-[ext_resource type="Script" path="res://levels/no pause.gd" id="3_f65ay"]
+[ext_resource type="Script" uid="uid://cx086brksxflv" path="res://levels/no pause.gd" id="3_f65ay"]
 
 [node name="level_template3" instance=ExtResource("1_gfrm5")]
 visible = false

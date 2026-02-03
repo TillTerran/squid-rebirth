@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b32tvkldvdtr7" path="res://level_template.tscn" id="1_0j6gh"]
 [ext_resource type="PackedScene" uid="uid://bclewffjxdq25" path="res://scene_change/change_scene_area.tscn" id="2_t6q18"]
-[ext_resource type="Texture2D" uid="uid://dmfpmyifkt1ym" path="res://levels/salle/paralax_sprites/Salle_16__grille_fond.png" id="2_u2fjs"]
+[ext_resource type="Texture2D" uid="uid://cykj1qhgwxa3p" path="res://levels/salle/paralax_sprites/Salle_16__grille_fond.png" id="2_u2fjs"]
 [ext_resource type="PackedScene" uid="uid://ci32ibukbp6pi" path="res://mobs/Legrorat/legrorat.tscn" id="4_tkm4s"]
 
 [node name="level_template" instance=ExtResource("1_0j6gh")]

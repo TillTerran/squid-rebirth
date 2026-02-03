@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dmnoklu0prmch"]
 
 [ext_resource type="PackedScene" uid="uid://b32tvkldvdtr7" path="res://level_template.tscn" id="1_jjrbr"]
-[ext_resource type="Texture2D" uid="uid://nf1ud0qgjc03" path="res://levels/salle/paralax_sprites/Salle_18__grille_fond.png" id="2_2ox38"]
+[ext_resource type="Texture2D" uid="uid://drgx853xi4g42" path="res://levels/salle/paralax_sprites/Salle_18__grille_fond.png" id="2_2ox38"]
 [ext_resource type="PackedScene" uid="uid://bclewffjxdq25" path="res://scene_change/change_scene_area.tscn" id="2_sf2ah"]
 [ext_resource type="PackedScene" uid="uid://c833s1u5hyolg" path="res://scene_change/tp_point.tscn" id="3_flsdy"]
 [ext_resource type="PackedScene" uid="uid://mtdhfmqptfli" path="res://mobs/totem_claquette/BottomTotemClaquette/BottomTotemClaquette.tscn" id="4_kcjh2"]

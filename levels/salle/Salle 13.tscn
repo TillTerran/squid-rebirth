@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://b32tvkldvdtr7" path="res://level_template.tscn" id="1_fnufi"]
 [ext_resource type="PackedScene" uid="uid://bclewffjxdq25" path="res://scene_change/change_scene_area.tscn" id="2_f0jtk"]
-[ext_resource type="Texture2D" uid="uid://bbfq02jn0et3s" path="res://levels/salle/paralax_sprites/Salle_13__grille_fond.png" id="2_rff1i"]
+[ext_resource type="Texture2D" uid="uid://k8bh1s4w5p" path="res://levels/salle/paralax_sprites/Salle_13__grille_fond.png" id="2_rff1i"]
 [ext_resource type="PackedScene" uid="uid://c833s1u5hyolg" path="res://scene_change/tp_point.tscn" id="3_6w0vl"]
-[ext_resource type="Texture2D" uid="uid://co0rbhc4j4i5" path="res://levels/salle/paralax_sprites/RACINES_premier_plan_flou.png" id="4_nfg5f"]
+[ext_resource type="Texture2D" uid="uid://cm8ky1yyi7hg6" path="res://levels/salle/paralax_sprites/RACINES_premier_plan_flou.png" id="4_nfg5f"]
 
 [node name="level_template" instance=ExtResource("1_fnufi")]
 

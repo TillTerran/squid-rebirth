@@ -1,38 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://tw2avpitjgu5"]
+[gd_scene load_steps=4 format=3 uid="uid://tw2avpitjgu5"]
 
-[ext_resource type="Script" path="res://scripts/key.gd" id="1_18bjb"]
-[ext_resource type="Texture2D" uid="uid://dgg66iswrbbnj" path="res://sprites/Item_cle.png" id="2_fw56k"]
+[ext_resource type="Script" uid="uid://6cgf7xrj3cxu" path="res://scriptsv2/key.gd" id="1_nue74"]
+[ext_resource type="Texture2D" uid="uid://dxxg2b7i0o4kn" path="res://sprites/Item_cle.png" id="2_fw56k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4a1n2"]
 size = Vector2(10, 10)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4li3h"]
-size = Vector2(10, 10)
-
-[node name="key" type="CharacterBody2D"]
-z_index = -1
-collision_layer = 4
-script = ExtResource("1_18bjb")
-metadata/name = "key"
-
-[node name="key" type="Node2D" parent="."]
-
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Key" type="Area2D"]
 collision_layer = 4
 collision_mask = 0
+script = ExtResource("1_nue74")
+metadata/name = "key"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(5, 5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_4a1n2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 0, 1)
-position = Vector2(5, 5)
+position = Vector2(1.19209e-05, 0.117188)
 scale = Vector2(0.0169972, 0.0159166)
 texture = ExtResource("2_fw56k")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5, 5)
-shape = SubResource("RectangleShape2D_4li3h")
-
-[connection signal="body_entered" from="Area2D" to="key" method="_on_area_2d_body_entered"]

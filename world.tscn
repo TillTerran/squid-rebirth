@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cauc6jtpagsxm"]
+[gd_scene load_steps=8 format=3 uid="uid://cauc6jtpagsxm"]
 
-[ext_resource type="PackedScene" uid="uid://dw6i34wt4qlay" path="res://Player/player.tscn" id="1"]
-[ext_resource type="Texture2D" uid="uid://dd7jn2sw1rpjf" path="res://icon.png" id="2"]
-[ext_resource type="Script" path="res://scripts/world.gd" id="3"]
+[ext_resource type="Texture2D" uid="uid://cej3ln6f4uchd" path="res://icon.png" id="2"]
+[ext_resource type="Script" uid="uid://733yoxt7ahyp" path="res://scripts/world.gd" id="3"]
 [ext_resource type="PackedScene" uid="uid://dpt1tspxyomxg" path="res://moving_plateform.tscn" id="4_jocwe"]
 
 [sub_resource type="CapsuleShape2D" id="3"]
@@ -55,10 +54,6 @@ func _process(delta):
 
 [node name="world" type="Node2D"]
 script = ExtResource("3")
-
-[node name="player" parent="." instance=ExtResource("1")]
-position = Vector2(501, 582)
-scale = Vector2(1, 1)
 
 [node name="moving plateform2" parent="." instance=ExtResource("4_jocwe")]
 position = Vector2(800, 418)

@@ -1,17 +1,21 @@
 [gd_scene load_steps=6 format=3 uid="uid://bh4jr53fxhwad"]
 
-[ext_resource type="Script" path="res://scripts/level_template.gd" id="1_6wkt3"]
-[ext_resource type="PackedScene" uid="uid://dw6i34wt4qlay" path="res://Player/player.tscn" id="2_qlh2h"]
-[ext_resource type="PackedScene" uid="uid://cjedqvui1pjh3" path="res://main_menu.tscn" id="3_56ftp"]
+[ext_resource type="Script" uid="uid://cybu8piktrups" path="res://scripts/level_template.gd" id="1_6wkt3"]
 [ext_resource type="Theme" uid="uid://ierb8sk14ach" path="res://nice_theme.tres" id="4_5ydpf"]
-[ext_resource type="Texture2D" uid="uid://dd7jn2sw1rpjf" path="res://icon.png" id="5_jgsoj"]
+[ext_resource type="Texture2D" uid="uid://cej3ln6f4uchd" path="res://icon.png" id="5_jgsoj"]
+
+[sub_resource type="Resource" id="Resource_mouoc"]
+metadata/__load_path__ = "res://Player/player.tscn"
+
+[sub_resource type="Resource" id="Resource_llssl"]
+metadata/__load_path__ = "res://main_menu.tscn"
 
 [node name="level_template" type="Node2D"]
 script = ExtResource("1_6wkt3")
 
-[node name="player" parent="." instance=ExtResource("2_qlh2h")]
+[node name="player" parent="."]
 position = Vector2(1700, 277)
-level = ExtResource("3_56ftp")
+level = SubResource("Resource_llssl")
 
 [node name="TileMap" type="TileMap" parent="."]
 format = 2

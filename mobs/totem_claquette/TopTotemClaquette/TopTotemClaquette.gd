@@ -76,10 +76,11 @@ func totem_merge():
 
 
 func _on_projectile_timer_timeout():
+	if get_tree()==null:
+		return
 	var b = projectile.instantiate()
 	get_tree().get_current_scene().add_child(b)
 	b.start(position)
-	$ProjectileTimer.wait_time = 2
-	$ProjectileTimer.start()
+	$ProjectileTimer.start(2)
 	print("PROJECTILE")
 	
