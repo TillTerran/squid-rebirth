@@ -35,9 +35,6 @@ door_number = 0
 [node name="ParallaxBackground" parent="." index="5"]
 layer = -5
 
-[node name="ParallaxBackgroundFar" parent="ParallaxBackground" index="1"]
-visible = false
-
 [node name="CanvasLayer2_ParallaxBackground_ParallaxBackgroundFar#ParallaxBackground_ParallaxLayer#Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxBackgroundFar" index="0"]
 position = Vector2(32.875, 51.75)
 scale = Vector2(0.30434, 0.3325)

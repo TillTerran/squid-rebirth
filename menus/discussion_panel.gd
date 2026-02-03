@@ -13,8 +13,8 @@ var speakers_hidden:Array[bool]
 
 @onready var header=$"MarginContainer/VBoxContainer/VBoxContainer/quest panel/MarginContainer/GridContainer/header"
 @onready var text_body= $"MarginContainer/VBoxContainer/VBoxContainer/quest panel/MarginContainer/GridContainer/RichTextLabel"
-@onready var continue_quit_button=$"MarginContainer/VBoxContainer/VBoxContainer/quest panel/MarginContainer/GridContainer/Control/HBoxContainer/continue_or_quit"
-@onready var skip_button=$"MarginContainer/VBoxContainer/VBoxContainer/quest panel/MarginContainer/GridContainer/Control/HBoxContainer/skip"
+@onready var continue_quit_button=%continue_or_quit
+@onready var skip_button=%skip
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if (texts.size()!=speakers.size()) and !monologue:
@@ -24,6 +24,8 @@ func _ready() -> void:
 	text_array_number=0
 	text_body.visible_characters=0
 	speakers_hidden=[]
+	%skip.pressed.connect(_on_skip_pressed)
+	%continue_or_quit.pressed.connect(_on_continue_or_quit_pressed)
 	if texts.size()-1==text_array_number:
 		continue_quit_button.text="Continue"
 	
@@ -32,11 +34,14 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if visible_characters<len(text_body.text):
-		visible_characters+=60*delta*hundred_times_text_speed/100
+		visible_characters+=(60*delta*hundred_times_text_speed)/100
 		if visible_characters>0:
 			text_body.visible_characters=visible_characters
 	else:
-		continue_quit_button.disabled=false
+		if continue_quit_button.disabled:
+			continue_quit_button.disabled=false
+			continue_quit_button.grab_focus()
+		
 
 
 func change_char_talking_texture(speaker:String="",mood:String="neutral"):
@@ -72,6 +77,7 @@ func set_text(speaker_array:PackedStringArray,text_array:PackedStringArray,mood_
 func _on_skip_pressed() -> void:
 	get_tree().paused=false
 	Events.loading_screen=false
+	get_parent().remove_child(self)
 	queue_free()
 
 
@@ -93,6 +99,7 @@ func _on_continue_or_quit_pressed() -> void:
 		Events.loading_screen=false
 		get_parent().remove_child(self)
 		queue_free()
+		return
 	if texts.size()-1==text_array_number:
 		continue_quit_button.text="Continue"
 	

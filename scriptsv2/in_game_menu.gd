@@ -15,7 +15,7 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	if new_pause:
+	if new_pause :
 		$"in-game menu/MarginContainer/quest panel/MarginContainer/GridContainer/HBoxContainer/Continue".grab_focus()
 		new_pause=false
 	if !Events.loading_screen:

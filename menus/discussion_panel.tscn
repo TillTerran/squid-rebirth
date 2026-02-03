@@ -95,6 +95,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="skip" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/quest panel/MarginContainer/GridContainer/Control/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 tooltip_text = "Not reading this "
@@ -109,6 +110,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.25
 
 [node name="continue_or_quit" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/quest panel/MarginContainer/GridContainer/Control/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Next"
@@ -118,6 +120,3 @@ expand_icon = true
 [node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/VBoxContainer/quest panel/MarginContainer/GridContainer/Control/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-
-[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/quest panel/MarginContainer/GridContainer/Control/HBoxContainer/skip" to="." method="_on_skip_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/quest panel/MarginContainer/GridContainer/Control/HBoxContainer/continue_or_quit" to="." method="_on_continue_or_quit_pressed"]
