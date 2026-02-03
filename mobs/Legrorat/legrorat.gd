@@ -151,7 +151,8 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	player_chase=false
 	print("Exit body")
 	Legrorat_state=STATE.IDLE
-	$WaitToChangeDirection.start(2)
+	if $WaitToChangeDirection.is_inside_tree():
+		$WaitToChangeDirection.start(2)
 	player=null
 
 
