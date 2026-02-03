@@ -11,7 +11,9 @@ Project-Babylon
 	[Esc]: open pause menu
 
 #Known bugs:
+## editor only
 	to click on buttons using the mouse, click below the button, it should be highlighted when hovering the "real" button
+## executable and editor
 	pause menu cannot be interracted with after the dialogue in room 15
 
 #Use of the software
