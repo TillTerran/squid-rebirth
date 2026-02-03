@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bclewffjxdq25" path="res://scene_change/change_scene_area.tscn" id="2_w50p0"]
 [ext_resource type="PackedScene" uid="uid://c833s1u5hyolg" path="res://scene_change/tp_point.tscn" id="3_p6sko"]
 [ext_resource type="Texture2D" uid="uid://cm8ky1yyi7hg6" path="res://levels/salle/paralax_sprites/RACINES_premier_plan_flou.png" id="4_3f4ma"]
-[ext_resource type="Script" path="res://levels/salle/max_health_+.gd" id="5_al1ql"]
+[ext_resource type="Script" uid="uid://c75px1xyehehl" path="res://levels/salle/max_health_+.gd" id="5_al1ql"]
 [ext_resource type="Texture2D" uid="uid://cvqxutkdllhmh" path="res://sprites/Item_PVMax.png" id="6_gnop1"]
 [ext_resource type="PackedScene" uid="uid://ci32ibukbp6pi" path="res://mobs/Legrorat/legrorat.tscn" id="8_xfer4"]
 

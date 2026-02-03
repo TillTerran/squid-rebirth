@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://0d13sgd2gbr"]
 
-[ext_resource type="Script" path="res://doors and co/illusion_dispeller_area.gd" id="1_67oke"]
+[ext_resource type="Script" uid="uid://n4xgp8sw2ucp" path="res://doors and co/illusion_dispeller_area.gd" id="1_67oke"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2gpvp"]
 size = Vector2(200, 50)

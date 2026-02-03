@@ -12,7 +12,7 @@ config_version=5
 
 config/name="basic project"
 run/main_scene="res://menus/main_menu_good.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/features=PackedStringArray("4.4", "Forward Plus")
 run/max_fps=60
 config/icon="res://icon.svg"
 
@@ -27,7 +27,6 @@ GlobalAudioStreamPlayer="*res://audio/audio_stream_player.tscn"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/vsync/vsync_mode=0
 
 [editor]
 
@@ -154,3 +153,7 @@ ui_y={
 2d/size/window_width_override=1200
 2d/stretch/scale=0.5
 2d/size/mode=2
+
+[rendering]
+
+rendering_device/vsync/vsync_mode=0

@@ -1,6 +1,6 @@
 [gd_scene load_steps=28 format=3 uid="uid://b32tvkldvdtr7"]
 
-[ext_resource type="Script" path="res://scripts/level_template.gd" id="1_xpoyw"]
+[ext_resource type="Script" uid="uid://cybu8piktrups" path="res://scripts/level_template.gd" id="1_xpoyw"]
 [ext_resource type="PackedScene" uid="uid://s77rdbs0u3dk" path="res://player.tscn" id="2_xafe8"]
 [ext_resource type="PackedScene" uid="uid://b2rko3ijjih3y" path="res://menus/main_menu.tscn" id="3_rvf25"]
 [ext_resource type="Theme" uid="uid://ierb8sk14ach" path="res://nice_theme.tres" id="4_4o0sd"]
@@ -83,9 +83,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6gy7m"]
 _data = {
-"RESET": SubResource("Animation_m3t2t"),
-"illusion_coming_back": SubResource("Animation_vnbd8"),
-"illusion_fading": SubResource("Animation_6nojf")
+&"RESET": SubResource("Animation_m3t2t"),
+&"illusion_coming_back": SubResource("Animation_vnbd8"),
+&"illusion_fading": SubResource("Animation_6nojf")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cybvy"]
@@ -273,7 +273,7 @@ visible = false
 unique_name_in_owner = true
 root_node = NodePath("../TileMap")
 libraries = {
-"": SubResource("AnimationLibrary_6gy7m")
+&"": SubResource("AnimationLibrary_6gy7m")
 }
 
 [node name="AnimationTreeHiddenLayers" type="AnimationTree" parent="."]

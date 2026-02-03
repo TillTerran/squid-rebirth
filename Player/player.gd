@@ -9,8 +9,13 @@ extends PlayableCharacter
 # var b = "text"
 var is_monke = GlobalVariables.is_monke
 var speed_scale = 1.0
-var hp_max : int
-var current_hp : int
+@export var hp_max : int:
+	set(value):
+		hp_max=value
+		current_hp=value
+var current_hp : int:
+	set(value):
+		current_hp=min(value,hp_max)
 #var velocity = Vector2.ZERO
 var stuck : bool
 var animation_prefix=""
@@ -81,7 +86,7 @@ func _ready():
 	$Pickup_range.body_entered.connect(_on_pickup_range_obj_entered)
 	$Pickup_range.area_exited.connect(_on_pickup_range_obj_exited)
 	$Pickup_range.body_exited.connect(_on_pickup_range_obj_exited)
-	
+	$AnimationPlayer.animation_finished.connect(update_character_sprite_direction)
 	
 	#define movement characteristics
 	set_jump_height(3.5)
@@ -183,7 +188,8 @@ func _process(delta):# try to change to _physics_process
 
 
 
-
+func update_direction_on_touch_ground():
+	pass
 
 
 
@@ -313,6 +319,21 @@ func add_force(force):
 #	#print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaah")
 #	change_up_direction(up_direction)
 
+func update_character_sprite_direction():
+	if (velocity.dot(up_direction.rotated(-PI/2))==0):return
+	if $Enki/Idle.flip_h!=(velocity.dot(up_direction.rotated(-PI/2))<=0):
+		$Enki/Idle.flip_h=velocity.dot(up_direction.rotated(-PI/2))<=0
+		$Enki/Run.flip_h=$Enki/Idle.flip_h
+		$Enki/Punch.flip_h=$Enki/Idle.flip_h
+		$Enki/Jump.flip_h=$Enki/Idle.flip_h
+		$Enki/Death.flip_h=$Enki/Idle.flip_h
+		if $Enki/Idle.flip_h:
+			$Punch.position.x = abs($Punch.position.x)
+			$Scare.position.x = abs($Scare.position.x)
+		else:
+			$Punch.position.x = -abs($Punch.position.x)
+			$Scare.position.x = -abs($Scare.position.x)
+	
 
 func update_animation_monke(input_vector:Vector2):
 	
@@ -322,18 +343,7 @@ func update_animation_monke(input_vector:Vector2):
 	if !cur_act_unstoppable:
 		if input_vector.length_squared()!=0:
 			#TODO punching allows to move backwards even after the punch, correct that
-			if input_vector.x*velocity.x<=0:
-				$Enki/Idle.flip_h=input_vector.x>0
-				$Enki/Run.flip_h=$Enki/Idle.flip_h
-				$Enki/Punch.flip_h=$Enki/Idle.flip_h
-				$Enki/Jump.flip_h=$Enki/Idle.flip_h
-				$Enki/Death.flip_h=$Enki/Idle.flip_h
-				if $Enki/Idle.flip_h:
-					$Punch.position.x = abs($Punch.position.x)
-					$Scare.position.x = abs($Scare.position.x)
-				else:
-					$Punch.position.x = -abs($Punch.position.x)
-					$Scare.position.x = -abs($Scare.position.x)
+			update_character_sprite_direction()
 		
 		
 		if Input.is_action_just_pressed("Punch") and $PunchCooldown.is_stopped():

@@ -1,8 +1,8 @@
 [gd_scene load_steps=42 format=3 uid="uid://b6t12ei2nosv6"]
 
-[ext_resource type="Texture2D" uid="uid://cyeo6nad3dc71" path="res://mobs/totem_claquette/Animations/Animations.png" id="1_1q3y5"]
-[ext_resource type="Texture2D" uid="uid://by842obq5ywmk" path="res://mobs/Boss/Ecureuil/Animation/Death/Death.png" id="1_130ox"]
-[ext_resource type="Texture2D" uid="uid://cr15mr3sugo52" path="res://mobs/totem_claquette/Animations/Animations - Copie.png" id="1_ta6y5"]
+[ext_resource type="Texture2D" uid="uid://chm1m1rfogbtk" path="res://mobs/totem_claquette/Animations/Animations.png" id="1_1q3y5"]
+[ext_resource type="Texture2D" uid="uid://cir0qskghlp4p" path="res://mobs/Boss/Ecureuil/Animation/Death/Death.png" id="1_130ox"]
+[ext_resource type="Texture2D" uid="uid://c1fuo886qi5k5" path="res://mobs/totem_claquette/Animations/Animations - Copie.png" id="1_ta6y5"]
 
 [sub_resource type="GDScript" id="GDScript_omxb6"]
 script/source = "extends CharacterBody2D
@@ -952,12 +952,12 @@ tracks/10/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_01ote"]
 _data = {
-"Death": SubResource("Animation_n5fbe"),
-"OnBottomTotemLeft": SubResource("Animation_lc66n"),
-"OnBottomTotemRight": SubResource("Animation_sik2m"),
-"RESET": SubResource("Animation_4tirh"),
-"WalkLeft": SubResource("Animation_j70eh"),
-"WalkRight": SubResource("Animation_mxjpe")
+&"Death": SubResource("Animation_n5fbe"),
+&"OnBottomTotemLeft": SubResource("Animation_lc66n"),
+&"OnBottomTotemRight": SubResource("Animation_sik2m"),
+&"RESET": SubResource("Animation_4tirh"),
+&"WalkLeft": SubResource("Animation_j70eh"),
+&"WalkRight": SubResource("Animation_mxjpe")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_snfmy"]

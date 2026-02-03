@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cauc6jtpagsxm"]
 
 [ext_resource type="Texture2D" uid="uid://cej3ln6f4uchd" path="res://icon.png" id="2"]
-[ext_resource type="Script" path="res://scripts/world.gd" id="3"]
+[ext_resource type="Script" uid="uid://733yoxt7ahyp" path="res://scripts/world.gd" id="3"]
 [ext_resource type="PackedScene" uid="uid://dpt1tspxyomxg" path="res://moving_plateform.tscn" id="4_jocwe"]
 
 [sub_resource type="CapsuleShape2D" id="3"]

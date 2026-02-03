@@ -14,7 +14,9 @@ func set_jump_height(new_height:float):
 
 func jump_(delta:float,jump_desired:bool):
 	if is_on_floor():
-		coyote_jump = 0.2
+		if coyote_jump<0.2:
+			
+			coyote_jump = 0.2
 		
 	
 	if not is_on_floor():

@@ -1,11 +1,11 @@
 [gd_scene load_steps=52 format=3 uid="uid://upnnk70g5w2i"]
 
-[ext_resource type="Script" path="res://mobs/Boss/Ecureuil/ecureuil.gd" id="1_4v2e7"]
-[ext_resource type="Texture2D" uid="uid://py5y1idj5cbk" path="res://mobs/Boss/Ecureuil/Animation/Attack/ecureuil hit.png" id="1_w3gke"]
-[ext_resource type="Texture2D" uid="uid://bhcyu7g3d7d5h" path="res://mobs/Boss/Ecureuil/Animation/Idle/écureil id.png" id="2_y0pjc"]
-[ext_resource type="Texture2D" uid="uid://by842obq5ywmk" path="res://mobs/Boss/Ecureuil/Animation/Death/Death.png" id="3_2c6cr"]
-[ext_resource type="Texture2D" uid="uid://b5c4xhhhuoyqj" path="res://mobs/Boss/Ecureuil/Animation/Running/écureuil run.png" id="3_5chug"]
-[ext_resource type="Texture2D" uid="uid://qwjv2l4px0uy" path="res://mobs/Boss/Ecureuil/Animation/StartRunning/écureuil start run.png" id="4_7mo4s"]
+[ext_resource type="Script" uid="uid://bf10arwjt3o1i" path="res://mobs/Boss/Ecureuil/ecureuil.gd" id="1_4v2e7"]
+[ext_resource type="Texture2D" uid="uid://bkxsmu3p81gds" path="res://mobs/Boss/Ecureuil/Animation/Attack/ecureuil hit.png" id="1_w3gke"]
+[ext_resource type="Texture2D" uid="uid://cb4r5l7y5126s" path="res://mobs/Boss/Ecureuil/Animation/Idle/écureil id.png" id="2_y0pjc"]
+[ext_resource type="Texture2D" uid="uid://cir0qskghlp4p" path="res://mobs/Boss/Ecureuil/Animation/Death/Death.png" id="3_2c6cr"]
+[ext_resource type="Texture2D" uid="uid://bdh4vb8wftf5b" path="res://mobs/Boss/Ecureuil/Animation/Running/écureuil run.png" id="3_5chug"]
+[ext_resource type="Texture2D" uid="uid://dwg218kq57weh" path="res://mobs/Boss/Ecureuil/Animation/StartRunning/écureuil start run.png" id="4_7mo4s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_38ymp"]
 atlas = ExtResource("1_w3gke")
@@ -1429,16 +1429,16 @@ tracks/8/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8xpop"]
 _data = {
-"Attack": SubResource("Animation_v37iu"),
-"Attack_right": SubResource("Animation_7sj7e"),
-"Death": SubResource("Animation_n5tqh"),
-"Idle": SubResource("Animation_i5p0x"),
-"IdleRight": SubResource("Animation_skx3m"),
-"RESET": SubResource("Animation_3mhr2"),
-"Running": SubResource("Animation_jhuvu"),
-"Running_Right": SubResource("Animation_fjsne"),
-"StartRunning": SubResource("Animation_rs0ah"),
-"StartRunningRight": SubResource("Animation_6668l")
+&"Attack": SubResource("Animation_v37iu"),
+&"Attack_right": SubResource("Animation_7sj7e"),
+&"Death": SubResource("Animation_n5tqh"),
+&"Idle": SubResource("Animation_i5p0x"),
+&"IdleRight": SubResource("Animation_skx3m"),
+&"RESET": SubResource("Animation_3mhr2"),
+&"Running": SubResource("Animation_jhuvu"),
+&"Running_Right": SubResource("Animation_fjsne"),
+&"StartRunning": SubResource("Animation_rs0ah"),
+&"StartRunningRight": SubResource("Animation_6668l")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sq4fw"]

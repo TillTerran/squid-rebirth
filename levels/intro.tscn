@@ -1,20 +1,25 @@
-[gd_scene load_steps=12 format=3 uid="uid://s8lfgjak4tx7"]
+[gd_scene load_steps=13 format=3 uid="uid://s8lfgjak4tx7"]
 
 [ext_resource type="PackedScene" uid="uid://b32tvkldvdtr7" path="res://level_template.tscn" id="1_xtlbv"]
 [ext_resource type="PackedScene" uid="uid://dsqye2sc2h2yf" path="res://c_gravity_area.tscn" id="2_b0dfx"]
 [ext_resource type="PackedScene" uid="uid://bclewffjxdq25" path="res://scene_change/change_scene_area.tscn" id="3_jbchc"]
-[ext_resource type="PackedScene" uid="uid://mtdhfmqptfli" path="res://mobs/old/totem_claquette/BottomTotemClaquette/BottomTotemClaquette.tscn" id="4_sggfk"]
-[ext_resource type="PackedScene" uid="uid://b6t12ei2nosv6" path="res://mobs/old/totem_claquette/TopTotemClaquette/TopTotemClaquette.tscn" id="5_551i2"]
-[ext_resource type="PackedScene" uid="uid://irpquugqy33h" path="res://mobs/old/onyx/onyx.tscn" id="6_j08w2"]
-[ext_resource type="PackedScene" uid="uid://b7x1st8766bcw" path="res://mobs/old/Castor_mitraillette/Castor_mitraillette.tscn" id="7_3lolx"]
-[ext_resource type="PackedScene" uid="uid://ci32ibukbp6pi" path="res://mobs/old/Legrorat/legrorat.tscn" id="8_64st2"]
-[ext_resource type="PackedScene" uid="uid://upnnk70g5w2i" path="res://mobs/old/Boss/Ecureuil/ecureuil.tscn" id="9_h1jqc"]
+[ext_resource type="PackedScene" uid="uid://mtdhfmqptfli" path="res://mobs/totem_claquette/BottomTotemClaquette/BottomTotemClaquette.tscn" id="4_sggfk"]
+[ext_resource type="PackedScene" uid="uid://b6t12ei2nosv6" path="res://mobs/totem_claquette/TopTotemClaquette/TopTotemClaquette.tscn" id="5_551i2"]
+[ext_resource type="PackedScene" uid="uid://irpquugqy33h" path="res://mobs/onyx/onyx.tscn" id="6_j08w2"]
+[ext_resource type="PackedScene" uid="uid://ci32ibukbp6pi" path="res://mobs/Legrorat/legrorat.tscn" id="8_64st2"]
+[ext_resource type="PackedScene" uid="uid://upnnk70g5w2i" path="res://mobs/Boss/Ecureuil/ecureuil.tscn" id="9_h1jqc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5y2yo"]
 size = Vector2(104.6, 198.447)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_581gg"]
 size = Vector2(106.245, 60.1233)
+
+[sub_resource type="Resource" id="Resource_dwdbi"]
+metadata/__load_path__ = "res://mobs/old/Castor_mitraillette/Castor_mitraillette.tscn"
+
+[sub_resource type="Resource" id="Resource_t56a8"]
+metadata/__load_path__ = "res://mobs/old/Castor_mitraillette/Castor_mitraillette.tscn"
 
 [node name="level_template" instance=ExtResource("1_xtlbv")]
 
@@ -70,7 +75,7 @@ position = Vector2(-136, -384)
 [node name="Onyx" parent="." index="11" instance=ExtResource("6_j08w2")]
 position = Vector2(1604, 130)
 
-[node name="CastorMitrailette" parent="." index="12" instance=ExtResource("7_3lolx")]
+[node name="CastorMitrailette" parent="." index="12"]
 position = Vector2(1784, -568)
 collision_mask = 129
 
@@ -80,7 +85,7 @@ position = Vector2(2232, -1040)
 [node name="Ecureuil" parent="." index="14" instance=ExtResource("9_h1jqc")]
 position = Vector2(3864, -1072)
 
-[node name="CastorMitrailette2" parent="." index="15" instance=ExtResource("7_3lolx")]
+[node name="CastorMitrailette2" parent="." index="15"]
 position = Vector2(2488, -576)
 
 [node name="Ecureuil2" parent="." index="16" instance=ExtResource("9_h1jqc")]
