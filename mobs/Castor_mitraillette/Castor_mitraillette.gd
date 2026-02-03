@@ -73,20 +73,20 @@ func _on_projectile_timer_timeout():
 			Projectile.flip_h($Sprite2D.flip_h)
 			Projectile.lancer(vitesse_initiale)
 			tir_actuel+=1
-			$ProjectileTimer.start()
+			start_timer($ProjectileTimer)
 		else:
 			$Reloading.start()
 			
 
 func _on_detection_area_player_body_entered(body):
 	player=body
-	$Jump_before_attack.start()
+	start_timer($Jump_before_attack)
 	#velocity.y=-100
 
 
 func _on_reloading_timeout():
 	tir_actuel=0
-	$ProjectileTimer.start()
+	start_timer($ProjectileTimer)
 
 func _on_direction_timeout():
 	direction=direction*(-1)
@@ -95,7 +95,7 @@ func _on_direction_timeout():
 		$AnimatedSprite2D.flip_h=false
 	elif direction==1:
 		$AnimatedSprite2D.flip_h=true
-	$WaitToChangeDirection.start()
+	start_timer($WaitToChangeDirection)
 
 func _on_detection_area_player_body_exited(body):
 	for node in [self,$Reloading,$WaitToChangeDirection] :
@@ -124,7 +124,7 @@ func _on_detection_area_player_body_exited(body):
 func _on_wait_to_change_direction_timeout():
 	Castor_state=STATE.WALK
 	#print("change direction")
-	$Direction.start()
+	start_timer($Direction)
 
 
 
@@ -141,6 +141,10 @@ func _on_jump_before_attack_timeout():
 
 func _on_animated_sprite_2d_animation_looped():
 	pass
+
+func start_timer(timer:Timer):
+	if get_tree()!=null:
+		timer.start()
 
 func fire():
 	if player!=null:
