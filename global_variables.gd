@@ -17,6 +17,11 @@ var hp_pickup_taken=false
 var opened_doors:Array[bool]
 var taken_keys:Array[bool]
 
+#region CHEATS
+var invincible:bool=false
+
+#endregion
+
 func _ready() -> void:
 	last_save_point="res://levels/salle/Salle 01.tscn"
 	visited_discussions=[0,0,0,0,0,0,0]

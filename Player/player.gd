@@ -16,6 +16,8 @@ var speed_scale = 1.0
 var current_hp : int:
 	set(value):
 		current_hp=min(value,hp_max)
+
+
 #var velocity = Vector2.ZERO
 var stuck : bool
 var animation_prefix=""
@@ -149,6 +151,8 @@ func _process(delta):# try to change to _physics_process
 		if Input.is_action_pressed("ui_o") and Input.is_action_pressed("ui_y"):
 				Events.to_credits()
 	
+	if Input.is_action_just_pressed("cheat_invincible"):
+		GlobalVariables.invincible=!GlobalVariables.invincible
 	
 	if Input.is_action_just_pressed("Grab"):
 		grab()
@@ -512,7 +516,9 @@ func add_more_health() :
 			current_hp = (current_hp +2) % (hp_max+1)
 
 func lose_hp(hp_lost:int,reset_position:bool =false)->void:
-	if $Invicible.is_stopped() :
+	if GlobalVariables.invincible:return
+	
+	if $Invicible.is_stopped():
 		current_hp -= hp_lost
 		print("Degat", current_hp)
 		GlobalVariables.current_player_hp-=hp_lost
